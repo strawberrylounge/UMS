@@ -1,0 +1,76 @@
+// accounting numbers color
+.positive {
+  color: #b1222c !important;
+}
+.negative {
+  color: #18549a !important;
+}
+
+// recommended league, sports color
+.recommended {
+  color: #fce62a !important;
+}
+
+// form + hint label color
+.simulation,
+.sportsbook {
+  .hint {
+    display: block;
+    padding-top: 10px;
+    font-size: 0.875rem;
+    color: #5e6573;
+  }
+  .hint_possible {
+    display: block;
+    padding-top: 10px;
+    font-size: 0.875rem;
+    color: #025da9 !important;
+  }
+  .hint_impossible {
+    display: block;
+    padding-top: 10px;
+    font-size: 0.875rem;
+    color: #c04143 !important;
+  }
+}
+.lobby {
+}
+
+// title style
+h2.main_title {
+  font-size: 1.875rem;
+  color: #1b1a28;
+  font-weight: 600;
+}
+
+h3.main_third_title {
+  font-size: 1.375rem;
+  color: #1b1a28;
+  font-weight: 600;
+}
+h4.main_forth_title {
+  font-size: 1.375rem;
+  color: #1b1a28;
+  font-weight: 600;
+}
+h4.simul_sub_tit {
+  font-size: 1.375rem;
+  color: #f0f0f0;
+}
+h5.simul_sub_tit {
+  font-weight: 600;
+  font-size: 1.125rem;
+  color: #f0f0f0;
+}
+.sub_tit_w {
+  font-size: 1.625rem;
+  color: #1b1a28;
+  font-weight: 600;
+}
+
+// text truncated
+.text_ellipsis {
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}

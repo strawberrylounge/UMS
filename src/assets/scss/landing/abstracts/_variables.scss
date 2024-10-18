@@ -1,0 +1,18 @@
+@forward "./prefix";
+@forward "./responsive";
+@forward "../themes/theme";
+@forward "../base//typography";
+@forward "../base/animation";
+
+/* img path - common */
+$url: "/";
+$img: $url + "img/";
+$icon: $img + "icon/";
+$textbooks: $img + "textbook/";
+/* img path - main */
+$main: $img + "main/";
+$tiles: $main + "tiles/";
+/* img path - kumsung */
+$kumsung: $img + "kumsung/";
+/* img path - service */
+$service: $img + "service/";

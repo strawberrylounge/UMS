@@ -1,0 +1,130 @@
+@use "../layout/_flex.scss";
+
+/* 매치업 테이블 */
+.tbl_matchup {
+  border: 1px solid #363a43;
+  background: #1b2025;
+  box-shadow: 10px 8px 10px -2px transparent;
+  cursor: pointer;
+  &:hover {
+    border: 1px solid #747a81;
+    box-shadow: 10px 8px 10px -2px rgba(0, 0, 0, 0.77);
+  }
+  .tbl_top {
+    height: 30px;
+    border-bottom: 1px solid #363a43;
+    .sports_date {
+      width: 30%;
+      .sports_icon_box {
+        width: 30px;
+        height: 30px;
+        background: #25419a;
+      }
+      .date {
+        margin-left: 10px;
+        font-weight: 600;
+        font-size: 0.75rem;
+        color: #0e8dea;
+        white-space: nowrap;
+      }
+    }
+    .match {
+      width: 70%;
+      font-size: 0.875rem;
+      color: #f0f0f0;
+      > span {
+        display: -webkit-box;
+        max-width: 50%;
+        text-overflow: ellipsis;
+        overflow: hidden;
+        -webkit-line-clamp: 1;
+        -webkit-box-orient: vertical;
+        &:last-child {
+          margin-right: 10px;
+        }
+      }
+    }
+  }
+
+  .tbl_btm {
+    height: 30px;
+    background: #111417;
+    > div {
+      &:not(.type) {
+        width: 26%;
+      }
+      &.type {
+        width: 22%;
+        font-size: 0.875rem;
+        text-align: center;
+      }
+      &.dividend_info {
+        display: -webkit-box;
+        display: -moz-box;
+        display: -webkit-flex;
+        display: -ms-flexbox;
+        display: flex;
+        -moz-box-pack: center;
+        -webkit-box-pack: center;
+        -ms-flex-pack: center;
+        justify-content: center;
+        -webkit-box-align: center;
+        -moz-box-align: center;
+        -ms-flex-align: center;
+        align-items: center;
+        height: 100%;
+        background: #363a43;
+        span {
+          &.result {
+            font-size: 0.875rem;
+          }
+          &.dividend {
+            font-weight: 600;
+            color: #f0f0f0;
+          }
+          &.gray {
+            color: #a8b2bd !important;
+          }
+          &:first-child {
+            padding-right: 5px;
+          }
+        }
+        &:not(:last-child) {
+          border-right: 1px solid #111417;
+        }
+        &.win {
+          border: 1px solid #fce62a;
+          // background: rgba($color: #fce62a, $alpha: 0.2);
+          // color: #fce62a !important;
+          background: #fce62a;
+          font-weight: 600;
+          color: #111417;
+          box-shadow: inset 0 2px 8px #111417;
+        }
+      }
+      &.specifier_info {
+        display: -webkit-box;
+        display: -moz-box;
+        display: -webkit-flex;
+        display: -ms-flexbox;
+        display: flex;
+        -moz-box-pack: center;
+        -webkit-box-pack: center;
+        -ms-flex-pack: center;
+        justify-content: center;
+        -webkit-box-align: center;
+        -moz-box-align: center;
+        -ms-flex-align: center;
+        align-items: center;
+        height: 100%;
+        border-right: 1px solid #111417;
+        background: #363a43;
+        span {
+          font-weight: 600;
+          font-size: 0.875rem;
+          color: #a8b2bd;
+        }
+      }
+    }
+  }
+}
