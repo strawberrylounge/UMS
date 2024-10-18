@@ -1,18 +1,38 @@
 @forward "./prefix";
 @forward "./responsive";
-@forward "../themes/theme";
 @forward "../base//typography";
 @forward "../base/animation";
 
-/* img path - common */
+/* 
+* img path
+*/
 $url: "/";
 $img: $url + "img/";
 $icon: $img + "icon/";
-$textbooks: $img + "textbook/";
-/* img path - main */
-$main: $img + "main/";
-$tiles: $main + "tiles/";
-/* img path - kumsung */
-$kumsung: $img + "kumsung/";
-/* img path - service */
-$service: $img + "service/";
+
+/* 
+* colors 
+*/
+$colors: (
+  white: #fff,
+  black: #000,
+  gray50: #f9fafb,
+  gray100: #f3f4f6,
+  gray200: #e5e7eb,
+  gray300: #d1d5db,
+  gray400: #9ca3af,
+  gray500: #6b7280,
+  gray600: #4b5563,
+  gray700: #374151,
+  gray800: #1f2937,
+  gray900: #111827,
+  primary50: #e9e9fe,
+  primary100: #d2d2fd,
+  primary200: #7c7dfa,
+  primary300: #6d6efa,
+  primary400: #5758c8,
+  primary500: #5253bc,
+  primary600: #414296,
+  primary700: #313170,
+  primary800: #1f2937,
+);

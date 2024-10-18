@@ -2,19 +2,19 @@
 @use "./base/reset.scss";
 @use "./base/typography.scss";
 
-/* import layout */
-@use "./layout/_contents.scss";
-@use "./layout/_flex.scss";
-@use "./layout/_grid.scss";
-
-/* import components */
-@use "./components/_dialog.scss";
-@use "./components/_scrollbar.scss";
-@use "./components/_tables.scss";
-@use "./components/_text.scss";
-
 /* import helpers */
-@use './abstracts/_a11y.scss';
+@use "./abstracts/_a11y.scss";
 @use "./abstracts/_animation.scss";
 @use "./abstracts/_prefix.scss";
 @use "./abstracts/_variables.scss";
+
+/* import layout */
+// @use "./layout/_contents.scss";
+// @use "./layout/_flex.scss";
+// @use "./layout/_grid.scss";
+
+/* import components */
+// @use "./components/_dialog.scss";
+// @use "./components/_scrollbar.scss";
+// @use "./components/_tables.scss";
+// @use "./components/_text.scss";
