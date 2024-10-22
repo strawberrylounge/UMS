@@ -1,0 +1,112 @@
+@use "sass:map";
+/* import reset */
+@use "../landing/base/typography";
+
+/* import helpers */
+@use "../landing/abstracts/variables" as *;
+
+:root {
+  --primary: #{map.get($colors, primary300)};
+  --primary-200: #{map.get($colors, primary200)};
+  --gray-700: #{map.get($colors, gray700)};
+  --gray-600: #{map.get($colors, gray600)};
+  --gray-300: #{map.get($colors, gray300)};
+  --border-color: #{map.get($colors, gray300)};
+  --font-family-sans-serif: "Pretendard Variable", Pretendard, -apple-system,
+    BlinkMacSystemFont, system-ui, Roboto, "Helvetica Neue", "Segoe UI",
+    "Apple SD Gothic Neo", "Noto Sans KR", "Malgun Gothic", "Apple Color Emoji",
+    "Segoe UI Emoji", "Segoe UI Symbol", sans-serif;
+  --font-family-monospace: "Pretendard Variable", Pretendard, -apple-system,
+    BlinkMacSystemFont, system-ui, Roboto, "Helvetica Neue", "Segoe UI",
+    "Apple SD Gothic Neo", "Noto Sans KR", "Malgun Gothic", "Apple Color Emoji",
+    "Segoe UI Emoji", "Segoe UI Symbol", sans-serif;
+}
+
+#service {
+/* 버튼 */
+.btn {
+  display: inline-flex;
+  align-items: center;
+  &-primary {
+    background-color: var(--primary);
+    border-color: var(--primary);
+  }
+  &-outline-primary {
+    color: var(--primary);
+    border-color: var(--primary);
+  }
+  &-lg { // 사이즈 l
+    padding: 14px 19px;
+    border-radius: 12px;
+    font-size: 16px;
+    font-weight: 700;
+    line-height: 140%; /* 22.4px */
+    letter-spacing: -0.32px;
+  }
+  &-group-lg {
+    & > .btn {
+      padding: 14px 18px;
+      border-radius: 12px;
+      font-size: 16px;
+      font-weight: 700;
+      line-height: 140%; /* 22.4px */
+      letter-spacing: -0.32px;
+    }
+  }
+  &-icon {
+    line-height: 1;
+  }
+  &-svg {
+    &-left svg {
+      margin-right: 10px;
+    }
+  }
+}
+
+/* sidebar */
+#sidebar {
+  .user-dropdown {
+    .dropdown-toggle {
+      display: flex;
+      align-items: center;
+      padding: 12px;
+      border-radius: 8px;
+      border: 1px solid rgba(255, 255, 255, 0.20);
+      background:var(--primary-200);
+
+      &::after{
+        display: none;
+      }
+      svg:last-child {
+        margin-left: auto;
+      }
+    }
+    .name {
+      padding-left: 6px;
+      font-size: 14px;
+      font-weight: 700;
+      letter-spacing: -0.28px;
+    }
+    .dropdown-menu {
+      min-width: 212px;
+      margin-left: 8px;
+      padding: 20px;
+      border-radius: 12px;
+      border: 1px solid var(--border-color);
+      background: var(--white);
+      box-shadow: 2px 6px 12px 0px rgba(98, 104, 138, 0.24);
+    }
+    .dropdown-item {
+      padding: 0;
+      font-size: 14px;
+      font-weight: 700;
+      line-height: 140%;
+      letter-spacing: -0.28px;
+      color: var(--gray-600);
+    }
+    .dropdown-divider {
+      margin: 16px 0;
+    }
+  }
+}
+}
