@@ -187,6 +187,7 @@ export default {
 
 <style scoped lang="scss">
 #sidebar {
+  flex: 0 0 260px ;
   width: 260px;
   min-height: 100vh;
   transition: all 0.3s;

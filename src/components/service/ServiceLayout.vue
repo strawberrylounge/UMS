@@ -8,10 +8,10 @@
     />
 
     <!-- 오른쪽 콘텐츠 영역 -->
-    <div id="content" class="flex-grow-1">
+    <div id="content" class="flex-fill">
       <SerivceHeader />
       <div class="container-fluid p-3">
-        <slot />
+        <router-view></router-view>
       </div>
     </div>
   </div>
@@ -44,20 +44,9 @@ export default {
 </script>
 
 <style scoped lang="scss">
-  #sidebar {
-    width: 260px;
-    min-height: 100vh;
-    transition: all 0.3s;
-  }
-  
   #content {
     transition: all 0.3s;
     background-color: #ECEFF2;
-  }
-  
-  .hide #sidebar {
-    width: 80px;
-    overflow: hidden;
   }
   
   .hide #content {
