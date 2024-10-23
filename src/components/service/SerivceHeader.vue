@@ -34,12 +34,14 @@ export default {
   components: { IconCoin },
   computed: {
     headerTitle() {
-      if (this.$route.path === '/ac/home') {
-        return '현황판';
-      } else if (this.$route.path === '/messageStatus') {
-        return '조회';
+      switch (this.$route.path) {
+        case '/ac/home':
+          return '현황판';
+        case '/uc/message/multiSendList':
+          return '원스텝메시지';
+        default:
+          return ''
       }
-      return '';
     }
   },
 };

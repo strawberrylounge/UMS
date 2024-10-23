@@ -38,7 +38,7 @@
           <icon-arrow-down />
         </b-button>
         <b-collapse id="collapse-admin-service" class="menu-list">
-          <a href="#" class="d-flex align-items-center menu-item active" :class="{ active: $route.path === '/uc/message/sendSms' }">
+          <a href="/uc/message/multiSendList" class="d-flex align-items-center menu-item" :class="{ active: $route.path === '/uc/message/multiSendList' }">
             <icon-send />
             <span >발송</span>
           </a>
@@ -108,7 +108,7 @@
       <li>
         <b-button v-b-toggle.collapse-user disabled class="menu-title">서비스</b-button>
         <b-collapse visible id="collapse-user" class="menu-list">
-          <a href="#" class="d-flex align-items-center menu-item active">
+          <a href="/uc/message/multiSendList" class="d-flex align-items-center menu-item" :class="{ active: $route.path === '/uc/message/multiSendList' }">
             <icon-send />
             <span >발송</span>
           </a>

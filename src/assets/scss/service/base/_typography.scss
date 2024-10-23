@@ -32,3 +32,11 @@ body {
   -webkit-line-clamp: $lines; // 웹킷 브라우저에서 줄 수 제한
   text-overflow: ellipsis; // 말줄임표
 }
+
+.text-decoration-underline {
+  text-decoration: underline;
+}
+
+.require {
+  color: var(--status-failure);
+}

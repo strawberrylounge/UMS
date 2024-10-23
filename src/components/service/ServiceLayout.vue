@@ -10,7 +10,7 @@
     <!-- 오른쪽 콘텐츠 영역 -->
     <div id="content" class="flex-fill">
       <SerivceHeader />
-      <div class="container-fluid p-3">
+      <div class="container-fluid p-0">
         <router-view></router-view>
       </div>
     </div>
@@ -25,6 +25,9 @@ import SerivceHeader from '@/components/service/SerivceHeader.vue';
 import 'bootstrap/dist/css/bootstrap.css';
 import 'bootstrap/dist/js/bootstrap.bundle';
 import '@/assets/scss/service/main.scss';
+import '@/assets/scss/service/button.scss';
+import '@/assets/scss/service/form.scss';
+import '@/assets/scss/service/table.scss';
 
 export default {
   components: { SideNavBar, SerivceHeader, },

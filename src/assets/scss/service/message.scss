@@ -1,0 +1,36 @@
+.service-tabs {
+  display: flex;
+  width: 100%;
+  padding-bottom: 16px;
+  .tab {
+    padding-left: 40px;
+    &:first-child {
+      padding: 0;
+    }
+    &.active a {
+      border-bottom: 4px solid var(--primary);
+      color: var(--gray-900);
+    }
+    a {
+      padding-bottom: 16px;
+      font-size: 20px;
+      font-weight: 700;
+      line-height: 140%; /* 28px */
+      letter-spacing: -0.4px;
+      color: var(--gray-500);
+    }
+  }
+}
+
+#service-checkbox-group-message,
+#service-checkbox-group-template {
+  .custom-checkbox {
+    margin-left: 28px;
+    &:first-child {
+      margin-left: 0;
+    }
+  }
+}
+.btn-search-condition path {
+  stroke: var(--gray-700);
+}

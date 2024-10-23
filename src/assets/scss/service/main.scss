@@ -7,7 +7,10 @@
 
 :root {
   --primary: #{map.get($colors, primary300)};
+  --primary-50: #{map.get($colors, primary50)};
+  --primary-100: #{map.get($colors, primary100)};
   --primary-200: #{map.get($colors, primary200)};
+  --primary-300: #{map.get($colors, primary300)};
   --primary-400: #{map.get($colors, primary400)};
   --gray-900: #{map.get($colors, gray900)};
   --gray-700: #{map.get($colors, gray700)};
@@ -15,6 +18,10 @@
   --gray-500: #{map.get($colors, gray500)};
   --gray-400: #{map.get($colors, gray400)};
   --gray-300: #{map.get($colors, gray300)};
+  --gray-200: #{map.get($colors, gray200)};
+  --gray-100: #{map.get($colors, gray100)};
+  --gray-50: #{map.get($colors, gray50)};
+  --red-600: #{map.get($colors, red600)};
   --border-color: #{map.get($colors, gray300)};
   --status-request: #{map.get($colors, states-green)};
   --status-waiting: #{map.get($colors, states-yellow)};
@@ -39,57 +46,6 @@ html, body {
   color: var(--primary) !important;
 }
 
-/* 버튼 */
-.btn {
-  display: inline-flex;
-  align-items: center;
-  &-primary {
-    background-color: var(--primary);
-    border-color: var(--primary);
-    &:hover,
-    &:focus,
-    &:active,
-    &:focus:active {
-      background-color: var(--primary-400);
-      border-color: var(--primary-400);
-    }
-    &:disabled {
-      background-color: var(--gray-300);
-      border-color: var(--gray-300);
-    }
-  }
-  &-outline-primary {
-    color: var(--primary);
-    border-color: var(--primary);
-  }
-  &-lg { // 사이즈 l
-    padding: 14px 19px;
-    border-radius: 12px;
-    font-size: 16px;
-    font-weight: 700;
-    line-height: 140%; /* 22.4px */
-    letter-spacing: -0.32px;
-  }
-  &-group-lg {
-    & > .btn {
-      padding: 14px 18px;
-      border-radius: 12px;
-      font-size: 16px;
-      font-weight: 700;
-      line-height: 140%; /* 22.4px */
-      letter-spacing: -0.32px;
-    }
-  }
-  &-icon {
-    line-height: 1;
-  }
-  &-svg {
-    &-left svg {
-      margin-right: 10px;
-    }
-  }
-}
-
 .card {
   border-radius: 12px;
   border: 1px solid var(--border-color);
@@ -99,7 +55,7 @@ html, body {
 
 /* sidebar */
 #sidebar {
-  .user-dropdown {
+  .user-dropdown.b-dropdown.dropdown {
     .dropdown-toggle {
       display: flex;
       align-items: center;
@@ -128,6 +84,9 @@ html, body {
       border: 1px solid var(--border-color);
       background: var(--white);
       box-shadow: 2px 6px 12px 0px rgba(98, 104, 138, 0.24);
+      li {
+        padding: 0;
+      }
     }
     .dropdown-item {
       padding: 0;
@@ -144,7 +103,7 @@ html, body {
 }
 
 #header {
-  .cash-dropdown {
+  .cash-dropdown.b-dropdown.dropdown {
     &.show > .btn-primary.dropdown-toggle {
       background-color: var(--primary-400);
       border-color: var(--primary-400);
@@ -161,6 +120,9 @@ html, body {
       background: var(--white);
       &:focus-visible {
         outline: none;
+      }
+      li {
+        padding: 0;
       }
     }
     li:nth-child(2) .b-dropdown-text {
@@ -265,6 +227,77 @@ html, body {
           line-height: 140%; /* 19.6px */
           letter-spacing: -0.28px;
           color: var(--gray-700);
+        }
+      }
+    }
+  }
+}
+
+/* dropdown */
+#service .b-dropdown.dropdown {
+  &.show {
+    .dropdown-toggle {
+      &:not(.btn-primary) {
+        border-end-start-radius: 0;
+        border-end-end-radius: 0;
+      }
+      svg {
+        transform: rotate(180deg);
+      }
+    }
+  }
+  .dropdown-toggle:not(.btn-primary) {
+    width: 100%;
+    padding: 11px 15px;
+    border: 1px solid var(--border-color);
+    border-radius: 8px;
+    background: var(--white);
+    font-size: 14px;
+    font-weight: 400;
+    line-height: 140%; /* 19.6px */
+    letter-spacing: -0.28px;
+    color: var(--gray-900);
+    &::after{
+      display: none;
+    }
+    &:focus {
+      box-shadow: none;
+    }
+    svg {
+      margin-left: auto;
+      path {
+        stroke: var(--gray-900);
+      }
+    }
+  }
+  .dropdown-menu {
+    width: 100%;
+    min-width: auto;
+    margin: 0;
+    padding: 0;
+    border-top: 0;
+    border-radius: 0 0 8px 8px;
+    &:focus-visible {
+      outline: none;
+    }
+    li {
+      padding: 8px 16px;
+      &.active,
+      &:hover {
+        background-color: var(--gray-100);
+      }
+      &:last-child {
+        border-radius: 0 0 8px 8px;
+      }
+      a,button {
+        padding: 0;
+        font-size: 14px;
+        font-weight: 400;
+        line-height: 140%; /* 19.6px */
+        letter-spacing: -0.28px;
+        color: var(--gray-900);
+        &:hover {
+          background-color: var(--gray-100);
         }
       }
     }
