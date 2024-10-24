@@ -99,3 +99,11 @@
     margin-left: 20px;
   }
 }
+.sticky-header {
+  thead th {
+    position: sticky;
+    top: 0;
+    background-color: var(--white);
+    z-index: 2;
+  }
+}

@@ -234,7 +234,8 @@ html, body {
 }
 
 /* dropdown */
-#service .b-dropdown.dropdown {
+#service .b-dropdown.dropdown,
+.service-modal .b-dropdown.dropdown {
   &.show {
     .dropdown-toggle {
       &:not(.btn-primary) {
@@ -322,4 +323,24 @@ html, body {
   line-height: 140%; /* 19.6px */
   letter-spacing: -0.28px;
   color: var(--gray-700);
+}
+
+/* tooltip */
+.tooltip {
+  opacity: 1;
+  &-inner {
+    max-width: 500px;
+    background-color: var(--gray-300);
+    font-size: 11px;
+    color: var(--gray-700);
+    ul {
+      margin: 0;
+      padding: 0;
+      list-style: none;
+      text-align: start;
+    }
+  }
+  .arrow:before {
+    border-top-color: var(--gray-50);
+  }
 }

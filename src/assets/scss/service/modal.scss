@@ -33,6 +33,7 @@
     padding: 20px 0 24px;
     .btn {
       min-width: 100px;
+      margin: 0;
       & + .btn {
         margin-left: 12px;
       }

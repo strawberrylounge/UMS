@@ -1,7 +1,7 @@
 <template>  
-  <b-modal id="select-image-modal" title="통합 이미지 관리" hide-header-close centered size="lg">
+  <b-modal id="select-image-modal" hide-header-close centered size="lg">
     <template #modal-title>
-      <h5 class="modal-title">내용 입력</h5>
+      <h5 class="modal-title">통합 이미지 관리</h5>
       <p class="title-desc">* 광고성메시지 수신거부번호는 내용 하단에 포함됩니다. 또한 광고 표기는 제목 또는 내용에 포함되어 있어야 합니다.
         <br/>
         <span>* 이미지는 최대 3개까지 추가 가능합니다.</span>
@@ -10,15 +10,15 @@
 
     <div class="table-title">
       <label>업로드한 이미지</label>
-      <b-button variant="outline-primary" class="btn-svg btn-svg-right">
+      <b-button variant="outline-primary" class="btn-svg btn-svg-right" v-b-modal.upload-image-modal>
         <span>이미지 추가</span>
         <IconPlus />
       </b-button>
       <b-button variant="outline-secondary">삭제</b-button>
     </div>
 
-    <div class="table-responsive">
-      <table class="table table-middle" >
+    <div class="table-responsive sticky-header">
+      <table class="table table-middle">
         <colgroup>
           <col width="5%">
           <col width="15%">
@@ -47,15 +47,14 @@
           </tr>
         </thead>
         <tbody>
-          <tr v-for="(item, index) in [0,1,2,3,4]" :key="index">
+          <tr v-for="(item, index) in ['0','1','2','3','4']" :key="index">
             <td class="text-center">
               <b-form-checkbox
-                :id=indexa
-                :name=index
-                :value=index
+                :id=item
+                :name=item
+                :value=item
                 size="lg"
               ></b-form-checkbox>
-              
             </td>
             <td>FLE58dho8L</td>
             <td>다운로드.jpg</td>
@@ -84,16 +83,19 @@
     <template #modal-footer>
       <b-button variant="primary">선택</b-button>
       <b-button variant="outline-primary" @click="closeModal">닫기</b-button>
-    </template>
+    </template>  
+    
+    <UploadImageModal />
   </b-modal>
 </template>
 
 <script>
 import IconPlus from '@/components/service/icons/IconPlus.vue'
 import IconSearch from '@/components/service/icons/IconSearch.vue'
+import UploadImageModal from '@/modules/ucMessageSendSms/components/modal/UploadImageModal.vue'
 
 export default {
-  components: { IconPlus, IconSearch, },
+  components: { IconPlus, IconSearch, UploadImageModal, },
   name: "SelectImageModal",
   data() {
     return {
@@ -118,6 +120,10 @@ export default {
   span {
     color: var(--status-failure);
   }
+}
+.sticky-header {
+  max-height: 350px;
+  overflow-y: auto;
 }
 .table-title {
   display: flex;
