@@ -23,6 +23,7 @@
       <div class="preview card">
         <p class="preview-title">미리보기</p>
         <div class="preview-image">
+          <div v-if="showPreviewTitle" class="preview-section-title">0904_SMS_광고성  #{내용}입니다.</div>
         </div>
       </div>
       <div class="sms-area card">
@@ -30,10 +31,10 @@
         <div class="d-flex align-items-center">
           <label class="form-labal">발송유형</label>
           <b-form-group class="radio-group">
-            <b-form-radio-group inline>
-              <b-form-radio name="some-radios" value="A">SMS</b-form-radio>
-              <b-form-radio name="some-radios" value="B">LMS</b-form-radio>
-              <b-form-radio name="some-radios" value="C">MMS</b-form-radio>
+            <b-form-radio-group inline v-model="type">
+              <b-form-radio name="type" value="SMS">SMS</b-form-radio>
+              <b-form-radio name="type" value="LMS">LMS</b-form-radio>
+              <b-form-radio name="type" value="MMS">MMS</b-form-radio>
             </b-form-radio-group>
           </b-form-group>
         </div>
@@ -48,7 +49,13 @@
         </div>
         <div class="btn-wrap">
           <b-button variant="outline-primary" size="sm" v-b-modal.select-template-modal>템플릿 불러오기</b-button>
-          <b-button variant="outline-primary" size="sm" v-b-modal.add-content-modal>내용입력</b-button>
+          <b-button v-if="type === 'MMS'" variant="outline-primary" size="sm" v-b-modal.add-mms-content-modal>내용입력</b-button>
+          <b-button v-else variant="outline-primary" size="sm" v-b-modal.add-content-modal>내용입력</b-button>
+        </div>
+
+        <div v-if="type === 'MMS'" class="d-flex align-items-center image-select">
+          <label class="form-labal">이미지</label>
+          <b-button variant="outline-primary" size="sm" v-b-modal.select-image-modal>이미지 선택</b-button>
         </div>
 
         <hr class="hr">
@@ -77,7 +84,39 @@
         </div>
         <div class="d-flex align-items-center receive-count">
           <p>수신자: <span class="text-primary">0명</span></p>
-          <b-button variant="outline-secondary" size="sm" disabled>수신자 모두삭제</b-button>
+          <b-button variant="outline-secondary" size="sm" :disabled="type === 'SMS'">수신자 모두삭제</b-button>
+        </div>
+        <div v-if="type !== 'SMS'" class="receive-list">
+          <div class="table-responsive">
+            <table class="table">
+              <colgroup>
+                <col width="20%">
+                <col width="35%">
+                <col width="35%">
+                <col width="10%">
+              </colgroup>
+              <thead>
+                <tr>
+                  <th>매체</th>
+                  <th>번호</th>
+                  <th>기타</th>
+                  <th>삭제</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <td>Phone</td>
+                  <td>010-0000-0000</td>
+                  <td>mergeData</td>
+                  <td>
+                    <button class="btn btn-icon p-0">
+                      <IconClose />
+                    </button>
+                  </td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
         </div>
 
         <hr class="hr">
@@ -118,6 +157,8 @@
     </div>
     <SelectTemplateModal />
     <AddContentModal />
+    <AddMMSContentModal />
+    <SelectImageModal />
   </div>
 </template>
 
@@ -128,18 +169,30 @@ import IconArrowDown from '@/components/service/icons/IconArrowDown.vue';
 import IconDownload from '@/components/service/icons/IconDownload.vue';
 import SelectTemplateModal from '@/modules/ucMessageSendSms/components/modal/SelectTemplateModal.vue';
 import AddContentModal from '@/modules/ucMessageSendSms/components/modal/AddContentModal.vue';
+import AddMMSContentModal from '@/modules/ucMessageSendSms/components/modal/AddMMSContentModal.vue';
+import SelectImageModal from '@/modules/ucMessageSendSms/components/modal/SelectImageModal.vue';
+import IconClose from '@/components/service/icons/IconClose.vue';
 
 export default {
-  components: { IconArrowRight, IconArrowDown, IconDownload, SelectTemplateModal, AddContentModal, },
+  components: { IconArrowRight, IconArrowDown, IconDownload, SelectTemplateModal, AddContentModal, IconClose, AddMMSContentModal, SelectImageModal, },
   name: "ucMessageSendSms",
   data() {
     return {
       phoneNumber: '',
+      type: 'SMS',
+      showPreviewTitle: false
     }
   },
   methods: {
     setPhoneNumber(value) {
       this.phoneNumber = value;
+    }
+  },
+  watch: {
+    type: function (val) {
+      if (val === 'LMS') {
+        this.showPreviewTitle = true
+      }
     }
   }
 };
@@ -208,6 +261,9 @@ export default {
 .sms-select {
   margin: 20px 0;
 }
+.image-select {
+  margin-top: 20px;
+}
 .btn-wrap {
   padding-left: 132px;
   button + button {
@@ -265,6 +321,13 @@ export default {
     & + button {
       margin-left: 20px;
     }
+  }
+}
+.receive-list {
+  margin-top: 20px;
+  padding-left: 132px;
+  .table tbody tr:last-child td {
+    border-bottom: none;
   }
 }
 </style>

@@ -118,6 +118,7 @@
     &:active,
     &:focus:active {
       background-color: var(--gray-500);
+      border-color: var(--gray-500);
     }
     &:disabled {
       background-color: var(--gray-200);

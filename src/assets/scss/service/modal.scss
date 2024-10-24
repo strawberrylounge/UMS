@@ -40,9 +40,11 @@
   }
   &-xl {
     width: 1159px;
+    max-width: 1159px;
   }
-  &-l {
+  &-lg {
     width: 931px;
+    max-width: 931px;
   }
   &-md {
     width: 684px;
@@ -50,9 +52,11 @@
   }
   &-s {
     width: 424px;
+    max-width: 424px;
   }
   &-xs {
     width: 384px;
+    max-width: 384px;
   }
   &-backdrop {
     background-color: rgba(0, 0, 0, .4);

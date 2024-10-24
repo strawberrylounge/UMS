@@ -4,10 +4,20 @@
 }
 .table { 
   margin: 0;
+  &-middle {
+    th, td {
+      vertical-align: middle;
+    }
+  }
   thead th {
     background-color: var(--gray-50);
     border-top: none;
     border-bottom: none;
+  }
+  tbody {
+    tr:last-child td {
+      border-bottom: none;
+    }
   }
   th, td {
     padding: 16px 10px;
