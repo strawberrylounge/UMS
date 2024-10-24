@@ -31,7 +31,7 @@
         <p class="sms-title">01.발송정보</p>
         <div class="d-flex align-items-center">
           <label class="form-labal">템플릿</label>
-          <b-button variant="outline-primary" size="sm" v-b-modal.select-template-modal>템플릿 선택</b-button>
+          <b-button variant="outline-primary" size="sm" v-b-modal.select-talk-template-modal>템플릿 선택</b-button>
         </div>
 
         <hr class="hr">
@@ -39,7 +39,7 @@
         <p class="sms-title">02.메시지 내용</p>
         <div class="d-flex align-items-center">
           <label class="form-labal">내용</label>
-          <b-button variant="outline-primary" size="sm" v-b-modal.select-template-modal>내용보기</b-button>
+          <b-button variant="outline-primary" size="sm" v-b-modal.select-talk-template-modal>내용보기</b-button>
         </div>
         <div class="d-flex button-list">
           <label class="form-labal">버튼</label>
@@ -171,7 +171,7 @@
 
     <SearchAddressModal />
     <EnterReceiverModal />
-    <SelectTemplateModal />
+    <SelectTalkTemplateModal />
     <ConfirmModal title="RCS 발송" desc="템플릿을 변경하면 입력된 데이터가 모두 초기화됩니다. 변경하시겠습니까?" />
   </div>
 </template>
@@ -188,11 +188,11 @@ import EnterReceiverModal from '@/modules/ucMessageSendSms/components/modal/Ente
 import IconClose from '@/components/service/icons/IconClose.vue';
 import CustomDatepicker from '@/components/service/form/CustomDatepicker.vue'
 import ConfirmModal from '@/components/service/modal/ConfirmModal.vue'
-import SelectTemplateModal from '@/modules/ucMessageSendSms/components/modal/SelectTemplateModal.vue';
+import SelectTalkTemplateModal from '@/modules/ucMessageSendAlimTalk/components/modal/SelectTalkTemplateModal.vue';
 import PreviewTalk from '@/components/service/preview/PreviewTalk.vue';
 
 export default {
-  components: { IconInfo, TemplateCard, IconArrowDown, IconArrowRight, IconDownload, IconClose, SearchAddressModal, EnterReceiverModal, CustomDatepicker, ConfirmModal, SelectTemplateModal, PreviewTalk, },
+  components: { IconInfo, TemplateCard, IconArrowDown, IconArrowRight, IconDownload, IconClose, SearchAddressModal, EnterReceiverModal, CustomDatepicker, ConfirmModal, SelectTalkTemplateModal, PreviewTalk, },
   name: "ucRcsTemplateSend",
   data() {
     return {

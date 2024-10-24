@@ -5,7 +5,9 @@
     <div class="content-wrap">
       <div class="avatar"></div>
       <div class="content">
-        <slot />
+        <div class="content-wrap">
+          <slot />
+        </div>
       </div>
     </div>
   </div>
@@ -42,7 +44,13 @@ export default {
     width: calc(100% - 29px - 6px);
     min-height: 64px;
     background: url('#{$img}preview/talk-content.png') no-repeat;
-    background-size: 100% 100%;
+    background-size: 100%;
+    &-wrap {
+      margin-top: 32px;
+      padding: 10px;
+      background-color: var(--white);
+      border-radius: 0 0 8px 8px;
+    }
   }
 }
 </style>
