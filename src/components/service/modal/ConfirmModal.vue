@@ -4,7 +4,7 @@
     <p class="desc">{{ desc }}</p>
 
     <template #modal-footer>
-      <b-button variant="danger" @click="onSubmit">확인</b-button>
+      <b-button variant="danger" @click="handleSubmit">확인</b-button>
       <b-button variant="outline-secondary" @click="closeModal">닫기</b-button>
     </template>  
   </b-modal>
@@ -35,6 +35,13 @@ export default {
     closeModal() {
       this.$bvModal.hide('confirm-modal');
     },
+    handleSubmit() {
+      if (this.onSubmit) {
+        this.onSubmit()
+        return;
+      }
+      this.$bvModal.hide('confirm-modal');
+    }
   }
 };
 </script>

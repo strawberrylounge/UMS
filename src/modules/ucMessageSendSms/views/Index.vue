@@ -13,7 +13,7 @@
           <a href="/uc/rcsTemplateSend">RCS</a>
         </div>
         <div class="tab">
-          <a href="#">카카오톡</a>
+          <a href="/uc/message/sendAlimTalk">카카오톡</a>
         </div>
       </div>
       <p class="breadcrumb">발송 > 문자</p>
@@ -209,6 +209,8 @@ export default {
       type: 'SMS',
       showPreviewTitle: false,
       time: 'now',
+      startTime: null,
+      endTime: null,
     }
   },
   methods: {

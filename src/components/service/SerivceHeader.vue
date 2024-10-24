@@ -58,6 +58,8 @@ export default {
           return '통합 발송';
         case '/uc/rcsTemplateSend':
           return 'RCS';
+        case '/uc/message/sendAlimTalk':
+          return '알림톡';
         default:
           return ''
       }

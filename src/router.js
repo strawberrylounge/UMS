@@ -10,6 +10,7 @@ import ucMessageMultiSendList from "@/modules/ucMessageMultiSendList/views/Index
 import ucMessageSendSms from "@/modules/ucMessageSendSms/views/Index.vue";
 import ucMessageSmartSendMain from "@/modules/ucMessageSmartSendMain/views/Index.vue";
 import ucRcsTemplateSend from "@/modules/ucRcsTemplateSend/views/Index.vue";
+import ucMessageSendAlimTalk from "@/modules/ucMessageSendAlimTalk/views/Index.vue";
 
 Vue.use(Router);
 
@@ -71,6 +72,16 @@ const router = new Router({
         {
           path: '',
           component: ucRcsTemplateSend,
+        },
+      ]
+    },
+    {
+      path: "/uc/message/sendAlimTalk",
+      component: ServiceLayout,
+      children: [
+        {
+          path: '',
+          component: ucMessageSendAlimTalk,
         },
       ]
     },
