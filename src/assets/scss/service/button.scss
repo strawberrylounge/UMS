@@ -125,6 +125,18 @@
       background-color: var(--gray-200);
     }
   }
+  &-danger {
+    background-color: var(--status-failure);
+    border-color: var(--status-failure);
+    &:hover,
+    &:focus,
+    &:active,
+    &:focus:active,
+    &:not(:disabled):not(.disabled):active:focus {
+      background-color: #E8352A;
+      border-color: #E8352A;
+    }
+  }
   &-sm {
     padding: 5px 15px;
     font-weight: 400;

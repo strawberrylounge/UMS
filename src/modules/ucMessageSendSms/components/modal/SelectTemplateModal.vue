@@ -65,7 +65,7 @@ export default {
   methods: {
     closeModal() {
       this.$bvModal.hide('select-template-modal');
-    }
+    },
   }
 };
 </script>

@@ -53,9 +53,29 @@
           <b-button v-else variant="outline-primary" size="sm" v-b-modal.add-content-modal>내용입력</b-button>
         </div>
 
-        <div v-if="type === 'MMS'" class="d-flex align-items-center image-select">
+        <div v-if="type === 'MMS'" class="d-flex align-items-start image-select">
           <label class="form-labal">이미지</label>
           <b-button variant="outline-primary" size="sm" v-b-modal.select-image-modal>이미지 선택</b-button>
+          <ul class="image-select-list">
+            <li>
+              <span class="text-truncate">jpghttps://api.msghub-dev.uplus.co.kr/jpghttps://api.msghub-dev.uplus.co.kr/ </span>
+              <button type="button" class="btn btn-icon p-0">
+                <IconClose />
+              </button>
+            </li>
+            <li>
+              <span class="text-truncate">jpghttps://api.msghub-dev.uplus.co.kr/... </span>
+              <button type="button" class="btn btn-icon p-0">
+                <IconClose />
+              </button>
+            </li>
+            <li>
+              <span class="text-truncate">jpghttps://api.msghub-dev.uplus.co.kr/... </span>
+              <button type="button" class="btn btn-icon p-0">
+                <IconClose />
+              </button>
+            </li>
+          </ul>
         </div>
 
         <hr class="hr">
@@ -68,7 +88,7 @@
               <span>수신자 직업입력</span>
               <IconArrowRight />
             </b-button>
-            <b-button variant="outline-primary" size="sm" class="btn-svg btn-svg-right">
+            <b-button variant="outline-primary" size="sm" class="btn-svg btn-svg-right" v-b-modal.search-address-modal>
               <span>주소록 검색</span>
               <IconArrowRight />
             </b-button>
@@ -100,7 +120,7 @@
                   <th>매체</th>
                   <th>번호</th>
                   <th>기타</th>
-                  <th>삭제</th>
+                  <th class="text-center">삭제</th>
                 </tr>
               </thead>
               <tbody>
@@ -108,7 +128,7 @@
                   <td>Phone</td>
                   <td>010-0000-0000</td>
                   <td>mergeData</td>
-                  <td>
+                  <td class="text-center">
                     <button class="btn btn-icon p-0">
                       <IconClose />
                     </button>
@@ -150,7 +170,7 @@
         <hr class="hr">
 
         <div class="submit-wrap">
-          <b-button variant="secondary" size="lg">테스트 발송</b-button>
+          <b-button variant="secondary" size="lg" v-b-modal.send-test-modal>테스트 발송</b-button>
           <b-button variant="primary" size="lg">발송</b-button>
         </div>
       </div>
@@ -159,6 +179,8 @@
     <AddContentModal />
     <AddMMSContentModal />
     <SelectImageModal />
+    <SendTestModal />
+    <SearchAddressModal />
   </div>
 </template>
 
@@ -167,14 +189,16 @@ import '@/assets/scss/service/message.scss';
 import IconArrowRight from '@/components/service/icons/IconArrowRight.vue';
 import IconArrowDown from '@/components/service/icons/IconArrowDown.vue';
 import IconDownload from '@/components/service/icons/IconDownload.vue';
+import SearchAddressModal from '@/components/service/modal/SearchAddressModal.vue';
 import SelectTemplateModal from '@/modules/ucMessageSendSms/components/modal/SelectTemplateModal.vue';
 import AddContentModal from '@/modules/ucMessageSendSms/components/modal/AddContentModal.vue';
 import AddMMSContentModal from '@/modules/ucMessageSendSms/components/modal/AddMMSContentModal.vue';
 import SelectImageModal from '@/modules/ucMessageSendSms/components/modal/SelectImageModal.vue';
+import SendTestModal from '@/modules/ucMessageSendSms/components/modal/SendTestModal.vue';
 import IconClose from '@/components/service/icons/IconClose.vue';
 
 export default {
-  components: { IconArrowRight, IconArrowDown, IconDownload, SelectTemplateModal, AddContentModal, IconClose, AddMMSContentModal, SelectImageModal, },
+  components: { IconArrowRight, IconArrowDown, IconDownload, SelectTemplateModal, AddContentModal, IconClose, AddMMSContentModal, SelectImageModal, SendTestModal, SearchAddressModal, },
   name: "ucMessageSendSms",
   data() {
     return {
@@ -263,6 +287,30 @@ export default {
 }
 .image-select {
   margin-top: 20px;
+  &-list {
+    margin: 0 0 0 28px;
+    padding: 0;
+    list-style: none;
+    li {
+      display: flex;
+      align-items: center;
+      & + li {
+        margin-top: 16px;
+      }
+    }
+    span {
+      max-width: 240px;
+      overflow: hidden;
+      font-size: 16px;
+      font-weight: 500;
+      line-height: 140%; /* 22.4px */
+      letter-spacing: -0.32px;
+      color: var(--gray-900);
+    }
+    .btn {
+      margin-left: 12px;
+    }
+  }
 }
 .btn-wrap {
   padding-left: 132px;
@@ -326,8 +374,14 @@ export default {
 .receive-list {
   margin-top: 20px;
   padding-left: 132px;
-  .table tbody tr:last-child td {
-    border-bottom: none;
+  .table {
+    tbody tr:last-child td {
+      border-bottom: none;
+    }
+    th, td {
+      padding-left: 16px;
+      padding-right: 16px;
+    }
   }
 }
 </style>

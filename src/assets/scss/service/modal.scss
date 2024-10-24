@@ -10,6 +10,32 @@
     padding: 0 24px;
     background: #ECEFF2;
     border-radius: 12px;
+    &.confirm-modal {
+      width: 684px;
+      max-width: 684px;
+      background-color: var(--white);
+      .modal-title {
+        font-size: 20px;
+        font-weight: 700;
+        line-height: 140%; /* 28px */
+        letter-spacing: -0.4px;
+        color: var(--grary-900);
+      }
+      .modal-body {
+        padding: 0;
+      }
+      .desc {
+        margin: 0;
+        font-size: 16px;
+        font-weight: 500;
+        line-height: 140%; /* 22.4px */
+        letter-spacing: -0.32px;
+        color: var(--grary-500);
+      }
+      .modal-footer {
+        justify-content: end;
+      }
+    }
   }
   &-header {
     border: none;
@@ -62,4 +88,9 @@
   &-backdrop {
     background-color: rgba(0, 0, 0, .4);
   }
+}
+
+#search-address-modal .modal-dialog {
+  width: 955px;
+  max-width: 955px;
 }

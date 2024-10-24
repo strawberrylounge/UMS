@@ -14,7 +14,7 @@
         <span>이미지 추가</span>
         <IconPlus />
       </b-button>
-      <b-button variant="outline-secondary">삭제</b-button>
+      <b-button variant="outline-secondary" v-b-modal.confirm-modal>삭제</b-button>
     </div>
 
     <div class="table-responsive sticky-header">
@@ -86,16 +86,18 @@
     </template>  
     
     <UploadImageModal />
+    <ConfirmModal title="SMS 발송 내용" desc="광고성 메시지 수신거부번호를 입력해주세요." :onSubmit="closeDeleteModal" />
   </b-modal>
 </template>
 
 <script>
 import IconPlus from '@/components/service/icons/IconPlus.vue'
 import IconSearch from '@/components/service/icons/IconSearch.vue'
+import ConfirmModal from '@/components/service/modal/ConfirmModal.vue'
 import UploadImageModal from '@/modules/ucMessageSendSms/components/modal/UploadImageModal.vue'
 
 export default {
-  components: { IconPlus, IconSearch, UploadImageModal, },
+  components: { IconPlus, IconSearch, UploadImageModal, ConfirmModal, },
   name: "SelectImageModal",
   data() {
     return {
@@ -105,6 +107,9 @@ export default {
     closeModal() {
       this.$bvModal.hide('select-image-modal');
     },
+    closeDeleteModal() {
+      this.$bvModal.hide('confirm-modal');
+    }
   }
 };
 </script>
