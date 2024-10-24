@@ -56,6 +56,8 @@ export default {
           return '문자';
         case '/uc/message/smartSendMain':
           return '통합 발송';
+        case '/uc/rcsTemplateSend':
+          return 'RCS';
         default:
           return ''
       }

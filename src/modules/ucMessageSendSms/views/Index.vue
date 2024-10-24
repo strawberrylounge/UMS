@@ -10,7 +10,7 @@
           <a href="#">문자</a>
         </div>
         <div class="tab">
-          <a href="#">RCS</a>
+          <a href="/uc/rcsTemplateSend">RCS</a>
         </div>
         <div class="tab">
           <a href="#">카카오톡</a>
@@ -198,9 +198,10 @@ import SelectImageModal from '@/modules/ucMessageSendSms/components/modal/Select
 import SendTestModal from '@/modules/ucMessageSendSms/components/modal/SendTestModal.vue';
 import EnterReceiverModal from '@/modules/ucMessageSendSms/components/modal/EnterReceiverModal.vue';
 import IconClose from '@/components/service/icons/IconClose.vue';
+import CustomDatepicker from '@/components/service/form/CustomDatepicker.vue'
 
 export default {
-  components: { IconArrowRight, IconArrowDown, IconDownload, SelectTemplateModal, AddContentModal, IconClose, AddMMSContentModal, SelectImageModal, SendTestModal, SearchAddressModal, EnterReceiverModal, },
+  components: { IconArrowRight, IconArrowDown, IconDownload, SelectTemplateModal, AddContentModal, IconClose, AddMMSContentModal, SelectImageModal, SendTestModal, SearchAddressModal, EnterReceiverModal, CustomDatepicker, },
   name: "ucMessageSendSms",
   data() {
     return {

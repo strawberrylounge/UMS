@@ -248,6 +248,38 @@ textarea.form-control {
       left: -22px;
     }
   }
+  /* 템플릿 카드에 들어가는 라디오 버튼*/
+  &-vertical {
+    display: inline-block;
+    padding: 0;
+    .custom-control-input {
+      top: initial;
+      bottom: 0;
+      left: 50%;
+      transform: translateX(-50%);
+      &:checked ~ .custom-control-label::after {
+        top: initial;
+        bottom: 0;
+        left: 50%;
+        transform: translateX(-50%);
+      }
+    }
+    label.custom-control-label {
+      padding: 0 0 27px 0;
+      text-align: center;
+      font-size: 14px;
+      font-weight: 400;
+      line-height: 140%; /* 19.6px */
+      letter-spacing: -0.28px;
+      color: var(--gray-700);
+      &::before {
+        top: initial;
+        bottom: 0;
+        left: 50%;
+        transform: translateX(-50%);
+      }
+    }
+  }
 }
 
 /* input group */

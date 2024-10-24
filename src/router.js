@@ -9,6 +9,7 @@ import acHome from "@/modules/acHome/views/Index.vue";
 import ucMessageMultiSendList from "@/modules/ucMessageMultiSendList/views/Index.vue";
 import ucMessageSendSms from "@/modules/ucMessageSendSms/views/Index.vue";
 import ucMessageSmartSendMain from "@/modules/ucMessageSmartSendMain/views/Index.vue";
+import ucRcsTemplateSend from "@/modules/ucRcsTemplateSend/views/Index.vue";
 
 Vue.use(Router);
 
@@ -60,6 +61,16 @@ const router = new Router({
         {
           path: '',
           component: ucMessageSmartSendMain,
+        },
+      ]
+    },
+    {
+      path: "/uc/rcsTemplateSend",
+      component: ServiceLayout,
+      children: [
+        {
+          path: '',
+          component: ucRcsTemplateSend,
         },
       ]
     },

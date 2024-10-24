@@ -10,7 +10,7 @@
           <a href="/uc/message/sendSms">문자</a>
         </div>
         <div class="tab">
-          <a href="#">RCS</a>
+          <a href="/uc/rcsTemplateSend">RCS</a>
         </div>
         <div class="tab">
           <a href="#">카카오톡</a>
