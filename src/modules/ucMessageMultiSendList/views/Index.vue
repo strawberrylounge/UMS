@@ -112,17 +112,6 @@
         </div>
         <div class="table-responsive">
           <table class="table">
-            <colgroup>
-              <col width="5%">
-              <col width="5%">
-              <col width="15%">
-              <col width="15%">
-              <col width="15%">
-              <col width="10%">
-              <col width="10%">
-              <col width="10%">
-              <col width="15%">
-            </colgroup>
             <thead>
               <tr>
                 <th scope="col" class="text-center">
@@ -130,6 +119,7 @@
                     id="selectAll"
                     name="selectAll"
                     value="selectAll"
+                    size="lg"
                   ></b-form-checkbox>
                 </th>
                 <th scope="col">
@@ -183,12 +173,13 @@
               </tr>
             </thead>
             <tbody>
-              <tr v-for="(item, index) in [0,1,2,3,4]" :key="index">
+              <tr v-for="(item, index) in [0,1,2,3,4]" :key="index" @click="navigateToSmartSendMain">
                 <td class="text-center">
                   <b-form-checkbox
                     :id=index
                     :name=index
                     :value=index
+                    size="lg"
                   ></b-form-checkbox>
                 </td>
                 <td>1</td>
@@ -275,7 +266,10 @@ export default {
   methods: {
     toggleMenu() {
       this.hideMenu = !this.hideMenu;
-    }
+    },
+    navigateToSmartSendMain() {
+      this.$router.push(`/uc/message/smartSendMain`);
+    },
   }
 };
 </script>
@@ -412,6 +406,9 @@ export default {
 }
 .table-responsive {
   margin-top: 40px;
+  tr {
+    cursor: pointer;
+  }
 }
 .pagination {
   width: 100%;

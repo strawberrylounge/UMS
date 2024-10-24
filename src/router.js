@@ -8,6 +8,7 @@ import ServiceLayout from '@/components/service/ServiceLayout.vue';
 import acHome from "@/modules/acHome/views/Index.vue";
 import ucMessageMultiSendList from "@/modules/ucMessageMultiSendList/views/Index.vue";
 import ucMessageSendSms from "@/modules/ucMessageSendSms/views/Index.vue";
+import ucMessageSmartSendMain from "@/modules/ucMessageSmartSendMain/views/Index.vue";
 
 Vue.use(Router);
 
@@ -49,6 +50,16 @@ const router = new Router({
         {
           path: '',
           component: ucMessageSendSms,
+        },
+      ]
+    },
+    {
+      path: "/uc/message/smartSendMain",
+      component: ServiceLayout,
+      children: [
+        {
+          path: '',
+          component: ucMessageSmartSendMain,
         },
       ]
     },

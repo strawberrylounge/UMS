@@ -168,7 +168,7 @@ export default {
   },
   methods: {
     closeModal() {
-      this.$bvModal.hide('send-test-modal');
+      this.$bvModal.hide('search-address-modal');
     },
     toggleGroup(index) {
       this.groups[index].isOpen = !this.groups[index].isOpen;

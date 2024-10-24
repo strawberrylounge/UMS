@@ -22,6 +22,7 @@ import SideNavBar from '@/components/service/SideNavBar.vue';
 import SerivceHeader from '@/components/service/SerivceHeader.vue';
 
 // 스타일 import
+import 'vue2-timepicker/dist/VueTimepicker.css';
 import 'bootstrap/dist/css/bootstrap.css';
 import 'bootstrap/dist/js/bootstrap.bundle';
 import '@/assets/scss/service/button.scss';

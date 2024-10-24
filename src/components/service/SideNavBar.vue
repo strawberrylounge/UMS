@@ -10,6 +10,8 @@
     </div>
 
     <!-- 사용자 정보 -->
+
+
     <div class="sidebar-info">
       <p class="f-title3 text-truncate">엠스톤그루브</p>
       <b-dropdown id="dropdown-dropright" dropright text="Drop-Right" variant="primary" class="w-100 user-dropdown">
@@ -192,6 +194,18 @@ export default {
   min-height: 100vh;
   transition: all 0.3s;
   background: var(--primary);
+  /* 메뉴 닫혔을 때 */
+  &.hide {
+    flex: 0 0 80px;
+    width: 80px;
+    overflow: hidden;
+    .sidebar-header .logo,
+    .menu-list,
+    .sidebar-info,
+    .sidebar-menu {
+      display: none;
+    }
+  }
 }
 
 .sidebar-header {
@@ -299,16 +313,6 @@ export default {
         color: #111827;
       }
     }
-  }
-}
-
-/* 메뉴 닫혔을 때 */
-.hide {
-  .sidebar-header .logo,
-  .menu-list,
-  .sidebar-info,
-  .sidebar-menu {
-    display: none;
   }
 }
 </style>

@@ -2,15 +2,14 @@
 
 .modal {
   &-dialog {
-    max-height: 900px;
-    overflow-y: auto;
     border-radius: 24px;
   }
   &-content {
     padding: 0 24px;
     background: #ECEFF2;
     border-radius: 12px;
-    &.confirm-modal {
+    &.confirm-modal,
+    &.alert-modal {
       width: 684px;
       max-width: 684px;
       background-color: var(--white);
@@ -42,6 +41,7 @@
     padding: 24px 0 20px;
   }
   &-title {
+    width: 100%;
     font-size: 20px;
     font-weight: 700;
     line-height: 28px;
@@ -49,9 +49,11 @@
     color: var(--grary-900);
   }
   &-body {
+    max-height: 740px;
     padding: 28px;
     background-color: var(--white);
     border-radius: 12px;
+    overflow-y: auto;
   }
   &-footer {
     border: none;

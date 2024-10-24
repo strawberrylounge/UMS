@@ -165,8 +165,11 @@ textarea.form-control {
     font-weight: 400;
     line-height: 140%; /* 19.6px */
     letter-spacing: -0.28px;
-    color: var(--gray-400);
+    color: var(--gray-900);
     word-break: auto-phrase;
+    &.text-muted {
+      color: var(--gray-400);
+    }
   }
   .dropdown-menu {
     min-width: 10rem;
@@ -268,5 +271,55 @@ textarea.form-control {
   & > .input-group-append > .btn {
     border-top-left-radius: 8px;
     border-bottom-left-radius: 8px;
+  }
+}
+
+/* 통합발송 시간 선택 form */
+.book-time.time-picker {
+  width: 80px;
+  &::after {
+    content: '';
+    position: absolute;
+    top: 50%;
+    right: 16px;
+    display: block;
+    width: 16px;
+    height: 16px;
+    background-image: url('#{$icon}icon-caret-left.svg');
+    background-repeat: no-repeat;
+    background-size: 100%;
+    transform: translateY(-50%) rotate(90deg);
+  }
+  &:has(.time-picker-overlay) {
+    &::after {
+      transform: translateY(-50%) rotate(-90deg);
+    }
+  }
+  input {
+    width: 100%;
+    height: 100%;
+    padding: 11px 32px 11px 15px;
+    border-radius: 8px;
+    border: 1px solid var(--border-color);
+    background: var(--white);
+    font-size: 14px;
+    font-weight: 400;
+    line-height: 140%; /* 19.6px */
+    letter-spacing: -0.28px;
+    color: var(--gray-900);
+    &::placeholder {
+      color: var(--gray-400);
+    }
+    &:hover,
+    &:focus,
+    &:focus-visible {
+      border-color: var(--gray-500);
+      box-shadow: none;
+      color: var(--gray-900);
+      outline: none;
+    }
+  }
+  .clear-btn {
+    display: none;
   }
 }

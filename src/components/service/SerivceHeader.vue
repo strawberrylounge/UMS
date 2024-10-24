@@ -1,6 +1,18 @@
 <template>
   <header id="header" class="d-flex align-items-end justify-content-between header">
-    <h2 class="m-0 heading1">{{ headerTitle }}</h2>
+    <div class="d-flex align-items-end">
+      <h2 class="m-0 heading1">{{ headerTitle }}</h2>
+      <p v-if="showMsgDesc" class="msg-desc">야간 메시지 발송 제한으로 21:00 ~ 다음날 08:00까지 메시지를 발송할 수 없습니다.
+        <b-button v-b-tooltip.hover.html="msgTooltip" variant="light" class="btn-icon p-0">
+          <IconQuestion isRed />
+        </b-button>
+      </p>
+      <p v-else-if="showSmartMsgDesc" class="msg-desc">(친구톡 광고 메시지는 20시~8시 발송 시 실패 처리 됩니다.)야간 메시지 발송 제한으로 21:00 ~ 다음날 08:00 까지 메시지 발송을 할 수 없습니다.
+        <b-button v-b-tooltip.hover.html="msgTooltip" variant="light" class="btn-icon p-0">
+          <IconQuestion isRed />
+        </b-button>
+      </p>
+    </div>
     <div class="d-flex">
       <b-button variant="outline-primary" size="lg">이용 가이드</b-button>
       <b-dropdown id="dropdown-dropright" right text="Drop-Right" variant="primary" class="cash-dropdown" toggle-class="btn btn-svg btn-svg-left ml-3 btn-primary btn-lg">
@@ -28,10 +40,11 @@
 
 <script>
 import IconCoin from '@/components/service/icons/IconCoin.vue'
+import IconQuestion from '@/components/service/icons/IconQuestion.vue'
 
 export default {
+  components: { IconCoin, IconQuestion, },
   name: 'SerivceHeader',
-  components: { IconCoin },
   computed: {
     headerTitle() {
       switch (this.$route.path) {
@@ -41,11 +54,24 @@ export default {
           return '원스텝메시지';
         case '/uc/message/sendSms':
           return '문자';
+        case '/uc/message/smartSendMain':
+          return '통합 발송';
         default:
           return ''
       }
+    },
+    showMsgDesc() {
+      return this.$route.path === '/uc/message/multiSendList';
+    },
+    showSmartMsgDesc() {
+      return this.$route.path === '/uc/message/smartSendMain';
     }
   },
+  methods: {
+    msgTooltip() {
+      return '<ul><li>프로젝트 기본정보에서 세팅 할 수 있습니다.</li></ul>'
+    },
+  }
 };
 </script>
 
@@ -55,6 +81,26 @@ export default {
   border-bottom: 1px solid var(--gray-300);
   h2 {
     color: var(--gray-700);
+  }
+  .msg-desc {
+    display: flex;
+    align-items: center;
+    margin: 0 0 0 20px;
+    font-size: 14px;
+    font-weight: 700;
+    line-height: 140%; /* 19.6px */
+    letter-spacing: -0.28px;
+    color: #FF6057;
+    .btn {
+      margin-left: 8px;
+      padding: 0;
+      background-color: transparent;
+      border: none;
+      svg {
+        width: 20px;
+        height: 20px;
+      }
+    }
   }
 }
 </style>

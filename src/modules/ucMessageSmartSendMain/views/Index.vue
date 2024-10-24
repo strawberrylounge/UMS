@@ -1,81 +1,38 @@
 <template>
-  <div class="uc-message-send-sms">
+  <div class="uc-message-smart-send-main">
     <!-- 탭 Start -->
     <div class="tabs-wrap">
       <div class="service-tabs">
-        <div class="tab">
-          <a href="/uc/message/multiSendList">원스텝메시지</a>
+        <div class="tab" :class="{active: previewType === 'rcs'}">
+          <button class="btn" @click="changeTab('rcs')">RCS</button>
         </div>
-        <div class="tab active">
-          <a href="#">문자</a>
+        <div class="tab" :class="{active: previewType === 'talk'}">
+          <button class="btn" @click="changeTab('talk')">알림톡</button>
         </div>
-        <div class="tab">
-          <a href="#">RCS</a>
-        </div>
-        <div class="tab">
-          <a href="#">카카오톡</a>
+        <div class="tab" :class="{active: previewType === 'mms'}">
+          <button class="btn" @click="changeTab('mms')">LMS/MMS</button>
         </div>
       </div>
-      <p class="breadcrumb">발송 > 문자</p>
+      <p class="breadcrumb">발송 > 원스텝메시지 > 통합발송</p>
     </div>
     <!-- 탭 End -->
+
     <div class="tab-contents">
       <div class="preview card">
         <p class="preview-title">미리보기</p>
-        <div class="preview-image">
-          <div v-if="showPreviewTitle" class="preview-section-title">0904_SMS_광고성  #{내용}입니다.</div>
+        <PreviewTalk v-if="previewType === 'talk'">
+          <div></div>
+        </PreviewTalk>
+        <div v-else class="preview-image">
+          <div v-if="previewType === 'mms'" class="preview-section-title">더미텍스트 메시지 내용입니다.</div>
+          <div v-if="previewType === 'mms'" class="preview-section-title mt-2">더미텍스트 메시지 내용입니다.</div>
         </div>
       </div>
       <div class="sms-area card">
-        <p class="sms-title">01.메세지 내용</p>
+        <p class="sms-title">01.템플릿</p>
         <div class="d-flex align-items-center">
-          <label class="form-labal">발송유형</label>
-          <b-form-group class="radio-group">
-            <b-form-radio-group inline v-model="type">
-              <b-form-radio name="type" value="SMS">SMS</b-form-radio>
-              <b-form-radio name="type" value="LMS">LMS</b-form-radio>
-              <b-form-radio name="type" value="MMS">MMS</b-form-radio>
-            </b-form-radio-group>
-          </b-form-group>
-        </div>
-        <div class="d-flex align-items-center sms-select">
-          <label class="form-labal">메시지 구분<span class="require">*</span></label>
-          <b-form-group class="radio-group">
-            <b-form-radio-group inline>
-              <b-form-radio name="some-radios" value="A">광고성</b-form-radio>
-              <b-form-radio name="some-radios" value="B">정보성</b-form-radio>
-            </b-form-radio-group>
-          </b-form-group>
-        </div>
-        <div class="btn-wrap">
-          <b-button variant="outline-primary" size="sm" v-b-modal.select-template-modal>템플릿 불러오기</b-button>
-          <b-button v-if="type === 'MMS'" variant="outline-primary" size="sm" v-b-modal.add-mms-content-modal>내용입력</b-button>
-          <b-button v-else variant="outline-primary" size="sm" v-b-modal.add-content-modal>내용입력</b-button>
-        </div>
-
-        <div v-if="type === 'MMS'" class="d-flex align-items-start image-select">
-          <label class="form-labal">이미지</label>
-          <b-button variant="outline-primary" size="sm" v-b-modal.select-image-modal>이미지 선택</b-button>
-          <ul class="image-select-list">
-            <li>
-              <span class="text-truncate">jpghttps://api.msghub-dev.uplus.co.kr/jpghttps://api.msghub-dev.uplus.co.kr/ </span>
-              <button type="button" class="btn btn-icon p-0">
-                <IconClose />
-              </button>
-            </li>
-            <li>
-              <span class="text-truncate">jpghttps://api.msghub-dev.uplus.co.kr/... </span>
-              <button type="button" class="btn btn-icon p-0">
-                <IconClose />
-              </button>
-            </li>
-            <li>
-              <span class="text-truncate">jpghttps://api.msghub-dev.uplus.co.kr/... </span>
-              <button type="button" class="btn btn-icon p-0">
-                <IconClose />
-              </button>
-            </li>
-          </ul>
+          <label class="form-labal">기본, 정보성</label>
+          <b-input value="문자 테스트" class="basic-input"></b-input>
         </div>
 
         <hr class="hr">
@@ -104,9 +61,9 @@
         </div>
         <div class="d-flex align-items-center receive-count">
           <p>수신자: <span class="text-primary">0명</span></p>
-          <b-button variant="outline-secondary" size="sm" :disabled="type === 'SMS'">수신자 모두삭제</b-button>
+          <b-button variant="outline-secondary" size="sm">수신자 모두삭제</b-button>
         </div>
-        <div v-if="type !== 'SMS'" class="receive-list">
+        <div class="receive-list">
           <div class="table-responsive">
             <table class="table">
               <thead>
@@ -170,7 +127,8 @@
         <hr class="hr">
 
         <div class="submit-wrap">
-          <b-button variant="secondary" size="lg" v-b-modal.send-test-modal>테스트 발송</b-button>
+          <b-button variant="outline-primary" size="lg" @click="goBack">목록</b-button>
+          <b-button variant="secondary" size="lg" v-b-modal.smart-send-test-modal>테스트 발송</b-button>
           <b-button variant="primary" size="lg">발송</b-button>
         </div>
       </div>
@@ -179,7 +137,7 @@
     <AddContentModal />
     <AddMMSContentModal />
     <SelectImageModal />
-    <SendTestModal />
+    <SmartSendTestModal />
     <SearchAddressModal />
     <EnterReceiverModal />
   </div>
@@ -190,36 +148,39 @@ import '@/assets/scss/service/message.scss';
 import IconArrowRight from '@/components/service/icons/IconArrowRight.vue';
 import IconArrowDown from '@/components/service/icons/IconArrowDown.vue';
 import IconDownload from '@/components/service/icons/IconDownload.vue';
+import PreviewTalk from '@/components/service/preview/PreviewTalk.vue';
 import SearchAddressModal from '@/components/service/modal/SearchAddressModal.vue';
 import SelectTemplateModal from '@/modules/ucMessageSendSms/components/modal/SelectTemplateModal.vue';
 import AddContentModal from '@/modules/ucMessageSendSms/components/modal/AddContentModal.vue';
 import AddMMSContentModal from '@/modules/ucMessageSendSms/components/modal/AddMMSContentModal.vue';
 import SelectImageModal from '@/modules/ucMessageSendSms/components/modal/SelectImageModal.vue';
-import SendTestModal from '@/modules/ucMessageSendSms/components/modal/SendTestModal.vue';
+import SmartSendTestModal from '@/modules/ucMessageSmartSendMain/components/modal/SmartSendTestModal.vue';
 import EnterReceiverModal from '@/modules/ucMessageSendSms/components/modal/EnterReceiverModal.vue';
 import IconClose from '@/components/service/icons/IconClose.vue';
+import CustomDatepicker from '@/components/service/form/CustomDatepicker.vue'
+
 
 export default {
-  components: { IconArrowRight, IconArrowDown, IconDownload, SelectTemplateModal, AddContentModal, IconClose, AddMMSContentModal, SelectImageModal, SendTestModal, SearchAddressModal, EnterReceiverModal, },
-  name: "ucMessageSendSms",
+  components: { IconArrowRight, IconArrowDown, IconDownload, SelectTemplateModal, AddContentModal, IconClose, AddMMSContentModal, SelectImageModal, SearchAddressModal, EnterReceiverModal, CustomDatepicker, SmartSendTestModal, PreviewTalk, },
+  name: "ucMessageSmartSendMain",
   data() {
     return {
+      previewType: 'rcs',
       phoneNumber: '',
-      type: 'SMS',
-      showPreviewTitle: false,
       time: 'now',
+      startTime: null,
+      endTime: null,
     }
   },
   methods: {
     setPhoneNumber(value) {
       this.phoneNumber = value;
-    }
-  },
-  watch: {
-    type: function (val) {
-      if (val === 'LMS') {
-        this.showPreviewTitle = true
-      }
+    },
+    goBack() {
+      this.$router.back();
+    },
+    changeTab(value) {
+      this.previewType = value;
     }
   }
 };
@@ -270,6 +231,9 @@ export default {
     letter-spacing: -0.28px;
     color: var(--gray-500);
   }
+}
+.basic-input {
+  max-width: 348px;
 }
 .sms-title {
   margin: 0 0 20px 0;
