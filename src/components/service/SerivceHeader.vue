@@ -39,6 +39,8 @@ export default {
           return '현황판';
         case '/uc/message/multiSendList':
           return '원스텝메시지';
+        case '/uc/message/sendSms':
+          return '문자';
         default:
           return ''
       }

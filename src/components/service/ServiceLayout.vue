@@ -24,10 +24,11 @@ import SerivceHeader from '@/components/service/SerivceHeader.vue';
 // 스타일 import
 import 'bootstrap/dist/css/bootstrap.css';
 import 'bootstrap/dist/js/bootstrap.bundle';
-import '@/assets/scss/service/main.scss';
 import '@/assets/scss/service/button.scss';
 import '@/assets/scss/service/form.scss';
 import '@/assets/scss/service/table.scss';
+import '@/assets/scss/service/modal.scss';
+import '@/assets/scss/service/main.scss';
 
 export default {
   components: { SideNavBar, SerivceHeader, },

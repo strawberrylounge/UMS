@@ -303,3 +303,12 @@ html, body {
     }
   }
 }
+
+/* 목업 화면 미리보기 */
+.preview-image {
+  width: 320px;
+  min-height: 643px;
+  background: url('@/assets/images/service/preview-mockup.png') no-repeat;
+  background-size: 100% 100%;
+  padding: 55px 35px 35px;
+}

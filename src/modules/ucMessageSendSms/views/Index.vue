@@ -47,7 +47,7 @@
           </b-form-group>
         </div>
         <div class="btn-wrap">
-          <b-button variant="outline-primary" size="sm">템플릿 불러오기</b-button>
+          <b-button variant="outline-primary" size="sm" v-b-modal.select-template-modal>템플릿 불러오기</b-button>
           <b-button variant="outline-primary" size="sm">내용입력</b-button>
         </div>
 
@@ -116,6 +116,7 @@
         </div>
       </div>
     </div>
+    <SelectTemplate />
   </div>
 </template>
 
@@ -124,9 +125,10 @@ import '@/assets/scss/service/message.scss';
 import IconArrowRight from '@/components/service/icons/IconArrowRight.vue';
 import IconArrowDown from '@/components/service/icons/IconArrowDown.vue';
 import IconDownload from '@/components/service/icons/IconDownload.vue';
+import SelectTemplate from '@/modules/ucMessageSendSms/components/modal/SelectTemplate.vue';
 
 export default {
-  components: { IconArrowRight, IconArrowDown, IconDownload, },
+  components: { IconArrowRight, IconArrowDown, IconDownload, SelectTemplate, },
   name: "ucMessageSendSms",
   data() {
     return {
@@ -171,12 +173,6 @@ export default {
     line-height: 140%; /* 28px */
     letter-spacing: -0.4px;
     color: var(--gray-700);
-  }
-  &-image {
-    width: 320px;
-    min-height: 643px;
-    background: url('@/assets/images/service/preview-mockup.png') no-repeat;
-    background-size: 100% 100%;
   }
 }
 .sms-area {
@@ -233,6 +229,11 @@ export default {
   }
   svg {
     margin-left: 4px;
+  }
+  &:not(:disabled):active:focus {
+    background-color: var(--white);
+    border: none;
+    box-shadow: none;
   }
 }
 .receive-btn-wrap {

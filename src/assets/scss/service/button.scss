@@ -20,9 +20,11 @@
     &:hover,
     &:focus,
     &:active,
-    &:focus:active {
+    &:focus:active,
+    &:not(:disabled):not(.disabled):active:focus {
       background-color: var(--primary-400);
       border-color: var(--primary-400);
+      box-shadow: none;
     }
     &:disabled {
       background-color: var(--gray-300);
@@ -56,8 +58,14 @@
   &-outline-primary {
     color: var(--primary);
     border-color: var(--primary);
-    &:hover {
+    &:hover,
+    &:focus,
+    &:active,
+    &:focus:active,
+    &:not(:disabled):not(.disabled):active:focus {
       background-color: var(--primary);
+      box-shadow: none;
+      color: var(--white);
       &.btn-svg path {
         stroke: var(--white);
       }
@@ -118,11 +126,16 @@
   &-sm {
     padding: 5px 15px;
     font-weight: 400;
-    .btn-svg-left svg {
-      margin-right: 4px;
-    }
-    .btn-svg-right svg {
-      margin-left: 4px;
+    &.btn-svg {
+      span {
+        font-weight: 400;
+      }
+      &-left svg {
+        margin-right: 4px;
+      }
+      &-right svg {
+        margin-left: 4px;
+      }
     }
   }
   &-lg { // 사이즈 l
@@ -132,12 +145,12 @@
     font-weight: 700;
     line-height: 140%; /* 22.4px */
     letter-spacing: -0.32px;
-    .btn-svg-left svg {
+    &.btn-svg-left svg {
       width: 20px;
       height: 20px;
       margin-right: 10px;
     }
-    .btn-svg-right svg {
+    &.btn-svg-right svg {
       width: 20px;
       height: 20px;
       margin-left: 10px;

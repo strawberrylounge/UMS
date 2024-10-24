@@ -1,0 +1,57 @@
+@use "../service/abstracts/variables" as *;
+
+.modal {
+  &-dialog {
+    width: 684px;
+    max-height: 900px;
+    overflow-y: auto;
+    border-radius: 24px;
+  }
+  &-content {
+    padding: 0 24px;
+    background: #ECEFF2;
+    border-radius: 12px;
+  }
+  &-header {
+    border: none;
+    padding: 24px 0 20px;
+  }
+  &-title {
+    font-size: 20px;
+    font-weight: 700;
+    line-height: 28px;
+    letter-spacing: -0.02em;
+    color: var(--grary-900);
+  }
+  &-body {
+    padding: 28px;
+    background-color: var(--white);
+    border-radius: 12px;
+  }
+  &-footer {
+    border: none;
+    justify-content: center;
+    padding: 20px 0 24px;
+    .btn {
+      min-width: 100px;
+      & + .btn {
+        margin-left: 12px;
+      }
+    }
+  }
+  &-xl {
+    width: 1159px;
+  }
+  &-l {
+    width: 931px;
+  }
+  &-s {
+    width: 424px;
+  }
+  &-xs {
+    width: 384px;
+  }
+  &-backdrop {
+    background-color: rgba(0, 0, 0, .4);
+  }
+}
