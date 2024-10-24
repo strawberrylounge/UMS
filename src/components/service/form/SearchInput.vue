@@ -32,6 +32,9 @@ export default {
   width: 100%;
   position: relative;
 }
+.form-control {
+  padding-right: 43px;
+}
 .search-icon {
   position: absolute;
   top: 50%;

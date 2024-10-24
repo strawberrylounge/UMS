@@ -48,7 +48,7 @@
         </div>
         <div class="btn-wrap">
           <b-button variant="outline-primary" size="sm" v-b-modal.select-template-modal>템플릿 불러오기</b-button>
-          <b-button variant="outline-primary" size="sm">내용입력</b-button>
+          <b-button variant="outline-primary" size="sm" v-b-modal.add-content-modal>내용입력</b-button>
         </div>
 
         <hr class="hr">
@@ -116,7 +116,8 @@
         </div>
       </div>
     </div>
-    <SelectTemplate />
+    <SelectTemplateModal />
+    <AddContentModal />
   </div>
 </template>
 
@@ -125,10 +126,11 @@ import '@/assets/scss/service/message.scss';
 import IconArrowRight from '@/components/service/icons/IconArrowRight.vue';
 import IconArrowDown from '@/components/service/icons/IconArrowDown.vue';
 import IconDownload from '@/components/service/icons/IconDownload.vue';
-import SelectTemplate from '@/modules/ucMessageSendSms/components/modal/SelectTemplate.vue';
+import SelectTemplateModal from '@/modules/ucMessageSendSms/components/modal/SelectTemplateModal.vue';
+import AddContentModal from '@/modules/ucMessageSendSms/components/modal/AddContentModal.vue';
 
 export default {
-  components: { IconArrowRight, IconArrowDown, IconDownload, SelectTemplate, },
+  components: { IconArrowRight, IconArrowDown, IconDownload, SelectTemplateModal, AddContentModal, },
   name: "ucMessageSendSms",
   data() {
     return {

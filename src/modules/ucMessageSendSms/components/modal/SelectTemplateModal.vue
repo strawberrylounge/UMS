@@ -60,7 +60,6 @@ export default {
   name: "selectTemplateModal",
   data() {
     return {
-      phoneNumber: '',
     }
   },
   methods: {

@@ -2,7 +2,6 @@
 
 .modal {
   &-dialog {
-    width: 684px;
     max-height: 900px;
     overflow-y: auto;
     border-radius: 24px;
@@ -44,6 +43,10 @@
   }
   &-l {
     width: 931px;
+  }
+  &-md {
+    width: 684px;
+    max-width: 684px;
   }
   &-s {
     width: 424px;
