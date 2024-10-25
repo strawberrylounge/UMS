@@ -1,7 +1,7 @@
 <template>
   <nav id="sidebar" class="text-white" :class="{'hide': !isSidebarOpen}">
     <div class="sidebar-header d-flex align-items-center justify-content-between">
-      <a href="/home" class="logo">
+      <a href="/ac/home" class="logo">
         <img src="@/assets/images/service/logo.svg" alt="EC-톡톡" />
       </a>
       <button type="button" class="btn btn-icon border-0" @click="toggleSidebar">
@@ -40,7 +40,7 @@
           <icon-arrow-down />
         </b-button>
         <b-collapse id="collapse-admin-service" class="menu-list">
-          <a href="/uc/message/multiSendList" class="d-flex align-items-center menu-item" :class="{ active: $route.path === '/uc/message/multiSendList' }">
+          <a href="/uc/message/multiSendList" class="d-flex align-items-center menu-item" :class="{ active: $route.path.includes('/uc')}">
             <icon-send />
             <span >발송</span>
           </a>
