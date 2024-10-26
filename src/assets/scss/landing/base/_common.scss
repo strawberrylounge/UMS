@@ -1,0 +1,14 @@
+@use "../abstracts/variables" as v;
+
+.mb {
+  display: block !important;
+  @include v.tablet {
+    display: none !important;
+  }
+}
+.pc {
+  display: none !important;
+  @include v.tablet {
+    display: block !important;
+  }
+}

@@ -119,6 +119,11 @@ html {
   -webkit-text-size-adjust: 100%; /* 2 */
 }
 
+body {
+  font-weight: 500;
+  font-size: 16px;
+}
+
 html,
 body {
   width: 100%;
@@ -169,16 +174,6 @@ section {
 table {
   border-collapse: collapse;
   border-spacing: 0;
-}
-
-/**
- * Correct the font size and margin on `h1` elements within `section` and
- * `article` contexts in Chrome, Firefox, and Safari.
- */
-
-h1 {
-  font-size: 2em;
-  margin: 0.67em 0;
 }
 
 /* Grouping content
@@ -306,27 +301,6 @@ q:after {
   content: none;
 }
 
-/**
- * text break style
- */
-// span,
-// p,
-// h1,
-// h2,
-// h3,
-// h4,
-// h5,
-// h6 {
-//   letter-spacing: -0.025em;
-//   word-break: break-all;
-//   word-wrap: break-word;
-// }
-p {
-  line-height: 1.571;
-  word-break: break-all;
-  word-wrap: break-word;
-  white-space: break-spaces;
-}
 td {
   white-space: break-spaces;
 }
@@ -477,50 +451,6 @@ textarea {
 }
 
 /**
- * Remove the cursor style of increment and decrement buttons
- */
-[type="number"] {
-  -moz-appearance: textfield;
-}
-[type="number"]::-webkit-inner-spin-button,
-[type="number"]::-webkit-outer-spin-button {
-  margin: 0;
-  -webkit-appearance: none;
-}
-
-/**
- * Remove the search icon
- */
-
-[type="search"] {
-  &::-ms-clear,
-  &::-ms-reveal {
-    display: none;
-  }
-  &::-webkit-search-decoration,
-  &::-webkit-search-cancel-button,
-  &::-webkit-search-results-button,
-  &::-webkit-search-results-decoration {
-    display: none;
-  }
-}
-
-/**
- * Hide datepicker's arrow and prompt
- */
-[type="date"] {
-  &::-webkit-calendar-picker-indicater {
-    display: none;
-  }
-  &::-webkit-input-placeholder {
-    visibility: hidden !important;
-  }
-  &::-webkit-datetime-edit {
-    visibility: hidden;
-  }
-}
-
-/**
  * 1. Correct the inability to style clickable types in iOS and Safari.
  * 2. Change font properties to `inherit` in Safari.
  */
@@ -547,32 +477,6 @@ details {
 
 summary {
   display: list-item;
-}
-
-/*
- * remove outline except for keyboard users
- */
-a,
-h1,
-h2,
-h3,
-h4,
-h5,
-h6,
-li,
-th,
-td,
-button {
-  &:focus:not(:focus-visible) {
-    outline: none;
-  }
-  &:focus-visible {
-    outline: 2px solid #f0f0f0;
-  }
-}
-textarea,
-input {
-  outline: none;
 }
 
 /* Misc
@@ -612,4 +516,45 @@ audio:not([controls]) {
 
 [hidden] {
   display: none;
+}
+
+/**
+ * custom
+ */
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  font-weight: 700;
+}
+
+p {
+  line-height: 140%;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+p,
+span {
+  color: #000;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+p,
+span,
+a,
+button {
+  font-weight: 500;
 }

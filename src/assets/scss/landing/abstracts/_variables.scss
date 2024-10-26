@@ -1,14 +1,16 @@
+@use "sass:map";
+
 @forward "./prefix";
 @forward "./responsive";
 @forward "../base//typography";
-@forward "../abstracts/animation";
 
 /* 
 * img path
 */
-$url: "/";
-$img: $url + "img/";
+$url: "@/";
+$img: $url + "assets/images/landing/";
 $icon: $img + "icon/";
+$mainImg: $url + "main/";
 
 /* 
 * colors 
@@ -36,3 +38,11 @@ $colors: (
   primary700: #313170,
   primary800: #1f2937,
 );
+
+@function color($color-name) {
+  @if map.has-key($colors, $color-name) {
+    @return map.get($colors, $color-name);
+  } @else {
+    @error "Color '#{$color-name}' not found in $colors map.";
+  }
+}
