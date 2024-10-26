@@ -15,22 +15,22 @@
 
 <script>
 export default {
-  name: 'HomeSlide',
+  name: "HomeSlide",
   props: {
     title: {
       type: String,
-      required: true
+      required: true,
     },
     data: {
       type: Array,
-      required: true
+      required: true,
     },
-  }
+  },
 };
 </script>
 
 <style scoped lang="scss">
-@use '@/assets/scss/service/base/typography' as *;
+@use "~@/assets/scss/service/base/typography" as *;
 
 #home-carousel {
   max-width: 100%;

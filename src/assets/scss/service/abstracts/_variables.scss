@@ -4,7 +4,7 @@
 /* 
 * img path
 */
-$url: "@/";
+$url: "~@/";
 $img: $url + "assets/images/service/";
 $icon: $img + "icon/";
 
@@ -33,9 +33,9 @@ $colors: (
   primary600: #414296,
   primary700: #313170,
   primary800: #1f2937,
-  red600: #DC2626,
-  states-green: #01BA77,
-  states-yellow: #FFC700,
-  states-blue: #6D6EFA,
-  states-red: #FF594F,
+  red600: #dc2626,
+  states-green: #01ba77,
+  states-yellow: #ffc700,
+  states-blue: #6d6efa,
+  states-red: #ff594f,
 );

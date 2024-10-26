@@ -37,7 +37,8 @@
     "Segoe UI Emoji", "Segoe UI Symbol", sans-serif;
 }
 
-html, body {
+html,
+body {
   width: 100%;
   height: 100%;
 }
@@ -61,9 +62,9 @@ html, body {
       align-items: center;
       padding: 12px;
       border-radius: 8px;
-      border: 1px solid rgba(255, 255, 255, 0.20);
-      background:var(--primary-200);
-      &::after{
+      border: 1px solid rgba(255, 255, 255, 0.2);
+      background: var(--primary-200);
+      &::after {
         display: none;
       }
       svg:last-child {
@@ -164,14 +165,14 @@ html, body {
       left: 16px;
       width: 20px;
       &-icon {
-        background-image: url('#{$icon}icon-caret-left.svg');
+        background-image: url("#{$icon}icon-caret-left.svg");
       }
     }
     &-next {
       right: 16px;
       width: 20px;
       &-icon {
-        background-image: url('#{$icon}icon-caret-right.svg');
+        background-image: url("#{$icon}icon-caret-right.svg");
       }
     }
   }
@@ -258,7 +259,7 @@ html, body {
     line-height: 140%; /* 19.6px */
     letter-spacing: -0.28px;
     color: var(--gray-900);
-    &::after{
+    &::after {
       display: none;
     }
     &:focus {
@@ -290,7 +291,8 @@ html, body {
       &:last-child {
         border-radius: 0 0 8px 8px;
       }
-      a,button {
+      a,
+      button {
         padding: 0;
         font-size: 14px;
         font-weight: 400;
@@ -309,7 +311,7 @@ html, body {
 .preview-image {
   width: 320px;
   min-height: 643px;
-  background: url('@/assets/images/service/preview-mockup.png') no-repeat;
+  background: url("~@/assets/images/service/preview-mockup.png") no-repeat;
   background-size: 100% 100%;
   padding: 55px 35px 35px;
 }

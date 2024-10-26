@@ -2,5 +2,5 @@
   <router-view />
 </template>
 <style lang="scss">
-@use "./assets/scss/landing/main.scss";
+@import "@/assets/scss/landing/main.scss";
 </style>

@@ -1,21 +1,42 @@
-/* import reset */
-@use "./base/reset";
-@use "./base/typography";
+/* import base */
+@use "./base/reset" as *;
 @use "./base/common";
-
-/* import helpers */
+@use "./base/typography";
+/* import abstracts */
+@use "./abstracts/variables" as v;
 @use "./abstracts/a11y";
 @use "./abstracts/animation";
 @use "./abstracts/prefix";
-@use "./abstracts/variables";
+@use "./abstracts/responsive";
 
-/* import layout */
-// @use "./layout/_contents.scss";
-// @use "./layout/_flex.scss";
-// @use "./layout/_grid.scss";
+// landing 모듈에만 적용되는 스타일
+.landing-wrapper {
+  // reset 스타일 적용
+  @include styles;
 
-/* import components */
-// @use "./components/_dialog.scss";
-// @use "./components/_scrollbar.scss";
-// @use "./components/_tables.scss";
-// @use "./components/_text.scss";
+  // 부트스트랩 override
+  &,
+  * {
+    all: revert;
+    box-sizing: border-box;
+  }
+
+  // 부트스트랩 주요 클래스 override
+  .container,
+  .row,
+  .col,
+  [class^="col-"],
+  [class*=" col-"] {
+    all: unset !important;
+    display: block !important;
+  }
+
+  .btn {
+    all: unset !important;
+    cursor: pointer !important;
+    &:hover {
+      all: unset !important;
+      cursor: pointer !important;
+    }
+  }
+}

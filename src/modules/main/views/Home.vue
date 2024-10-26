@@ -1,9 +1,9 @@
 <template>
-  <div class="wrapper">
+  <div class="landing-wrapper">
     <Header />
     <main id="landingMain" class="landing-main">
       <section class="section01">
-        <img :src="require(`${PATHS.MAIN}banner01.png`)" alt="" />
+        <img :src="require(`@/${PATHS.MAIN}banner01.png`)" alt="" />
         <div class="btn-area">
           <button type="button" class="btn-detail">자세히 알아보기</button>
           <a href="#" class="btn-inquiry"></a>
@@ -21,7 +21,7 @@
 <script>
 import Footer from "../components/Footer.vue";
 import Header from "../components/Header.vue";
-import { PATHS } from "../constants/\bpaths";
+import { PATHS } from "../constants/paths";
 
 export default {
   name: "Home",
