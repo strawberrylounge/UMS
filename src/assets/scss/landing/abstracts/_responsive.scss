@@ -9,12 +9,12 @@ $screen-full: 1920px;
 //   }
 // }
 @mixin tablet {
-  @media (min-width:#{$screen-tablet}) and (max-width:#{$screen-desktop - 1px}) {
+  @media (min-width:#{$screen-tablet}) {
     @content;
   }
 }
 @mixin desktop {
-  @media (min-width:#{$screen-desktop}) and (max-width:#{$screen-full - 1px}) {
+  @media (min-width:#{$screen-desktop}) {
     @content;
   }
 }

@@ -9,9 +9,7 @@
 @use "./abstracts/prefix";
 @use "./abstracts/responsive";
 
-// landing 모듈에만 적용되는 스타일
 .landing-wrapper {
-  // reset 스타일 적용
   @include styles;
 
   // 부트스트랩 override
@@ -20,6 +18,9 @@
     all: revert;
     box-sizing: border-box;
   }
+
+  height: 100%;
+  min-height: 100%;
 
   // 부트스트랩 주요 클래스 override
   .container,
