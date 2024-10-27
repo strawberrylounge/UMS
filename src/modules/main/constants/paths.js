@@ -3,6 +3,7 @@ const BASE = "assets/";
 const IMAGES = `${BASE}images/landing/`;
 
 export const PATHS = {
+  IMAGE: `${IMAGES}`,
   ICON: `${IMAGES}icon/`,
-  MAIN: `${IMAGES}main/`,
+  BANNER: `${IMAGES}banner/`,
 };
