@@ -215,6 +215,8 @@ export default {
 </script>
 
 <style scoped lang="scss">
+@use "~@/assets/scss/service/base/typography" as typography;
+
 .radio-group {
   margin: 0;
 }
@@ -243,10 +245,7 @@ export default {
     span {
       max-width: 240px;
       overflow: hidden;
-      font-size: 16px;
-      font-weight: 500;
-      line-height: 140%; /* 22.4px */
-      letter-spacing: -0.32px;
+      @include typography.font-style(16px, 500, 140%, -0.32px);
       color: var(--gray900);
     }
     .btn {

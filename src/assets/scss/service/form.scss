@@ -1,6 +1,8 @@
 @use "sass:map";
 
 @use "../service/abstracts/variables" as *;
+@use "../../scss/service/base/typography" as typography;
+
 
 /* input */
 .form-control  {
@@ -11,10 +13,7 @@
   border: 1px solid var(--border-color);
   background: var(--white);
   box-shadow: none;
-  font-size: 14px;
-  font-weight: 400;
-  line-height: 140%; /* 19.6px */
-  letter-spacing: -0.28px;
+  @include typography.font-style(14px, 400, 140%, -0.28px);
   color: var(--gray900);
   &::placeholder {
     color: var(--gray400);
@@ -45,10 +44,7 @@ textarea.form-control {
   resize: none;
 }
 .textarea-count {
-  font-size: 14px;
-  font-weight: 500;
-  line-height: 140%; /* 19.6px */
-  letter-spacing: -0.28px;
+  @include typography.font-style(14px, 500, 140%, -0.28px);
   color: var(--gray600);
 }
 
@@ -85,10 +81,7 @@ textarea.form-control {
     }
   }
   label.custom-control-label {
-    font-size: 14px;
-    font-weight: 400;
-    line-height: 20px;
-    letter-spacing: -0.28px;
+    @include typography.font-style(14px, 400, 20px, -0.28px);
     color: var(--gray900);
     &::before {
       top: 2px;
@@ -106,10 +99,7 @@ textarea.form-control {
       left: -22px;
     }
     span {
-      font-size: 14px;
-      font-weight: 400;
-      line-height: 20px;
-      letter-spacing: -0.28px;
+      @include typography.font-style(14px, 400, 20px, -0.28px);
       color: var(--gray900);
     }
   }
@@ -161,10 +151,7 @@ textarea.form-control {
     margin: 0;
     padding: 0;
     border: none;
-    font-size: 14px;
-    font-weight: 400;
-    line-height: 140%; /* 19.6px */
-    letter-spacing: -0.28px;
+    @include typography.font-style(14px, 400, 140%, -0.28px);
     color: var(--gray900);
     word-break: auto-phrase;
     &.text-muted {
@@ -183,10 +170,7 @@ textarea.form-control {
     span.rounded-circle{
       width: 100%;
       font-family: Pretendard;
-      font-size: 14px;
-      font-weight: 400;
-      line-height: 140%; /* 19.6px */
-      letter-spacing: -0.28px;
+      @include typography.font-style(14px, 400, 140%, -0.28px);
       &:hover,
       &:active,
       &.active {
@@ -231,10 +215,7 @@ textarea.form-control {
   }
   label.custom-control-label {
     padding: 4px 0;
-    font-size: 14px;
-    font-weight: 400;
-    line-height: 140%; /* 19.6px */
-    letter-spacing: -0.28px;
+    @include typography.font-style(14px, 400, 140%, -0.28px);
     color: var(--gray900);
     &::before {
       top: 6px;
@@ -267,10 +248,7 @@ textarea.form-control {
     label.custom-control-label {
       padding: 0 0 27px 0;
       text-align: center;
-      font-size: 14px;
-      font-weight: 400;
-      line-height: 140%; /* 19.6px */
-      letter-spacing: -0.28px;
+      @include typography.font-style(14px, 400, 140%, -0.28px);
       color: var(--gray700);
       &::before {
         top: initial;
@@ -334,10 +312,7 @@ textarea.form-control {
     border-radius: 8px;
     border: 1px solid var(--border-color);
     background: var(--white);
-    font-size: 14px;
-    font-weight: 400;
-    line-height: 140%; /* 19.6px */
-    letter-spacing: -0.28px;
+    @include typography.font-style(14px, 400, 140%, -0.28px);
     color: var(--gray900);
     &::placeholder {
       color: var(--gray400);

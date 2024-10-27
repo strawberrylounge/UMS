@@ -37,7 +37,7 @@
 
     <div class="upload-area">
       <b-form-file v-model="file" class="mt-3" plain ref="fileInput"></b-form-file>
-      <span>이미지 영역</span>
+      <span class="f-body6 c-gray700">이미지 영역</span>
     </div>
 
     <template #modal-footer>
@@ -118,13 +118,6 @@ export default {
   height: 333px;
   border: 1px solid #DDE1E7;
   border-radius: 12px;
-  span {
-    font-size: 14px;
-    font-weight: 400;
-    line-height: 180%; /* 25.2px */
-    letter-spacing: -0.28px;
-    color: var(--gray700);
-  }
   input {
     position: absolute;
     width: 100%;

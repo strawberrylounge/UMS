@@ -259,6 +259,8 @@ export default {
 </script>
 
 <style scoped lang="scss">
+@use "~@/assets/scss/service/base/typography" as typography;
+
 .search-area {
   display: flex;
   align-items: center;
@@ -270,10 +272,7 @@ export default {
   }
   label {
     margin: 0;
-    font-size: 14px;
-    font-weight: 500;
-    line-height: 140%; /* 19.6px */
-    letter-spacing: -0.28px;
+    @include typography.font-style(14px, 500, 140%, -0.28px);
     color: var(--gray700);
   }
 }
@@ -294,10 +293,7 @@ export default {
   }
   & > span {
     padding: 0 12px;
-    font-size: 16px;
-    font-weight: 700;
-    line-height: 140%; /* 22.4px */
-    letter-spacing: -0.32px;
+    @include typography.font-style(16px, 700, 140%, -0.32px);
     color: var(--gray500);
   }
 }
@@ -318,10 +314,7 @@ export default {
   padding: 0;
   span {
     padding-right: 8px;
-    font-size: 14px;
-    font-weight: 500;
-    line-height: 140%; /* 19.6px */
-    letter-spacing: -0.28px;
+    @include typography.font-style(14px, 500, 140%, -0.28px);
     text-decoration-line: underline;
     color: var(--gray700);
   }
@@ -358,10 +351,7 @@ export default {
 }
 .list-count {
   margin: 0 12px 0 0;
-  font-size: 14px;
-  font-weight: 700;
-  line-height: 140%; /* 19.6px */
-  letter-spacing: -0.28px;
+  @include typography.font-style(14px, 700, 140%, -0.28px);
   color: var(--gray500);
 
   span {

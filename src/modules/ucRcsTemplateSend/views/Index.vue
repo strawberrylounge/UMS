@@ -321,10 +321,7 @@ export default {
         border: 1px solid var(--border-color);
         border-radius: 0;
         text-align: center;
-        font-size: 14px;
-        font-weight: 500;
-        line-height: 140%; /* 19.6px */
-        letter-spacing: -0.28px;
+        @include typography.font-style(14px, 500, 140%, -0.28px);
         color: #6E6F73;
       }
       & + .tab {

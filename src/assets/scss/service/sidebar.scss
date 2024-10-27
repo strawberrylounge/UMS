@@ -1,3 +1,5 @@
+@use "../../scss/service/base/typography" as typography;
+
 #sidebar {
   flex: 0 0 260px ;
   width: 260px;
@@ -33,9 +35,7 @@
     }
     .name {
       padding-left: 6px;
-      font-size: 14px;
-      font-weight: 700;
-      letter-spacing: -0.28px;
+      @include typography.font-style(14px, 700, 140%, -0.28px);
     }
     .dropdown-menu {
       min-width: 212px;
@@ -51,10 +51,7 @@
     }
     .dropdown-item {
       padding: 0;
-      font-size: 14px;
-      font-weight: 700;
-      line-height: 140%;
-      letter-spacing: -0.28px;
+      @include typography.font-style(14px, 700, 140%, -0.28px);
       color: var(--gray600);
     }
     .dropdown-divider {
@@ -85,10 +82,7 @@
     p {
       margin: 0;
       padding: 0 12px 12px;
-      font-size: 18px;
-      font-weight: 700;
-      line-height: 160%; /* 28.8px */
-      letter-spacing: -0.36px;
+      @include typography.font-style(18px, 700, 160%, -0.36px);
     }
   }
   .sidebar-menu {
@@ -100,10 +94,7 @@
       background-color: transparent;
       border: none;
       color: #ECEFF2;
-      font-size: 14px;
-      font-weight: 700;
-      line-height: 140%;
-      letter-spacing: -0.28px;
+      @include typography.font-style(14px, 700, 140%, -0.28px);
       text-align: left;
   
       &:disabled {
@@ -151,10 +142,7 @@
       }
   
       span {
-        font-size: 14px;
-        font-weight: 700;
-        line-height: 140%; /* 19.6px */
-        letter-spacing: -0.28px;
+        @include typography.font-style(14px, 700, 140%, -0.28px);
         color: var(--white);
       }
   

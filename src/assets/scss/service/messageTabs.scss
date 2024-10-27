@@ -1,3 +1,5 @@
+@use "../../scss/service/base/typography" as typography;
+
 .message-tabs-wrap {
   display: flex;
   align-items: center;
@@ -32,10 +34,7 @@
         border: none;
         border-radius: 0;
         background-color: transparent;
-        font-size: 20px;
-        font-weight: 700;
-        line-height: 140%; /* 28px */
-        letter-spacing: -0.4px;
+        @include typography.font-style(20px, 700, 140%, -0.4px);
         color: var(--gray500);
       }
     }

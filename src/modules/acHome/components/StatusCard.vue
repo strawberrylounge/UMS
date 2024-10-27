@@ -20,6 +20,8 @@ export default {
 </script>
 
 <style scoped lang="scss">
+@use "~@/assets/scss/service/base/typography" as typography;
+
 .status-card {
   width: 20%;
   padding: 0 12.5px;
@@ -34,18 +36,12 @@ export default {
   }
   &-title {
     margin: 0;
-    font-size: 18px;
-    font-weight: 700;
-    line-height: 140%; /* 25.2px */
-    letter-spacing: -0.36px;
+    @include typography.font-style(18px, 700, 140%, -0.36px);
     color: var(--gray400);
   }
   &-text {
     margin: 0;
-    font-size: 20px;
-    font-weight: 700;
-    line-height: 140%; /* 28px */
-    letter-spacing: -0.4px;
+    @include typography.font-style(20px, 700, 140%, -0.4px);
     color: var(--gray700);
     span {
       padding-right: 4px;

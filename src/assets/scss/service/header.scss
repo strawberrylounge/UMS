@@ -1,3 +1,5 @@
+@use "../../scss/service/base/typography" as typography;
+
 #header {
   .cash-dropdown.b-dropdown.dropdown {
     &.show > .btn-primary.dropdown-toggle {
@@ -29,10 +31,7 @@
       align-items: center;
       margin: 0;
       span {
-        font-size: 16px;
-        font-weight: 500;
-        line-height: 140%; /* 22.4px */
-        letter-spacing: -0.32px;
+        @include typography.font-style(16px, 500, 140%, -0.32px);
         color: var(--gray700);
         &:last-child {
           margin-left: auto;

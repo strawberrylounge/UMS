@@ -1,4 +1,4 @@
-@use "../../scss/service/abstracts/variables" as *;
+@use "../../scss/service/base/typography" as typography;
 
 /* 버튼 */
 .btn {
@@ -7,10 +7,7 @@
   justify-content: center;
   padding: 11px 15px;
   border-radius: 8px;
-  font-size: 14px;
-  font-weight: 700;
-  line-height: 140%; /* 19.6px */
-  letter-spacing: -0.28px;
+  @include typography.font-style(14px, 700, 140%, -0.28px);
   &:focus {
     box-shadow: none;
   }
@@ -155,10 +152,7 @@
   &-lg { // 사이즈 l
     padding: 14px 19px;
     border-radius: 12px;
-    font-size: 16px;
-    font-weight: 700;
-    line-height: 140%; /* 22.4px */
-    letter-spacing: -0.32px;
+    @include typography.font-style(16px, 700, 140%, -0.32px);
     &.btn-svg-left svg {
       width: 20px;
       height: 20px;
@@ -174,10 +168,7 @@
     & > .btn {
       padding: 14px 18px;
       border-radius: 12px;
-      font-size: 16px;
-      font-weight: 700;
-      line-height: 140%; /* 22.4px */
-      letter-spacing: -0.32px;
+      @include typography.font-style(16px, 700, 140%, -0.32px);
     }
   }
   &-icon {
@@ -187,10 +178,7 @@
     line-height: 1;
     font-size: 0;
     span {
-      font-size: 14px;
-      font-weight: 700;
-      line-height: 140%;
-      letter-spacing: -0.28px;
+      @include typography.font-style(14px, 700, 140%, -0.28px);
     }
     &-left svg {
       width: 16px;
@@ -207,10 +195,7 @@
     padding: 5px 11px;
     border: 1px solid var(--border-color);
     border-radius: 100px;
-    font-size: 14px;
-    font-weight: 500;
-    line-height: 140%; /* 19.6px */
-    letter-spacing: -0.28px;
+    @include typography.font-style(14px, 500, 140%, -0.28px);
     color: var(--gray700);
     &.active {
       background: rgba(109, 110, 250, 0.10);

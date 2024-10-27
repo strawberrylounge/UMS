@@ -178,6 +178,8 @@ export default {
 </script>
 
 <style scoped lang="scss">
+@use "~@/assets/scss/service/base/typography" as typography;
+
 .form-group {
   display: flex;
   margin-bottom: 20px;
@@ -248,10 +250,7 @@ export default {
   }
   .btn + span {
     padding-left: 29px;
-    font-size: 14px;
-    font-weight: 400;
-    line-height: 140%; /* 19.6px */
-    letter-spacing: -0.28px;
+    @include typography.font-style(14px, 400, 140%, -0.28px);
     color: var(--gray900);
   }
   .menu-list-sub {

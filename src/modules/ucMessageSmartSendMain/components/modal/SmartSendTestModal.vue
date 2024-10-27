@@ -48,22 +48,6 @@ export default {
 </script>
 
 <style scoped lang="scss">
-.title-desc {
-  margin: 20px 0 0;
-  font-size: 14px;
-  font-weight: 700;
-  line-height: 140%; /* 19.6px */
-  letter-spacing: -0.28px;
-  color: var(--gray500);
-}
-label {
-  margin-bottom: 12px;
-  font-size: 14px;
-  font-weight: 500;
-  line-height: 140%; /* 19.6px */
-  letter-spacing: -0.28px;
-  color: var(--gray500);
-}
 .form-row {
   display: flex;
   & > * {

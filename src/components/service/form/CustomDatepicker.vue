@@ -46,6 +46,8 @@ export default {
 </script>
 
 <style scoped lang="scss">
+@use "~@/assets/scss/service/base/typography" as typography;
+
 .datepicker-container {
   position: relative;
 }
@@ -60,10 +62,7 @@ export default {
   border: 1px solid var(--border-color);
   background: var(--white);
   box-shadow: none;
-  font-size: 14px;
-  font-weight: 400;
-  line-height: 140%; /* 19.6px */
-  letter-spacing: -0.28px;
+  @include typography.font-style(14px, 400, 140%, -0.28px);
   color: var(--gray900);
   &::placeholder {
     color: var(--gray400);
