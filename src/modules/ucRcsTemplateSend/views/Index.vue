@@ -1,38 +1,20 @@
 <template>
   <div class="uc-message-send-sms">
-    <!-- 탭 Start -->
-    <div class="tabs-wrap">
-      <div class="service-tabs">
-        <div class="tab">
-          <a href="/uc/message/multiSendList">원스텝메시지</a>
-        </div>
-        <div class="tab">
-          <a href="/uc/message/sendSms">문자</a>
-        </div>
-        <div class="tab active">
-          <a href="#">RCS</a>
-        </div>
-        <div class="tab">
-          <a href="/uc/message/sendAlimTalk">카카오톡</a>
-        </div>
-      </div>
-      <p class="breadcrumb">발송 > RCS</p>
-    </div>
-    <!-- 탭 End -->
+    <MessageTabs />
 
-    <div class="tab-contents">
+    <div class="d-flex tab-contents">
       <div class="preview card">
         <p class="preview-title">미리보기</p>
-        <div class="preview-image">
-        </div>
+        <PreviewDefault>
+        </PreviewDefault>
       </div>
       <div class="section card">
-        <div class="card-title">
-          <p>RCS 상품</p>
-          <p>* RCS 유형을 먼저 선택해 주십시오. 템플릿형은 광고성 메세지를 보내실 수 없습니다.</p>
+        <div class="d-flex align-items-end">
+          <p class="m-0 mr-1 pr-2 f-title1 c-gray900">RCS 상품</p>
+          <p class="m-0 ml-3 f-body4 f-bold c-gray500">* RCS 유형을 먼저 선택해 주십시오. 템플릿형은 광고성 메세지를 보내실 수 없습니다.</p>
         </div>
 
-        <!-- 템플릿 탭 Start -->
+        <!-- 승인/비승인 탭 Start -->
         <div class="sub-tabs-wrap">
           <div class="service-sub-tabs">
             <div class="tab" :class="{active: subTab === 'allow'}">
@@ -43,7 +25,7 @@
             </div>
           </div>
         </div>
-        <!-- 템플릿 탭 End -->
+        <!-- 승인/비승인 탭 End -->
 
         <!-- 승인 템플릿 탭 Start -->
         <div v-if="subTab === 'allow'" class="template-tabs-wrap">
@@ -124,12 +106,12 @@
         <div class="d-flex align-items-center">
           <label class="form-labal">템플릿</label>
           <div class="receive-btn-wrap">
-            <b-button variant="outline-primary" size="sm" v-b-modal.select-template-modal>RCS 템플릿 선택</b-button>
+            <b-button variant="outline-primary" size="sm" v-b-modal.select-rcs-template-modal>RCS 템플릿 선택</b-button>
           </div>
         </div>
-        <div class="d-flex align-items-center sms-select">
+        <div class="d-flex align-items-center my-1 py-3">
           <label class="form-labal">발신번호</label>
-          <b-form-group class="radio-group">
+          <b-form-group class="m-0">
             <b-form-radio-group inline>
               <b-form-radio name="some-radios" value="A">불가능</b-form-radio>
               <b-form-radio name="some-radios" value="B">가능</b-form-radio>
@@ -167,14 +149,14 @@
               <span>엑셀 업로드</span>
               <IconArrowRight />
             </b-button>
-            <b-button variant="light" class="btn btn-sm btn-svg btn-svg-right btn-download">
+            <b-button variant="light" class="btn btn-sm btn-svg btn-svg-right btn-sample-download">
               <span>샘플 다운로드</span>
               <IconDownload />
             </b-button>
           </div>
         </div>
         <div class="d-flex align-items-center receive-count">
-          <p>수신자: <span class="text-primary">0명</span></p>
+          <p class="m-0 mr-1 pr-3 f-body4 c-gray600">수신자: <span class="text-primary">0명</span></p>
           <b-button variant="outline-secondary" size="sm">수신자 모두삭제</b-button>
         </div>
         <div class="receive-table">
@@ -234,7 +216,7 @@
 
     <SearchAddressModal />
     <EnterReceiverModal />
-    <SelectTemplateModal />
+    <SelectRcsTemplateModal />
     <ConfirmModal title="RCS 발송" desc="템플릿을 변경하면 입력된 데이터가 모두 초기화됩니다. 변경하시겠습니까?" />
   </div>
 </template>
@@ -251,10 +233,12 @@ import EnterReceiverModal from '@/modules/ucMessageSendSms/components/modal/Ente
 import IconClose from '@/components/service/icons/IconClose.vue';
 import CustomDatepicker from '@/components/service/form/CustomDatepicker.vue'
 import ConfirmModal from '@/components/service/modal/ConfirmModal.vue'
-import SelectTemplateModal from '@/modules/ucMessageSendSms/components/modal/SelectTemplateModal.vue';
+import MessageTabs from '@/components/service/message/MessageTabs.vue'
+import PreviewDefault from '@/components/service/preview/PreviewDefault.vue'
+import SelectRcsTemplateModal from '@/modules/ucRcsTemplateSend/components/modal/SelectRcsTemplateModal.vue';
 
 export default {
-  components: { IconQuestion, TemplateCard, IconArrowDown, IconArrowRight, IconDownload, IconClose, SearchAddressModal, EnterReceiverModal, CustomDatepicker, ConfirmModal, SelectTemplateModal },
+  components: { IconQuestion, TemplateCard, IconArrowDown, IconArrowRight, IconDownload, IconClose, SearchAddressModal, EnterReceiverModal, CustomDatepicker, ConfirmModal, SelectRcsTemplateModal, MessageTabs, PreviewDefault, },
   name: "ucRcsTemplateSend",
   data() {
     return {
@@ -292,57 +276,8 @@ export default {
 </script>
 
 <style scoped lang="scss">
-.tabs-wrap {
-  display: flex;
-  align-items: center;
-  padding: 28px 40px 0;
-  border-bottom: 1px solid var(--border-color);
-}
-.breadcrumb {
-  margin: 0 0 0 auto;
-  padding: 0;
-  font-size: 14px;
-  font-weight: 500;
-  line-height: 140%; /* 19.6px */
-  letter-spacing: -0.28px;
-  color: var(--gray700);
-  white-space: nowrap;
-}
-.tab-contents {
-  display: flex;
-  padding: 20px 40px 64px;
-}
-.preview {
-  padding: 28px;
-  &-title {
-    margin: 0 0 28px 0;
-    font-size: 20px;
-    font-weight: 700;
-    line-height: 140%; /* 28px */
-    letter-spacing: -0.4px;
-    color: var(--gray700);
-  }
-}
-.card-title {
-  display: flex;
-  align-items: end;
-  p {
-    margin: 0;
-    font-size: 20px;
-    font-weight: 700;
-    line-height: 140%; /* 28px */
-    letter-spacing: -0.4px;
-    color: var(--gray900);
-    & + p {
-      margin-left: 28px;
-      font-size: 14px;
-      font-weight: 700;
-      line-height: 140%; /* 19.6px */
-      letter-spacing: -0.28px;
-      color: var(--gray500);
-    }
-  }
-}
+@use "../../../assets/scss/service/base/typography" as typography;
+
 .service-sub-tabs {
   display: flex;
   margin-top: 28px;
@@ -352,10 +287,7 @@ export default {
       margin: 0;
       padding: 0 0 12px 0;
       border: none;
-      font-size: 16px;
-      font-weight: 700;
-      line-height: 140%; /* 22.4px */
-      letter-spacing: -0.32px;
+      @include typography.font-style(16px, 700, 140%, -0.32px);
       color: var(--gray500)
     }
     & + .tab {
@@ -421,82 +353,14 @@ export default {
     margin-left: 12px;
   }
 }
-.hr {
-  margin: 24px 0;
-}
+
 .radio-info {
   margin-left: 8px;
-  font-size: 14px;
-  font-weight: 500;
-  line-height: 140%; /* 19.6px */
-  letter-spacing: -0.28px;
+  @include typography.font-style(14px, 500, 140%, -0.28px);
   color: var(--gray600)
-}
-.radio-group {
-  margin: 0;
 }
 .custom-radio:not(.custom-radio-vertical) {
   margin-right: 20px;
-}
-.sms-select {
-  margin: 20px 0;
-}
-.image-select {
-  margin-top: 20px;
-  &-list {
-    margin: 0 0 0 28px;
-    padding: 0;
-    list-style: none;
-    li {
-      display: flex;
-      align-items: center;
-      & + li {
-        margin-top: 16px;
-      }
-    }
-    span {
-      max-width: 240px;
-      overflow: hidden;
-      font-size: 16px;
-      font-weight: 500;
-      line-height: 140%; /* 22.4px */
-      letter-spacing: -0.32px;
-      color: var(--gray900);
-    }
-    .btn {
-      margin-left: 12px;
-    }
-  }
-}
-.btn-wrap {
-  padding-left: 132px;
-  button + button {
-    margin-left: 12px;
-  }
-}
-.hr {
-  margin: 24px 0;
-}
-.btn-download {
-  padding: 0;
-  background-color: var(--white);
-  border: none;
-  span {
-    font-size: 14px;
-    font-weight: 400;
-    line-height: 140%; /* 19.6px */
-    letter-spacing: -0.28px;
-    color: var(--gray700);
-    text-decoration-line: underline;
-  }
-  svg {
-    margin-left: 4px;
-  }
-  &:not(:disabled):active:focus {
-    background-color: var(--white);
-    border: none;
-    box-shadow: none;
-  }
 }
 .receive-btn-wrap {
   button + button {
