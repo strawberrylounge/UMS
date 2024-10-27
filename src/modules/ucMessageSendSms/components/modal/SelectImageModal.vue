@@ -8,13 +8,13 @@
       </p>
     </template>
 
-    <div class="table-title">
-      <label>업로드한 이미지</label>
-      <b-button variant="outline-primary" class="btn-svg btn-svg-right" v-b-modal.upload-image-modal>
+    <div class="d-flex align-items-center mb-1 pb-3">
+      <label class="mr-auto mb-0 f-body1 c-gray900">업로드한 이미지</label>
+      <b-button variant="outline-primary" class="btn-svg btn-svg-right mr-1" v-b-modal.upload-image-modal>
         <span>이미지 추가</span>
         <IconPlus />
       </b-button>
-      <b-button variant="outline-secondary" v-b-modal.confirm-modal>삭제</b-button>
+      <b-button variant="outline-secondary" class="ml-2" v-b-modal.confirm-modal>삭제</b-button>
     </div>
 
     <div class="table-responsive sticky-header">
@@ -115,37 +115,11 @@ export default {
 </script>
 
 <style scoped lang="scss">
-.title-desc {
-  margin: 20px 0 0;
-  font-size: 14px;
-  font-weight: 700;
-  line-height: 140%; /* 19.6px */
-  letter-spacing: -0.28px;
-  color: var(--gray500);
-  span {
-    color: var(--status-failure);
-  }
-}
+@use "../../../../assets/scss/service/base/typography" as typography;
+
 .sticky-header {
   max-height: 350px;
   overflow-y: auto;
-}
-.table-title {
-  display: flex;
-  align-items: center;
-  margin-bottom: 20px;
-  label {
-    margin-right: auto;
-    margin-bottom: 0;
-    font-size: 16px;
-    font-weight: 700;
-    line-height: 140%; /* 22.4px */
-    letter-spacing: -0.32px;
-    color: var(--gray900);
-  }
-  .btn-outline-secondary {
-    margin-left: 12px;
-  }
 }
 .btn-icon path {
   stroke: var(--primary);
@@ -158,10 +132,7 @@ export default {
   background: var(--gray50);
   list-style: none;
   li {
-    font-size: 14px;
-    font-weight: 400;
-    line-height: 180%; /* 25.2px */
-    letter-spacing: -0.28px;
+    @include typography.font-style(14px, 400, 180%, -0.28px);
     color: var(--gray700);
   }
 }

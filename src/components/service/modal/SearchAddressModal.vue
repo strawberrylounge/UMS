@@ -2,7 +2,7 @@
   <b-modal id="search-address-modal" content-class="service-modal search-address-modal" hide-header-close centered size="lg">
     <template #modal-title>
       <h5 class="modal-title">수신 주소록 검색</h5>
-      <p class="mt-1 pt-3 mb-0 f-body3 f-bold c-gray500">* 조직 조회 후 체크된 사용자를 선택하면 수신자에 추가됩니다.</p>
+      <p class="title-desc">* 조직 조회 후 체크된 사용자를 선택하면 수신자에 추가됩니다.</p>
     </template>
 
     <label id="search" class="mb-1 pb-2 f-body4 c-gray500">템플릿 검색</label>

@@ -3,8 +3,8 @@
     <template #modal-title>
       <h5 class="modal-title">수신자 직접입력</h5>
       <div class="d-flex align-items-end justify-content-between w-100">
-        <p class="mt-1 pt-3 mb-0 f-body3 f-bold c-gray500">* 입력 후 선택 버튼을 누르면 수신자에 추가됩니다.<br/>
-          <span class="c-failure">* 최대 30개까지 추가 가능합니다.</span></p>
+        <p class="title-desc">* 입력 후 선택 버튼을 누르면 수신자에 추가됩니다.<br/>
+          <span>* 최대 30개까지 추가 가능합니다.</span></p>
         <b-button variant="outline-primary" class="btn-svg btn-svg-right ms-auto" @click="addReceiver">
           <span>수신자 추가</span>
           <IconPlus />

@@ -33,8 +33,8 @@
         </div>
         <div class="btn-wrap">
           <b-button variant="outline-primary" size="sm" v-b-modal.select-template-modal>템플릿 불러오기</b-button>
-          <b-button v-if="type === 'MMS'" variant="outline-primary" size="sm" v-b-modal.add-mms-content-modal>내용입력</b-button>
-          <b-button v-else variant="outline-primary" size="sm" v-b-modal.add-content-modal>내용입력</b-button>
+          <b-button v-show="type === 'MMS'" variant="outline-primary" size="sm" v-b-modal.add-mms-content-modal>내용입력</b-button>
+          <b-button v-show="type === 'SMS' || type === 'LMS'" variant="outline-primary" size="sm" v-b-modal.add-content-modal>내용입력</b-button>
         </div>
 
         <div v-if="type === 'MMS'" class="d-flex align-items-start image-select">

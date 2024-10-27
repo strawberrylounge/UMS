@@ -2,7 +2,7 @@
   <b-modal id="smart-send-test-modal" content-class="service-modal" hide-header-close centered size="md">
     <template #modal-title>
       <h5 class="modal-title">테스트 발송</h5>
-      <p class="mt-1 pt-3 mb-0 f-body3 f-bold c-gray500">* 테스트 발송 시 대체 발송은 하지 않습니다.</p>
+      <p class="title-desc">* 테스트 발송 시 대체 발송은 하지 않습니다.</p>
     </template>
 
     <div class="d-flex form-row">

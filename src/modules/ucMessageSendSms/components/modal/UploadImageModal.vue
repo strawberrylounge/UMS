@@ -11,7 +11,7 @@
       <li>• 이미지 용량은 300KB 이하여야 합니다.</li>
     </ul>
 
-    <label>이미지 사용 채널</label>
+    <label class="mt-1 pt-3 mb-0 f-body1 c-gray900">이미지 사용 채널</label>
     <div class="checkbox-wrap">
       <b-form-checkbox value="MMS" >MMS</b-form-checkbox>
       <b-button v-b-tooltip.hover.html="mmsTooltip" variant="dark" class="btn-icon p-0">
@@ -49,13 +49,11 @@
 </template>
 
 <script>
-import IconPlus from '@/components/service/icons/IconPlus.vue'
-import IconSearch from '@/components/service/icons/IconSearch.vue'
 import IconQuestion from '@/components/service/icons/IconQuestion.vue'
 import IconArrowDown from '@/components/service/icons/IconArrowDown.vue'
 
 export default {
-  components: { IconPlus, IconSearch, IconQuestion, IconArrowDown, },
+  components: { IconQuestion, IconArrowDown, },
   name: "UploadImageModal",
   data() {
     return {
@@ -85,14 +83,8 @@ export default {
 </script>
 
 <style scoped lang="scss">
-.title-desc {
-  margin: 20px 0 0;
-  font-size: 14px;
-  font-weight: 700;
-  line-height: 140%; /* 19.6px */
-  letter-spacing: -0.28px;
-  color: var(--gray500);
-}
+@use "../../../../assets/scss/service/base/typography" as typography;
+
 .info {
   margin: 20px 0 0;
   padding: 16px;
@@ -101,10 +93,7 @@ export default {
   background: var(--gray50);
   list-style: none;
   li {
-    font-size: 14px;
-    font-weight: 400;
-    line-height: 180%; /* 25.2px */
-    letter-spacing: -0.28px;
+    @include typography.font-style(14px, 400, 180%, -0.28px);
     color: var(--gray700);
   }
 }
@@ -120,14 +109,6 @@ export default {
 }
 .channel-dropdown {
   width: 123px;
-}
-label {
-  margin: 20px 0 0;
-  font-size: 16px;
-  font-weight: 700;
-  line-height: 140%; /* 22.4px */
-  letter-spacing: -0.32px;
-  color: var(--gray900);
 }
 .upload-area {
   position: relative;

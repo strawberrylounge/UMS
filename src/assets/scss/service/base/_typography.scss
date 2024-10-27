@@ -35,9 +35,9 @@
 .f-body3 {
   @include font-style(16px, 400, 140%, -0.32px);
 }
-.f-body3 {
-  @include font-style(14px, 700, 140%, -0.28px);
-}
+// .f-body3 {
+//   @include font-style(14px, 700, 140%, -0.28px);
+// }
 .f-body2 {
   @include font-style(16px, 500, 140%, -0.32px);
 }

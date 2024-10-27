@@ -2,7 +2,7 @@
   <b-modal id="select-template-modal" title="템플릿 선택" hide-header-close size="xl" centered>
     <div class="d-flex">
       <div class="template-area">
-        <label for="template">템플릿 검색</label>
+        <label for="template" class="f-body4 c-gray500">템플릿 검색</label>
         <b-input-group class="w-100">
           <b-form-input></b-form-input>
           <b-input-group-append>
@@ -10,8 +10,8 @@
           </b-input-group-append>
         </b-input-group>
         <div class="d-flex justify-content-between">
-          <label>템플릿 이름 (템플릿 ID)</label>
-          <span class="count">총 <span class="text-primary">2건</span></span>
+          <label class="f-body4 c-gray500">템플릿 이름 (템플릿 ID)</label>
+          <span class="f-body4 f-bold c-gray500">총 <span class="text-primary">2건</span></span>
         </div>
         <div class="dropdown b-dropdown list">
           <ul class="dropdown-menu show">
@@ -22,7 +22,7 @@
         </div>
       </div>
       <div class="template-area">
-        <p class="sub-title">템플릿 내용</p>
+        <p class="m-0 mb-1 pb-3 f-body1 c-gray700">템플릿 내용</p>
         <dl>
           <dt>발송유형</dt>
           <dd>SMS</dd>
@@ -77,13 +77,6 @@ export default {
   & + .template-area {
     border-left: 1px solid var(--border-color);
   }
-  label {
-    font-size: 14px;
-    font-weight: 500;
-    line-height: 140%; /* 19.6px */
-    letter-spacing: -0.28px;
-    color: var(--gray500);
-  }
   &:first-child {
     padding-left: 0;
   }
@@ -134,21 +127,6 @@ export default {
       }
     }
   }
-}
-.count {
-  font-size: 14px;
-  font-weight: 700;
-  line-height: 140%; /* 19.6px */
-  letter-spacing: -0.28px;
-  color: var(--gray500);
-}
-.sub-title {
-  margin: 0 0 20px 0;
-  font-size: 16px;
-  font-weight: 700;
-  line-height: 140%; /* 22.4px */
-  letter-spacing: -0.32px;
-  color: var(--gray700);
 }
 dl {
   margin-bottom: 0;
