@@ -1,7 +1,7 @@
 <template>
   <div class="status-card" :class="item.type">
     <div class="status-card-body">
-      <p class="status-card-title">{{ item.title }}</p>
+      <p class="m-0 f-title3 c-gray400">{{ item.title }}</p>
       <p class="status-card-text"><span>{{ item.value }}</span>건</p>
     </div>
   </div>
@@ -33,11 +33,6 @@ export default {
     background: var(--white);
     border: 1px solid var(--gray300);
     border-radius: 12px;
-  }
-  &-title {
-    margin: 0;
-    @include typography.font-style(18px, 700, 140%, -0.36px);
-    color: var(--gray400);
   }
   &-text {
     margin: 0;
