@@ -87,14 +87,14 @@ export default {
   font-weight: 700;
   line-height: 140%; /* 19.6px */
   letter-spacing: -0.28px;
-  color: var(--gray-500);
+  color: var(--gray500);
 }
 label {
   font-size: 14px;
   font-weight: 500;
   line-height: 140%; /* 19.6px */
   letter-spacing: -0.28px;
-  color: var(--gray-500);
+  color: var(--gray500);
   &.textarea-label {
     margin-bottom: 12px;
   }
@@ -123,7 +123,7 @@ label {
     font-weight: 700;
     line-height: 140%; /* 25.2px */
     letter-spacing: -0.36px;
-    color: var(--gray-900);
+    color: var(--gray900);
   }
   .input-group {
     display: flex;
@@ -142,8 +142,8 @@ label {
   ul {
     margin: 0;
     padding: 0;
-    border-top: 1px solid var(--gray-500);
-    border-bottom: 1px solid var(--gray-500);
+    border-top: 1px solid var(--gray500);
+    border-bottom: 1px solid var(--gray500);
     li {
       display: flex;
       align-items: center;
@@ -167,7 +167,7 @@ label {
       font-weight: 400;
       line-height: 140%; /* 19.6px */
       letter-spacing: -0.28px;
-      color: var(--gray-900);
+      color: var(--gray900);
     }
   }
 }

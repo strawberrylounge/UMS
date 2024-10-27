@@ -1,24 +1,7 @@
 <template>
   <div class="uc-message-send-sms">
-    <!-- 탭 Start -->
-    <div class="tabs-wrap">
-      <div class="service-tabs">
-        <div class="tab">
-          <a href="/uc/message/multiSendList">원스텝메시지</a>
-        </div>
-        <div class="tab active">
-          <a href="#">문자</a>
-        </div>
-        <div class="tab">
-          <a href="/uc/rcsTemplateSend">RCS</a>
-        </div>
-        <div class="tab">
-          <a href="/uc/message/sendAlimTalk">카카오톡</a>
-        </div>
-      </div>
-      <p class="breadcrumb">발송 > 문자</p>
-    </div>
-    <!-- 탭 End -->
+    <MessageTabs />
+
     <div class="tab-contents">
       <div class="preview card">
         <p class="preview-title">미리보기</p>
@@ -190,6 +173,7 @@ import '@/assets/scss/service/message.scss';
 import IconArrowRight from '@/components/service/icons/IconArrowRight.vue';
 import IconArrowDown from '@/components/service/icons/IconArrowDown.vue';
 import IconDownload from '@/components/service/icons/IconDownload.vue';
+import MessageTabs from '@/components/service/message/MessageTabs.vue';
 import SearchAddressModal from '@/components/service/modal/SearchAddressModal.vue';
 import SelectTemplateModal from '@/modules/ucMessageSendSms/components/modal/SelectTemplateModal.vue';
 import AddContentModal from '@/modules/ucMessageSendSms/components/modal/AddContentModal.vue';
@@ -201,7 +185,7 @@ import IconClose from '@/components/service/icons/IconClose.vue';
 import CustomDatepicker from '@/components/service/form/CustomDatepicker.vue'
 
 export default {
-  components: { IconArrowRight, IconArrowDown, IconDownload, SelectTemplateModal, AddContentModal, IconClose, AddMMSContentModal, SelectImageModal, SendTestModal, SearchAddressModal, EnterReceiverModal, CustomDatepicker, },
+  components: { IconArrowRight, IconArrowDown, IconDownload, SelectTemplateModal, AddContentModal, IconClose, AddMMSContentModal, SelectImageModal, SendTestModal, SearchAddressModal, EnterReceiverModal, CustomDatepicker, MessageTabs, },
   name: "ucMessageSendSms",
   data() {
     return {
@@ -242,7 +226,7 @@ export default {
   font-weight: 500;
   line-height: 140%; /* 19.6px */
   letter-spacing: -0.28px;
-  color: var(--gray-700);
+  color: var(--gray700);
   white-space: nowrap;
 }
 .tab-contents {
@@ -257,7 +241,7 @@ export default {
     font-weight: 700;
     line-height: 140%; /* 28px */
     letter-spacing: -0.4px;
-    color: var(--gray-700);
+    color: var(--gray700);
   }
 }
 .sms-area {
@@ -271,7 +255,7 @@ export default {
     font-weight: 500;
     line-height: 140%; /* 19.6px */
     letter-spacing: -0.28px;
-    color: var(--gray-500);
+    color: var(--gray500);
   }
 }
 .sms-title {
@@ -280,7 +264,7 @@ export default {
   font-weight: 700;
   line-height: 140%; /* 22.4px */
   letter-spacing: -0.32px;
-  color: var(--gray-700);
+  color: var(--gray700);
 }
 .radio-group {
   margin: 0;
@@ -311,7 +295,7 @@ export default {
       font-weight: 500;
       line-height: 140%; /* 22.4px */
       letter-spacing: -0.32px;
-      color: var(--gray-900);
+      color: var(--gray900);
     }
     .btn {
       margin-left: 12px;
@@ -336,7 +320,7 @@ export default {
     font-weight: 400;
     line-height: 140%; /* 19.6px */
     letter-spacing: -0.28px;
-    color: var(--gray-700);
+    color: var(--gray700);
     text-decoration-line: underline;
   }
   svg {
@@ -362,7 +346,7 @@ export default {
     font-weight: 500;
     line-height: 140%; /* 19.6px */
     letter-spacing: -0.28px;
-    color: var(--gray-600);
+    color: var(--gray600);
   }
 }
 .number-dropdown {

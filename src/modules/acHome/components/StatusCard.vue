@@ -29,7 +29,7 @@ export default {
     justify-content: space-between;
     padding: 26px 23px;
     background: var(--white);
-    border: 1px solid var(--gray-300);
+    border: 1px solid var(--gray300);
     border-radius: 12px;
   }
   &-title {
@@ -38,7 +38,7 @@ export default {
     font-weight: 700;
     line-height: 140%; /* 25.2px */
     letter-spacing: -0.36px;
-    color: var(--gray-400);
+    color: var(--gray400);
   }
   &-text {
     margin: 0;
@@ -46,7 +46,7 @@ export default {
     font-weight: 700;
     line-height: 140%; /* 28px */
     letter-spacing: -0.4px;
-    color: var(--gray-700);
+    color: var(--gray700);
     span {
       padding-right: 4px;
     }

@@ -305,7 +305,7 @@ export default {
   font-weight: 500;
   line-height: 140%; /* 19.6px */
   letter-spacing: -0.28px;
-  color: var(--gray-700);
+  color: var(--gray700);
   white-space: nowrap;
 }
 .tab-contents {
@@ -320,7 +320,7 @@ export default {
     font-weight: 700;
     line-height: 140%; /* 28px */
     letter-spacing: -0.4px;
-    color: var(--gray-700);
+    color: var(--gray700);
   }
 }
 .sms-area {
@@ -334,7 +334,7 @@ export default {
     font-weight: 500;
     line-height: 140%; /* 19.6px */
     letter-spacing: -0.28px;
-    color: var(--gray-500);
+    color: var(--gray500);
   }
 }
 .card-title {
@@ -346,14 +346,14 @@ export default {
     font-weight: 700;
     line-height: 140%; /* 28px */
     letter-spacing: -0.4px;
-    color: var(--gray-900);
+    color: var(--gray900);
     & + p {
       margin-left: 28px;
       font-size: 14px;
       font-weight: 700;
       line-height: 140%; /* 19.6px */
       letter-spacing: -0.28px;
-      color: var(--gray-500);
+      color: var(--gray500);
     }
   }
 }
@@ -370,7 +370,7 @@ export default {
       font-weight: 700;
       line-height: 140%; /* 22.4px */
       letter-spacing: -0.32px;
-      color: var(--gray-500)
+      color: var(--gray500)
     }
     & + .tab {
       margin-left: 28px;
@@ -426,7 +426,7 @@ export default {
     min-height: 224px;
     margin-top: 12px;
     padding: 20px;
-    background-color: var(--gray-50);
+    background-color: var(--gray50);
     border: 1px solid var(--border-color);
   }
 }
@@ -444,7 +444,7 @@ export default {
   font-weight: 500;
   line-height: 140%; /* 19.6px */
   letter-spacing: -0.28px;
-  color: var(--gray-600)
+  color: var(--gray600)
 }
 
 .sms-title {
@@ -453,7 +453,7 @@ export default {
   font-weight: 700;
   line-height: 140%; /* 22.4px */
   letter-spacing: -0.32px;
-  color: var(--gray-700);
+  color: var(--gray700);
 }
 .radio-group {
   margin: 0;
@@ -484,7 +484,7 @@ export default {
       font-weight: 500;
       line-height: 140%; /* 22.4px */
       letter-spacing: -0.32px;
-      color: var(--gray-900);
+      color: var(--gray900);
     }
     .btn {
       margin-left: 12px;
@@ -509,7 +509,7 @@ export default {
     font-weight: 400;
     line-height: 140%; /* 19.6px */
     letter-spacing: -0.28px;
-    color: var(--gray-700);
+    color: var(--gray700);
     text-decoration-line: underline;
   }
   svg {
@@ -535,7 +535,7 @@ export default {
     font-weight: 500;
     line-height: 140%; /* 19.6px */
     letter-spacing: -0.28px;
-    color: var(--gray-600);
+    color: var(--gray600);
   }
 }
 .brand-dropdown,

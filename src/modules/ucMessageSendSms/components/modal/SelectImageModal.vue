@@ -121,7 +121,7 @@ export default {
   font-weight: 700;
   line-height: 140%; /* 19.6px */
   letter-spacing: -0.28px;
-  color: var(--gray-500);
+  color: var(--gray500);
   span {
     color: var(--status-failure);
   }
@@ -141,7 +141,7 @@ export default {
     font-weight: 700;
     line-height: 140%; /* 22.4px */
     letter-spacing: -0.32px;
-    color: var(--gray-900);
+    color: var(--gray900);
   }
   .btn-outline-secondary {
     margin-left: 12px;
@@ -155,14 +155,14 @@ export default {
   padding: 16px;
   border-radius: 12px;
   border: 1px solid #DDE1E7;
-  background: var(--gray-50);
+  background: var(--gray50);
   list-style: none;
   li {
     font-size: 14px;
     font-weight: 400;
     line-height: 180%; /* 25.2px */
     letter-spacing: -0.28px;
-    color: var(--gray-700);
+    color: var(--gray700);
   }
 }
 </style>

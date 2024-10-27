@@ -1,24 +1,6 @@
 <template>
   <div class="uc-message-send-list">
-    <!-- 탭 Start -->
-    <div class="tabs-wrap">
-      <div class="service-tabs">
-        <div class="tab active">
-          <a href="#">원스텝메시지</a>
-        </div>
-        <div class="tab">
-          <a href="/uc/message/sendSms">문자</a>
-        </div>
-        <div class="tab">
-          <a href="/uc/rcsTemplateSend">RCS</a>
-        </div>
-        <div class="tab">
-          <a href="/uc/message/sendAlimTalk">카카오톡</a>
-        </div>
-      </div>
-      <p class="breadcrumb">발송 > 원스텝메시지</p>
-    </div>
-    <!-- 탭 End -->
+    <MessageTabs />
 
     <div class="tab-contents">
       <!-- 검색영역 Start -->
@@ -106,7 +88,7 @@
           </b-dropdown>
           <b-button variant="secondary" class="btn-svg btn-svg-right mr-2">
             <span>통합발송 템플릿 관리</span>
-            <IconArrowRight />
+            <IconCoin />
           </b-button>
           <b-button variant="primary">통합 메시지 발송</b-button>
         </div>
@@ -233,16 +215,18 @@
 
 <script>
 import IconArrowDown from '@/components/service/icons/IconArrowDown.vue'
+import MessageTabs from '@/components/service/message/MessageTabs.vue'
 import IconArrowDoubleRight from '@/components/service/icons/IconArrowDoubleRight.vue'
 import SearchInput from '@/components/service/form/SearchInput.vue'
 import CustomDatepicker from '@/components/service/form/CustomDatepicker.vue'
 import IconArrowRight from '@/components/service/icons/IconArrowRight.vue';
 import IconSort from '@/components/service/icons/IconSort.vue';
+import IconCoin from '@/components/service/icons/IconCoin.vue';
 
 import '@/assets/scss/service/message.scss';
 
 export default {
-  components: { IconArrowDown, SearchInput, CustomDatepicker, IconArrowRight, IconArrowDoubleRight, IconSort },
+  components: { IconArrowDown, SearchInput, CustomDatepicker, IconArrowRight, IconArrowDoubleRight, IconSort, MessageTabs, IconCoin },
   name: "ucMessageMultiSendList",
   data() {
     return {
@@ -275,25 +259,6 @@ export default {
 </script>
 
 <style scoped lang="scss">
-.tabs-wrap {
-  display: flex;
-  align-items: center;
-  padding: 28px 40px 0;
-  border-bottom: 1px solid var(--border-color);
-}
-.breadcrumb {
-  margin: 0 0 0 auto;
-  padding: 0;
-  font-size: 14px;
-  font-weight: 500;
-  line-height: 140%; /* 19.6px */
-  letter-spacing: -0.28px;
-  color: var(--gray-700);
-  white-space: nowrap;
-}
-.tab-contents {
-  padding: 20px 40px 64px;
-}
 .search-area {
   display: flex;
   align-items: center;
@@ -309,7 +274,7 @@ export default {
     font-weight: 500;
     line-height: 140%; /* 19.6px */
     letter-spacing: -0.28px;
-    color: var(--gray-700);
+    color: var(--gray700);
   }
 }
 .template-dropdown {
@@ -333,7 +298,7 @@ export default {
     font-weight: 700;
     line-height: 140%; /* 22.4px */
     letter-spacing: -0.32px;
-    color: var(--gray-500);
+    color: var(--gray500);
   }
 }
 .btn-filter {
@@ -358,7 +323,7 @@ export default {
     line-height: 140%; /* 19.6px */
     letter-spacing: -0.28px;
     text-decoration-line: underline;
-    color: var(--gray-700);
+    color: var(--gray700);
   }
   svg {
     width: 16px;
@@ -387,6 +352,9 @@ export default {
 .table-area {
   margin-top: 20px;
   padding: 28px;
+  tbody tr:last-child td {
+    border-bottom: 1px solid var(--border-color);
+  }
 }
 .list-count {
   margin: 0 12px 0 0;
@@ -394,7 +362,7 @@ export default {
   font-weight: 700;
   line-height: 140%; /* 19.6px */
   letter-spacing: -0.28px;
-  color: var(--gray-500);
+  color: var(--gray500);
 
   span {
     padding-left: 6px;

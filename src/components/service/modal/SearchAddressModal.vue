@@ -184,7 +184,7 @@ export default {
   font-weight: 700;
   line-height: 140%; /* 19.6px */
   letter-spacing: -0.28px;
-  color: var(--gray-500);
+  color: var(--gray500);
 }
 label {
   margin: 0 0 12px 0;
@@ -192,7 +192,7 @@ label {
   font-weight: 500;
   line-height: 140%; /* 19.6px */
   letter-spacing: -0.28px;
-  color: var(--gray-500);
+  color: var(--gray500);
 }
 .form-group {
   display: flex;
@@ -239,7 +239,7 @@ label {
       left: 32px;
       width: 13px;
       height: 1px;
-      background-color: var(--gray-300);
+      background-color: var(--gray300);
     }
     &::after {
       content: '';
@@ -248,7 +248,7 @@ label {
       left: 38px;
       width: 1px;
       height: 100%;
-      background-color: var(--gray-300);
+      background-color: var(--gray300);
     }
     .collapse {
       padding-left: 38px;
@@ -268,7 +268,7 @@ label {
     font-weight: 400;
     line-height: 140%; /* 19.6px */
     letter-spacing: -0.28px;
-    color: var(--gray-900);
+    color: var(--gray900);
   }
   .menu-list-sub {
     margin: 0;
@@ -285,7 +285,7 @@ label {
         left: 0;
         width: 26px;
         height: 1px;
-        background-color: var(--gray-300);
+        background-color: var(--gray300);
         transform: translateY(-50%);
       }
       &:last-child {

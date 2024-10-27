@@ -15,15 +15,15 @@
   font-weight: 400;
   line-height: 140%; /* 19.6px */
   letter-spacing: -0.28px;
-  color: var(--gray-900);
+  color: var(--gray900);
   &::placeholder {
-    color: var(--gray-400);
+    color: var(--gray400);
   }
   &:hover,
   &:focus {
-    border-color: var(--gray-500);
+    border-color: var(--gray500);
     box-shadow: none;
-    color: var(--gray-900);
+    color: var(--gray900);
   }
   &.is-invalid {
     border-color: var(--red-600);
@@ -32,9 +32,9 @@
     }
   }
   &:disabled {
-    background-color: var(--gray-50);
+    background-color: var(--gray50);
     & + .search-icon svg path {
-      fill: var(--gray-400);
+      fill: var(--gray400);
     }
   }
 }
@@ -49,7 +49,7 @@ textarea.form-control {
   font-weight: 500;
   line-height: 140%; /* 19.6px */
   letter-spacing: -0.28px;
-  color: var(--Gray-600);
+  color: var(--gray600);
 }
 
 /* checkbox */
@@ -89,7 +89,7 @@ textarea.form-control {
     font-weight: 400;
     line-height: 20px;
     letter-spacing: -0.28px;
-    color: var(--Gray-900);
+    color: var(--gray900);
     &::before {
       top: 2px;
       left: -22px;
@@ -110,7 +110,7 @@ textarea.form-control {
       font-weight: 400;
       line-height: 20px;
       letter-spacing: -0.28px;
-      color: var(--Gray-900);
+      color: var(--gray900);
     }
   }
   &.b-custom-control-lg {
@@ -165,10 +165,10 @@ textarea.form-control {
     font-weight: 400;
     line-height: 140%; /* 19.6px */
     letter-spacing: -0.28px;
-    color: var(--gray-900);
+    color: var(--gray900);
     word-break: auto-phrase;
     &.text-muted {
-      color: var(--gray-400);
+      color: var(--gray400);
     }
   }
   .dropdown-menu {
@@ -235,7 +235,7 @@ textarea.form-control {
     font-weight: 400;
     line-height: 140%; /* 19.6px */
     letter-spacing: -0.28px;
-    color: var(--gray-900);
+    color: var(--gray900);
     &::before {
       top: 6px;
       left: -22px;
@@ -271,7 +271,7 @@ textarea.form-control {
       font-weight: 400;
       line-height: 140%; /* 19.6px */
       letter-spacing: -0.28px;
-      color: var(--gray-700);
+      color: var(--gray700);
       &::before {
         top: initial;
         bottom: 0;
@@ -338,16 +338,16 @@ textarea.form-control {
     font-weight: 400;
     line-height: 140%; /* 19.6px */
     letter-spacing: -0.28px;
-    color: var(--gray-900);
+    color: var(--gray900);
     &::placeholder {
-      color: var(--gray-400);
+      color: var(--gray400);
     }
     &:hover,
     &:focus,
     &:focus-visible {
-      border-color: var(--gray-500);
+      border-color: var(--gray500);
       box-shadow: none;
-      color: var(--gray-900);
+      color: var(--gray900);
       outline: none;
     }
   }

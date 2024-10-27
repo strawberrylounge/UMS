@@ -54,7 +54,7 @@ export default {
   font-weight: 700;
   line-height: 140%; /* 19.6px */
   letter-spacing: -0.28px;
-  color: var(--gray-500);
+  color: var(--gray500);
 }
 label {
   margin-bottom: 12px;
@@ -62,7 +62,7 @@ label {
   font-weight: 500;
   line-height: 140%; /* 19.6px */
   letter-spacing: -0.28px;
-  color: var(--gray-500);
+  color: var(--gray500);
 }
 .form-row {
   display: flex;

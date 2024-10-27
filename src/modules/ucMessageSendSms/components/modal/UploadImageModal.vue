@@ -91,21 +91,21 @@ export default {
   font-weight: 700;
   line-height: 140%; /* 19.6px */
   letter-spacing: -0.28px;
-  color: var(--gray-500);
+  color: var(--gray500);
 }
 .info {
   margin: 20px 0 0;
   padding: 16px;
   border-radius: 12px;
   border: 1px solid #DDE1E7;
-  background: var(--gray-50);
+  background: var(--gray50);
   list-style: none;
   li {
     font-size: 14px;
     font-weight: 400;
     line-height: 180%; /* 25.2px */
     letter-spacing: -0.28px;
-    color: var(--gray-700);
+    color: var(--gray700);
   }
 }
 .checkbox-wrap {
@@ -127,7 +127,7 @@ label {
   font-weight: 700;
   line-height: 140%; /* 22.4px */
   letter-spacing: -0.32px;
-  color: var(--gray-900);
+  color: var(--gray900);
 }
 .upload-area {
   position: relative;
@@ -142,7 +142,7 @@ label {
     font-weight: 400;
     line-height: 180%; /* 25.2px */
     letter-spacing: -0.28px;
-    color: var(--gray-700);
+    color: var(--gray700);
   }
   input {
     position: absolute;

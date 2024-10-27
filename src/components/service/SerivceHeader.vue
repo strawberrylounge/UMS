@@ -83,9 +83,9 @@ export default {
 <style scoped lang="scss">
 .header {
   padding: 20px 40px 19px 40px;
-  border-bottom: 1px solid var(--gray-300);
+  border-bottom: 1px solid var(--gray300);
   h2 {
-    color: var(--gray-700);
+    color: var(--gray700);
   }
   .msg-desc {
     display: flex;

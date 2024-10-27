@@ -45,7 +45,7 @@ export default {
     height: 29px;
     border-radius: 11.213px;
     border: 0.345px solid rgba(0, 0, 0, 0.2);
-    background: var(--gray-300);
+    background: var(--gray300);
   }
   .content {
     margin-top: 20px;

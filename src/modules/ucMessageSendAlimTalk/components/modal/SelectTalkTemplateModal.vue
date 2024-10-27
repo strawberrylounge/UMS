@@ -119,7 +119,7 @@ export default {
     font-weight: 500;
     line-height: 140%; /* 19.6px */
     letter-spacing: -0.28px;
-    color: var(--gray-500);
+    color: var(--gray500);
   }
   &:first-child {
     padding-left: 0;
@@ -150,7 +150,7 @@ export default {
       padding: 8px 16px;
       &.active,
       &:hover {
-        background-color: var(--gray-100);
+        background-color: var(--gray100);
       }
       &:last-child {
         border-bottom: 1px solid var(--border-color);
@@ -162,9 +162,9 @@ export default {
         font-weight: 400;
         line-height: 140%; /* 19.6px */
         letter-spacing: -0.28px;
-        color: var(--gray-900);
+        color: var(--gray900);
         &:hover {
-          background-color: var(--gray-100);
+          background-color: var(--gray100);
         }
       }
       & + li {
@@ -178,7 +178,7 @@ export default {
   font-weight: 700;
   line-height: 140%; /* 19.6px */
   letter-spacing: -0.28px;
-  color: var(--gray-500);
+  color: var(--gray500);
 }
 .sub-title {
   margin: 0 0 20px 0;
@@ -186,7 +186,7 @@ export default {
   font-weight: 700;
   line-height: 140%; /* 22.4px */
   letter-spacing: -0.32px;
-  color: var(--gray-700);
+  color: var(--gray700);
 }
 dl {
   margin-bottom: 0;
@@ -199,14 +199,14 @@ dl {
     font-weight: 500;
     line-height: 140%; /* 19.6px */
     letter-spacing: -0.28px;
-    color: var(--gray-500);
+    color: var(--gray500);
   }
   dd {
     font-size: 14px;
     font-weight: 400;
     line-height: 140%; /* 19.6px */
     letter-spacing: -0.28px;
-    color: var(--gray-700);
+    color: var(--gray700);
   }
 }
 label {
