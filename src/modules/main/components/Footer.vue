@@ -25,37 +25,61 @@ export default {
 @use ".././../../assets/scss/landing/abstracts/variables" as v;
 
 #landingFooter {
-  display: flex;
-  flex-direction: column;
-  justify-content: space-between;
+  @include v.flex(column, space-between);
   width: 100%;
-  height: 330px;
-  padding: {
-    top: 60px;
-    left: 360px;
-    bottom: 60px;
-  }
+  height: 155px;
+  padding: 20px;
   background: #313a47;
   color: color.adjust(#fff, $alpha: -0.6);
+  line-height: 160%;
+  @include v.tablet {
+    height: 330px;
+    padding: 60px 75px;
+    line-height: 140%;
+  }
+  @include v.desktop {
+    padding: {
+      top: 60px;
+      left: 360px;
+      bottom: 60px;
+    }
+    line-height: 160%;
+  }
   // 서비스 이용 약관 & 개인정보처리방침
   ul.policy-list {
-    display: flex;
-    align-items: center;
+    @include v.flex(row, null, center);
     li {
       a {
         font-weight: 700;
-        font-size: 1.5rem;
+        font-size: 0.75rem;
+        @include v.tablet {
+          font-size: 1.125rem;
+        }
+        @include v.desktop {
+          font-size: 1.5rem;
+        }
       }
     }
   }
   // 주소
   .address {
-    font-size: 1rem;
-    line-height: 160%;
+    font-size: 0.625rem;
+    @include v.tablet {
+      font-size: 0.875rem;
+    }
+    @include v.desktop {
+      font-size: 1rem;
+    }
   }
   // copyright
   small.copyright {
-    font-size: 0.875rem;
+    font-size: 0.625rem;
+    @include v.tablet {
+      font-size: 0.875rem;
+    }
+    @include v.desktop {
+      font-size: 0.875rem;
+    }
   }
 }
 </style>

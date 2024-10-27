@@ -1,117 +1,69 @@
-/* flex */
-.flexbox {
-  display: -webkit-box;
-  display: -moz-box;
-  display: -webkit-flex;
-  display: -ms-flexbox;
+// 기본 flex 설정
+@mixin flex($direction: row, $justify: null, $align: null, $wrap: null) {
   display: flex;
+  @if $direction != null {
+    flex-direction: $direction;
+  }
+  @if $justify != null {
+    justify-content: $justify;
+  }
+  @if $align != null {
+    align-items: $align;
+  }
+  @if $wrap != null {
+    flex-wrap: $wrap;
+  }
 }
-.flexbox-important {
-  display: -webkit-box !important;
-  display: -moz-box !important;
-  display: -webkit-flex !important;
-  display: -ms-flexbox !important;
-  display: flex !important;
-}
-.inline-flex {
-  display: -webkit-inline-box;
-  display: -moz-inline-box;
-  display: -webkit-inline-flex;
-  display: -ms-inline-flexbox;
-  display: inline-flex;
-}
-.flex-direction-row-reverse {
-  -webkit-box-direction: reverse;
-  -webkit-box-orient: horizontal;
-  -moz-box-direction: reverse;
-  -moz-box-orient: horizontal;
-  flex-direction: row-reverse;
-}
-.flex-direction-column {
-  -webkit-box-direction: normal;
-  -webkit-box-orient: vertical;
-  -moz-box-direction: normal;
-  -moz-box-orient: vertical;
-  flex-direction: column;
-}
-.flex-direction-column-reverse {
-  -webkit-box-direction: reverse;
-  -webkit-box-orient: vertical;
-  -moz-box-direction: reverse;
-  -moz-box-orient: vertical;
-  flex-direction: column-reverse;
-}
-.flex-wrap {
-  -webkit-flex-wrap: wrap;
-  -moz-flex-wrap: wrap;
-  -ms-flex-wrap: wrap;
-  flex-wrap: wrap;
-}
-.justify-content-center {
-  -moz-box-pack: center;
-  -webkit-box-pack: center;
-  -ms-flex-pack: center;
+
+@mixin flex-center {
+  display: flex;
   justify-content: center;
-}
-.justify-content-space-between {
-  -moz-box-pack: justify;
-  -webkit-box-pack: justify;
-  -ms-flex-pack: justify;
-  justify-content: space-between;
-}
-.justify-content-space-around {
-  -ms-flex-pack: distribute;
-  justify-content: space-around;
-}
-.justify-content-end {
-  -moz-box-pack: end;
-  -webkit-box-pack: end;
-  -ms-flex-pack: end;
-  justify-content: flex-end;
-}
-.align-items-start {
-  -webkit-box-align: start;
-  -moz-box-align: start;
-  -ms-flex-align: start;
-  align-items: flex-start;
-}
-.align-items-center {
-  -webkit-box-align: center;
-  -moz-box-align: center;
-  -ms-flex-align: center;
   align-items: center;
 }
-.align-items-end {
-  -webkit-box-align: end;
-  -moz-box-align: end;
-  -ms-flex-align: end;
-  align-items: flex-end;
+@mixin flex-between {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
 }
-.align-items-baseline {
-  -webkit-box-align: baseline;
-  -moz-box-align: baseline;
-  -ms-flex-align: baseline;
-  align-items: baseline;
+@mixin flex-around {
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
 }
-.align-self-center {
-  -ms-flex-item-align: center;
-  -webkit-align-self: center;
-  align-self: center;
+@mixin flex-column {
+  display: flex;
+  flex-direction: column;
 }
-.align-self-end {
-  -ms-flex-item-align: end;
-  -webkit-align-self: end;
-  align-self: flex-end;
+@mixin flex-column-center {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
 }
-.flex-1 {
-  -moz-box: 1;
-  -webkit-flex: 1;
-  -ms-flex: 1;
-  flex: 1;
+
+// flex item 관련 mixin
+@mixin flex-grow($grow: 1) {
+  flex-grow: $grow;
 }
-.flex-9 {
-  -moz-box: 9;
-  -webkit-flex: 9;
-  -ms-flex: 9;
-  flex: 9;
+@mixin flex-shrink($shrink: 1) {
+  flex-shrink: $shrink;
+}
+@mixin flex-basis($basis: auto) {
+  flex-basis: $basis;
+}
+
+// flex shorthand
+@mixin flex-params($grow: 0, $shrink: 1, $basis: auto) {
+  flex: $grow $shrink $basis;
+}
+// gap 설정
+@mixin flex-gap($gap: 0) {
+  gap: $gap;
+}
+// 정렬 관련
+@mixin flex-self-align($align: auto) {
+  align-self: $align;
+}
+@mixin flex-order($order: 0) {
+  order: $order;
 }
