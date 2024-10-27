@@ -7,7 +7,7 @@
     <div class="d-flex staus-wrap">
       <StatusCard v-for="status in statusList" :key="status.id" :item="status" />
     </div>
-    <!-- <MonthlyChart />
+    <MonthlyChart />
     <div class="d-flex chart-wrap">
       <div class="wrap">
         <PercentChart />
@@ -15,7 +15,7 @@
       <div class="wrap">
         <TodayChart />
       </div>
-    </div> -->
+    </div>
   </div>
 </template>
 <script>
