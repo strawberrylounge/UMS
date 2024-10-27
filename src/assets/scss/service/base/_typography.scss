@@ -1,5 +1,5 @@
 @import url("https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/dist/web/static/pretendard.min.css");
-@use "../abstracts/variables" as *; // $colors map 가져오기
+@import "../abstracts/variables";
 
 @mixin font-style($font-size, $font-weight: 400, $line-height, $letter-spacing) {
   font-size: $font-size;
@@ -82,7 +82,7 @@ body {
     "Apple SD Gothic Neo", "Noto Sans KR", "Malgun Gothic", "Apple Color Emoji",
     "Segoe UI Emoji", "Segoe UI Symbol", sans-serif;
     @include font-style(16px, 400, 140%, -0.32px);
-    color: $gray700;
+    color: var(--gray700);
 }
 
 .f-bold {
