@@ -1,8 +1,8 @@
 <template>
   <div class="uc-message-smart-send-main">
     <!-- 탭 Start -->
-    <div class="tabs-wrap">
-      <div class="service-tabs">
+    <div class="message-tabs-wrap">
+      <div class="message-tabs">
         <div class="tab" :class="{active: previewType === 'rcs'}">
           <button class="btn" @click="changeTab('rcs')">RCS</button>
         </div>
@@ -17,17 +17,21 @@
     </div>
     <!-- 탭 End -->
 
-    <div class="tab-contents">
+    <div class="tab-contents d-flex">
+      <!-- 미리보기 Start -->
       <div class="preview card">
         <p class="preview-title">미리보기</p>
         <PreviewTalk v-if="previewType === 'talk'">
           <div></div>
         </PreviewTalk>
-        <div v-else class="preview-image">
+
+        <PreviewDefault v-else>
           <div v-if="previewType === 'mms'" class="preview-section-title">더미텍스트 메시지 내용입니다.</div>
           <div v-if="previewType === 'mms'" class="preview-section-title mt-2">더미텍스트 메시지 내용입니다.</div>
-        </div>
+        </PreviewDefault>
       </div>
+      <!-- 미리보기 End -->
+
       <div class="sms-area card">
         <p class="sms-title">01.템플릿</p>
         <div class="d-flex align-items-center">
@@ -144,7 +148,6 @@
 </template>
 
 <script>
-import '@/assets/scss/service/message.scss';
 import IconArrowRight from '@/components/service/icons/IconArrowRight.vue';
 import IconArrowDown from '@/components/service/icons/IconArrowDown.vue';
 import IconDownload from '@/components/service/icons/IconDownload.vue';
@@ -157,11 +160,13 @@ import SelectImageModal from '@/modules/ucMessageSendSms/components/modal/Select
 import SmartSendTestModal from '@/modules/ucMessageSmartSendMain/components/modal/SmartSendTestModal.vue';
 import EnterReceiverModal from '@/modules/ucMessageSendSms/components/modal/EnterReceiverModal.vue';
 import IconClose from '@/components/service/icons/IconClose.vue';
+import PreviewDefault from '@/components/service/preview/PreviewDefault.vue';
 import CustomDatepicker from '@/components/service/form/CustomDatepicker.vue'
-
+import '@/assets/scss/service/message.scss';
+import '@/assets/scss/service/messageTabs.scss'
 
 export default {
-  components: { IconArrowRight, IconArrowDown, IconDownload, SelectTemplateModal, AddContentModal, IconClose, AddMMSContentModal, SelectImageModal, SearchAddressModal, EnterReceiverModal, CustomDatepicker, SmartSendTestModal, PreviewTalk, },
+  components: { IconArrowRight, IconArrowDown, IconDownload, SelectTemplateModal, AddContentModal, IconClose, AddMMSContentModal, SelectImageModal, SearchAddressModal, EnterReceiverModal, CustomDatepicker, SmartSendTestModal, PreviewTalk, PreviewDefault, },
   name: "ucMessageSmartSendMain",
   data() {
     return {
@@ -187,37 +192,6 @@ export default {
 </script>
 
 <style scoped lang="scss">
-.tabs-wrap {
-  display: flex;
-  align-items: center;
-  padding: 28px 40px 0;
-  border-bottom: 1px solid var(--border-color);
-}
-.breadcrumb {
-  margin: 0 0 0 auto;
-  padding: 0;
-  font-size: 14px;
-  font-weight: 500;
-  line-height: 140%; /* 19.6px */
-  letter-spacing: -0.28px;
-  color: var(--gray700);
-  white-space: nowrap;
-}
-.tab-contents {
-  display: flex;
-  padding: 20px 40px 64px;
-}
-.preview {
-  padding: 28px;
-  &-title {
-    margin: 0 0 28px 0;
-    font-size: 20px;
-    font-weight: 700;
-    line-height: 140%; /* 28px */
-    letter-spacing: -0.4px;
-    color: var(--gray700);
-  }
-}
 .sms-area {
   width: calc(100% - 400px);
   margin-left: 20px;

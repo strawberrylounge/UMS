@@ -1,6 +1,6 @@
 <template>
-  <div class="tabs-wrap">
-    <div class="service-tabs">
+  <div class="message-tabs-wrap">
+    <div class="message-tabs">
       <div :class="['tab', isActive('/uc/message/multiSendList')]">
         <a href="/uc/message/multiSendList">원스텝메시지</a>
       </div>
@@ -19,6 +19,8 @@
 </template>
 
 <script>
+import '@/assets/scss/service/messageTabs.scss'
+
 export default {
   name: "MessageTabs",
   methods: {
@@ -28,49 +30,3 @@ export default {
   }
 }
 </script>
-
-<style lang="scss" scoped>
-.tabs-wrap {
-  display: flex;
-  align-items: center;
-  padding: 28px 40px 0;
-  border-bottom: 1px solid var(--border-color);
-}
-.breadcrumb {
-  margin: 0 0 0 auto;
-  padding: 0;
-  white-space: nowrap;
-}
-.service-tabs {
-  display: flex;
-  width: 100%;
-  padding-bottom: 16px;
-  &:has(.btn) {
-    padding-bottom: 0;
-  }
-  .tab {
-    padding-left: 40px;
-    &:first-child {
-      padding: 0;
-    }
-    &.active a,
-    &.active button {
-      border-bottom: 4px solid var(--primary);
-      color: var(--gray900);
-    }
-    a,
-    button {
-      padding: 0;
-      padding-bottom: 16px;
-      border: none;
-      border-radius: 0;
-      background-color: transparent;
-      font-size: 20px;
-      font-weight: 700;
-      line-height: 140%; /* 28px */
-      letter-spacing: -0.4px;
-      color: var(--gray500);
-    }
-  }
-}
-</style>

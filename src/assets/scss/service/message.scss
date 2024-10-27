@@ -53,3 +53,16 @@
     }
   }
 }
+
+/* 통합발송 미리보기 */
+.preview {
+  padding: 28px;
+  &-title {
+    margin: 0 0 28px 0;
+    font-size: 20px;
+    font-weight: 700;
+    line-height: 140%; /* 28px */
+    letter-spacing: -0.4px;
+    color: var(--gray700);
+  }
+}
