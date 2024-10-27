@@ -198,14 +198,4 @@ export default {
 .custom-radio {
   margin-right: 20px;
 }
-.sms-select {
-  margin: 20px 0;
-}
-.hr {
-  margin: 24px 0;
-}
-.receive-count{
-  margin-top: 20px;
-  padding-left: 132px;
-}
 </style>

@@ -335,18 +335,6 @@ export default {
     margin-left: 12px;
   }
 }
-.receive-count{
-  margin-top: 20px;
-  padding-left: 132px;
-  p {
-    margin: 0 20px 0 0;
-    font-size: 14px;
-    font-weight: 500;
-    line-height: 140%; /* 19.6px */
-    letter-spacing: -0.28px;
-    color: var(--gray600);
-  }
-}
 .button-list {
   margin-top: 20px;
   .table-responsive {
