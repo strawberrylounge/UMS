@@ -184,7 +184,7 @@
                 </td>
                 <td>1</td>
                 <td>
-                  <span class="text-decoration-underline">TPLdwiCS</span>
+                  <span class="text-underline">TPLdwiCS</span>
                 </td>
                 <td>통합발송 테스트</td>
                 <td>카카오톡, 문자</td>

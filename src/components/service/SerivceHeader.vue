@@ -41,6 +41,7 @@
 <script>
 import IconCoin from '@/components/service/icons/IconCoin.vue'
 import IconQuestion from '@/components/service/icons/IconQuestion.vue'
+import '@/assets/scss/service/header.scss';
 
 export default {
   components: { IconCoin, IconQuestion, },

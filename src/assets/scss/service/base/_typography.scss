@@ -1,28 +1,11 @@
 @import url("https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/dist/web/static/pretendard.min.css");
+@use "../abstracts/variables" as *; // $colors map 가져오기
 
-body {
-  font-family: "Pretendard Variable", Pretendard, -apple-system,
-    BlinkMacSystemFont, system-ui, Roboto, "Helvetica Neue", "Segoe UI",
-    "Apple SD Gothic Neo", "Noto Sans KR", "Malgun Gothic", "Apple Color Emoji",
-    "Segoe UI Emoji", "Segoe UI Symbol", sans-serif;
-    font-size: 16px;
-    font-weight: 400;
-    line-height: 140%; /* 22.4px */
-    letter-spacing: -0.32px;
-}
-
-.heading1 {
-  font-size: 28px;
-  font-weight: 700;
-  line-height: 140%; /* 39.2px */
-  letter-spacing: -0.56px;
-}
-
-.title1 {
-  font-size: 20px;
-  font-weight: 700;
-  line-height: 140%; /* 28px */
-  letter-spacing: -0.4px;
+@mixin font-style($font-size, $font-weight: 400, $line-height, $letter-spacing) {
+  font-size: $font-size;
+  font-weight: $font-weight;
+  line-height: $line-height;
+  letter-spacing: $letter-spacing;
 }
 
 @mixin multiline-ellipsis($lines) {
@@ -33,10 +16,87 @@ body {
   text-overflow: ellipsis; // 말줄임표
 }
 
-.text-decoration-underline {
+// 기본 타이포그라피 클래스
+.f-caption2 {
+  @include font-style(12px, 400, 160%, -0.24px);
+}
+.f-caption1 {
+  @include font-style(12px, 700, 160%, -0.24px);
+}
+.f-body6 {
+  @include font-style(14px, 400, 180%, -0.28px);
+}
+.f-body5 {
+  @include font-style(14px, 400, 140%, -0.28px);
+}
+.f-body4 {
+  @include font-style(14px, 500, 140%, -0.28px);
+}
+.f-body3 {
+  @include font-style(16px, 400, 140%, -0.32px);
+}
+.f-body3 {
+  @include font-style(14px, 700, 140%, -0.28px);
+}
+.f-body2 {
+  @include font-style(16px, 500, 140%, -0.32px);
+}
+.f-body1 {
+  @include font-style(16px, 700, 140%, -0.32px);
+}
+.f-title4 {
+  @include font-style(18px, 500, 140%, -0.09px);
+}
+.f-title3 {
+  @include font-style(18px, 700, 140%, -0.36px);
+}
+.f-title2 {
+  @include font-style(20px, 500, 140%, -0.4px);
+}
+.f-title1 {
+  @include font-style(20px, 700, 140%, -0.4px);
+}
+.f-heading3 {
+  @include font-style(24px, 400, 140%, -0.48px);
+}
+.f-heading2 {
+  @include font-style(24px, 700, 140%, -0.48px);
+}
+.f-heading1 {
+  @include font-style(28px, 700, 140%, -0.56px);
+}
+.f-hero {
+  @include font-style(40px, 700, 140%, -0.8px);
+}
+
+/* 텍스트 컬러 클래스 자동 생성 */
+@each $name, $color in $colors {
+  .c-#{$name} {
+    color: #{$color};
+  }
+}
+
+body {
+  font-family: "Pretendard Variable", Pretendard, -apple-system,
+    BlinkMacSystemFont, system-ui, Roboto, "Helvetica Neue", "Segoe UI",
+    "Apple SD Gothic Neo", "Noto Sans KR", "Malgun Gothic", "Apple Color Emoji",
+    "Segoe UI Emoji", "Segoe UI Symbol", sans-serif;
+    @include font-style(16px, 400, 140%, -0.32px);
+    color: $gray700;
+}
+
+.f-bold {
+  font-weight: 700;
+}
+
+.text-underline {
   text-decoration: underline;
 }
 
 .require {
   color: var(--status-failure);
+}
+
+.text-primary {
+  color: var(--primary) !important;
 }

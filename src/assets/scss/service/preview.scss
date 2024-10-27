@@ -1,0 +1,19 @@
+/* 목업 화면 미리보기 */
+.preview-image {
+  width: 320px;
+  min-height: 643px;
+  background: url("~@/assets/images/service/preview-mockup.png") no-repeat;
+  background-size: 100% 100%;
+  padding: 55px 35px 35px;
+}
+.preview-section-title {
+  padding: 13px 0;
+  border-radius: 10.35px;
+  background: var(--white);
+  text-align: center;
+  font-size: 14px;
+  font-weight: 400;
+  line-height: 140%; /* 19.6px */
+  letter-spacing: -0.28px;
+  color: var(--gray-700);
+}

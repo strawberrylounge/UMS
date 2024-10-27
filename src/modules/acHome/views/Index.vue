@@ -24,6 +24,7 @@ import StatusCard from '@/modules/acHome/components/StatusCard.vue';
 import MonthlyChart from '@/modules/acHome/components/MonthlyChart.vue';
 import PercentChart from '@/modules/acHome/components/PercentChart.vue';
 import TodayChart from '@/modules/acHome/components/TodayChart.vue';
+import '@/assets/scss/service/home.scss';
 
 export default {
   components: { HomeSlide, StatusCard, MonthlyChart, PercentChart, TodayChart, },

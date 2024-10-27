@@ -149,6 +149,7 @@ import IconAddress from '@/components/service/icons/IconAddress.vue'
 import IconCall from '@/components/service/icons/IconCall.vue'
 import IconAlarm from '@/components/service/icons/IconAlarm.vue'
 import IconGraph from '@/components/service/icons/IconGraph.vue'
+import '@/assets/scss/service/sidebar.scss';
 
 export default {
   name: 'SideNavBar',
