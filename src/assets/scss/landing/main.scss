@@ -12,9 +12,13 @@
 .landing-wrapper {
   @include styles;
 
-  // 부트스트랩 override
-  &,
-  * {
+  // 부트스트랩 관련 요소만 선택적으로 revert
+  .container,
+  .row,
+  .col,
+  [class^="col-"],
+  [class*=" col-"],
+  .btn {
     all: revert;
     box-sizing: border-box;
   }

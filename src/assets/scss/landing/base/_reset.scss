@@ -366,6 +366,7 @@
   [type="button"],
   [type="reset"],
   [type="submit"] {
+    background: none;
     -webkit-appearance: button;
     cursor: pointer;
   }

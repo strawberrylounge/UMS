@@ -1,13 +1,17 @@
 <template lang="">
   <header id="landingHeader" class="landing-header">
-    <h1 class="logo">EC-톡톡</h1>
+    <h1 class="logo">
+      <router-link to="/">EC-톡톡</router-link>
+    </h1>
 
     <!-- PC & TABLET 메뉴 -->
     <nav class="menu-wrap">
       <ul class="menu">
         <li><a href="">서비스 소개</a></li>
         <li><a href="">채널 소개</a></li>
-        <li><a href="">요금제 안내</a></li>
+        <li>
+          <router-link to="public/pricing">요금제 안내</router-link>
+        </li>
         <li><a href="">고객 안내</a></li>
         <li>
           <a href="">회사 소개<i class="icon-link"></i></a>
@@ -27,7 +31,7 @@
       <ul class="menu">
         <li><a href="">서비스 소개</a></li>
         <li><a href="">채널 소개</a></li>
-        <li><a href="">요금제 안내</a></li>
+        <li><router-link to="public/pricing">요금제 안내</router-link></li>
         <li><a href="">고객 안내</a></li>
         <li>
           <a href="">회사 소개<i class="icon-link"></i></a>
@@ -65,6 +69,10 @@ i.icon-link {
 }
 
 #landingHeader {
+  z-index: 99;
+  position: fixed;
+  top: 0;
+  left: 0;
   width: 100%;
   height: 36px;
   @include v.flex-between;

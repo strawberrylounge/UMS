@@ -1,10 +1,21 @@
 <template>
-  <button type="button" class="btn-top"></button>
+  <button type="button" class="btn-top" @click="scrollToTop"></button>
 </template>
 
 <script>
 export default {
   name: "BtnTop",
+  methods: {
+    scrollToTop() {
+      const container = document.querySelector(".landing-main");
+      if (container) {
+        container.scrollTo({
+          top: 0,
+          behavior: "smooth",
+        });
+      }
+    },
+  },
 };
 </script>
 
