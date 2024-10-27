@@ -3,8 +3,8 @@
     <template #modal-title>
       <h5 class="modal-title">수신자 직접입력</h5>
       <div class="d-flex align-items-end justify-content-between w-100">
-        <p class="title-desc">* 입력 후 선택 버튼을 누르면 수신자에 추가됩니다.<br/>
-          <span>* 최대 30개까지 추가 가능합니다.</span></p>
+        <p class="mt-1 pt-3 mb-0 f-body3 f-bold c-gray500">* 입력 후 선택 버튼을 누르면 수신자에 추가됩니다.<br/>
+          <span class="c-failure">* 최대 30개까지 추가 가능합니다.</span></p>
         <b-button variant="outline-primary" class="btn-svg btn-svg-right ms-auto" @click="addReceiver">
           <span>수신자 추가</span>
           <IconPlus />
@@ -13,8 +13,8 @@
     </template>
 
     <div class="d-flex form-row">
-      <label>휴대폰 번호<span class="require">*</span></label>
-      <label>이름<span class="require">*</span></label>
+      <label class="mb-1 pb-2 f-body4 c-gray500">휴대폰 번호<span class="require">*</span></label>
+      <label class="mb-1 pb-2 f-body4 c-gray500">이름<span class="require">*</span></label>
     </div>
 
     <div v-for="(receiver, index) in receivers" :key="index" class="d-flex form-row input-row">
@@ -61,25 +61,6 @@ export default {
 </script>
 
 <style scoped lang="scss">
-.title-desc {
-  margin: 20px 0 0;
-  font-size: 14px;
-  font-weight: 700;
-  line-height: 140%; /* 19.6px */
-  letter-spacing: -0.28px;
-  color: var(--gray500);
-  span {
-    color: var(--status-failure);
-  }
-}
-label {
-  margin-bottom: 12px;
-  font-size: 14px;
-  font-weight: 500;
-  line-height: 140%; /* 19.6px */
-  letter-spacing: -0.28px;
-  color: var(--gray500);
-}
 .form-row {
   display: flex;
   & > * {

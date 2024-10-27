@@ -2,10 +2,10 @@
   <b-modal id="search-address-modal" content-class="service-modal search-address-modal" hide-header-close centered size="lg">
     <template #modal-title>
       <h5 class="modal-title">수신 주소록 검색</h5>
-      <p class="title-desc">* 조직 조회 후 체크된 사용자를 선택하면 수신자에 추가됩니다.</p>
+      <p class="mt-1 pt-3 mb-0 f-body3 f-bold c-gray500">* 조직 조회 후 체크된 사용자를 선택하면 수신자에 추가됩니다.</p>
     </template>
 
-    <label id="search">템플릿 검색</label>
+    <label id="search" class="mb-1 pb-2 f-body4 c-gray500">템플릿 검색</label>
     <div class="form-group">
       <b-dropdown id="search-type-dropdown" variant="secondary" class="search-type-dropdown">
         <template #button-content>
@@ -178,22 +178,6 @@ export default {
 </script>
 
 <style scoped lang="scss">
-.title-desc {
-  margin: 20px 0 0;
-  font-size: 14px;
-  font-weight: 700;
-  line-height: 140%; /* 19.6px */
-  letter-spacing: -0.28px;
-  color: var(--gray500);
-}
-label {
-  margin: 0 0 12px 0;
-  font-size: 14px;
-  font-weight: 500;
-  line-height: 140%; /* 19.6px */
-  letter-spacing: -0.28px;
-  color: var(--gray500);
-}
 .form-group {
   display: flex;
   margin-bottom: 20px;

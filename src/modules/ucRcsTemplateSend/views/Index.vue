@@ -26,7 +26,7 @@
         <div class="preview-image">
         </div>
       </div>
-      <div class="sms-area card">
+      <div class="section card">
         <div class="card-title">
           <p>RCS 상품</p>
           <p>* RCS 유형을 먼저 선택해 주십시오. 템플릿형은 광고성 메세지를 보내실 수 없습니다.</p>
@@ -105,10 +105,10 @@
  
         <hr class="hr">
 
-        <p class="sms-title">01.브랜드 선택</p>
+        <p class="section-title">01.브랜드 선택</p>
         <div class="d-flex align-items-center">
           <label class="form-labal">브랜드</label>
-          <b-dropdown id="brand-dropdown" variant="secondary" class="brand-dropdown">
+          <b-dropdown id="brand-dropdown" variant="secondary" class="send-number-dropdown">
             <template #button-content>
               <span>{{ barnd === '' ? '선택' : barnd }}</span>
               <IconArrowDown />
@@ -120,7 +120,7 @@
 
         <hr class="hr">
 
-        <p class="sms-title">02.수신자 선택</p>
+        <p class="section-title">02.수신자 선택</p>
         <div class="d-flex align-items-center">
           <label class="form-labal">템플릿</label>
           <div class="receive-btn-wrap">
@@ -139,7 +139,7 @@
         </div>
         <div class="d-flex align-items-center">
           <label class="form-labal">발신번호<span class="require">*</span></label>
-          <b-dropdown id="number-dropdown" variant="secondary" class="number-dropdown">
+          <b-dropdown id="number-dropdown" variant="secondary" class="send-number-dropdown">
             <template #button-content>
               <span>{{ phoneNumber === '' ? '선택' : phoneNumber }}</span>
               <IconArrowDown />
@@ -151,7 +151,7 @@
 
         <hr class="hr">
 
-        <p class="sms-title">03.수신자 선택</p>
+        <p class="section-title">03.수신자 선택</p>
         <div class="d-flex align-items-center">
           <label class="form-labal">수신자<span class="require">*</span></label>
           <div class="receive-btn-wrap">
@@ -177,7 +177,7 @@
           <p>수신자: <span class="text-primary">0명</span></p>
           <b-button variant="outline-secondary" size="sm">수신자 모두삭제</b-button>
         </div>
-        <div class="receive-list">
+        <div class="receive-table">
           <div class="table-responsive">
             <table class="table">
               <thead>
@@ -206,7 +206,7 @@
 
         <hr class="hr">
 
-        <p class="sms-title">04.발송옵션 선택</p>
+        <p class="section-title">04.발송옵션 선택</p>
         <div class="d-flex align-items-center">
           <label class="form-labal">발송시간<span class="require">*</span></label>
           <b-form-group class="radio-group">
@@ -323,20 +323,6 @@ export default {
     color: var(--gray700);
   }
 }
-.sms-area {
-  width: calc(100% - 400px);
-  margin-left: 20px;
-  padding: 28px;
-  .form-labal {
-    width: 120px;
-    margin: 0 12px 0 0;
-    font-size: 14px;
-    font-weight: 500;
-    line-height: 140%; /* 19.6px */
-    letter-spacing: -0.28px;
-    color: var(--gray500);
-  }
-}
 .card-title {
   display: flex;
   align-items: end;
@@ -446,15 +432,6 @@ export default {
   letter-spacing: -0.28px;
   color: var(--gray600)
 }
-
-.sms-title {
-  margin: 0 0 20px 0;
-  font-size: 16px;
-  font-weight: 700;
-  line-height: 140%; /* 22.4px */
-  letter-spacing: -0.32px;
-  color: var(--gray700);
-}
 .radio-group {
   margin: 0;
 }
@@ -536,45 +513,6 @@ export default {
     line-height: 140%; /* 19.6px */
     letter-spacing: -0.28px;
     color: var(--gray600);
-  }
-}
-.brand-dropdown,
-.number-dropdown {
-  width: 348px;
-}
-.submit-wrap {
-  text-align: center;
-  button {
-    min-width: 200px;
-    & + button {
-      margin-left: 20px;
-    }
-  }
-}
-.receive-list {
-  max-width: 602px;
-  margin-top: 20px;
-  padding-left: 132px;
-  .table {
-    tbody tr:last-child td {
-      border-bottom: none;
-    }
-    th, td {
-      padding-left: 16px;
-      padding-right: 16px;
-    }
-  }
-}
-.book-form {
-  display: flex;
-  align-items: center;
-  .datepicker-container {
-    width: 180px;
-    margin-right: 12px;
-  }
-  .time-divider {
-    padding: 0 12px;
-    font-size: 14px;
   }
 }
 </style>

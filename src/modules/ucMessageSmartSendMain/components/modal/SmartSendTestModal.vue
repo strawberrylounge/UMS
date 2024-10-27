@@ -2,12 +2,12 @@
   <b-modal id="smart-send-test-modal" content-class="service-modal" hide-header-close centered size="md">
     <template #modal-title>
       <h5 class="modal-title">테스트 발송</h5>
-      <p class="title-desc">* 테스트 발송 시 대체 발송은 하지 않습니다.</p>
+      <p class="mt-1 pt-3 mb-0 f-body3 f-bold c-gray500">* 테스트 발송 시 대체 발송은 하지 않습니다.</p>
     </template>
 
     <div class="d-flex form-row">
-      <label>휴대폰 번호<span class="require">*</span></label>
-      <label>이름<span class="require">*</span></label>
+      <label class="mb-1 pb-2 f-body4 c-gray500">휴대폰 번호<span class="require">*</span></label>
+      <label class="mb-1 pb-2 f-body4 c-gray500">이름<span class="require">*</span></label>
     </div>
 
     <div class="d-flex form-row input-row">

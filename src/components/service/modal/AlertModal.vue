@@ -4,7 +4,7 @@
     <p class="desc">{{ desc }}</p>
 
     <template #modal-footer>
-      <b-button variant="outline-secondary" @click="closeModal">닫기</b-button>
+      <b-button variant="outline-primary" @click="closeModal">닫기</b-button>
     </template>  
   </b-modal>
 </template>

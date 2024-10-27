@@ -66,3 +66,87 @@
     color: var(--gray700);
   }
 }
+
+/* 통합발송 공통 스타일 영역 */
+.section {
+  width: calc(100% - 400px);
+  margin-left: 20px;
+  padding: 28px;
+  .form-labal {
+    width: 120px;
+    margin: 0 12px 0 0;
+    font-size: 14px;
+    font-weight: 500;
+    line-height: 140%; /* 19.6px */
+    letter-spacing: -0.28px;
+    color: var(--gray500);
+  }
+  &-title {
+    margin: 0 0 20px 0;
+  }
+}
+
+.messag-btn-group {
+  button + button {
+    margin-left: 12px;
+  }
+}
+.btn-sample-download {
+  padding: 0;
+  background-color: var(--white);
+  border: none;
+  span {
+    font-size: 14px;
+    font-weight: 400;
+    line-height: 140%; /* 19.6px */
+    letter-spacing: -0.28px;
+    color: var(--gray700);
+    text-decoration-line: underline;
+  }
+  svg {
+    margin-left: 4px;
+  }
+  &:not(:disabled):active:focus {
+    background-color: var(--white);
+    border: none;
+    box-shadow: none;
+  }
+}
+.book-form {
+  display: flex;
+  align-items: center;
+  .datepicker-container {
+    width: 180px;
+    margin-right: 12px;
+  }
+  .time-divider {
+    padding: 0 12px;
+    font-size: 14px;
+  }
+}
+.receive-table {
+  max-width: 602px;
+  margin-top: 20px;
+  padding-left: 132px;
+  .table {
+    tbody tr:last-child td {
+      border-bottom: none;
+    }
+    th, td {
+      padding-left: 16px;
+      padding-right: 16px;
+    }
+  }
+}
+.submit-wrap {
+  text-align: center;
+  button {
+    min-width: 200px;
+    & + button {
+      margin-left: 20px;
+    }
+  }
+}
+.send-number-dropdown {
+  width: 348px;
+}
