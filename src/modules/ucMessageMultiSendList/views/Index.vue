@@ -1,11 +1,11 @@
 <template>
-  <div class="uc-message-send-list">
+  <div class="uc-message-send-list list-view">
     <MessageTabs />
 
     <div class="tab-contents">
       <!-- 검색영역 Start -->
-      <div class="search-area card border-0">
-        <div class="search-area-forms">
+      <div class="search-section card border-0">
+        <div class="search-section-forms">
           <div class="d-flex align-items-center flex-wrap mb-4">
             <label>검색조건</label>
             <b-dropdown id="template-dropdown" variant="secondary" class="template-dropdown">
@@ -31,7 +31,7 @@
           
           <!-- Hideable section -->
           <transition name="slide-fade">
-            <div v-show="!hideMenu" class="align-items-center mb-4 checkbox-menu">
+            <div v-show="!hideMenu" class="check-menu align-items-center mb-4">
               <label>메세지 구분</label>
               <b-form-group>
                 <b-form-checkbox-group
@@ -74,7 +74,7 @@
       <!-- 검색영역 End -->
 
       <!-- 리스트 영역 Start -->
-      <div class="table-area card">
+      <div class="table-section card">
         <div class="d-flex align-items-center">
           <p class="list-count">전체 <span class="text-primary">10건</span></p>
           <b-dropdown id="pageCount-dropdown" variant="secondary" class="pageCount-dropdown">
@@ -233,22 +233,6 @@ export default {
 <style scoped lang="scss">
 @use "~@/assets/scss/service/base/typography" as typography;
 
-.search-area {
-  display: flex;
-  align-items: center;
-  flex-direction: row;
-  padding: 28px;
-  box-shadow: none;
-  &-forms {
-    width: 100%;
-    max-width: calc(100% - 120px - 24px);
-  }
-  label {
-    margin: 0;
-    @include typography.font-style(14px, 500, 140%, -0.28px);
-    color: var(--gray700);
-  }
-}
 .template-dropdown {
   min-width: 160px;
   margin: 0 16px;
@@ -257,31 +241,9 @@ export default {
   width: 355px;
   margin-right: 20px;
 }
-.datepicker-group {
-  display: inline-flex;
-  align-items: center;
-  margin-right: 4px;
-  & > div {
-    width: 180px;
-  }
-  & > span {
-    padding: 0 12px;
-    @include typography.font-style(16px, 700, 140%, -0.32px);
-    color: var(--gray500);
-  }
-}
-.btn-filter {
-  margin-left: 8px;
-}
 .form-group {
   margin-left: 24px;
   margin-bottom: 0;
-}
-.vertical-divider {
-  width: 1px;
-  height: 16px;
-  margin: 0 20px;
-  background: var(--border-color);
 }
 .btn-search-condition {
   padding: 0;
@@ -299,13 +261,6 @@ export default {
     }
   }
 }
-.btn-submit {
-  width: 120px;
-  margin-left: 24px;
-}
-.checkbox-menu {
-  display: flex;
-}
 /* 애니메이션 추가 */
 .slide-fade-enter-active, .slide-fade-leave-active {
   transition: all 0.1s ease;
@@ -314,29 +269,13 @@ export default {
   transform: translateY(-10px);
   opacity: 0;
 }
-
-.table-area {
-  margin-top: 20px;
-  padding: 28px;
-  tbody tr:last-child td {
-    border-bottom: 1px solid var(--border-color);
-  }
+.check-menu {
+  display: flex;
 }
-.list-count {
-  margin: 0 12px 0 0;
-  @include typography.font-style(14px, 700, 140%, -0.28px);
-  color: var(--gray500);
-
-  span {
-    padding-left: 6px;
-  }
-}
-.pageCount-dropdown {
-  width: 132px;
+.list-view .pageCount-dropdown {
   margin-right: auto;
 }
 .table-responsive {
-  margin-top: 40px;
   tr {
     cursor: pointer;
   }

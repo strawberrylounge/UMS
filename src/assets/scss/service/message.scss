@@ -56,7 +56,6 @@
     }
   }
 }
-
 /* 통합발송 미리보기 스타일 */
 .preview {
   padding: 28px;
@@ -66,7 +65,6 @@
     color: var(--gray700);
   }
 }
-
 /* 통합발송 공통 스타일 */
 .section {
   width: calc(100% - 400px);
@@ -150,7 +148,6 @@
   margin-top: 20px;
   padding-left: 132px;
 }
-
 /* 템플릿 선택 공통 스타일 */
 .select-template-modal {
   .section {
@@ -235,5 +232,70 @@
     .brand-dropdown {
       width: 100%;
     }
+  }
+}
+/* 조회 화면 공통 스타일 */
+.list-view .search-section {
+  display: flex;
+  align-items: center;
+  flex-direction: row;
+  padding: 28px;
+  box-shadow: none;
+  &-forms {
+    width: 100%;
+    max-width: calc(100% - 120px - 24px);
+  }
+  label {
+    margin: 0;
+    @include typography.font-style(14px, 500, 140%, -0.28px);
+    color: var(--gray700);
+  }
+  .datepicker-group {
+    display: inline-flex;
+    align-items: center;
+    margin-right: 4px;
+    & > div {
+      width: 180px;
+    }
+    & > span {
+      padding: 0 12px;
+      @include typography.font-style(16px, 700, 140%, -0.32px);
+      color: var(--gray500);
+    }
+  }
+  .btn-filter {
+    margin-left: 8px;
+  }
+  .vertical-divider {
+    width: 1px;
+    height: 16px;
+    margin: 0 20px;
+    background: var(--border-color);
+  }
+  .btn-submit {
+    width: 120px;
+    margin-left: 24px;
+  }
+}
+.list-view .table-section {
+  margin-top: 20px;
+  padding: 28px;
+  .table-responsive {
+    margin-top: 40px;
+  }
+  tbody tr:last-child td {
+    border-bottom: 1px solid var(--border-color);
+  }
+  .list-count {
+    margin: 0 12px 0 0;
+    @include typography.font-style(14px, 700, 140%, -0.28px);
+    color: var(--gray500);
+    span {
+      padding-left: 6px;
+    }
+  }
+  .pageCount-dropdown {
+    width: 132px;
+    margin-right: 20px;
   }
 }

@@ -1,11 +1,11 @@
 <template>
-  <div class="uc-message-status">
+  <div class="uc-message-status list-view">
     <MessageStatusTabs />
 
     <div class="tab-contents">
       <!-- 검색영역 Start -->
-      <div class="search-area card border-0">
-        <div class="search-area-forms">
+      <div class="search-section card border-0">
+        <div class="search-section-forms">
           <div class="d-flex align-items-center flex-wrap">
             <label>발송일자</label>
             <div class="d-flex ml-3 datepicker-group">
@@ -40,7 +40,7 @@
       <!-- 검색영역 End -->
 
       <!-- 리스트 영역 Start -->
-      <div class="table-area card">
+      <div class="table-section card">
         <div class="d-flex align-items-center">
           <p class="list-count">전체 <span class="text-primary">10건</span></p>
           <b-dropdown id="pageCount-dropdown" variant="secondary" class="pageCount-dropdown">
@@ -186,76 +186,14 @@ export default {
 <style scoped lang="scss">
 @use "~@/assets/scss/service/base/typography" as typography;
 
-.search-area {
-  display: flex;
-  align-items: center;
-  flex-direction: row;
-  padding: 28px;
-  box-shadow: none;
-  &-forms {
-    width: 100%;
-    max-width: calc(100% - 120px - 24px);
-  }
-  label {
-    margin: 0;
-    @include typography.font-style(14px, 500, 140%, -0.28px);
-    color: var(--gray700);
-  }
+.search-section {
   .form-control {
     max-width: 355px;
   }
 }
-.datepicker-group {
-  display: inline-flex;
-  align-items: center;
-  margin-right: 4px;
-  & > div {
-    width: 180px;
-  }
-  & > span {
-    padding: 0 12px;
-    @include typography.font-style(16px, 700, 140%, -0.32px);
-    color: var(--gray500);
-  }
-}
-.btn-filter {
-  margin-left: 8px;
-}
 .form-group {
   margin-left: 24px;
   margin-bottom: 0;
-}
-.vertical-divider {
-  width: 1px;
-  height: 16px;
-  margin: 0 20px;
-  background: var(--border-color);
-}
-.btn-submit {
-  width: 120px;
-  margin-left: 24px;
-}
-.table-area {
-  margin-top: 20px;
-  padding: 28px;
-  .table-responsive {
-    margin-top: 40px;
-  }
-  tbody tr:last-child td {
-    border-bottom: 1px solid var(--border-color);
-  }
-}
-.list-count {
-  margin: 0 12px 0 0;
-  @include typography.font-style(14px, 700, 140%, -0.28px);
-  color: var(--gray500);
-  span {
-    padding-left: 6px;
-  }
-}
-.pageCount-dropdown {
-  width: 132px;
-  margin-right: 20px;
 }
 .status-list {
   margin: 0;
