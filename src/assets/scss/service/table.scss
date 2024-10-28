@@ -26,8 +26,14 @@
       }
     }
   }
-  th, td {
-    padding: 16px;
+  th {
+    padding: 13px 16px;
+    border-color: var(--border-color);
+    @include typography.font-style(16px, 500, 140%, -0.32px);
+    color: var(--gray900);
+  }
+  td {
+    padding: 17px 16px;
     border-color: var(--border-color);
     @include typography.font-style(16px, 500, 140%, -0.32px);
     color: var(--gray900);

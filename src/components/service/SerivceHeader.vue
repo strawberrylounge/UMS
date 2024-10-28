@@ -63,6 +63,8 @@ export default {
           return '알림톡';
         case '/uc/messageStatus':
           return '발송현황';
+        case '/uc/webSend':
+          return '발송내역';
         default:
           return ''
       }

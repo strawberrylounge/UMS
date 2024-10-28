@@ -4,11 +4,11 @@
       <div :class="['tab', isActive('/uc/messageStatus')]">
         <a href="/uc/messageStatus">발송현황</a>
       </div>
-      <div :class="['tab', isActive('/uc/message/sendSms')]">
+      <div :class="['tab', isActive('/uc/webSend')]">
         <a href="/uc/webSend">발송내역</a>
       </div>
     </div>
-    <p class="breadcrumb f-body5 c-gray700">발송 > {{breadCrumbTitle}}</p>
+    <p class="breadcrumb f-body5 c-gray700">조회 > {{breadCrumbTitle}}</p>
   </div>
 </template>
 

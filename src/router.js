@@ -14,6 +14,7 @@ import ucMessageSmartSendMain from "@/modules/ucMessageSmartSendMain/views/Index
 import ucRcsTemplateSend from "@/modules/ucRcsTemplateSend/views/Index.vue";
 import ucMessageSendAlimTalk from "@/modules/ucMessageSendAlimTalk/views/Index.vue";
 import ucMessageStatus from "@/modules/ucMessageStatus/views/Index.vue";
+import ucWebSend from "@/modules/ucWebSend/views/Index.vue";
 
 Vue.use(Router);
 
@@ -99,6 +100,16 @@ const router = new Router({
         {
           path: "",
           component: ucMessageStatus,
+        },
+      ],
+    },
+    {
+      path: "/uc/webSend",
+      component: ServiceLayout,
+      children: [
+        {
+          path: "",
+          component: ucWebSend,
         },
       ],
     },

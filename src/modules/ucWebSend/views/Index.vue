@@ -1,5 +1,5 @@
 <template>
-  <div class="uc-message-status">
+  <div class="uc-web-send">
     <MessageStatusTabs />
 
     <div class="tab-contents">
@@ -13,26 +13,12 @@
               <span>~</span>
               <CustomDatepicker />
             </div>
-            <button type="button" class="btn btn-filter active">일주일</button>
-            <button type="button" class="btn btn-filter">15일</button>
-            <button type="button" class="btn btn-filter">1개월</button>
+            <button type="button" class="btn btn-filter active">오늘</button>
 
             <i class="vertical-divider"></i>
 
-            <label class="mr-3">수신자 정보</label>
+            <label class="mr-3">발송자 명</label>
             <b-input placeholder="입력"></b-input>
-
-            <i class="vertical-divider"></i>
-
-            <label>결과</label>
-              <b-form-group>
-                <b-form-checkbox-group
-                  id="service-checkbox-group-message"
-                  v-model="statusSelected"
-                  :options="statusOptions"
-                  name="message-1"
-                ></b-form-checkbox-group>
-              </b-form-group>
           </div>
         </div>
         <b-button variant="dark" class="btn-submit ml-auto">검색</b-button>
@@ -79,64 +65,71 @@
           <table class="table">
             <thead>
               <tr>
+                <th>
+                  NO. <IconSort />
+                </th>
                 <th scope="col">
                   <div class="d-flex align-items-center"> <!-- NOTE: 정렬시 class명 추가하면 스타일 변경됨 -->
-                    수신자 정보
+                    발송자명
                     <IconSort />
                   </div>
                 </th>
                 <th scope="col">
                   <div class="d-flex align-items-center">
-                    식별값 (클라이언트 키)
+                    전체발송수
                     <IconSort class="down" /> <!-- NOTE: 정렬시 class명 추가하면 스타일 변경됨 -->
                   </div>
                 </th>
                 <th scope="col">
                   <div class="d-flex align-items-center">
-                    발송일시
+                    발송타입
                     <IconSort />
                   </div>
                 </th>
                 <th scope="col">
                   <div class="d-flex align-items-center">
-                    발송구분
+                    문자
                     <IconSort />
                   </div>
                 </th>
                 <th scope="col">
                   <div class="d-flex align-items-center">
-                    요청채널
+                    RCS
                     <IconSort />
                   </div>
                 </th>
                 <th scope="col">
                   <div class="d-flex align-items-center">
-                    발송채널
+                    알림톡
                     <IconSort />
                   </div>
                 </th>
                 <th scope="col">
                   <div class="d-flex align-items-center">
-                    결과
+                    발송실패
                     <IconSort />
+                  </div>
+                </th>
+                <th>
+                  <div class="d-flex align-items-center">
+                    발송일자 <IconSort />
                   </div>
                 </th>
               </tr>
             </thead>
             <tbody>
               <tr v-for="(item, index) in [0,1,2,3,4]" :key="index">
-                <td>010-1234-1234</td>
-                <td>SMSnZMR9In_1</td>
-                <td>2024.02.06 12:15</td>
-                <td>웹</td>
-                <td>SMS</td>
-                <td>SMS</td>
-                <td  v-if="index%2 === 0">
-                  <span class="text-primary">성공</span>
+                <td>{{ item + 1 }}</td>
+                <td>testadmin</td>
+                <td>1</td>
+                <td>개별발송</td>
+                <td>O</td>
+                <td>X</td>
+                <td>X</td>
+                <td>
+                  <b-button variant="outline-secondary" size="sm">발송실패확인</b-button>
                 </td>
-                <td  v-else>
-                  <span class="text-underline c-failure">실패</span>
-                </td>
+                <td>2024.02.06 12:15:11</td>
               </tr>
             </tbody>
           </table>
@@ -161,7 +154,7 @@ import '@/assets/scss/service/message.scss';
 
 export default {
   components: { IconArrowDown, CustomDatepicker, Pagination, IconSort, MessageStatusTabs, IconCoin },
-  name: "ucMessageStatus",
+  name: "ucWebSend",
   data() {
     return {
       statusSelected: [],
@@ -221,10 +214,6 @@ export default {
 .btn-filter {
   margin-left: 8px;
 }
-.form-group {
-  margin-left: 24px;
-  margin-bottom: 0;
-}
 .vertical-divider {
   width: 1px;
   height: 16px;
@@ -240,6 +229,10 @@ export default {
   padding: 28px;
   .table-responsive {
     margin-top: 40px;
+  }
+  td {
+    padding: 17px 16px 11px;
+    vertical-align: middle;
   }
   tbody tr:last-child td {
     border-bottom: 1px solid var(--border-color);

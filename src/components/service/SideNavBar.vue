@@ -40,11 +40,11 @@
           <IconArrowDown />
         </b-button>
         <b-collapse id="collapse-admin-service" class="menu-list" visible>
-          <a href="/uc/message/multiSendList" class="d-flex align-items-center menu-item" :class="{ active: $route.path.includes('/uc')}">
+          <a href="/uc/message/multiSendList" class="d-flex align-items-center menu-item" :class="{ active: ($route.path.includes('/uc/message/') || $route.path.includes('/uc/rcsTemplateSend'))}">
             <icon-send />
             <span >발송</span>
           </a>
-          <a href="/uc/messageStatus" class="d-flex align-items-center menu-item">
+          <a href="/uc/messageStatus" class="d-flex align-items-center menu-item" :class="{ active: ($route.path === '/uc/messageStatus' || $route.path === '/uc/webSend')}">
             <icon-menu-search />
             <span >조회</span>
           </a>
@@ -110,11 +110,11 @@
       <li>
         <b-button v-b-toggle.collapse-user disabled class="menu-title">서비스</b-button>
         <b-collapse visible id="collapse-user" class="menu-list">
-          <a href="/uc/message/multiSendList" class="d-flex align-items-center menu-item" :class="{ active: $route.path === '/uc/message/multiSendList' }">
+          <a href="/uc/message/multiSendList" class="d-flex align-items-center menu-item" :class="{ active: ($route.path.includes('/uc/message/') || $route.path.includes('/uc/rcsTemplateSend'))}">
             <icon-send />
             <span >발송</span>
           </a>
-          <a href="/uc/messageStatus" class="d-flex align-items-center menu-item">
+          <a href="/uc/messageStatus" class="d-flex align-items-center menu-item" :class="{ active: ($route.path === '/uc/messageStatus' || $route.path === '/uc/webSend')}"></a>>
             <icon-menu-search />
             <span >조회</span>
           </a>
