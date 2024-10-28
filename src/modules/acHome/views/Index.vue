@@ -25,10 +25,10 @@ import MonthlyChart from '@/modules/acHome/components/MonthlyChart.vue';
 import PercentChart from '@/modules/acHome/components/PercentChart.vue';
 import TodayChart from '@/modules/acHome/components/TodayChart.vue';
 import '@/assets/scss/service/home.scss';
-import NoticeSlide from '../components/NoticeSlide.vue';
+import NoticeSlide from '@/modules/acHome/components/NoticeSlide.vue';
 
 export default {
-  components: { QnaSlide, StatusCard, MonthlyChart, PercentChart, TodayChart, NoticeSlide },
+  components: { QnaSlide, StatusCard, MonthlyChart, TodayChart, PercentChart, NoticeSlide },
   name: "acHome",
   data() {
     return {

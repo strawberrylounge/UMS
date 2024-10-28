@@ -1,5 +1,5 @@
 <template>
-  <div class="service-home-slide">
+  <div class="service-home-slide d-flex flex-column justify-content-between">
     <p class="title f-title1">{{ title }}</p>
     <b-carousel id="home-carousel" no-wrap controls no-interval>
       <b-carousel-slide v-for="(item, index) in data" :key="index">

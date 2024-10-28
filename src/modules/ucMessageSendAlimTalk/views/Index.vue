@@ -168,14 +168,13 @@ import SearchAddressModal from '@/components/service/modal/SearchAddressModal.vu
 import EnterReceiverModal from '@/modules/ucMessageSendSms/components/modal/EnterReceiverModal.vue';
 import IconClose from '@/components/service/icons/IconClose.vue';
 import CustomDatepicker from '@/components/service/form/CustomDatepicker.vue'
-import ConfirmModal from '@/components/service/modal/ConfirmModal.vue'
 import SelectTalkTemplateModal from '@/modules/ucMessageSendAlimTalk/components/modal/SelectTalkTemplateModal.vue';
 import ViewContentModal from '@/modules/ucMessageSendAlimTalk/components/modal/ViewContentModal.vue';
 import PreviewTalk from '@/components/service/preview/PreviewTalk.vue';
 import MessageTabs from '@/components/service/message/MessageTabs.vue'
 
 export default {
-  components: { IconInfo, IconCoin, IconDownload, IconClose, SearchAddressModal, EnterReceiverModal, CustomDatepicker, ConfirmModal, SelectTalkTemplateModal, PreviewTalk, MessageTabs, ViewContentModal, },
+  components: { IconInfo, IconCoin, IconDownload, IconClose, SearchAddressModal, EnterReceiverModal, CustomDatepicker, SelectTalkTemplateModal, PreviewTalk, MessageTabs, ViewContentModal, },
   name: "ucRcsTemplateSend",
   data() {
     return {
