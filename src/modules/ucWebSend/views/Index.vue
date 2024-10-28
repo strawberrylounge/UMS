@@ -127,7 +127,7 @@
                 <td>X</td>
                 <td>X</td>
                 <td>
-                  <b-button variant="outline-secondary" size="sm">발송실패확인</b-button>
+                  <b-button variant="outline-secondary" size="sm" @mouseenter="openModal">발송실패확인</b-button>
                 </td>
                 <td>2024.02.06 12:15:11</td>
               </tr>
@@ -139,6 +139,8 @@
       </div>
       <!-- 리스트 영역 End -->
     </div>
+
+    <FailMessageInfoModal />
   </div>
 </template>
 
@@ -149,11 +151,12 @@ import CustomDatepicker from '@/components/service/form/CustomDatepicker.vue'
 import IconSort from '@/components/service/icons/IconSort.vue';
 import IconCoin from '@/components/service/icons/IconCoin.vue';
 import Pagination from '@/components/service/Pagination.vue';
+import FailMessageInfoModal from '@/modules/ucWebSend/components/modal/FailMessageInfoModal.vue';
 
 import '@/assets/scss/service/message.scss';
 
 export default {
-  components: { IconArrowDown, CustomDatepicker, Pagination, IconSort, MessageStatusTabs, IconCoin },
+  components: { IconArrowDown, CustomDatepicker, Pagination, IconSort, MessageStatusTabs, IconCoin, FailMessageInfoModal },
   name: "ucWebSend",
   data() {
     return {
@@ -172,6 +175,9 @@ export default {
     navigateToSmartSendMain() {
       this.$router.push(`/uc/message/smartSendMain`);
     },
+    openModal() {
+      this.$bvModal.show('fail-message-info-modal');
+    }
   }
 };
 </script>
