@@ -4,12 +4,12 @@
       <h2 class="m-0 heading1">{{ headerTitle }}</h2>
       <p v-if="showMsgDesc" class="msg-desc f-body5 f-bold">야간 메시지 발송 제한으로 21:00 ~ 다음날 08:00까지 메시지를 발송할 수 없습니다.
         <b-button v-b-tooltip.hover.html="msgTooltip" variant="light" class="btn-icon p-0">
-          <IconQuestion isRed />
+          <IconQuestionLine />
         </b-button>
       </p>
       <p v-else-if="showSmartMsgDesc" class="msg-desc f-body5 f-bold">(친구톡 광고 메시지는 20시~8시 발송 시 실패 처리 됩니다.)야간 메시지 발송 제한으로 21:00 ~ 다음날 08:00 까지 메시지 발송을 할 수 없습니다.
         <b-button v-b-tooltip.hover.html="msgTooltip" variant="light" class="btn-icon p-0">
-          <IconQuestion isRed />
+          <IconQuestionLine />
         </b-button>
       </p>
     </div>
@@ -40,11 +40,11 @@
 
 <script>
 import IconCoin from '@/components/service/icons/IconCoin.vue'
-import IconQuestion from '@/components/service/icons/IconQuestion.vue'
+import IconQuestionLine from '@/components/service/icons/IconQuestionLine.vue'
 import '@/assets/scss/service/header.scss';
 
 export default {
-  components: { IconCoin, IconQuestion, },
+  components: { IconCoin, IconQuestionLine, },
   name: 'SerivceHeader',
   computed: {
     headerTitle() {
@@ -61,6 +61,8 @@ export default {
           return 'RCS';
         case '/uc/message/sendAlimTalk':
           return '알림톡';
+        case '/uc/messageStatus':
+          return '발송현황';
         default:
           return ''
       }

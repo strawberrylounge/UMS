@@ -44,7 +44,7 @@
             <icon-send />
             <span >발송</span>
           </a>
-          <a href="#" class="d-flex align-items-center menu-item">
+          <a href="/uc/messageStatus" class="d-flex align-items-center menu-item">
             <icon-menu-search />
             <span >조회</span>
           </a>
@@ -114,7 +114,7 @@
             <icon-send />
             <span >발송</span>
           </a>
-          <a href="#" class="d-flex align-items-center menu-item">
+          <a href="/uc/messageStatus" class="d-flex align-items-center menu-item">
             <icon-menu-search />
             <span >조회</span>
           </a>

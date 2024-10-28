@@ -178,34 +178,7 @@
             </tbody>
           </table>
 
-          <!-- 페이지네이션 -->
-          <nav class="pagination">
-            <ul class="pagination-list">
-              <li class="pagination-item">
-                <b-button class="btn btn-arrow arrow-left arrow-left-double" disabled>
-                  <IconArrowDoubleRight />
-                </b-button>
-              </li>
-              <li class="pagination-item">
-                <b-button class="btn btn-arrow arrow-left">
-                  <IconArrowRight />
-                </b-button>
-              </li>
-              <li class="pagination-item"><a class="pagination-link active" href="#">1</a></li>
-              <li class="pagination-item"><a class="pagination-link" href="#">2</a></li>
-              <li class="pagination-item"><a class="pagination-link last-link" href="#">3</a></li>
-              <li class="pagination-item">
-                <b-button class="btn btn-arrow arrow-right">
-                  <IconArrowRight />
-                </b-button>
-              </li>
-              <li class="pagination-item">
-                <b-button class="btn btn-arrow arrow-right arrow-right-double">
-                  <IconArrowDoubleRight />
-                </b-button>
-              </li>
-            </ul>
-          </nav>
+          <Pagination />
         </div>
       </div>
       <!-- 리스트 영역 End -->
@@ -216,17 +189,16 @@
 <script>
 import IconArrowDown from '@/components/service/icons/IconArrowDown.vue'
 import MessageTabs from '@/components/service/message/MessageTabs.vue'
-import IconArrowDoubleRight from '@/components/service/icons/IconArrowDoubleRight.vue'
 import SearchInput from '@/components/service/form/SearchInput.vue'
 import CustomDatepicker from '@/components/service/form/CustomDatepicker.vue'
-import IconArrowRight from '@/components/service/icons/IconArrowRight.vue';
 import IconSort from '@/components/service/icons/IconSort.vue';
 import IconCoin from '@/components/service/icons/IconCoin.vue';
+import Pagination from '@/components/service/Pagination.vue';
 
 import '@/assets/scss/service/message.scss';
 
 export default {
-  components: { IconArrowDown, SearchInput, CustomDatepicker, IconArrowRight, IconArrowDoubleRight, IconSort, MessageTabs, IconCoin },
+  components: { IconArrowDown, SearchInput, CustomDatepicker, Pagination, IconSort, MessageTabs, IconCoin },
   name: "ucMessageMultiSendList",
   data() {
     return {
@@ -268,7 +240,8 @@ export default {
   padding: 28px;
   box-shadow: none;
   &-forms {
-    width: calc(100% - 120px - 24px);
+    width: 100%;
+    max-width: calc(100% - 120px - 24px);
   }
   label {
     margin: 0;
@@ -366,13 +339,6 @@ export default {
   margin-top: 40px;
   tr {
     cursor: pointer;
-  }
-}
-.pagination {
-  width: 100%;
-  margin: 20px 0;
-  ul {
-    margin: 0 auto;
   }
 }
 </style>

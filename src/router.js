@@ -13,6 +13,7 @@ import ucMessageSendSms from "@/modules/ucMessageSendSms/views/Index.vue";
 import ucMessageSmartSendMain from "@/modules/ucMessageSmartSendMain/views/Index.vue";
 import ucRcsTemplateSend from "@/modules/ucRcsTemplateSend/views/Index.vue";
 import ucMessageSendAlimTalk from "@/modules/ucMessageSendAlimTalk/views/Index.vue";
+import ucMessageStatus from "@/modules/ucMessageStatus/views/Index.vue";
 
 Vue.use(Router);
 
@@ -88,6 +89,16 @@ const router = new Router({
         {
           path: "",
           component: ucMessageSendAlimTalk,
+        },
+      ],
+    },
+    {
+      path: "/uc/messageStatus",
+      component: ServiceLayout,
+      children: [
+        {
+          path: "",
+          component: ucMessageStatus,
         },
       ],
     },

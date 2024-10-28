@@ -1,7 +1,7 @@
 <template>
   <div class="uc-message-smart-send-main">
     <!-- 탭 Start -->
-    <div class="message-tabs-wrap">
+    <div class="message-tabs-wrap ">
       <div class="message-tabs">
         <div class="tab" :class="{active: previewType === 'rcs'}">
           <button class="btn" @click="changeTab('rcs')">RCS</button>
@@ -13,7 +13,7 @@
           <button class="btn" @click="changeTab('mms')">LMS/MMS</button>
         </div>
       </div>
-      <p class="breadcrumb">발송 > 원스텝메시지 > 통합발송</p>
+      <p class="breadcrumb f-body5 c-gray700">발송 > 원스텝메시지 > 통합발송</p>
     </div>
     <!-- 탭 End -->
 
