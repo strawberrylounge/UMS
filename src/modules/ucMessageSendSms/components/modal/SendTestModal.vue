@@ -5,7 +5,7 @@
       <p class="title-desc">* 테스트 발송 시 대체 발송은 하지 않습니다.</p>
     </template>
 
-    <label class="mb-1 pb-2 f-body4 c-gray500">휴대폰 번호 <span class="require">*</span></label>
+    <label class="mb-1 pb-2 f-body5 c-gray500">휴대폰 번호 <span class="require">*</span></label>
     <b-input placeholder="010-1234-5678"></b-input>
     <b-input placeholder="010-1234-5678"></b-input>
     <b-input placeholder="010-1234-5678"></b-input>

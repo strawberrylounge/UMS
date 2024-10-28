@@ -5,7 +5,7 @@
         <p class="m-0 mb-1 pb-3 f-body1 c-gray700"><span class="require">*</span>카카오 채널</p>
 
         <div class="d-flex align-items-center dropdown-container">
-          <label class="f-body4 c-gray500 form-labal">채널선택</label>
+          <label class="f-body5 c-gray500 form-labal">채널선택</label>
           <b-dropdown id="brand-dropdown" variant="secondary" class="brand-dropdown">
             <template #button-content>
               <span>{{ channel === '' ? '옵션' : channel }}</span>
@@ -18,7 +18,7 @@
 
         <hr class="hr">
 
-        <label for="template" class="m-0 f-body4 c-gray500">템플릿 유형</label>
+        <label for="template" class="m-0 f-body5 c-gray500">템플릿 유형</label>
         <b-form-group class="radio-group">
           <b-form-radio-group inline>
             <b-form-radio name="type" value="all">전체</b-form-radio>
@@ -28,7 +28,7 @@
           </b-form-radio-group>
         </b-form-group>
 
-        <label for="template" class="m-0 f-body4 c-gray500">템플릿 검색</label>
+        <label for="template" class="m-0 f-body5 c-gray500">템플릿 검색</label>
         <b-input-group class="w-100">
           <b-form-input></b-form-input>
           <b-input-group-append>
@@ -37,8 +37,8 @@
         </b-input-group>
 
         <div class="d-flex justify-content-between">
-          <label class="mb-1 pb-2 f-body4 c-gray500">템플릿 이름 (템플릿 ID)</label>
-          <span class="f-body5 f-bold c-gray500">총 <span class="text-primary">2건</span></span>
+          <label class="mb-1 pb-2 f-body5 c-gray500">템플릿 이름 (템플릿 ID)</label>
+          <span class="f-body5 c-gray500">총 <span class="text-primary">2건</span></span>
         </div>
         <div class="dropdown b-dropdown template-list">
           <ul class="dropdown-menu show">

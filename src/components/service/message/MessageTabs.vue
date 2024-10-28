@@ -1,7 +1,7 @@
 <template>
   <div class="message-tabs-wrap">
     <div class="message-tabs">
-      <div :class="['tab', isActive('/uc/message/multiSendList')]">
+      <div :class="['tab', isActive('/uc/message/multiSendList'), isActive('/uc/template/multiSendTemplateList')]">
         <a href="/uc/message/multiSendList">원스텝메시지</a>
       </div>
       <div :class="['tab', isActive('/uc/message/sendSms')]">
@@ -27,6 +27,7 @@ export default {
     breadCrumbTitle() {
       switch (this.$route.path) {
         case '/uc/message/multiSendList':
+        case '/uc/template/multiSendTemplateList':
           return '원스텝메시지';
         case '/uc/message/sendSms':
           return '문자';

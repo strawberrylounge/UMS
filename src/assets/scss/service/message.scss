@@ -13,9 +13,27 @@
     }
   }
 }
-.btn-search-condition path {
+.btn-search-condition {
+  padding: 0;
+  span {
+    padding-right: 8px;
+    @include typography.font-style(14px, 500, 140%, -0.28px);
+    text-decoration-line: underline;
+    color: var(--gray700);
+  }
+  svg {
+    width: 16px;
+    height: 16px;
+    transform: rotate(180deg); /* 아이콘 회전 */
+    &.rotated {
+      transform: rotate(0deg); 
+    }
+  }
+  path {
   stroke: var(--gray700);
+  }
 }
+.btn-search-condition p
 .service-template-tabs  {
   .tab {
     &.active {

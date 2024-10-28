@@ -2,12 +2,12 @@
   <header id="header" class="d-flex align-items-end justify-content-between header">
     <div class="d-flex align-items-end">
       <h2 class="m-0 heading1">{{ headerTitle }}</h2>
-      <p v-if="showMsgDesc" class="msg-desc f-body5 f-bold">야간 메시지 발송 제한으로 21:00 ~ 다음날 08:00까지 메시지를 발송할 수 없습니다.
+      <p v-if="showMsgDesc" class="msg-desc f-body4">야간 메시지 발송 제한으로 21:00 ~ 다음날 08:00까지 메시지를 발송할 수 없습니다.
         <b-button v-b-tooltip.hover.html="msgTooltip" variant="light" class="btn-icon p-0">
           <IconQuestionLine />
         </b-button>
       </p>
-      <p v-else-if="showSmartMsgDesc" class="msg-desc f-body5 f-bold">(친구톡 광고 메시지는 20시~8시 발송 시 실패 처리 됩니다.)야간 메시지 발송 제한으로 21:00 ~ 다음날 08:00 까지 메시지 발송을 할 수 없습니다.
+      <p v-else-if="showSmartMsgDesc" class="msg-desc f-body4">(친구톡 광고 메시지는 20시~8시 발송 시 실패 처리 됩니다.)야간 메시지 발송 제한으로 21:00 ~ 다음날 08:00 까지 메시지 발송을 할 수 없습니다.
         <b-button v-b-tooltip.hover.html="msgTooltip" variant="light" class="btn-icon p-0">
           <IconQuestionLine />
         </b-button>
@@ -52,6 +52,7 @@ export default {
         case '/ac/home':
           return '현황판';
         case '/uc/message/multiSendList':
+        case '/uc/template/multiSendTemplateList':
           return '원스텝메시지';
         case '/uc/message/sendSms':
           return '문자';

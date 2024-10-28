@@ -55,7 +55,7 @@
                     <b-input disabled value="이름"></b-input>
                   </td>
                   <td>
-                    <span class="f-body4 c-gray400">버튼 링크 내용 노출</span>
+                    <span class="f-body5 c-gray400">버튼 링크 내용 노출</span>
                   </td>
                   <td class="text-center">
                     <button class="btn btn-icon p-0">
@@ -94,7 +94,7 @@
         </div>
 
         <div class="d-flex align-items-center receive-count">
-          <p class="m-0 mr-1 pr-3 f-body4 c-gray600">수신자: <span class="text-primary">0명</span></p>
+          <p class="m-0 mr-1 pr-3 f-body5 c-gray600">수신자: <span class="text-primary">0명</span></p>
           <b-button variant="outline-secondary" size="sm">수신자 모두삭제</b-button>
         </div>
         <div class="receive-table">

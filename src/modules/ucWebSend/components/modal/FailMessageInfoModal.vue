@@ -2,12 +2,12 @@
   <b-modal id="fail-message-info-modal" title="발송실패 정보" hide-header-close centered size="lg">
 
     <div class="d-flex align-items-center">
-      <label class="f-body4 c-gray500">총 발송건수</label>
+      <label class="f-body5 c-gray500">총 발송건수</label>
       <span class="ml-1 pl-2 f-body5 c-gray900">1</span>
     </div>
 
     <div class="d-flex align-items-center">
-      <label class="f-body4 c-gray500">발송타입</label>
+      <label class="f-body5 c-gray500">발송타입</label>
       <span class="ml-1 pl-2 f-body5 c-gray900">개별발송</span>
     </div>
     

@@ -6,11 +6,11 @@
     </template>
 
     <div class="form-group">
-      <label for="title" class="f-body4 c-gray500">제목</label>
+      <label for="title" class="f-body5 c-gray500">제목</label>
       <b-input id="title" placeholder="제목 내용"></b-input>
     </div>
     <div class="form-group block">
-      <label class="f-body4 c-gray500">광고성메시지 수신거부번호</label>
+      <label class="f-body5 c-gray500">광고성메시지 수신거부번호</label>
       <b-input-group class="w-100">
         <b-input-group-append>
           <b-button variant="dark" @click="openBlockList">선택</b-button>
@@ -45,7 +45,7 @@
     </div>
 
     <div class="mt-1 pt-3">
-      <label for="content" class="mb-1 pb-2 f-body4 c-gray500">내용</label>
+      <label for="content" class="mb-1 pb-2 f-body5 c-gray500">내용</label>
       <b-form-textarea
         id="content"
         rows="6"

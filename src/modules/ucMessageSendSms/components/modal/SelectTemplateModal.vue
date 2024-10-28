@@ -2,7 +2,7 @@
   <b-modal id="select-template-modal" title="템플릿 선택" hide-header-close size="xl" centered content-class="select-template-modal">
     <div class="d-flex">
       <div class="section">
-        <label for="template" class="f-body4 c-gray500">템플릿 검색</label>
+        <label for="template" class="f-body5 c-gray500">템플릿 검색</label>
         <b-input-group class="w-100">
           <b-form-input></b-form-input>
           <b-input-group-append>
@@ -10,7 +10,7 @@
           </b-input-group-append>
         </b-input-group>
         <div class="d-flex justify-content-between">
-          <label class="f-body4 c-gray500">템플릿 이름 (템플릿 ID)</label>
+          <label class="f-body5 c-gray500">템플릿 이름 (템플릿 ID)</label>
           <span class="f-body4 f-bold c-gray500">총 <span class="text-primary">2건</span></span>
         </div>
         <div class="dropdown b-dropdown template-list">

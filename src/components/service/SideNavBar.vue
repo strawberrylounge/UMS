@@ -48,7 +48,7 @@
             <icon-menu-search />
             <span >조회</span>
           </a>
-          <a href="#" class="d-flex align-items-center menu-item">
+          <a href="/uc/template/multiSendTemplateList" class="d-flex align-items-center menu-item" :class="{ active: $route.path.includes('/uc/template/')}">
             <icon-template />
             <span >템플릿</span>
           </a>
@@ -118,9 +118,9 @@
             <icon-menu-search />
             <span >조회</span>
           </a>
-          <a href="#" class="d-flex align-items-center menu-item">
+          <a href="/uc/template/multiSendTemplateList" class="d-flex align-items-center menu-item" :class="{ active: $route.path.includes('/uc/template/')}">
             <icon-template />
-            <span >템플릿</span>
+            <span>템플릿</span>
           </a>
           <a href="#" class="d-flex align-items-center menu-item">
             <icon-stats />

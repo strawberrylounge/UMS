@@ -41,18 +41,18 @@
           
           <ul class="d-flex align-items-center status-list">
             <li>
-              <span class="f-body5 f-bold c-gray500">총건수</span>
-              <span class="f-body5 f-bold c-gray900">1건</span>
+              <span class="f-body4 c-gray500">총건수</span>
+              <span class="f-body4 c-gray900">1건</span>
             </li>
             <li class="divider"></li>
             <li>
-              <span class="f-body5 f-bold c-gray500">성공건수</span>
-              <span class="pl-2 f-body5 f-bold text-primary">1건</span>
+              <span class="f-body4 c-gray500">성공건수</span>
+              <span class="pl-2 f-body4 text-primary">1건</span>
             </li>
             <li class="divider"></li>
             <li>
-              <span class="f-body5 f-bold c-gray500">실패건구</span>
-              <span class="pl-2 f-body5 f-bold c-failure">1건</span>
+              <span class="f-body4 c-gray500">실패건구</span>
+              <span class="pl-2 f-body4 c-failure">1건</span>
             </li>
           </ul>
 

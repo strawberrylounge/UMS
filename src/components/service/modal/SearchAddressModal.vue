@@ -5,7 +5,7 @@
       <p class="title-desc">* 조직 조회 후 체크된 사용자를 선택하면 수신자에 추가됩니다.</p>
     </template>
 
-    <label id="search" class="mb-1 pb-2 f-body4 c-gray500">템플릿 검색</label>
+    <label id="search" class="mb-1 pb-2 f-body5 c-gray500">템플릿 검색</label>
     <div class="form-group">
       <b-dropdown id="search-type-dropdown" variant="secondary" class="search-type-dropdown">
         <template #button-content>

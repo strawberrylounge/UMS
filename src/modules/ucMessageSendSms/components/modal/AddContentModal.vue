@@ -5,7 +5,7 @@
       <p class="title-desc">* 광고성메시지 수신거부번호는 내용 하단에 포함됩니다. 또한 광고 표기는 제목 또는 내용에 포함되어 있어야 합니다.</p>
     </template>
 
-    <label for="content" class="f-body4 c-gray500 mb-1 pb-2">내용</label>
+    <label for="content" class="f-body5 c-gray500 mb-1 pb-2">내용</label>
     <b-form-textarea
       id="content"
       rows="6"
@@ -14,7 +14,7 @@
     <p class="textarea-count mt-2 mb-0">(63 / 90)</p>
 
     <div class="block">
-      <label class="f-body4 c-gray500">광고성메시지<br/>수신거부번호</label>
+      <label class="f-body5 c-gray500">광고성메시지<br/>수신거부번호</label>
       <b-input-group class="w-100">
         <b-input-group-append>
           <b-button variant="dark" @click="openBlockList">선택</b-button>

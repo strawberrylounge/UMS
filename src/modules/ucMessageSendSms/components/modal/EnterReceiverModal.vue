@@ -13,8 +13,8 @@
     </template>
 
     <div class="d-flex form-row">
-      <label class="mb-1 pb-2 f-body4 c-gray500">휴대폰 번호<span class="require">*</span></label>
-      <label class="mb-1 pb-2 f-body4 c-gray500">이름<span class="require">*</span></label>
+      <label class="mb-1 pb-2 f-body5 c-gray500">휴대폰 번호<span class="require">*</span></label>
+      <label class="mb-1 pb-2 f-body5 c-gray500">이름<span class="require">*</span></label>
     </div>
 
     <div v-for="(receiver, index) in receivers" :key="index" class="d-flex form-row input-row">

@@ -1,5 +1,5 @@
 <template>
-  <div class="uc-message-send-list list-view">
+  <div class="uc-multi-send-templat-list list-view">
     <MessageTabs />
 
     <div class="tab-contents">
@@ -86,11 +86,16 @@
             <b-dropdown-item-button :class="pageCount == 20 ? 'active' : ''">20개씩 보기</b-dropdown-item-button>
             <b-dropdown-item-button :class="pageCount == 30 ? 'active' : ''">30개씩 보기</b-dropdown-item-button>
           </b-dropdown>
-          <b-button variant="secondary" class="btn-svg btn-svg-right mr-2">
-            <span>통합발송 템플릿 관리</span>
+          <b-button variant="secondary" class="btn-svg btn-svg-right">
+            <span>템플릿 등록</span>
             <IconCoin />
           </b-button>
-          <b-button variant="primary">통합 메시지 발송</b-button>
+          <i class="vertical-divider"></i>
+          <b-button variant="outline-primary">삭제</b-button>
+          <b-button variant="outline-primary" class="btn-svg btn-svg-right ml-2">
+            <span>엑셀 다운로드</span>
+            <IconCoin />
+          </b-button>
         </div>
         <div class="table-responsive">
           <table class="table">
@@ -183,6 +188,8 @@
       </div>
       <!-- 리스트 영역 End -->
     </div>
+
+    <AlertModal title="템플릿 삭제" desc="삭제할 항목을 선택해주세요." />
   </div>
 </template>
 
@@ -194,12 +201,13 @@ import CustomDatepicker from '@/components/service/form/CustomDatepicker.vue'
 import IconSort from '@/components/service/icons/IconSort.vue';
 import IconCoin from '@/components/service/icons/IconCoin.vue';
 import Pagination from '@/components/service/Pagination.vue';
+import AlertModal from '@/components/service/modal/AlertModal.vue'
 
 import '@/assets/scss/service/message.scss';
 
 export default {
-  components: { IconArrowDown, SearchInput, CustomDatepicker, Pagination, IconSort, MessageTabs, IconCoin },
-  name: "ucMessageMultiSendList",
+  components: { IconArrowDown, SearchInput, CustomDatepicker, Pagination, IconSort, MessageTabs, IconCoin, AlertModal, },
+  name: "ucMultiSendTemplateList",
   data() {
     return {
       hideMenu: false, // 메뉴 숨김 상태
@@ -261,6 +269,12 @@ export default {
 }
 .check-menu {
   display: flex;
+}
+.vertical-divider {
+  width: 1px;
+  height: 16px;
+  margin: 0 20px;
+  background: var(--border-color);
 }
 .list-view .pageCount-dropdown {
   margin-right: auto;
