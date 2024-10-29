@@ -1,11 +1,11 @@
 <template>
   <div class="message-tabs-wrap">
     <div class="message-tabs">
-      <div :class="['tab', isActive('/uc/message/multiSendList')]">
-        <a href="/uc/message/multiSendList">원스텝메시지</a>
+      <div :class="['tab', isActive('/uc/template/multiSendTemplateList')]">
+        <a href="/uc/template/multiSendTemplateList">원스텝메시지</a>
       </div>
-      <div :class="['tab', isActive('/uc/message/sendSms')]">
-        <a href="/uc/message/sendSms">문자</a>
+      <div :class="['tab', isActive('/uc/template/smsTemplateList'), isActive('/uc/template/smsTemplateManage')]">
+        <a href="/uc/template/smsTemplateList">문자</a>
       </div>
       <div :class="['tab', isActive('/uc/rcsTemplateSend')]">
         <a href="/uc/rcsTemplateSend">RCS</a>
@@ -14,7 +14,7 @@
         <a href="/uc/message/sendAlimTalk">카카오톡</a>
       </div>
     </div>
-    <p class="breadcrumb f-body5 c-gray700">발송 > {{breadCrumbTitle}}</p>
+    <p class="breadcrumb f-body5 c-gray700">템플릿 > {{breadCrumbTitle}}</p>
   </div>
 </template>
 
@@ -22,14 +22,16 @@
 import '@/assets/scss/service/messageTabs.scss'
 
 export default {
-  name: "MessageTabs",
+  name: "TemplateTabs",
   computed: {
     breadCrumbTitle() {
       switch (this.$route.path) {
-        case '/uc/message/multiSendList':
+        case '/uc/template/multiSendTemplateList':
           return '원스텝메시지';
-        case '/uc/message/sendSms':
+        case '/uc/template/smsTemplateList':
           return '문자';
+        case '/uc/template/smsTemplateManage':
+          return '문자 > 템플릿 등록';
         case '/uc/message/smartSendMain':
           return '통합 발송';
         case '/uc/rcsTemplateSend':

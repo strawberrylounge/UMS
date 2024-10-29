@@ -150,7 +150,7 @@
     }
   }
   &-lg { // 사이즈 l
-    padding: 14px 19px;
+    padding: 15px 19px;
     border-radius: 12px;
     @include typography.font-style(16px, 700, 140%, -0.32px);
     &.btn-svg-left svg {

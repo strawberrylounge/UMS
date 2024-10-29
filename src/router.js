@@ -16,6 +16,8 @@ import ucMessageSendAlimTalk from "@/modules/ucMessageSendAlimTalk/views/Index.v
 import ucMessageStatus from "@/modules/ucMessageStatus/views/Index.vue";
 import ucWebSend from "@/modules/ucWebSend/views/Index.vue";
 import ucMultiSendTemplateList from "@/modules/ucMultiSendTemplateList/views/Index.vue";
+import ucSmsTemplateList from "@/modules/ucSmsTemplateList/views/Index.vue";
+import ucSmsTemplateManage from "@/modules/ucSmsTemplateManage/views/Index.vue";
 
 Vue.use(Router);
 
@@ -121,6 +123,26 @@ const router = new Router({
         {
           path: "",
           component: ucMultiSendTemplateList,
+        },
+      ],
+    },
+    {
+      path: "/uc/template/smsTemplateList",
+      component: ServiceLayout,
+      children: [
+        {
+          path: "",
+          component: ucSmsTemplateList,
+        },
+      ],
+    },
+    {
+      path: "/uc/template/smsTemplateManage",
+      component: ServiceLayout,
+      children: [
+        {
+          path: "",
+          component: ucSmsTemplateManage,
         },
       ],
     },

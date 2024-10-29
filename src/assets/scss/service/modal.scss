@@ -95,3 +95,10 @@
   width: 955px;
   max-width: 955px;
 }
+#select-image-modal {
+  .btn-icon {
+    path {
+      stroke: var(--primary)
+    }
+  }
+}

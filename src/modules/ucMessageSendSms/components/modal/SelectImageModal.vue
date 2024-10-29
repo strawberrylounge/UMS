@@ -1,5 +1,5 @@
 <template>  
-  <b-modal id="select-image-modal" hide-header-close centered size="lg">
+  <b-modal id="select-image-modal" hide-header-close centered size="lg" class="select-image-modal">
     <template #modal-title>
       <h5 class="modal-title">통합 이미지 관리</h5>
       <p class="title-desc">* 광고성메시지 수신거부번호는 내용 하단에 포함됩니다. 또한 광고 표기는 제목 또는 내용에 포함되어 있어야 합니다.
@@ -120,9 +120,6 @@ export default {
 .sticky-header {
   max-height: 350px;
   overflow-y: auto;
-}
-.btn-icon path {
-  stroke: var(--primary);
 }
 .info {
   margin: 20px 0 0;

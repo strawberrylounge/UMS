@@ -52,7 +52,6 @@ export default {
         case '/ac/home':
           return '현황판';
         case '/uc/message/multiSendList':
-        case '/uc/template/multiSendTemplateList':
           return '원스텝메시지';
         case '/uc/message/sendSms':
           return '문자';
@@ -66,6 +65,10 @@ export default {
           return '발송현황';
         case '/uc/webSend':
           return '발송내역';
+        case '/uc/template/multiSendTemplateList':
+        case '/uc/template/smsTemplateList':
+        case '/uc/template/smsTemplateManage':
+          return '템플릿'
         default:
           return ''
       }

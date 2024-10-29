@@ -1,5 +1,5 @@
 <template>
-  <div class="uc-multi-send-templat-list list-view">
+  <div class="uc-sms-template-list list-view">
     <TemplateTabs />
 
     <div class="tab-contents">
@@ -77,7 +77,7 @@
             <b-dropdown-item-button :class="pageCount == 20 ? 'active' : ''">20개씩 보기</b-dropdown-item-button>
             <b-dropdown-item-button :class="pageCount == 30 ? 'active' : ''">30개씩 보기</b-dropdown-item-button>
           </b-dropdown>
-          <b-button variant="secondary" class="btn-svg btn-svg-right">
+          <b-button variant="secondary" class="btn-svg btn-svg-right" @click="navigateToManage">
             <span>템플릿 등록</span>
             <IconArrowRight />
           </b-button>
@@ -151,7 +151,7 @@
               </tr>
             </thead>
             <tbody>
-              <tr v-for="(item, index) in [0,1,2,3,4]" :key="index" @click="navigateToSmartSendMain">
+              <tr v-for="(item, index) in [0,1,2,3,4]" :key="index">
                 <td class="text-center">
                   <b-form-checkbox
                     :id=index
@@ -198,7 +198,7 @@ import '@/assets/scss/service/message.scss';
 
 export default {
   components: { IconArrowDown, SearchInput, Pagination, IconSort, TemplateTabs, IconArrowRight, AlertModal, IconArrowLineDown, },
-  name: "ucMultiSendTemplateList",
+  name: "ucSmsTemplateList",
   data() {
     return {
       hideMenu: false, // 메뉴 숨김 상태
@@ -228,12 +228,12 @@ export default {
     toggleMenu() {
       this.hideMenu = !this.hideMenu;
     },
-    navigateToSmartSendMain() {
-      this.$router.push(`/uc/message/smartSendMain`);
-    },
     openDeleteAlertModal() {
       this.$bvModal.show('alert-modal');
-    }
+    },
+    navigateToManage() {
+      this.$router.push(`/uc/template/smsTemplateManage`);
+    },
   }
 };
 </script>
@@ -272,10 +272,5 @@ export default {
 }
 .list-view .pageCount-dropdown {
   margin-right: auto;
-}
-.table-responsive {
-  tr {
-    cursor: pointer;
-  }
 }
 </style>

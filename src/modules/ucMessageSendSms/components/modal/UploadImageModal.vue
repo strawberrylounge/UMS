@@ -102,7 +102,7 @@ export default {
   align-items: center;
   margin: 20px 0;
   .btn-icon {
-    margin: 0 20px 0 6px;
+    margin: -3px 20px 0 6px;
     background-color: var(--white);
     border: none;
   }
