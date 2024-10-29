@@ -6,7 +6,15 @@
       <div class="preview card">
         <p class="preview-title">미리보기</p>
         <PreviewDefault>
-          <div v-if="showPreviewTitle" class="preview-section-title">0904_SMS_광고성  #{내용}입니다.</div>
+          <div class="preview-section">
+            <p class="m-0 f-body6 c-gray900">{{ displayTitle }}</p>
+            <p class="m-0 mt-2 f-caption2 c-gray700" v-html="displayContent"></p>
+          </div>
+          <div class="preview-img">
+            <img src="@/assets/images/service/preview/preview-img.svg" alt="" class="img-icon">
+            <p class="m-0 mt-1 c-caption2 c-gray500">작성페이지에서 이미지를<br/>
+              삽입할 수 있습니다.</p>
+          </div>
         </PreviewDefault>
       </div>
 
@@ -15,7 +23,7 @@
         <div class="form-wrap">
           <div class="form-row">
             <label for="name">템플릿 명 <span class="require">*</span></label>
-            <b-input id="name"></b-input>
+            <b-input id="name" v-model="title" @blur="updateTitle"></b-input>
           </div>
           <div class="form-row">
             <label for="desc">템플릿 설명</label>
@@ -51,8 +59,10 @@
                 id="content"
                 rows="6"
                 max-rows="6"
+                v-model="content"
+                @blur="updateContent"
               ></b-form-textarea>
-              <p class="m-0 mt-1 pt-2 f-body5 c-gary600">(28/1,000)</p>
+              <p class="m-0 mt-1 pt-2 f-body5 c-gary600">({{content.length}}/1,000)</p>
             </div>
           </div>
           <div class="form-row">
@@ -105,10 +115,26 @@ export default {
   name: "ucSmsTempalteManage",
   data() {
     return {
-      type: 'sms'
+      type: 'sms',
+      title: '',
+      content: '',
+      displayTitle: '',
+      displayContent: ''
     }
   },
   methods: {
+    updateTitle() {
+      this.displayTitle = this.title;
+    },
+    updateContent() {
+      this.displayContent = this.nl2br(this.content);
+    },
+    nl2br(str) {
+    if (typeof str === 'string') {
+      return str.replace(/\n/g, '<br>');
+    }
+    return str;
+  }
   },
   watch: {
   }

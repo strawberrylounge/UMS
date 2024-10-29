@@ -1,6 +1,7 @@
 @use "../../scss/service/base/typography" as typography;
 
 /* 목업 화면 미리보기 */
+.preview-section,
 .preview-section-title {
   padding: 13px 0;
   border-radius: 10.35px;
@@ -8,4 +9,15 @@
   text-align: center;
   @include typography.font-style(14px, 400, 140%, -0.28px);
   color: var(--gray700);
+}
+.preview-img {
+  margin-top: 8px;
+  padding: 27px 0;
+  border-radius: 10.35px;
+  background: var(--gray300);
+  text-align: center;
+  .img-icon {
+    width: 40px;
+    height: 45px;
+  }
 }
