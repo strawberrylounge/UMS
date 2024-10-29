@@ -7,8 +7,8 @@
       <div :class="['tab', isActive('/uc/template/smsTemplateList'), isActive('/uc/template/smsTemplateManage')]">
         <a href="/uc/template/smsTemplateList">문자</a>
       </div>
-      <div :class="['tab', isActive('/uc/rcsTemplateSend')]">
-        <a href="/uc/rcsTemplateSend">RCS</a>
+      <div :class="['tab', isActive('/uc/template/rcsTemplateList')]">
+        <a href="/uc/template/rcsTemplateList">RCS</a>
       </div>
       <div :class="['tab', isActive('/uc/message/sendAlimTalk')]">
         <a href="/uc/message/sendAlimTalk">카카오톡</a>
@@ -32,14 +32,8 @@ export default {
           return '문자';
         case '/uc/template/smsTemplateManage':
           return '문자 > 템플릿 등록';
-        case '/uc/message/smartSendMain':
-          return '통합 발송';
-        case '/uc/rcsTemplateSend':
+        case '/uc/template/rcsTemplateList':
           return 'RCS';
-        case '/uc/message/sendAlimTalk':
-          return '알림톡';
-        case '/uc/messageStatus':
-          return '발송현황';
         default:
           return ''
       }

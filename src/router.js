@@ -18,6 +18,7 @@ import ucWebSend from "@/modules/ucWebSend/views/Index.vue";
 import ucMultiSendTemplateList from "@/modules/ucMultiSendTemplateList/views/Index.vue";
 import ucSmsTemplateList from "@/modules/ucSmsTemplateList/views/Index.vue";
 import ucSmsTemplateManage from "@/modules/ucSmsTemplateManage/views/Index.vue";
+import ucRcsTemplateList from "@/modules/ucRcsTemplateList/views/Index.vue";
 
 Vue.use(Router);
 
@@ -143,6 +144,16 @@ const router = new Router({
         {
           path: "",
           component: ucSmsTemplateManage,
+        },
+      ],
+    },
+    {
+      path: "/uc/template/rcsTemplateList",
+      component: ServiceLayout,
+      children: [
+        {
+          path: "",
+          component: ucRcsTemplateList,
         },
       ],
     },

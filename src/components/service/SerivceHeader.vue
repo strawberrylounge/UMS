@@ -68,6 +68,7 @@ export default {
         case '/uc/template/multiSendTemplateList':
         case '/uc/template/smsTemplateList':
         case '/uc/template/smsTemplateManage':
+        case '/uc/template/rcsTemplateList':
           return '템플릿'
         default:
           return ''
