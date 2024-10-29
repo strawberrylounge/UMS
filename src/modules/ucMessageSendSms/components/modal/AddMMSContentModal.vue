@@ -9,7 +9,18 @@
       <label for="title" class="f-body5 c-gray500">제목</label>
       <b-input id="title" placeholder="제목 내용"></b-input>
     </div>
-    <div class="form-group block">
+
+    <div class="mt-1 pt-3">
+      <label for="content" class="mb-1 pb-2 f-body5 c-gray500">내용</label>
+      <b-form-textarea
+        id="content"
+        rows="6"
+        max-rows="6"
+      ></b-form-textarea>
+      <p class="textarea-count mt-2 mb-0">(7 / 2000)</p>
+    </div>
+
+    <div class="form-group block mt-1 pt-3">
       <label class="f-body5 c-gray500">광고성메시지 수신거부번호</label>
       <b-input-group class="w-100">
         <b-input-group-append>
@@ -42,16 +53,6 @@
           </button>
         </li>
       </ul>
-    </div>
-
-    <div class="mt-1 pt-3">
-      <label for="content" class="mb-1 pb-2 f-body5 c-gray500">내용</label>
-      <b-form-textarea
-        id="content"
-        rows="6"
-        max-rows="6"
-      ></b-form-textarea>
-      <p class="textarea-count mt-2 mb-0">(7 / 2000)</p>
     </div>
 
     <template #modal-footer>
