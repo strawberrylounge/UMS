@@ -53,6 +53,7 @@ export default {
 
 <style scoped lang="scss">
   #content {
+    min-width: calc(100% - 260px);
     transition: all 0.3s;
     background-color: #ECEFF2;
   }
