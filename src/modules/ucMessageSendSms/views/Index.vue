@@ -70,15 +70,15 @@
           <div class="p-0 btn-wrap">
             <b-button variant="outline-primary" size="sm" class="btn-svg btn-svg-right" v-b-modal.enter-receiver-modal>
               <span>수신자 직접입력</span>
-              <IconCoin />
+              <IconArrowRight />
             </b-button>
             <b-button variant="outline-primary" size="sm" class="btn-svg btn-svg-right" v-b-modal.search-address-modal>
               <span>주소록 검색</span>
-              <IconCoin />
+              <IconArrowRight />
             </b-button>
             <b-button variant="outline-primary" size="sm" class="btn-svg btn-svg-right">
               <span>엑셀 업로드</span>
-              <IconCoin />
+              <IconArrowRight />
             </b-button>
             <b-button variant="light" class="btn btn-sm btn-svg btn-svg-right btn-sample-download">
               <span>샘플 다운로드</span>
@@ -171,7 +171,7 @@
 
 <script>
 import '@/assets/scss/service/message.scss';
-import IconCoin from '@/components/service/icons/IconCoin.vue';
+import IconArrowRight from '@/components/service/icons/IconArrowRight.vue';
 import IconArrowDown from '@/components/service/icons/IconArrowDown.vue';
 import IconDownload from '@/components/service/icons/IconDownload.vue';
 import MessageTabs from '@/components/service/message/MessageTabs.vue';
@@ -187,7 +187,7 @@ import CustomDatepicker from '@/components/service/form/CustomDatepicker.vue'
 import PreviewDefault from '@/components/service/preview/PreviewDefault.vue';
 
 export default {
-  components: { IconCoin, IconArrowDown, IconDownload, SelectTemplateModal, AddContentModal, IconClose, AddMMSContentModal, SelectImageModal, SendTestModal, SearchAddressModal, EnterReceiverModal, CustomDatepicker, MessageTabs, PreviewDefault, },
+  components: { IconArrowRight, IconArrowDown, IconDownload, SelectTemplateModal, AddContentModal, IconClose, AddMMSContentModal, SelectImageModal, SendTestModal, SearchAddressModal, EnterReceiverModal, CustomDatepicker, MessageTabs, PreviewDefault, },
   name: "ucMessageSendSms",
   data() {
     return {

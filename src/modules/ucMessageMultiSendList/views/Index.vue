@@ -88,7 +88,7 @@
           </b-dropdown>
           <b-button variant="secondary" class="btn-svg btn-svg-right mr-2">
             <span>통합발송 템플릿 관리</span>
-            <IconCoin />
+            <IconArrowRight />
           </b-button>
           <b-button variant="primary">통합 메시지 발송</b-button>
         </div>
@@ -192,13 +192,13 @@ import MessageTabs from '@/components/service/message/MessageTabs.vue'
 import SearchInput from '@/components/service/form/SearchInput.vue'
 import CustomDatepicker from '@/components/service/form/CustomDatepicker.vue'
 import IconSort from '@/components/service/icons/IconSort.vue';
-import IconCoin from '@/components/service/icons/IconCoin.vue';
+import IconArrowRight from '@/components/service/icons/IconArrowRight.vue';
 import Pagination from '@/components/service/Pagination.vue';
 
 import '@/assets/scss/service/message.scss';
 
 export default {
-  components: { IconArrowDown, SearchInput, CustomDatepicker, Pagination, IconSort, MessageTabs, IconCoin },
+  components: { IconArrowDown, SearchInput, CustomDatepicker, Pagination, IconSort, MessageTabs, IconArrowRight },
   name: "ucMessageMultiSendList",
   data() {
     return {

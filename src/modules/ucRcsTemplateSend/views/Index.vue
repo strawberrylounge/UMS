@@ -33,14 +33,14 @@
             <div class="tab" :class="{active: templateTab === 'template'}">
               <button class="btn" @click="changeTemplateTab('template')">템플릿 형
                 <b-button v-b-tooltip.hover.html="tooltipContent" variant="light" class="btn-icon p-0">
-                  <IconQuestion />
+                  <IconQuestionLine />
                 </b-button>
               </button>
             </div>
             <div class="tab" :class="{active: templateTab === 'aaa'}">
-              <button class="btn" @click="changeTemplateTab('aaa')">000형
+              <button class="btn" @click="changeTemplateTab('aaa')">템플릿 형
                 <b-button v-b-tooltip.hover.html="tooltipContent" variant="light" class="btn-icon p-0">
-                  <IconQuestion />
+                  <IconQuestionLine />
                 </b-button>
               </button>
             </div>
@@ -54,14 +54,14 @@
             <div class="tab" :class="{active: templateTab === 'template'}">
               <button class="btn" @click="changeTemplateTab('template')">템플릿 형
                 <b-button v-b-tooltip.hover.html="tooltipContent" variant="light" class="btn-icon p-0">
-                  <IconQuestion />
+                  <IconQuestionLine />
                 </b-button>
               </button>
             </div>
             <div class="tab" :class="{active: templateTab === 'aaa'}">
-              <button class="btn" @click="changeTemplateTab('aaa')">000형
+              <button class="btn" @click="changeTemplateTab('aaa')">템플릿 형
                 <b-button v-b-tooltip.hover.html="tooltipContent" variant="light" class="btn-icon p-0">
-                  <IconQuestion />
+                  <IconQuestionLine />
                 </b-button>
               </button>
             </div>
@@ -223,7 +223,7 @@
 
 <script>
 import '@/assets/scss/service/message.scss';
-import IconQuestion from '@/components/service/icons/IconQuestion.vue'
+import IconQuestionLine from '@/components/service/icons/IconQuestionLine.vue'
 import TemplateCard from '@/components/service/TemplateCard.vue'
 import IconArrowRight from '@/components/service/icons/IconArrowRight.vue';
 import IconArrowDown from '@/components/service/icons/IconArrowDown.vue';
@@ -238,7 +238,7 @@ import PreviewDefault from '@/components/service/preview/PreviewDefault.vue'
 import SelectRcsTemplateModal from '@/modules/ucRcsTemplateSend/components/modal/SelectRcsTemplateModal.vue';
 
 export default {
-  components: { IconQuestion, TemplateCard, IconArrowDown, IconArrowRight, IconDownload, IconClose, SearchAddressModal, EnterReceiverModal, CustomDatepicker, ConfirmModal, SelectRcsTemplateModal, MessageTabs, PreviewDefault, },
+  components: { IconQuestionLine, TemplateCard, IconArrowDown, IconArrowRight, IconDownload, IconClose, SearchAddressModal, EnterReceiverModal, CustomDatepicker, ConfirmModal, SelectRcsTemplateModal, MessageTabs, PreviewDefault, },
   name: "ucRcsTemplateSend",
   data() {
     return {
@@ -317,6 +317,7 @@ export default {
     margin-top: 28px;
     .tab {
       .btn:not(.btn-icon) {
+        padding: 12px 24px;
         background-color: #F7F8FB;
         border: 1px solid var(--border-color);
         border-radius: 0;

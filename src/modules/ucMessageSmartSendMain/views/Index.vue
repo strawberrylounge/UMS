@@ -47,15 +47,15 @@
           <div class="messag-btn-group">
             <b-button variant="outline-primary" size="sm" class="btn-svg btn-svg-right" v-b-modal.enter-receiver-modal>
               <span>수신자 직접입력</span>
-              <IconCoin />
+              <IconArrowRight />
             </b-button>
             <b-button variant="outline-primary" size="sm" class="btn-svg btn-svg-right" v-b-modal.search-address-modal>
               <span>주소록 검색</span>
-              <IconCoin />
+              <IconArrowRight />
             </b-button>
             <b-button variant="outline-primary" size="sm" class="btn-svg btn-svg-right">
               <span>엑셀 업로드</span>
-              <IconCoin />
+              <IconArrowRight />
             </b-button>
             <b-button variant="light" class="btn btn-sm btn-svg btn-svg-right btn-sample-download">
               <span>샘플 다운로드</span>
@@ -148,7 +148,7 @@
 </template>
 
 <script>
-import IconCoin from '@/components/service/icons/IconCoin.vue';
+import IconArrowRight from '@/components/service/icons/IconArrowRight.vue';
 import IconArrowDown from '@/components/service/icons/IconArrowDown.vue';
 import IconDownload from '@/components/service/icons/IconDownload.vue';
 import PreviewTalk from '@/components/service/preview/PreviewTalk.vue';
@@ -166,7 +166,7 @@ import '@/assets/scss/service/message.scss';
 import '@/assets/scss/service/messageTabs.scss'
 
 export default {
-  components: { IconCoin, IconArrowDown, IconDownload, SelectTemplateModal, AddContentModal, IconClose, AddMMSContentModal, SelectImageModal, SearchAddressModal, EnterReceiverModal, CustomDatepicker, SmartSendTestModal, PreviewTalk, PreviewDefault, },
+  components: { IconArrowRight, IconArrowDown, IconDownload, SelectTemplateModal, AddContentModal, IconClose, AddMMSContentModal, SelectImageModal, SearchAddressModal, EnterReceiverModal, CustomDatepicker, SmartSendTestModal, PreviewTalk, PreviewDefault, },
   name: "ucMessageSmartSendMain",
   data() {
     return {

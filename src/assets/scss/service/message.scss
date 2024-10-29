@@ -33,22 +33,14 @@
   stroke: var(--gray700);
   }
 }
-.btn-search-condition p
 .service-template-tabs  {
   .tab {
     &.active {
-      .btn-icon {
-        path {
-          &:first-child {
-            fill: transparent;
-            stroke: var(--white);
-          }
-          &:nth-child(2) {
-            stroke: var(--white);
-          }
-          &:last-child {
-            fill: var(--white);
-          }
+      .btn-icon path {
+        stroke: var(--white);
+        &:last-child {
+          stroke: none;
+          fill: var(--white)
         }
       }
     }
@@ -60,15 +52,10 @@
       width: 16px;
       height: 16px;
       path {
-        &:first-child {
-          fill: transparent;
-          stroke: var(--gray400);
-        }
-        &:nth-child(2) {
-          stroke: var(--gray400);
-        }
+        stroke: var(--gray400);
         &:last-child {
-          fill: var(--gray400);
+          stroke: none;
+          fill: var(--gray400)
         }
       }
     }

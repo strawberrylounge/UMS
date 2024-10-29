@@ -114,7 +114,7 @@
             <icon-send />
             <span >발송</span>
           </a>
-          <a href="/uc/messageStatus" class="d-flex align-items-center menu-item" :class="{ active: ($route.path === '/uc/messageStatus' || $route.path === '/uc/webSend')}"></a>>
+          <a href="/uc/messageStatus" class="d-flex align-items-center menu-item" :class="{ active: ($route.path === '/uc/messageStatus' || $route.path === '/uc/webSend')}">
             <icon-menu-search />
             <span >조회</span>
           </a>
@@ -184,6 +184,9 @@ export default {
     IconCall,
     IconAlarm,
     IconGraph,
+  },
+  computed: {
+
   }
 };
 </script>

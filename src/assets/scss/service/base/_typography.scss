@@ -69,7 +69,7 @@
 
 /* 텍스트 컬러 클래스 자동 생성 */
 @each $name, $color in $colors {
-  .c-#{$name} {
+  .c-#{"#{$name}"} {
     color: #{$color};
   }
 }
