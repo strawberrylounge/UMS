@@ -58,7 +58,7 @@
 
           <b-button variant="outline-primary" class="btn-svg btn-svg-right ml-auto">
             <span>엑셀 다운로드</span>
-            <IconCoin />
+            <IconArrowLineDown />
           </b-button>
         </div>
         <div class="table-responsive">
@@ -149,14 +149,14 @@ import IconArrowDown from '@/components/service/icons/IconArrowDown.vue'
 import MessageStatusTabs from '@/components/service/message/MessageStatusTabs.vue'
 import CustomDatepicker from '@/components/service/form/CustomDatepicker.vue'
 import IconSort from '@/components/service/icons/IconSort.vue';
-import IconCoin from '@/components/service/icons/IconCoin.vue';
+import IconArrowLineDown from '@/components/service/icons/IconArrowLineDown.vue';
 import Pagination from '@/components/service/Pagination.vue';
 import FailMessageInfoModal from '@/modules/ucWebSend/components/modal/FailMessageInfoModal.vue';
 
 import '@/assets/scss/service/message.scss';
 
 export default {
-  components: { IconArrowDown, CustomDatepicker, Pagination, IconSort, MessageStatusTabs, IconCoin, FailMessageInfoModal },
+  components: { IconArrowDown, CustomDatepicker, Pagination, IconSort, MessageStatusTabs, IconArrowLineDown, FailMessageInfoModal },
   name: "ucWebSend",
   data() {
     return {
