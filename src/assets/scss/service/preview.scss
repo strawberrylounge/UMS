@@ -185,4 +185,7 @@
     padding: 23px 0 21px;
     border-radius: 0;
   }
+  .talk-button button + button {
+    margin-top: 6px;
+  }
 }

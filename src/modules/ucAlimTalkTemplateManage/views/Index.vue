@@ -18,8 +18,8 @@
         <p class="preview-title">미리보기</p>
         <PreviewTalk>
           <div class="preview-section talk">
-            <p class="m-0 f-body7 c-black">강조부제목 영역입니다.</p>
-            <p class="m-0 mb-1 f-title2 c-black">강조제목 영역입니다.</p>
+            <p class="m-0 f-body7 c-black">{{ displaySubTitle }}</p>
+            <p class="m-0 mb-1 f-title2 c-black">{{ displayTitle }}</p>
             <div class="preview-img">
               <div class="empty-img">
                 <img src="@/assets/images/service/preview/preview-img.svg" alt="" class="img-icon">
@@ -28,9 +28,13 @@
               </div>
               <!-- <img src="" alt=""> -->
             </div>
-            <p class="mt-2 mb-0 f-body7 c-black">이미지 내용입니다. 이미지 내용입니다.이미지 내용입니다.이미지 내용입니다.이미지 내용입니다.</p>
+            <p class="mt-2 mb-0 f-body7 c-black" v-html="displayImgDesc"></p>
             <p class="my-4 f-caption2 c-gray400">카카오톡 채널을 추가하면 광고와 마케팅 메시지를 카카오톡으로 받아볼 수 있습니다.</p>
             <div class="talk-button">
+              <button v-if="type === 'channel'" class="btn btn-kakao-channel">
+                <img src="@/assets/images/service/icon/icon-kakao.svg" alt="카카오톡 로고">
+                <span>채널 추가</span>
+              </button>
               <b-button variant="secondary" v-for="(item, index) in buttons" :key="'btn-display-' + index" >{{ item.label }}</b-button>
             </div>
           </div>
@@ -45,11 +49,11 @@
           <label class="form-label">카카오 채널 <span class="require">*</span></label>
           <b-dropdown id="brand-dropdown" variant="secondary" class="send-number-dropdown" disabled>
             <template #button-content>
-              <span>{{ barnd === '' ? '선택' : barnd }}</span>
+              <span>{{ channel === '' ? '선택' : channel }}</span>
               <IconArrowDown />
             </template>
-            <b-dropdown-item-button @click="setBrand('BRAND_A')">BRAND_A</b-dropdown-item-button>
-            <b-dropdown-item-button @click="setBrand('BRAND_B')">BRAND_B</b-dropdown-item-button>
+            <b-dropdown-item-button @click="setChannel('채널A')">채널A</b-dropdown-item-button>
+            <b-dropdown-item-button @click="setChannel('채널B')">채널B</b-dropdown-item-button>
           </b-dropdown>
         </div>
 
@@ -61,7 +65,7 @@
         <div class="d-flex align-items-center section-col">
           <label class="form-label">템플릿 유형 <span class="require">*</span></label>
           <b-form-group class="radio-group m-0">
-            <b-form-radio-group inline>
+            <b-form-radio-group inline v-model="type">
               <b-form-radio name="type" value="basic">기본형</b-form-radio>
               <b-form-radio name="type" value="channel">채널 추가형</b-form-radio>
             </b-form-radio-group>
@@ -71,7 +75,7 @@
         <div class="d-flex align-items-center section-col">
           <label class="form-label">템플릿 강조 유형 <span class="require">*</span> </label>
           <b-form-group class="radio-group m-0">
-            <b-form-radio-group inline>
+            <b-form-radio-group inline v-model="pointType">
               <b-form-radio name="type" value="basic">기본형</b-form-radio>
               <b-form-radio name="type" value="point">강조표기형</b-form-radio>
               <b-form-radio name="type" value="img">이미지형</b-form-radio>
@@ -82,12 +86,12 @@
 
         <div class="d-flex align-items-center section-col">
           <label class="form-label">템플릿 강조 제목 <span class="require">*</span></label>
-          <b-input placeholder="20자 이내 입력" class="template-input"></b-input>
+          <b-input placeholder="20자 이내 입력" class="template-input" v-model="title" @blur="updateTitle"></b-input>
         </div>
 
         <div class="d-flex align-items-center section-col">
           <label class="form-label">템플릿 강조 부제목 <span class="require">*</span></label>
-          <b-input placeholder="20자 이내 입력" class="template-input"></b-input>
+          <b-input placeholder="20자 이내 입력" class="template-input" v-model="subTitle" @blur="updateSubTitle"></b-input>
         </div>
 
         <div class="d-flex section-col">
@@ -116,6 +120,8 @@
               id="content"
               rows="6"
               max-rows="6"
+              v-model="imgDesc"
+              @blur="updateImgDesc"
             ></b-form-textarea>
             <p class="textarea-count mt-2 mb-0">0 / 1000자</p>
             <p class="mt-1 mb-0 pt-2 f-body5 c-gray500">변수로 설정하고자 하는 내용을 #{ } 표시로 작성해 주십시오.<br/>
@@ -178,13 +184,13 @@
                   <td>
                     <b-dropdown id="brand-dropdown" variant="secondary" class="send-number-dropdown">
                       <template #button-content>
-                        <span>{{ buttonType }}</span>
+                        <span>{{ button.type }}</span>
                         <IconArrowDown />
                       </template>
-                      <b-dropdown-item-button @click="setButtonType('배송조회')">배송조회</b-dropdown-item-button>
-                      <b-dropdown-item-button @click="setButtonType('웹 링크')">웹 링크</b-dropdown-item-button>
-                      <b-dropdown-item-button @click="setButtonType('앱 링크')">앱 링크</b-dropdown-item-button>
-                      <b-dropdown-item-button @click="setButtonType('봇 키워드')">봇 키워드</b-dropdown-item-button>
+                      <b-dropdown-item-button @click="setButtonType(index, '배송조회')">배송조회</b-dropdown-item-button>
+                      <b-dropdown-item-button @click="setButtonType(index, '웹 링크')">웹 링크</b-dropdown-item-button>
+                      <b-dropdown-item-button @click="setButtonType(index, '앱 링크')">앱 링크</b-dropdown-item-button>
+                      <b-dropdown-item-button @click="setButtonType(index, '봇 키워드')">봇 키워드</b-dropdown-item-button>
                     </b-dropdown>
                   </td>
                   <td>
@@ -195,11 +201,11 @@
                     ></b-input>
                   </td>
                   <td>
-                    <p v-if="buttonType === '배송조회'" class="m-0 f-body5 c-gray400">카카오 메세지에 택배사 명과 송장번호를 기재한 후, 
+                    <p v-if="button.type === '배송조회'" class="m-0 f-body5 c-gray400">카카오 메세지에 택배사 명과 송장번호를 기재한 후, 
                       배송 조회 버튼을 추가하시면 메세지에서 택배사 명과 송장번호를 추출하여 배송 조회 카카오 검색페이지 링크가 자동으로 생성됩니다. 
                       카카오에서 지원하는 택배사명과 운송장번호가 알림톡 메시지 내에 포함된 경우에만 배송조회 버튼이 표시됩니다. 
                       배송 조회가 가능한 택배사는 <span class="c-failure">카카오와 해당 택배사와의 계약 관계에 의해 변동될 수 있음을 유의해주시기 바랍니다.</span></p>
-                    <div v-if="buttonType === '웹 링크'">
+                    <div v-if="button.type === '웹 링크'">
                       <div class="d-flex align-items-center">
                         <label class="form-label">Mobile <span class="require">*</span></label>
                         <b-input placeholder="[https://, https://]를 포함한 URL"></b-input>
@@ -210,7 +216,7 @@
                         <b-input placeholder="[https://, https://]를 포함한 URL"></b-input>
                       </div>
                     </div>
-                    <div v-if="buttonType === '앱 링크'">
+                    <div v-if="button.type === '앱 링크'">
                       <div class="d-flex align-items-center">
                         <label class="form-label">Android <span class="require">*</span></label>
                         <b-input placeholder="[https://, https://]를 포함한 URL"></b-input>
@@ -264,18 +270,34 @@ export default {
   name: "ucRcsTemplateManage",
   data() {
     return {
-      barnd: '',
+      channel: '@이커머스테크',
+      type: 'basic',
+      pointType: 'img',
+      title: '',
+      displayTitle: '',
+      subTitle: '',
+      displaySubTitle: '',
+      imgDesc: '',
+      displayImgDesc: '',
       category1: '',
       category2: '',
-      buttonType: '배송조회',
       buttons: [
-        { label: '버튼영역' },
+        { type: '배송조회', label: '버튼영역' },
       ],
     }
   },
   methods: {
-    setBrand(value) {
-      this.barnd = value;
+    setChannel(value) {
+      this.channel = value;
+    },
+    updateTitle() {
+      this.displayTitle = this.title
+    },
+    updateSubTitle() {
+      this.displaySubTitle = this.subTitle
+    },
+    updateImgDesc() {
+      this.displayImgDesc = this.nl2br(this.imgDesc)
     },
     setCategory1(value) {
       this.category1 = value;
@@ -290,10 +312,19 @@ export default {
       return "<span>‘배송조회' 버튼은 메시지 내용에 ‘택배사' 명과 ‘송장번호 패턴'을 인식하여 자동으로 각 택배사의 배송조회 페이지로 이동하게끔 되어 있습니다. 택배사 명과 송장번호 패턴 인식 불가능 시 패송조회 버튼은 비활성화 됩니다.</span>"
     },
     addButton() {
-      this.buttons.push({ label: '' });
+      this.buttons.push({ type: '배송조회',label: '' });
     },
-    setButtonType(value) {
-      this.buttonType = value;
+    setButtonType(index, value) {
+      this.buttons[index].type = value;
+    },
+    nl2br(str) {
+      if (typeof str === 'string') {
+        return str.replace(/\n/g, '<br>');
+      }
+      return str;
+    },
+    removeButton(index) {
+      this.buttons.splice(index, 1);
     },
   },
   computed: {

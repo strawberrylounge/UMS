@@ -205,4 +205,22 @@
       color: var(--primary);
     }
   }
+  &-kakao-channel {
+   display: flex;
+   align-items: center;
+   width: 100%;
+   padding: 12px 0;
+   background-color: #FAE100;
+   border: none;
+   border-radius: 8px;
+    img {
+      width: 16px;
+      height: 16px;
+      margin-right: 6px;
+    }
+    span {
+      @include typography.font-style(14px, 700, 140%, -0.28px);
+      color: var(--gray900);
+    }
+  }
 }
