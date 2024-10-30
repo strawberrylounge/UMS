@@ -11,9 +11,12 @@
             <p class="m-0 mt-2 f-caption2 c-gray700" v-html="displayContent"></p>
           </div>
           <div class="preview-img">
-            <img src="@/assets/images/service/preview/preview-img.svg" alt="" class="img-icon">
-            <p class="m-0 mt-1 c-caption2 c-gray500">작성페이지에서 이미지를<br/>
-              삽입할 수 있습니다.</p>
+            <div class="empty-img">
+              <img src="@/assets/images/service/preview/preview-img.svg" alt="" class="img-icon">
+              <p class="m-0 mt-1 c-caption2 c-gray500">작성페이지에서 이미지를<br/>
+                삽입할 수 있습니다.</p>
+            </div>
+            <!-- <img src="" alt=""> -->
           </div>
         </PreviewDefault>
       </div>
@@ -108,7 +111,6 @@ import SelectImageModal from '@/modules/ucMessageSendSms/components/modal/Select
 import BlockNumberModal from '@/modules/ucSmsTemplateManage/components/modal/BlockNumberModal.vue';
 import PreviewDefault from '@/components/service/preview/PreviewDefault.vue';
 import IconClose from '@/components/service/icons/IconClose.vue';
-import '@/assets/scss/service/template.scss';
 
 export default {
   components: {  SelectImageModal, TemplateTabs, PreviewDefault, IconClose, BlockNumberModal, },
@@ -142,6 +144,9 @@ export default {
 </script>
 
 <style scoped lang="scss">
+@import '@/assets/scss/service/message.scss';
+@import '@/assets/scss/service/template.scss';
+
 .input-group-append {
   .btn {
     width: 120px;

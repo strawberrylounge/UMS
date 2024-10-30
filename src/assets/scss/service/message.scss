@@ -29,21 +29,9 @@
       transform: rotate(0deg); 
     }
   }
-  path {
-  stroke: var(--gray700);
-  }
 }
 .service-template-tabs  {
   .tab {
-    &.active {
-      .btn-icon path {
-        stroke: var(--white);
-        &:last-child {
-          stroke: none;
-          fill: var(--white)
-        }
-      }
-    }
     .btn-icon {
       margin-top: -2px;
       margin-left: 8px;

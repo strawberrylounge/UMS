@@ -38,7 +38,9 @@
     &:focus,
     &:active,
     &:focus:active,
-    &:hover{
+    &:hover,
+    &:not(:disabled):not(.disabled):active:focus,
+    &:not(:disabled):not(.disabled):active:active {
       background-color: var(--primary100);
       border-color: var(--primary100);
       color: var(--primary);

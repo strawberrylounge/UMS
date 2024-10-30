@@ -222,7 +222,6 @@
 </template>
 
 <script>
-import '@/assets/scss/service/message.scss';
 import IconQuestionLine from '@/components/service/icons/IconQuestionLine.vue'
 import TemplateCard from '@/components/service/TemplateCard.vue'
 import IconArrowRight from '@/components/service/icons/IconArrowRight.vue';
@@ -276,7 +275,8 @@ export default {
 </script>
 
 <style scoped lang="scss">
-@use "../../../assets/scss/service/base/typography" as typography;
+@use "~@/assets/scss/service/base/typography" as typography;
+@import '@/assets/scss/service/message.scss';
 
 .service-sub-tabs {
   display: flex;

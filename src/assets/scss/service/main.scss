@@ -41,3 +41,25 @@ body {
   background: var(--white);
   box-shadow: 0px 10px 13px 0px rgba(17, 38, 146, 0.05);
 }
+
+.list-view {
+  .custom-checkbox {
+    margin-left: 28px;
+    &:first-child {
+      margin-left: 0;
+    }
+  }
+}
+.list-view .btn-search-condition path {
+  stroke: var(--gray700);
+}
+.service-template-tabs .tab.active .btn-icon path {
+  stroke: var(--white);
+  &:last-child {
+    stroke: none;
+    fill: var(--white)
+  }
+}
+.btn-add path {
+  stroke: var(--gray700);
+}

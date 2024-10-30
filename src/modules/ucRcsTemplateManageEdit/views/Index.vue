@@ -114,6 +114,12 @@
           <label class="form-labal">버튼</label>
           <div class="table-btn">
             <table class="table">
+              <colgroup>
+                <col width="20%" />
+                <col width="20%" />
+                <col width="50%" />
+                <col width="10%" />
+              </colgroup>
               <thead>
                 <tr>
                   <th>타입
@@ -181,8 +187,6 @@
 </template>
 
 <script>
-import IconQuestionLine from '@/components/service/icons/IconQuestionLine.vue'
-import TemplateCard from '@/components/service/TemplateCard.vue'
 import IconArrowDown from '@/components/service/icons/IconArrowDown.vue';
 import IconShoppingCart from '@/components/service/icons/IconShoppingCart.vue';
 import IconPaper from '@/components/service/icons/IconPaper.vue';
@@ -199,14 +203,13 @@ import IconClose from '@/components/service/icons/IconClose.vue';
 import IconPlus from '@/components/service/icons/IconPlus.vue';
 import TemplateTabs from '@/components/service/template/TemplateTabs.vue'
 import PreviewDefault from '@/components/service/preview/PreviewDefault.vue'
-import '@/assets/scss/service/template.scss';
 
 export default {
   components: { IconArrowDown, TemplateTabs, PreviewDefault, IconShoppingCart, 
     IconPaper, IconTruck, IconCheck, IconPiggyBank, IconWallet, IconCheckCancel, IconDocs, IconSignUp, IconExpand, IconClose,
     IconPlus,
   },
-  name: "ucRcsTemplateSend",
+  name: "ucRcsTemplateManage",
   data() {
     return {
       barnd: '',
@@ -247,7 +250,9 @@ export default {
 </script>
 
 <style scoped lang="scss">
-@use "../../../assets/scss/service/base/typography" as typography;
+@use "~@/assets/scss/service/base/typography" as typography;
+@import '@/assets/scss/service/message.scss';
+@import '@/assets/scss/service/template.scss';
 
 .section {
   width: calc(100% - 420px - 28px);
@@ -373,7 +378,7 @@ export default {
   border: 1px solid var(--border-color);
   border-radius: 8px;
   .b-dropdown {
-    width: 180px;
+    width: 100%;
   }
   tr:hover td {
     background-color: var(--white);
@@ -387,8 +392,8 @@ export default {
     }
   }
   td {
-    &:nth-child(2) input {
-      width: 180px;
+    input {
+      width: 100%;
     }
     &:nth-child(3) {
       label {
@@ -396,7 +401,7 @@ export default {
         padding-right: 12px;
       }
       input {
-        width: 341px;
+        width: calc(100% - 120px - 12px);
       }
     }
   }

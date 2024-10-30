@@ -76,15 +76,15 @@
           <div class="receive-btn-wrap">
             <b-button variant="outline-primary" size="sm" class="btn-svg btn-svg-right" v-b-modal.enter-receiver-modal>
               <span>수신자 직접입력</span>
-              <IconCoin />
+              <IconArrowRight />
             </b-button>
             <b-button variant="outline-primary" size="sm" class="btn-svg btn-svg-right" v-b-modal.search-address-modal>
               <span>주소록 검색</span>
-              <IconCoin />
+              <IconArrowRight />
             </b-button>
             <b-button variant="outline-primary" size="sm" class="btn-svg btn-svg-right">
               <span>엑셀 업로드</span>
-              <IconCoin />
+              <IconArrowRight />
             </b-button>
             <b-button variant="light" class="btn btn-sm btn-svg btn-svg-right btn-sample-download">
               <span>샘플 다운로드</span>
@@ -160,9 +160,8 @@
 </template>
 
 <script>
-import '@/assets/scss/service/message.scss';
 import IconInfo from '@/components/service/icons/IconInfo.vue'
-import IconCoin from '@/components/service/icons/IconCoin.vue';
+import IconArrowRight from '@/components/service/icons/IconArrowRight.vue';
 import IconDownload from '@/components/service/icons/IconDownload.vue';
 import SearchAddressModal from '@/components/service/modal/SearchAddressModal.vue';
 import EnterReceiverModal from '@/modules/ucMessageSendSms/components/modal/EnterReceiverModal.vue';
@@ -174,7 +173,7 @@ import PreviewTalk from '@/components/service/preview/PreviewTalk.vue';
 import MessageTabs from '@/components/service/message/MessageTabs.vue'
 
 export default {
-  components: { IconInfo, IconCoin, IconDownload, IconClose, SearchAddressModal, EnterReceiverModal, CustomDatepicker, SelectTalkTemplateModal, PreviewTalk, MessageTabs, ViewContentModal, },
+  components: { IconInfo, IconArrowRight, IconDownload, IconClose, SearchAddressModal, EnterReceiverModal, CustomDatepicker, SelectTalkTemplateModal, PreviewTalk, MessageTabs, ViewContentModal, },
   name: "ucRcsTemplateSend",
   data() {
     return {
@@ -212,6 +211,8 @@ export default {
 </script>
 
 <style scoped lang="scss">
+@import '@/assets/scss/service/message.scss';
+
 .basic-input {
   max-width: 348px;
 }

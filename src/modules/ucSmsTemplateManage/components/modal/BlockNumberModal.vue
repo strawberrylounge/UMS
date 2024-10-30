@@ -42,7 +42,7 @@ export default {
   },
   methods: {
     closeModal() {
-      this.$bvModal.hide('add-content-modal');
+      this.$bvModal.hide('block-number-modal');
     },
     openBlockList() {
       this.showBlockList = true;

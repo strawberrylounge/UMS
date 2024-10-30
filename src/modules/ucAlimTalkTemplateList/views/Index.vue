@@ -1,12 +1,22 @@
 <template>
-  <div class="uc-multi-send-templat-list list-view">
+  <div class="uc-alimtalk-template-list list-view">
     <TemplateTabs />
 
     <div class="tab-contents">
+      <div class="info card">
+        <ul>
+          <li>알림톡 메시지를 발송하기 위해서는 템플릿을 먼저 등록하고,검수 과정을 통해 승인 상태가 되어야 메시지 발송이 가능합니다.</li>
+          <li>템플릿을 등록 (등록완료) 하시고 템플릿 상세에서 [검수요청] 하시면 검수 과정을 통해 템플릿이 처리(승인/반려) 됩니다.</li>
+          <li>템플릿 코드를 클릭하시면 템플릿 상세를 보실 수 있고 수정도 가능합니다.([등록완료], [반려] 상태일 경우 수정 가능)</li>
+          <li>템플릿 상태를 클릭하시면 템플릿 관련 문의를 할 수 있고 반려 상태라면 반려 메시지를 확인할 수 있습니다.</li>
+          <li>알림톡 템플릿 삭제는 [등록완료] 상태일 경우 삭제 가능합니다. 삭제 할 템플릿을 선택 하시고 [삭제]버튼을 클릭하십시오.</li>
+        </ul>
+      </div>
+
       <!-- 검색영역 Start -->
       <div class="search-section card border-0">
         <div class="search-section-forms">
-          <div class="d-flex align-items-center flex-wrap mb-4">
+          <div class="d-flex align-items-center flex-wrap">
             <label>검색조건</label>
             <b-dropdown id="template-dropdown" variant="secondary" class="template-dropdown">
               <template #button-content>
@@ -18,47 +28,17 @@
             <div class="search-group">
               <SearchInput />
             </div>
+            <i class="vertical-divider"></i>
+            <label>템플릿 상태</label>
+            <b-form-group>
+              <b-form-checkbox-group
+                id="service-checkbox-group-template"
+                v-model="statusSelected"
+                :options="statusOptions"
+                name="template-1"
+              ></b-form-checkbox-group>
+            </b-form-group>
           </div>
-          
-          <!-- Hideable section -->
-          <transition name="slide-fade">
-            <div v-show="!hideMenu" class="check-menu align-items-center mb-4">
-              <label>메세지 구분</label>
-              <b-form-group>
-                <b-form-checkbox-group
-                  id="service-checkbox-group-message"
-                  v-model="messageSelected"
-                  :options="messageOptions"
-                  name="message-1"
-                ></b-form-checkbox-group>
-              </b-form-group>
-              <i class="vertical-divider"></i>
-              <label>템플릿채널</label>
-              <b-form-group>
-                <b-form-checkbox-group
-                  id="service-checkbox-group-template"
-                  v-model="templateSelected"
-                  :options="templateOptions"
-                  name="template-1"
-                ></b-form-checkbox-group>
-              </b-form-group>
-              <i class="vertical-divider"></i>
-              <label>템플릿 상태</label>
-              <b-form-group>
-                <b-form-checkbox-group
-                  id="service-checkbox-group-template"
-                  v-model="templateStatusSelected"
-                  :options="templateStatusOptions"
-                  name="template-1"
-                ></b-form-checkbox-group>
-              </b-form-group>
-            </div>
-          </transition>
-          
-          <button type="button" class="btn btn-search-condition" @click="toggleMenu">
-            <span>{{ hideMenu ? '검색 조건 펼치기' : '검색 조건 접기' }}</span>
-            <IconArrowDown :class="{ rotated: hideMenu }" />
-          </button>
         </div>
         <b-button variant="dark" class="btn-submit">검색</b-button>
       </div>
@@ -77,12 +57,11 @@
             <b-dropdown-item-button :class="pageCount == 20 ? 'active' : ''">20개씩 보기</b-dropdown-item-button>
             <b-dropdown-item-button :class="pageCount == 30 ? 'active' : ''">30개씩 보기</b-dropdown-item-button>
           </b-dropdown>
-          <b-button variant="secondary" class="btn-svg btn-svg-right ml-auto">
+          <b-button variant="secondary" class="btn-svg btn-svg-right ml-auto" @click="navigateToManage">
             <span>템플릿 등록</span>
             <IconArrowRight />
           </b-button>
           <i class="vertical-divider"></i>
-          <b-button variant="outline-primary" @click="openDeleteAlertModal">삭제</b-button>
           <b-button variant="outline-primary" class="btn-svg btn-svg-right ml-2">
             <span>엑셀 다운로드</span>
             <IconArrowLineDown />
@@ -92,7 +71,7 @@
           <table class="table">
             <thead>
               <tr>
-                <th scope="col" class="text-center">
+                <th class="text-center">
                   <b-form-checkbox
                     id="selectAll"
                     name="selectAll"
@@ -100,58 +79,59 @@
                     size="lg"
                   ></b-form-checkbox>
                 </th>
-                <th scope="col">
+                <th>
                   <div class="d-flex align-items-center">
                     NO.
                     <IconSort />
                   </div>
                 </th>
-                <th scope="col">
+                <th>
                   <div class="d-flex align-items-center"> <!-- NOTE: 정렬시 class명 추가하면 스타일 변경됨 -->
                     템플릿 ID
                     <IconSort />
                   </div>
                 </th>
-                <th scope="col">
+                <th>
                   <div class="d-flex align-items-center">
                     템플릿명
-                    <IconSort class="down" /> <!-- NOTE: 정렬시 class명 추가하면 스타일 변경됨 -->
-                  </div>
-                </th>
-                <th scope="col">
-                  <div class="d-flex align-items-center">
-                    템플릿 채널
                     <IconSort />
                   </div>
                 </th>
-                <th scope="col">
+                <th>
                   <div class="d-flex align-items-center">
-                    메시지 구분
+                    브랜드명
+                    <IconSort class="down" />
+                  </div>
+                </th>
+                <th>
+                  <div class="d-flex align-items-center">
+                    상품명
                     <IconSort />
                   </div>
                 </th>
-                <th scope="col">
+                <th>
                   <div class="d-flex align-items-center">
-                    메시지 타입
+                    승인상태
                     <IconSort />
                   </div>
                 </th>
-                <th scope="col">
+                <th>
                   <div class="d-flex align-items-center">
-                    등록자
+                    승인일
                     <IconSort />
                   </div>
                 </th>
-                <th scope="col">
+                <th>
                   <div class="d-flex align-items-center">
                     등록일자
                     <IconSort />
                   </div>
                 </th>
+                <th>템플릿 복사</th>
               </tr>
             </thead>
             <tbody>
-              <tr v-for="(item, index) in [0,1,2,3,4]" :key="index" @click="navigateToSmartSendMain">
+              <tr v-for="(item, index) in [0,1,2,3,4]" :key="index" @click="navigateToEdit">
                 <td class="text-center">
                   <b-form-checkbox
                     :id=index
@@ -165,11 +145,14 @@
                   <span class="text-underline">TPLdwiCS</span>
                 </td>
                 <td>통합발송 테스트</td>
-                <td>카카오톡, 문자</td>
-                <td>정보성</td>
-                <td>기본</td>
-                <td>testadmin</td>
+                <td>이커머스테스_검수기3</td>
+                <td>서술형 출고 desc</td>
+                <td>승인</td>
                 <td>2024.02.06 12:15:11</td>
+                <td>2024.02.06 12:15:11</td>
+                <td>
+                  <b-button variant="outline-secondary" size="sm">템플릿 복사</b-button>
+                </td>
               </tr>
             </tbody>
           </table>
@@ -196,42 +179,27 @@ import IconArrowLineDown from '@/components/service/icons/IconArrowLineDown.vue'
 
 export default {
   components: { IconArrowDown, SearchInput, Pagination, IconSort, TemplateTabs, IconArrowRight, AlertModal, IconArrowLineDown, },
-  name: "ucMultiSendTemplateList",
+  name: "ucAlimTalkTemplateList",
   data() {
     return {
-      hideMenu: false, // 메뉴 숨김 상태
-      messageSelected: [],
-      messageOptions: [
-        { text: '전체', value: 'message-all' },
-        { text: '정보성', value: 'message-info' },
-        { text: '광고성', value: 'message-ad' },
-      ],
-      templateSelected: [],
-      templateOptions: [
-        { text: '전체', value: 'template-all' },
-        { text: '문자', value: 'template-message' },
-        { text: 'RCS', value: 'template-rcs' },
-        { text: '카카오톡', value: 'template-kakao' },
-      ],
-      templateStatusSelected: [],
-      templateStatusOptions: [
-        { text: '전체', value: 'status-all' },
-        { text: '완료', value: 'status-complete' },
-        { text: '저장', value: 'status-save' },
+      statusSelected: [],
+      statusOptions: [
+        { text: '전체', value: 'all' },
+        { text: '등록완료', value: 'complete' },
+        { text: '승인대기', value: 'wait' },
+        { text: '검수시작', value: 'start' },
+        { text: '승인', value: 'allow' },
+        { text: '반려', value: 'notallow' },
+        { text: '저장', value: 'save' },
+        { text: '해지', value: 'cancel' },
       ],
       pageCount: 10,
     }
   },
   methods: {
-    toggleMenu() {
-      this.hideMenu = !this.hideMenu;
+    navigateToEdit() {
+      this.$router.push(`/uc/template/rcsTemplateManage/edit`);
     },
-    navigateToSmartSendMain() {
-      this.$router.push(`/uc/message/smartSendMain`);
-    },
-    openDeleteAlertModal() {
-      this.$bvModal.show('alert-modal');
-    }
   }
 };
 </script>
@@ -253,17 +221,6 @@ export default {
   margin-left: 24px;
   margin-bottom: 0;
 }
-/* 애니메이션 추가 */
-.slide-fade-enter-active, .slide-fade-leave-active {
-  transition: all 0.1s ease;
-}
-.slide-fade-enter, .slide-fade-leave-to {
-  transform: translateY(-10px);
-  opacity: 0;
-}
-.check-menu {
-  display: flex;
-}
 .vertical-divider {
   width: 1px;
   height: 16px;
@@ -272,10 +229,5 @@ export default {
 }
 .list-view .pageCount-dropdown {
   margin-right: auto;
-}
-.table-responsive {
-  tr {
-    cursor: pointer;
-  }
 }
 </style>

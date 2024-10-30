@@ -153,8 +153,6 @@ import IconArrowLineDown from '@/components/service/icons/IconArrowLineDown.vue'
 import Pagination from '@/components/service/Pagination.vue';
 import FailMessageInfoModal from '@/modules/ucWebSend/components/modal/FailMessageInfoModal.vue';
 
-import '@/assets/scss/service/message.scss';
-
 export default {
   components: { IconArrowDown, CustomDatepicker, Pagination, IconSort, MessageStatusTabs, IconArrowLineDown, FailMessageInfoModal },
   name: "ucWebSend",
@@ -183,6 +181,8 @@ export default {
 </script>
 
 <style scoped lang="scss">
+@import '@/assets/scss/service/message.scss';
+
 .search-section {
   .form-control {
     max-width: 355px;

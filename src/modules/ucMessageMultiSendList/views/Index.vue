@@ -86,7 +86,7 @@
             <b-dropdown-item-button :class="pageCount == 20 ? 'active' : ''">20개씩 보기</b-dropdown-item-button>
             <b-dropdown-item-button :class="pageCount == 30 ? 'active' : ''">30개씩 보기</b-dropdown-item-button>
           </b-dropdown>
-          <b-button variant="secondary" class="btn-svg btn-svg-right mr-2">
+          <b-button variant="secondary" class="btn-svg btn-svg-right mr-2 ml-auto">
             <span>통합발송 템플릿 관리</span>
             <IconArrowRight />
           </b-button>
@@ -195,8 +195,6 @@ import IconSort from '@/components/service/icons/IconSort.vue';
 import IconArrowRight from '@/components/service/icons/IconArrowRight.vue';
 import Pagination from '@/components/service/Pagination.vue';
 
-import '@/assets/scss/service/message.scss';
-
 export default {
   components: { IconArrowDown, SearchInput, CustomDatepicker, Pagination, IconSort, MessageTabs, IconArrowRight },
   name: "ucMessageMultiSendList",
@@ -238,6 +236,7 @@ export default {
 
 <style scoped lang="scss">
 @use "~@/assets/scss/service/base/typography" as typography;
+@import '@/assets/scss/service/message.scss';
 
 .template-dropdown {
   min-width: 160px;

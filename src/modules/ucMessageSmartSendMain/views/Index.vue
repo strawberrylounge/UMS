@@ -162,8 +162,6 @@ import EnterReceiverModal from '@/modules/ucMessageSendSms/components/modal/Ente
 import IconClose from '@/components/service/icons/IconClose.vue';
 import PreviewDefault from '@/components/service/preview/PreviewDefault.vue';
 import CustomDatepicker from '@/components/service/form/CustomDatepicker.vue'
-import '@/assets/scss/service/message.scss';
-import '@/assets/scss/service/messageTabs.scss'
 
 export default {
   components: { IconArrowRight, IconArrowDown, IconDownload, SelectTemplateModal, AddContentModal, IconClose, AddMMSContentModal, SelectImageModal, SearchAddressModal, EnterReceiverModal, CustomDatepicker, SmartSendTestModal, PreviewTalk, PreviewDefault, },
@@ -192,6 +190,9 @@ export default {
 </script>
 
 <style scoped lang="scss">
+@import '@/assets/scss/service/message.scss';
+@import '@/assets/scss/service/messageTabs.scss';
+
 .basic-input {
   max-width: 348px;
 }

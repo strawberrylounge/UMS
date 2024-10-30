@@ -50,17 +50,22 @@ export default {
 <style scoped lang="scss">
 .form-row {
   display: flex;
+  margin: 0;
   & > * {
     width: calc(50% - 10px);
+    margin-right: 10px;
   }
   label + label {
-    margin-left: 20px;
+    margin-left: 10px;
+    margin-right: 0;
   }
   .form-control + .form-control {
-    margin-left: 20px;
+    margin-left: 10px;
+    margin-right: 0;
   }
   &.input-row + .input-row {
-    margin-top: 20px;
+    margin-top: 10px;
+    margin-right: 0;
   }
 }
 </style>

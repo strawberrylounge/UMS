@@ -170,7 +170,6 @@
 </template>
 
 <script>
-import '@/assets/scss/service/message.scss';
 import IconArrowRight from '@/components/service/icons/IconArrowRight.vue';
 import IconArrowDown from '@/components/service/icons/IconArrowDown.vue';
 import IconDownload from '@/components/service/icons/IconDownload.vue';
@@ -216,6 +215,7 @@ export default {
 
 <style scoped lang="scss">
 @use "~@/assets/scss/service/base/typography" as typography;
+@import '@/assets/scss/service/message.scss';
 
 .radio-group {
   margin: 0;

@@ -71,6 +71,7 @@ export default {
         case '/uc/template/rcsTemplateList':
         case '/uc/template/rcsTemplateManage':
         case '/uc/template/rcsTemplateManage/edit':
+        case '/uc/template/alimTalkTemplateList':
           return '템플릿'
         default:
           return ''

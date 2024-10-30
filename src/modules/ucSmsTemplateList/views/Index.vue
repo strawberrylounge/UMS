@@ -77,7 +77,7 @@
             <b-dropdown-item-button :class="pageCount == 20 ? 'active' : ''">20개씩 보기</b-dropdown-item-button>
             <b-dropdown-item-button :class="pageCount == 30 ? 'active' : ''">30개씩 보기</b-dropdown-item-button>
           </b-dropdown>
-          <b-button variant="secondary" class="btn-svg btn-svg-right" @click="navigateToManage">
+          <b-button variant="secondary" class="btn-svg btn-svg-right ml-auto" @click="navigateToManage">
             <span>템플릿 등록</span>
             <IconArrowRight />
           </b-button>
@@ -194,8 +194,6 @@ import Pagination from '@/components/service/Pagination.vue';
 import AlertModal from '@/components/service/modal/AlertModal.vue'
 import IconArrowLineDown from '@/components/service/icons/IconArrowLineDown.vue';
 
-import '@/assets/scss/service/message.scss';
-
 export default {
   components: { IconArrowDown, SearchInput, Pagination, IconSort, TemplateTabs, IconArrowRight, AlertModal, IconArrowLineDown, },
   name: "ucSmsTemplateList",
@@ -240,6 +238,7 @@ export default {
 
 <style scoped lang="scss">
 @use "~@/assets/scss/service/base/typography" as typography;
+@import '@/assets/scss/service/message.scss';
 
 .template-dropdown {
   min-width: 160px;

@@ -83,7 +83,7 @@ export default {
 </script>
 
 <style scoped lang="scss">
-@use "../../../../assets/scss/service/base/typography" as typography;
+@use "~@/assets/scss/service/base/typography" as typography;
 
 .info {
   margin: 20px 0 0;

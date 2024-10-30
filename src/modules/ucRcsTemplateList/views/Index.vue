@@ -3,6 +3,16 @@
     <TemplateTabs />
 
     <div class="tab-contents">
+      <div class="info card">
+        <ul>
+          <li>아래 탭에서 RCS 유형을 먼저 선택해 주십시오.</li>
+          <li>템플릿형은 광고성 메시지를 보내실 수 없습니다.</li>
+          <li>동영상 스트리밍 삼성 S시리즈, R시리즈 중 안드로이드 OS 10.0을 탑재한 단말기만 지원합니다.</li>
+          <li>승인 상태의 템플릿만 등록제 요금이 적용됩니다. (등록완료 상태의 템플릿은 등록제 요금이 적용되지 않습니다.</li>
+          <li>템플릿 승인은 요청일로 부터 1~2영업일이 소요됩니다</li>
+        </ul>
+      </div>
+
       <!-- 검색영역 Start -->
       <div class="search-section card border-0">
         <div class="search-section-forms">
@@ -18,7 +28,7 @@
             <div class="search-group">
               <SearchInput />
             </div>
-            <i class="vertical-divider"></i>
+            <i class="vertical-divider ml-0"></i>
             <label>템플릿 상태</label>
             <b-form-group>
               <b-form-checkbox-group
@@ -47,7 +57,7 @@
             <b-dropdown-item-button :class="pageCount == 20 ? 'active' : ''">20개씩 보기</b-dropdown-item-button>
             <b-dropdown-item-button :class="pageCount == 30 ? 'active' : ''">30개씩 보기</b-dropdown-item-button>
           </b-dropdown>
-          <b-button variant="secondary" class="btn-svg btn-svg-right" @click="navigateToManage">
+          <b-button variant="secondary" class="btn-svg btn-svg-right ml-auto" @click="navigateToManage">
             <span>템플릿 등록</span>
             <IconArrowRight />
           </b-button>
@@ -167,8 +177,6 @@ import Pagination from '@/components/service/Pagination.vue';
 import AlertModal from '@/components/service/modal/AlertModal.vue'
 import IconArrowLineDown from '@/components/service/icons/IconArrowLineDown.vue';
 
-import '@/assets/scss/service/message.scss';
-
 export default {
   components: { IconArrowDown, SearchInput, Pagination, IconSort, TemplateTabs, IconArrowRight, AlertModal, IconArrowLineDown, },
   name: "ucSmsTemplateList",
@@ -192,13 +200,21 @@ export default {
     navigateToEdit() {
       this.$router.push(`/uc/template/rcsTemplateManage/edit`);
     },
+    navigateToManage() {
+      this.$router.push(`/uc/template/rcsTemplateManage`);
+    }
   }
 };
 </script>
 
 <style scoped lang="scss">
 @use "~@/assets/scss/service/base/typography" as typography;
+@import '@/assets/scss/service/message.scss';
+@import '@/assets/scss/service/template.scss';
 
+.table td {
+  vertical-align: middle;
+}
 .template-dropdown {
   min-width: 160px;
   margin: 0 16px;

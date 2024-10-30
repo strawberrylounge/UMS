@@ -157,8 +157,6 @@ import IconSort from '@/components/service/icons/IconSort.vue';
 import IconArrowLineDown from '@/components/service/icons/IconArrowLineDown.vue';
 import Pagination from '@/components/service/Pagination.vue';
 
-import '@/assets/scss/service/message.scss';
-
 export default {
   components: { IconArrowDown, CustomDatepicker, Pagination, IconSort, MessageStatusTabs, IconArrowLineDown },
   name: "ucMessageStatus",
@@ -185,6 +183,7 @@ export default {
 
 <style scoped lang="scss">
 @use "~@/assets/scss/service/base/typography" as typography;
+@import '@/assets/scss/service/message.scss';
 
 .search-section {
   .form-control {

@@ -17,9 +17,11 @@
       <label class="mb-1 pb-2 f-body5 c-gray500">이름<span class="require">*</span></label>
     </div>
 
-    <div v-for="(receiver, index) in receivers" :key="index" class="d-flex form-row input-row">
-      <b-input v-model="receiver.phone" placeholder="010-1234-5678"></b-input>
-      <b-input v-model="receiver.name" placeholder="이름 입력"></b-input>
+    <div v-for="(receiver, index) in receivers" :key="index">
+      <div class="d-flex form-row input-row" :class="index > 0 ? 'mt-1 pt-3' : ''">
+        <b-input v-model="receiver.phone" placeholder="010-1234-5678"></b-input>
+        <b-input v-model="receiver.name" placeholder="이름 입력"></b-input>
+      </div>
     </div>
 
     <template #modal-footer>
@@ -65,15 +67,19 @@ export default {
   display: flex;
   & > * {
     width: calc(50% - 10px);
+    margin-right: 10px;
   }
   label + label {
-    margin-left: 20px;
+    margin-right: 0;
+    margin-left: 10px;
   }
   .form-control + .form-control {
-    margin-left: 20px;
+    margin-right: 0;
+    margin-left: 10px;
   }
   &.input-row + .input-row {
-    margin-top: 20px;
+    margin-right: 0;
+    margin-left: 10px;
   }
 }
 </style>

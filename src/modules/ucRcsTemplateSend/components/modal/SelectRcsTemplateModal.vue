@@ -107,6 +107,8 @@ export default {
 </script>
 
 <style scoped lang="scss">
+@import '@/assets/scss/service/message.scss';
+
 .rcs-preview-content {
   padding: 13px;
   background-color: var(--white);
