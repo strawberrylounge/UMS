@@ -9,9 +9,9 @@
           <div class="d-flex align-items-center flex-wrap">
             <label>발송일자</label>
             <div class="d-flex ml-3 datepicker-group">
-              <CustomDatepicker />
+              <CustomDatepicker ref="startDatePicker" />
               <span>~</span>
-              <CustomDatepicker />
+              <CustomDatepicker ref="endDatePicker" />
             </div>
             <button type="button" class="btn btn-filter active">오늘</button>
 
@@ -166,6 +166,14 @@ export default {
       pageCount: 10,
     }
   },
+  mounted() {
+    const endDate = new Date();
+    const startDate = new Date();
+    startDate.setDate(endDate.getDate() - 1);
+    
+    this.$refs.startDatePicker.setDate(startDate);
+    this.$refs.endDatePicker.setDate(endDate);
+  },
   methods: {
     toggleMenu() {
       this.hideMenu = !this.hideMenu;
@@ -175,7 +183,7 @@ export default {
     },
     openModal() {
       this.$bvModal.show('fail-message-info-modal');
-    }
+    },
   }
 };
 </script>
