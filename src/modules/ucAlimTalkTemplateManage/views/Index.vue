@@ -164,7 +164,10 @@
               <thead>
                 <tr>
                   <th>타입
-                    <span><img src="@/assets/images/service/icon/icon-info.svg" alt=""></span>
+                    <!-- <span><img src="@/assets/images/service/icon/icon-info.svg" alt=""></span> -->
+                    <b-button v-b-tooltip.hover.html="tooltipMessage" variant="light" class="btn-icon p-0">
+                      <IconInfo />
+                    </b-button>
                   </th>
                   <th>버튼 이름</th>
                   <th>버튼 링크</th>
@@ -228,11 +231,12 @@ import IconArrowDown from '@/components/service/icons/IconArrowDown.vue';
 import IconClose from '@/components/service/icons/IconClose.vue';
 import IconPlus from '@/components/service/icons/IconPlus.vue';
 import IconInfoRed from '@/components/service/icons/IconInfoRed.vue';
+import IconInfo from '@/components/service/icons/IconInfo.vue';
 import TemplateTabs from '@/components/service/template/TemplateTabs.vue'
 import PreviewTalk from '@/components/service/preview/PreviewTalk.vue'
 
 export default {
-  components: { IconArrowDown, TemplateTabs, PreviewTalk, IconClose, IconPlus, IconInfoRed, },
+  components: { IconArrowDown, TemplateTabs, PreviewTalk, IconClose, IconPlus, IconInfoRed, IconInfo, },
   name: "ucRcsTemplateManage",
   data() {
     return {
@@ -257,6 +261,12 @@ export default {
     },
     navigateToList() {
       this.$router.push(`/uc/template/alimTalkTemplateList`);
+    },
+    tooltipMessage() {
+      return "<span>‘배송조회' 버튼은 메시지 내용에 ‘택배사' 명과 ‘송장번호 패턴'을 인식하여 자동으로 각 택배사의 배송조회 페이지로 이동하게끔 되어 있습니다. 택배사 명과 송장번호 패턴 인식 불가능 시 패송조회 버튼은 비활성화 됩니다.</span>"
+    },
+    addButton() {
+      this.buttons.push({ label: '' });
     },
   },
   computed: {

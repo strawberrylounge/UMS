@@ -21,25 +21,12 @@ export default {
   data() {
     return {
       selectedDate: null,
-      formattedDate: null,
       dateFormatOptions: { year: 'numeric', month: '2-digit', day: '2-digit' }
     };
   },
-  watch: {
-    selectedDate(newDate) {
-      if (newDate) {
-        this.formattedDate = this.formatDate(newDate);
-      } else {
-        this.formattedDate = null;
-      }
-    }
-  },
   methods: {
-    formatDate(date) {
-      const year = date.getFullYear();
-      const month = (`0${date.getMonth() + 1}`).slice(-2); // 0부터 시작하므로 +1
-      const day = (`0${date.getDate()}`).slice(-2);
-      return `${year}-${month}-${day}`;
+    setDate(date) {
+      this.selectedDate = date;
     }
   }
 };

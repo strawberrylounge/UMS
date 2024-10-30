@@ -19,14 +19,14 @@
               <SearchInput />
             </div>
             <div class="d-flex datepicker-group">
-              <CustomDatepicker />
+              <CustomDatepicker ref="startDatePicker" />
               <span>~</span>
-              <CustomDatepicker />
+              <CustomDatepicker ref="endDatePicker" />
             </div>
-            <button type="button" class="btn btn-filter active">오늘</button>
-            <button type="button" class="btn btn-filter">일주일</button>
-            <button type="button" class="btn btn-filter">1개월</button>
-            <button type="button" class="btn btn-filter">1년</button>
+            <button type="button" class="btn btn-filter active" @click="setDateRange('all')">전체</button>
+            <button type="button" class="btn btn-filter" @click="setDateRange('1week')">1주일</button>
+            <button type="button" class="btn btn-filter" @click="setDateRange('15days')">15일</button>
+            <button type="button" class="btn btn-filter" @click="setDateRange('1month')">1개월</button>
           </div>
           
           <!-- Hideable section -->
@@ -229,6 +229,28 @@ export default {
     },
     navigateToSmartSendMain() {
       this.$router.push(`/uc/message/smartSendMain`);
+    },
+    setDateRange(rangeType) {
+      const endDate = new Date();
+      let startDate = new Date();
+
+      switch (rangeType) {
+        case '1week':
+          startDate.setDate(endDate.getDate() - 7);
+          break;
+        case '15days':
+          startDate.setDate(endDate.getDate() - 15);
+          break;
+        case '1month':
+          startDate.setMonth(endDate.getMonth() - 1);
+          break;
+        default:
+          startDate = null;
+          endDate = null;
+      }
+
+      this.$refs.startDatePicker.setDate(startDate);
+      this.$refs.endDatePicker.setDate(endDate);
     },
   }
 };
