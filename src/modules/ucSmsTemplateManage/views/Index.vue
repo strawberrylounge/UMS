@@ -79,7 +79,7 @@
             </b-input-group>
           </div>
           <div class="form-row" v-if="type !== 'lms'">
-            <label class="form-labal">이미지</label>
+            <label class="form-label">이미지</label>
             <div class="content-image">
               <b-button variant="outline-primary" size="sm" v-b-modal.select-image-modal>이미지 선택</b-button>
               <ul class="image-select-list m-0 p-0">

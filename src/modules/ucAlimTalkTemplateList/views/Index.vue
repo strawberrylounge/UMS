@@ -200,6 +200,9 @@ export default {
     navigateToEdit() {
       this.$router.push(`/uc/template/rcsTemplateManage/edit`);
     },
+    navigateToManage() {
+      this.$router.push(`/uc/template/alimTalkTemplateManage`);
+    }
   }
 };
 </script>

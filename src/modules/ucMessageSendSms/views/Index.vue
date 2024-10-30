@@ -13,7 +13,7 @@
       <div class="section card">
         <p class="section-title">01.메세지 내용</p>
         <div class="d-flex align-items-center">
-          <label class="form-labal">발송유형</label>
+          <label class="form-label">발송유형</label>
           <b-form-group class="radio-group m-0">
             <b-form-radio-group inline v-model="type">
               <b-form-radio name="type" value="SMS">SMS</b-form-radio>
@@ -23,7 +23,7 @@
           </b-form-group>
         </div>
         <div class="d-flex align-items-center my-1 py-3">
-          <label class="form-labal">메시지 구분<span class="require">*</span></label>
+          <label class="form-label">메시지 구분<span class="require">*</span></label>
           <b-form-group class="radio-group">
             <b-form-radio-group inline>
               <b-form-radio name="some-radios" value="A">광고성</b-form-radio>
@@ -38,7 +38,7 @@
         </div>
 
         <div v-if="type === 'MMS'" class="d-flex align-items-start image-select">
-          <label class="form-labal">이미지</label>
+          <label class="form-label">이미지</label>
           <b-button variant="outline-primary" size="sm" v-b-modal.select-image-modal>이미지 선택</b-button>
           <ul class="image-select-list">
             <li>
@@ -66,7 +66,7 @@
 
         <p class="section-title">02.수신자 선택</p>
         <div class="d-flex align-items-center">
-          <label class="form-labal">수신자<span class="require">*</span></label>
+          <label class="form-label">수신자<span class="require">*</span></label>
           <div class="p-0 btn-wrap">
             <b-button variant="outline-primary" size="sm" class="btn-svg btn-svg-right" v-b-modal.enter-receiver-modal>
               <span>수신자 직접입력</span>
@@ -121,7 +121,7 @@
 
         <p class="section-title">03.발송옵션 선택</p>
         <div class="d-flex align-items-center">
-          <label class="form-labal">발송시간<span class="require">*</span></label>
+          <label class="form-label">발송시간<span class="require">*</span></label>
           <b-form-group class="radio-group">
             <b-form-radio-group inline v-model="time">
               <b-form-radio name="time" value="now" >즉시</b-form-radio>
@@ -140,7 +140,7 @@
 
         <p class="section-title">04.발신자 선택</p>
         <div class="d-flex align-items-center">
-          <label class="form-labal">발신번호<span class="require">*</span></label>
+          <label class="form-label">발신번호<span class="require">*</span></label>
           <b-dropdown id="number-dropdown" variant="secondary" class="send-number-dropdown">
             <template #button-content>
               <span>{{ phoneNumber === '' ? '선택' : phoneNumber }}</span>

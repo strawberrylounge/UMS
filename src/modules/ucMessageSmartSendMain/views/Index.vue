@@ -35,7 +35,7 @@
       <div class="section card">
         <p class="section-title f-body1 f-bold c-gray700">01.템플릿</p>
         <div class="d-flex align-items-center">
-          <label class="form-labal">기본, 정보성</label>
+          <label class="form-label">기본, 정보성</label>
           <b-input value="문자 테스트" class="basic-input"></b-input>
         </div>
 
@@ -43,7 +43,7 @@
 
         <p class="section-title f-body1 f-bold c-gray700">02.수신자 선택</p>
         <div class="d-flex align-items-center">
-          <label class="form-labal">수신자<span class="require">*</span></label>
+          <label class="form-label">수신자<span class="require">*</span></label>
           <div class="messag-btn-group">
             <b-button variant="outline-primary" size="sm" class="btn-svg btn-svg-right" v-b-modal.enter-receiver-modal>
               <span>수신자 직접입력</span>
@@ -98,7 +98,7 @@
 
         <p class="section-title f-body1 f-bold c-gray700">03.발송옵션 선택</p>
         <div class="d-flex align-items-center">
-          <label class="form-labal">발송시간<span class="require">*</span></label>
+          <label class="form-label">발송시간<span class="require">*</span></label>
           <b-form-group class="radio-group m-0">
             <b-form-radio-group inline v-model="time">
               <b-form-radio name="time" value="now" >즉시</b-form-radio>
@@ -117,7 +117,7 @@
 
         <p class="section-title f-body1 f-bold c-gray700">04.발신자 선택</p>
         <div class="d-flex align-items-center">
-          <label class="form-labal">발신번호<span class="require">*</span></label>
+          <label class="form-label">발신번호<span class="require">*</span></label>
           <b-dropdown id="number-dropdown" variant="secondary" class="send-number-dropdown">
             <template #button-content>
               <span>{{ phoneNumber === '' ? '선택' : phoneNumber }}</span>

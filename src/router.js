@@ -22,6 +22,7 @@ import ucRcsTemplateList from "@/modules/ucRcsTemplateList/views/Index.vue";
 import ucRcsTemplateManage from "@/modules/ucRcsTemplateManage/views/Index.vue";
 import ucRcsTemplateManageEdit from "@/modules/ucRcsTemplateManageEdit/views/Index.vue";
 import ucAlimTalkTemplateList from "@/modules/ucAlimTalkTemplateList/views/Index.vue";
+import ucAlimTalkTemplateManage from "@/modules/ucAlimTalkTemplateManage/views/Index.vue";
 
 Vue.use(Router);
 
@@ -187,6 +188,16 @@ const router = new Router({
         {
           path: "",
           component: ucAlimTalkTemplateList,
+        },
+      ],
+    },
+    {
+      path: "/uc/template/alimTalkTemplateManage",
+      component: ServiceLayout,
+      children: [
+        {
+          path: "",
+          component: ucAlimTalkTemplateManage,
         },
       ],
     },

@@ -9,6 +9,10 @@
   text-align: center;
   @include typography.font-style(14px, 400, 140%, -0.28px);
   color: var(--gray700);
+  &.talk {
+    padding: 0;
+    text-align: start;
+  }
 }
 .preview-img {
   min-height: 146px;
@@ -159,5 +163,22 @@
     .empty-img {
       padding: 31px 0;
     }
+  }
+}
+
+/* 목업 화면 카카오톡 미리보기 */
+.uc-alimtalk-template-manage .preview-mockup {
+  width: 360px !important;
+}
+.talk {
+  &-button {
+    .btn {
+      width: 100%;
+    }
+  }
+  .preview-img {
+    min-height: 129px;
+    padding: 23px 0 21px;
+    border-radius: 0;
   }
 }

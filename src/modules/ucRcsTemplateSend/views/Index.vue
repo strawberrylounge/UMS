@@ -89,7 +89,7 @@
 
         <p class="section-title">01.브랜드 선택</p>
         <div class="d-flex align-items-center">
-          <label class="form-labal">브랜드</label>
+          <label class="form-label">브랜드</label>
           <b-dropdown id="brand-dropdown" variant="secondary" class="send-number-dropdown">
             <template #button-content>
               <span>{{ barnd === '' ? '선택' : barnd }}</span>
@@ -104,13 +104,13 @@
 
         <p class="section-title">02.수신자 선택</p>
         <div class="d-flex align-items-center">
-          <label class="form-labal">템플릿</label>
+          <label class="form-label">템플릿</label>
           <div class="receive-btn-wrap">
             <b-button variant="outline-primary" size="sm" v-b-modal.select-rcs-template-modal>RCS 템플릿 선택</b-button>
           </div>
         </div>
         <div class="d-flex align-items-center my-1 py-3">
-          <label class="form-labal">발신번호</label>
+          <label class="form-label">발신번호</label>
           <b-form-group class="m-0">
             <b-form-radio-group inline>
               <b-form-radio name="some-radios" value="A">불가능</b-form-radio>
@@ -120,7 +120,7 @@
           <span class="radio-info">※ 단말 내 메시지에 대한 복사가능여부 설정입니다.</span>
         </div>
         <div class="d-flex align-items-center">
-          <label class="form-labal">발신번호<span class="require">*</span></label>
+          <label class="form-label">발신번호<span class="require">*</span></label>
           <b-dropdown id="number-dropdown" variant="secondary" class="send-number-dropdown">
             <template #button-content>
               <span>{{ phoneNumber === '' ? '선택' : phoneNumber }}</span>
@@ -135,7 +135,7 @@
 
         <p class="section-title">03.수신자 선택</p>
         <div class="d-flex align-items-center">
-          <label class="form-labal">수신자<span class="require">*</span></label>
+          <label class="form-label">수신자<span class="require">*</span></label>
           <div class="receive-btn-wrap">
             <b-button variant="outline-primary" size="sm" class="btn-svg btn-svg-right" v-b-modal.enter-receiver-modal>
               <span>수신자 직접입력</span>
@@ -190,7 +190,7 @@
 
         <p class="section-title">04.발송옵션 선택</p>
         <div class="d-flex align-items-center">
-          <label class="form-labal">발송시간<span class="require">*</span></label>
+          <label class="form-label">발송시간<span class="require">*</span></label>
           <b-form-group class="radio-group">
             <b-form-radio-group inline v-model="time">
               <b-form-radio name="time" value="now" >즉시</b-form-radio>

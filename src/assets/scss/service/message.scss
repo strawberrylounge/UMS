@@ -63,7 +63,7 @@
   width: calc(100% - 400px);
   margin-left: 20px;
   padding: 28px;
-  .form-labal {
+  .form-label {
     width: 120px;
     margin: 0 12px 0 0;
     @include typography.font-style(14px, 500, 140%, -0.28px);
@@ -218,7 +218,7 @@
     margin: 20px 0;
   }
   .dropdown-container {
-    label.form-labal {
+    label.form-label {
       width: 120px;
       margin-right: 12px;
     }

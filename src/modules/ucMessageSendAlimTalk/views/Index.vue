@@ -12,7 +12,7 @@
       <div class="section card">
         <p class="section-title f-body1 c-gray700">01.발송정보</p>
         <div class="d-flex align-items-center">
-          <label class="form-labal">템플릿</label>
+          <label class="form-label">템플릿</label>
           <b-button variant="outline-primary" size="sm" v-b-modal.select-talk-template-modal>템플릿 선택</b-button>
         </div>
 
@@ -20,11 +20,11 @@
 
         <p class="section-title f-body1 c-gray700">02.메시지 내용</p>
         <div class="d-flex align-items-center">
-          <label class="form-labal">내용</label>
+          <label class="form-label">내용</label>
           <b-button variant="outline-primary" size="sm" v-b-modal.view-content-modal>내용보기</b-button>
         </div>
         <div class="d-flex button-list">
-          <label class="form-labal">버튼</label>
+          <label class="form-label">버튼</label>
           <div class="table-responsive">
             <table class="table">
               <colgroup>
@@ -72,7 +72,7 @@
 
         <p class="section-title">03.수신자 선택</p>
         <div class="d-flex align-items-center">
-          <label class="form-labal">수신자<span class="require">*</span></label>
+          <label class="form-label">수신자<span class="require">*</span></label>
           <div class="receive-btn-wrap">
             <b-button variant="outline-primary" size="sm" class="btn-svg btn-svg-right" v-b-modal.enter-receiver-modal>
               <span>수신자 직접입력</span>
@@ -128,7 +128,7 @@
 
         <p class="section-title">04.발송옵션 선택</p>
         <div class="d-flex align-items-center">
-          <label class="form-labal">발송시간<span class="require">*</span></label>
+          <label class="form-label">발송시간<span class="require">*</span></label>
           <b-form-group class="m-0">
             <b-form-radio-group inline v-model="time">
               <b-form-radio name="time" value="now" >즉시</b-form-radio>

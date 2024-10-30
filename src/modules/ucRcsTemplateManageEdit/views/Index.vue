@@ -53,7 +53,7 @@
         <p class="mb-2 f-title1 c-gray900">템플릿 수정</p>
 
         <div class="d-flex align-items-center section-col">
-          <label class="form-labal">브랜드 명</label>
+          <label class="form-label">브랜드 명</label>
           <b-dropdown id="brand-dropdown" variant="secondary" class="send-number-dropdown">
             <template #button-content>
               <span>{{ barnd === '' ? '선택' : barnd }}</span>
@@ -65,18 +65,18 @@
         </div>
 
         <div class="d-flex align-items-center section-col">
-          <label class="form-labal">템플릿 명</label>
+          <label class="form-label">템플릿 명</label>
           <b-input placeholder="(필수) 최대 30자의 한글, 영무, 숫자만 입력이 가능합니다." class="template-input"></b-input>
           <span class="pl-2 f-body6 c-gray500">0/30자</span>
 
           <i class="vertical-divider"></i>
 
-          <label class="form-labal">템플릿 ID</label>
+          <label class="form-label">템플릿 ID</label>
           <b-input value="dlsognaoaxicxp" disabled class="template-input"></b-input>
         </div>
 
         <div class="d-flex align-items-center section-col">
-          <label class="form-labal">유형<span class="require">*</span></label>
+          <label class="form-label">유형<span class="require">*</span></label>
           <b-dropdown id="brand-dropdown" variant="secondary" class="send-number-dropdown">
             <template #button-content>
               <span>{{ type === '' ? '선택' : type }}</span>
@@ -97,7 +97,7 @@
         </div>
 
         <div class="d-flex align-items-start section-col form-row mr-0 ml-0">
-          <label class="form-labal">내용<span class="require">*</span></label>
+          <label class="form-label">내용<span class="require">*</span></label>
           <div>
             <b-form-textarea
               id="content"
@@ -111,7 +111,7 @@
         </div>
 
         <div class="d-flex section-col">
-          <label class="form-labal">버튼</label>
+          <label class="form-label">버튼</label>
           <div class="table-btn">
             <table class="table">
               <colgroup>
@@ -298,12 +298,6 @@ export default {
 .template-select {
   & > div + div {
     margin-left: 12px;
-  }
-}
-.section-col {
-  margin-top: 20px;
-  &-img {
-    width: calc(100% - 120px - 12px);
   }
 }
 .template-input {

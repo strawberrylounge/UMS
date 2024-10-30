@@ -4,7 +4,7 @@
       <div class="section">
         <p class="m-0 mb-1 pb-3 f-body1 c-gray700">브랜드 선택</p>
         <div class="d-flex align-items-center dropdown-container">
-          <label class="form-labal">브랜드</label>
+          <label class="form-label">브랜드</label>
           <b-dropdown id="brand-dropdown" variant="secondary" class="brand-dropdown">
             <template #button-content>
               <span>{{ barnd === '' ? '선택' : barnd }}</span>

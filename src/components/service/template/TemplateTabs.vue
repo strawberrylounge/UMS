@@ -10,7 +10,7 @@
       <div :class="['tab', isActive('/uc/template/rcsTemplateList'), isActive('/uc/template/rcsTemplateManage'), isActive('/uc/template/rcsTemplateManage/edit')]">
         <a href="/uc/template/rcsTemplateList">RCS</a>
       </div>
-      <div :class="['tab', isActive('/uc/message/sendAlimTalk'), isActive('/uc/template/alimTalkTemplateList')]">
+      <div :class="['tab', isActive('/uc/template/alimTalkTemplateList'), isActive('/uc/template/alimTalkTemplateManage'),]">
         <a href="/uc/template/alimTalkTemplateList">카카오톡</a>
       </div>
     </div>
@@ -39,6 +39,8 @@ export default {
           return 'RCS > 템플릿 등록';
         case '/uc/template/alimTalkTemplateList':
           return '카카오톡';
+        case '/uc/template/alimTalkTemplateManage':
+          return '카카오톡 > 템플릿 등록';
         default:
           return ''
       }

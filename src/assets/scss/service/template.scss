@@ -65,3 +65,9 @@
     color: var(--gray500);
   }
 }
+.section-col {
+  margin-top: 20px;
+  &-img {
+    width: calc(100% - 120px - 12px);
+  }
+}

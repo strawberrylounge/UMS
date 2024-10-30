@@ -5,7 +5,7 @@
         <p class="m-0 mb-1 pb-3 f-body1 c-gray700"><span class="require">*</span>카카오 채널</p>
 
         <div class="d-flex align-items-center dropdown-container">
-          <label class="f-body5 c-gray500 form-labal">채널선택</label>
+          <label class="f-body5 c-gray500 form-label">채널선택</label>
           <b-dropdown id="brand-dropdown" variant="secondary" class="brand-dropdown">
             <template #button-content>
               <span>{{ channel === '' ? '옵션' : channel }}</span>

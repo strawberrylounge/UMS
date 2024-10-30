@@ -100,7 +100,7 @@
 
         <!-- 승인/비승인 선택 Start -->
         <div class="d-flex align-items-center my-1 py-3">
-          <label class="form-labal">RCS 승인 여부 <span class="require">*</span></label>
+          <label class="form-label">RCS 승인 여부 <span class="require">*</span></label>
           <b-form-group class="m-0">
             <b-form-radio-group inline v-model="subTab">
               <b-form-radio name="some-radios" value="allow">승인형</b-form-radio>
@@ -195,7 +195,7 @@
         </div>
 
         <div class="d-flex align-items-center section-col">
-          <label class="form-labal">브랜드 명</label>
+          <label class="form-label">브랜드 명</label>
           <b-dropdown id="brand-dropdown" variant="secondary" class="send-number-dropdown">
             <template #button-content>
               <span>{{ barnd === '' ? '선택' : barnd }}</span>
@@ -207,23 +207,23 @@
         </div>
 
         <div class="d-flex align-items-center section-col">
-          <label class="form-labal">템플릿 명</label>
+          <label class="form-label">템플릿 명</label>
           <b-input placeholder="(필수) 최대 30자의 한글, 영무, 숫자만 입력이 가능합니다." class="template-input"></b-input>
           <span class="pl-2 f-body6 c-gray500">0/30자</span>
 
           <i class="vertical-divider"></i>
 
-          <label class="form-labal">템플릿 ID</label>
+          <label class="form-label">템플릿 ID</label>
           <b-input value="dlsognaoaxicxp" disabled class="template-input"></b-input>
         </div>
 
         <div class="d-flex align-items-center section-col">
-          <label class="form-labal">제목</label>
+          <label class="form-label">제목</label>
           <b-input placeholder="입력" class="template-input"></b-input>
         </div>
 
         <div class="d-flex align-items-center section-col">
-          <label class="form-labal">유형<span class="require">*</span></label>
+          <label class="form-label">유형<span class="require">*</span></label>
           <b-dropdown id="brand-dropdown" variant="secondary" class="send-number-dropdown">
             <template #button-content>
               <span>{{ type === '' ? '선택' : type }}</span>
@@ -244,7 +244,7 @@
         </div>
 
         <div class="d-flex align-items-center section-col">
-          <label class="form-labal">내용<span class="require">*</span></label>
+          <label class="form-label">내용<span class="require">*</span></label>
           <div>
             <p class="m-0 mb-1 pb-2 f-body5 c-gray400">변수로 설정하고자 하는 내용을 #{ } 표시로 작성해 주십시오.<br />
               예) 이름과 출금일을 변수 설정<br />
@@ -294,7 +294,7 @@
         </div>
 
         <div class="d-flex section-col">
-          <label class="form-labal">버튼</label>
+          <label class="form-label">버튼</label>
           <div class="table-btn">
             <table class="table">
               <colgroup>
@@ -357,7 +357,7 @@
         </div>
 
         <div class="d-flex section-col">
-          <label class="form-labal">이미지<span class="require">*</span></label>
+          <label class="form-label">이미지<span class="require">*</span></label>
           <div class="section-col-img">
             <div class="d-flex align-items-center">
               <b-button variant="outline-primary" size="sm" class="mr-1">이미지 선택</b-button>
@@ -376,12 +376,12 @@
         </div>
 
         <div class="d-flex align-items-center section-col">
-          <label class="form-labal">이미지 URL</label>
+          <label class="form-label">이미지 URL</label>
           <b-input placeholder="입력" class="template-input"></b-input>
         </div>
 
         <div class="d-flex section-col">
-          <label class="form-labal">썸네일 이미지<span class="require">*</span></label>
+          <label class="form-label">썸네일 이미지<span class="require">*</span></label>
           <div class="d-flex">
             <b-button variant="outline-primary" size="sm" class="image-select-btn">이미지 선택</b-button>
             <ul class="image-select-list">
@@ -408,7 +408,7 @@
         </div>
 
         <div class="d-flex section-col">
-          <label class="form-labal">썸네일 URL</label>
+          <label class="form-label">썸네일 URL</label>
           <div>
             <b-input placeholder="입력" class="template-input"></b-input>
             <b-input placeholder="입력" class="template-input mt-2"></b-input>
@@ -417,17 +417,17 @@
         </div>
 
         <div class="d-flex align-items-center section-col">
-          <label class="form-labal">무료수신거부</label>
+          <label class="form-label">무료수신거부</label>
           <b-input placeholder="입력" class="template-input" v-model="number" @blur="updateNumber"></b-input>
         </div>
 
         <div class="d-flex align-items-center section-col">
-          <label class="form-labal">타이틀</label>
+          <label class="form-label">타이틀</label>
           <b-input placeholder="입력" class="template-input" v-model="rcsTemplateTitle" @blur="updateRcsTemplatetitle"></b-input>
         </div>
 
         <div class="d-flex align-items-center section-col">
-          <label class="form-labal">타이틀 내용</label>
+          <label class="form-label">타이틀 내용</label>
           <b-input placeholder="입력" class="template-input" v-model="rcsTemplateDesc" @blur="updateRcsTemplateDesc"></b-input>
         </div>
 
@@ -650,12 +650,6 @@ export default {
 .template-select {
   & > div + div {
     margin-left: 12px;
-  }
-}
-.section-col {
-  margin-top: 20px;
-  &-img {
-    width: calc(100% - 120px - 12px);
   }
 }
 .template-input {
