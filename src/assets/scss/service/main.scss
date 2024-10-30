@@ -63,3 +63,6 @@ body {
 .btn-add path {
   stroke: var(--gray700);
 }
+.btn-sample-download:hover path {
+  stroke: var(--primary);
+}

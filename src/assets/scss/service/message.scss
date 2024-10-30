@@ -95,6 +95,11 @@
     border: none;
     box-shadow: none;
   }
+  &:hover {
+    span {
+      color: var(--primary);
+    }
+  }
 }
 .book-form {
   display: flex;
