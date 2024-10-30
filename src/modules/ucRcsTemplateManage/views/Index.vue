@@ -599,19 +599,6 @@ export default {
 <style scoped lang="scss">
 @use "../../../assets/scss/service/base/typography" as typography;
 
-.info {
-  width: 100%;
-  margin: 0 0 20px 0;
-  padding: 20px 28px;
-  ul {
-    margin: 0;
-    padding-left: 24px;
-  }
-  li {
-    @include typography.font-style(14px, 400, 180%, -0.28px);
-    color: var(--gray700);
-  }
-}
 .section {
   width: calc(100% - 420px - 28px);
 }

@@ -20,6 +20,7 @@ import ucSmsTemplateList from "@/modules/ucSmsTemplateList/views/Index.vue";
 import ucSmsTemplateManage from "@/modules/ucSmsTemplateManage/views/Index.vue";
 import ucRcsTemplateList from "@/modules/ucRcsTemplateList/views/Index.vue";
 import ucRcsTemplateManage from "@/modules/ucRcsTemplateManage/views/Index.vue";
+import ucRcsTemplateManageEdit from "@/modules/ucRcsTemplateManageEdit/views/Index.vue";
 
 Vue.use(Router);
 
@@ -165,6 +166,16 @@ const router = new Router({
         {
           path: "",
           component: ucRcsTemplateManage,
+        },
+      ],
+    },
+    {
+      path: "/uc/template/rcsTemplateManage/edit",
+      component: ServiceLayout,
+      children: [
+        {
+          path: "",
+          component: ucRcsTemplateManageEdit,
         },
       ],
     },
