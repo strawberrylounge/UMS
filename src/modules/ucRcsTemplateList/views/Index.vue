@@ -61,7 +61,7 @@
           <table class="table">
             <thead>
               <tr>
-                <th scope="col" class="text-center">
+                <th class="text-center">
                   <b-form-checkbox
                     id="selectAll"
                     name="selectAll"
@@ -69,54 +69,55 @@
                     size="lg"
                   ></b-form-checkbox>
                 </th>
-                <th scope="col">
+                <th>
                   <div class="d-flex align-items-center">
                     NO.
                     <IconSort />
                   </div>
                 </th>
-                <th scope="col">
+                <th>
                   <div class="d-flex align-items-center"> <!-- NOTE: 정렬시 class명 추가하면 스타일 변경됨 -->
                     템플릿 ID
                     <IconSort />
                   </div>
                 </th>
-                <th scope="col">
+                <th>
                   <div class="d-flex align-items-center">
                     템플릿명
-                    <IconSort class="down" /> <!-- NOTE: 정렬시 class명 추가하면 스타일 변경됨 -->
-                  </div>
-                </th>
-                <th scope="col">
-                  <div class="d-flex align-items-center">
-                    템플릿 채널
                     <IconSort />
                   </div>
                 </th>
-                <th scope="col">
+                <th>
                   <div class="d-flex align-items-center">
-                    메시지 구분
+                    브랜드명
+                    <IconSort class="down" />
+                  </div>
+                </th>
+                <th>
+                  <div class="d-flex align-items-center">
+                    상품명
                     <IconSort />
                   </div>
                 </th>
-                <th scope="col">
+                <th>
                   <div class="d-flex align-items-center">
-                    메시지 타입
+                    승인상태
                     <IconSort />
                   </div>
                 </th>
-                <th scope="col">
+                <th>
                   <div class="d-flex align-items-center">
-                    등록자
+                    승인일
                     <IconSort />
                   </div>
                 </th>
-                <th scope="col">
+                <th>
                   <div class="d-flex align-items-center">
                     등록일자
                     <IconSort />
                   </div>
                 </th>
+                <th>템플릿 복사</th>
               </tr>
             </thead>
             <tbody>
@@ -134,11 +135,14 @@
                   <span class="text-underline">TPLdwiCS</span>
                 </td>
                 <td>통합발송 테스트</td>
-                <td>카카오톡, 문자</td>
-                <td>정보성</td>
-                <td>기본</td>
-                <td>testadmin</td>
+                <td>이커머스테스_검수기3</td>
+                <td>서술형 출고 desc</td>
+                <td>승인</td>
                 <td>2024.02.06 12:15:11</td>
+                <td>2024.02.06 12:15:11</td>
+                <td>
+                  <b-button variant="outline-secondary" size="sm">템플릿 복사</b-button>
+                </td>
               </tr>
             </tbody>
           </table>
@@ -185,14 +189,11 @@ export default {
     }
   },
   methods: {
-    toggleMenu() {
-      this.hideMenu = !this.hideMenu;
-    },
     openDeleteAlertModal() {
       this.$bvModal.show('alert-modal');
     },
     navigateToManage() {
-      this.$router.push(`/uc/template/smsTemplateManage`);
+      this.$router.push(`/uc/template/rcsTemplateManage`);
     },
   }
 };
@@ -212,17 +213,6 @@ export default {
 .form-group {
   margin-left: 24px;
   margin-bottom: 0;
-}
-/* 애니메이션 추가 */
-.slide-fade-enter-active, .slide-fade-leave-active {
-  transition: all 0.1s ease;
-}
-.slide-fade-enter, .slide-fade-leave-to {
-  transform: translateY(-10px);
-  opacity: 0;
-}
-.check-menu {
-  display: flex;
 }
 .vertical-divider {
   width: 1px;

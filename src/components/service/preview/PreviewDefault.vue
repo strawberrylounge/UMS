@@ -1,5 +1,5 @@
 <template>
-  <div class="preview-image">
+  <div class="preview-mockup">
     <slot />
   </div>
 </template>
@@ -11,7 +11,7 @@ export default {
 </script>
 
 <style lang="scss" scoped>
-.preview-image {
+.preview-mockup {
   width: 320px;
   min-height: 643px;
   background: url("~@/assets/images/service/preview-mockup.png") no-repeat;

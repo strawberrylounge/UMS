@@ -7,7 +7,7 @@
       <div :class="['tab', isActive('/uc/template/smsTemplateList'), isActive('/uc/template/smsTemplateManage')]">
         <a href="/uc/template/smsTemplateList">문자</a>
       </div>
-      <div :class="['tab', isActive('/uc/template/rcsTemplateList')]">
+      <div :class="['tab', isActive('/uc/template/rcsTemplateList'), isActive('/uc/template/rcsTemplateManage')]">
         <a href="/uc/template/rcsTemplateList">RCS</a>
       </div>
       <div :class="['tab', isActive('/uc/message/sendAlimTalk')]">
@@ -34,6 +34,8 @@ export default {
           return '문자 > 템플릿 등록';
         case '/uc/template/rcsTemplateList':
           return 'RCS';
+        case '/uc/template/rcsTemplateManage':
+          return 'RCS > 템플릿 등록';
         default:
           return ''
       }
