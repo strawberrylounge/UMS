@@ -151,7 +151,7 @@
               </tr>
             </thead>
             <tbody>
-              <tr v-for="(item, index) in [0,1,2,3,4]" :key="index" @click="navigateToSmartSendMain">
+              <tr v-for="(item, index) in [0,1,2,3,4]" :key="index" @click="navigateToManage">
                 <td class="text-center">
                   <b-form-checkbox
                     :id=index
@@ -226,8 +226,8 @@ export default {
     toggleMenu() {
       this.hideMenu = !this.hideMenu;
     },
-    navigateToSmartSendMain() {
-      this.$router.push(`/uc/message/smartSendMain`);
+    navigateToManage() {
+      this.$router.push(`/uc/template/multiSendTemplateManage`);
     },
     openDeleteAlertModal() {
       this.$bvModal.show('alert-modal');

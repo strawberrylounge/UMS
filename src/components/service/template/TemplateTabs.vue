@@ -1,7 +1,7 @@
 <template>
   <div class="message-tabs-wrap">
     <div class="message-tabs">
-      <div :class="['tab', isActive('/uc/template/multiSendTemplateList')]">
+      <div :class="['tab', isActive('/uc/template/multiSendTemplateList'), isActive('/uc/template/multiSendTemplateManage')]">
         <a href="/uc/template/multiSendTemplateList">원스텝메시지</a>
       </div>
       <div :class="['tab', isActive('/uc/template/smsTemplateList'), isActive('/uc/template/smsTemplateManage')]">
@@ -41,6 +41,8 @@ export default {
           return '카카오톡';
         case '/uc/template/alimTalkTemplateManage':
           return '카카오톡 > 템플릿 등록';
+        case '/uc/template/multiSendTemplateManage':
+          return '원스텝메시지 > 템플릿 등록';
         default:
           return ''
       }
