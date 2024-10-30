@@ -1,7 +1,7 @@
 <template>  
   <b-modal id="alert-modal" :title="title" hide-header-close centered content-class="alert-modal">
 
-    <p class="desc">{{ desc }}</p>
+    <p class="desc" v-html="desc"></p>
 
     <template #modal-footer>
       <b-button variant="outline-primary" @click="closeModal">닫기</b-button>

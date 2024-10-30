@@ -348,7 +348,7 @@
                   </td>
                 </tr>
                 <tr>
-                  <td colspan="4" class="border-0">
+                  <td colspan="4" class="pt-0 border-0">
                     <button type="button" class="btn btn-add" @click="addButton">
                       <IconPlus />
                       <span class="pl-2 f-body2 c-gray600">추가</span>

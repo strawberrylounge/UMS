@@ -87,8 +87,20 @@
                 </th>
                 <th>
                   <div class="d-flex align-items-center"> <!-- NOTE: 정렬시 class명 추가하면 스타일 변경됨 -->
-                    템플릿 ID
+                    템플릿 코드
                     <IconSort />
+                  </div>
+                </th>
+                <th>
+                  <div class="d-flex align-items-center">
+                    템플릿 키
+                    <IconSort />
+                  </div>
+                </th>
+                <th>
+                  <div class="d-flex align-items-center">
+                    채널
+                    <IconSort class="down" />
                   </div>
                 </th>
                 <th>
@@ -99,39 +111,26 @@
                 </th>
                 <th>
                   <div class="d-flex align-items-center">
-                    브랜드명
-                    <IconSort class="down" />
-                  </div>
-                </th>
-                <th>
-                  <div class="d-flex align-items-center">
-                    상품명
+                    상태/문의
                     <IconSort />
                   </div>
                 </th>
                 <th>
                   <div class="d-flex align-items-center">
-                    승인상태
+                    등록자
                     <IconSort />
                   </div>
                 </th>
                 <th>
                   <div class="d-flex align-items-center">
-                    승인일
+                    최종수정일자
                     <IconSort />
                   </div>
                 </th>
-                <th>
-                  <div class="d-flex align-items-center">
-                    등록일자
-                    <IconSort />
-                  </div>
-                </th>
-                <th>템플릿 복사</th>
               </tr>
             </thead>
             <tbody>
-              <tr v-for="(item, index) in [0,1,2,3,4]" :key="index" @click="navigateToEdit">
+              <tr v-for="(item, index) in [0,1,2,3,4]" :key="index">
                 <td class="text-center">
                   <b-form-checkbox
                     :id=index
@@ -140,19 +139,16 @@
                     size="lg"
                   ></b-form-checkbox>
                 </td>
-                <td>1</td>
+                <td>{{ index + 1 }}</td>
                 <td>
                   <span class="text-underline">TPLdwiCS</span>
                 </td>
-                <td>통합발송 테스트</td>
-                <td>이커머스테스_검수기3</td>
-                <td>서술형 출고 desc</td>
-                <td>승인</td>
+                <td>TPGHSBwok</td>
+                <td>@이커머스테크</td>
+                <td>대행사2</td>
+                <td>검수중</td>
+                <td>testadmin</td>
                 <td>2024.02.06 12:15:11</td>
-                <td>2024.02.06 12:15:11</td>
-                <td>
-                  <b-button variant="outline-secondary" size="sm">템플릿 복사</b-button>
-                </td>
               </tr>
             </tbody>
           </table>
@@ -161,9 +157,19 @@
         </div>
       </div>
       <!-- 리스트 영역 End -->
+
+      <p>모달 예시입니다.<br/>
+      데이터 연동시 상태에 따라 모달이 오픈되는 조건이 달라서 예시로 버튼 넣었습니다.</p>
+      <div class="d-flex align-items-center">
+        <b-button variant="outline-primary" @click="openTalkReturnModal">알림톡 반려 사유 모달</b-button>
+        <b-button variant="outline-primary" @click="openTalkStatusModal">승인상태 상세 모달</b-button>
+        <b-button variant="outline-primary" @click="openMoveRequestModal">운영이관 요청 모달</b-button>
+      </div>
     </div>
 
-    <AlertModal title="템플릿 삭제" desc="삭제할 항목을 선택해주세요." />
+    <AlertModal title="알림톡 반려 사유" desc="<p class='m-0 f-body3 c-gray500'>안녕하세요. 카카오톡 알림톡 검수 담당자입니다.<br/><br/>알림톡은 정보성 메시지에 한하여 발송이 가능하오나 해당 메시지 내용 확인 시 발송 목적이 확인되는 문구가 존재하지 않아 정보성 메시지인지 확인이 어렵습니다. 따라서 발송 목적이 확인되도록 메시지 수정 및 고정값 추가 요청드립니다.<br/>*테스트 메시지일 경우 메시지 내 ‘테스트(test)’를 고정값으로 추가 요청 드립니다.<br/><br/>더 자세한 알림톡 검수 가이드는 딜러사를 통해 확인 부탁드립니다. 감사합니다.</p>" />
+    <TalkStatusModal/>
+    <TalkMoveRequestModal />
   </div>
 </template>
 
@@ -176,9 +182,11 @@ import IconArrowRight from '@/components/service/icons/IconArrowRight.vue';
 import Pagination from '@/components/service/Pagination.vue';
 import AlertModal from '@/components/service/modal/AlertModal.vue'
 import IconArrowLineDown from '@/components/service/icons/IconArrowLineDown.vue';
+import TalkStatusModal from '@/modules/ucAlimTalkTemplateList/components/modal/TalkStatusModal'
+import TalkMoveRequestModal from '@/modules/ucAlimTalkTemplateList/components/modal/TalkMoveRequestModal'
 
 export default {
-  components: { IconArrowDown, SearchInput, Pagination, IconSort, TemplateTabs, IconArrowRight, AlertModal, IconArrowLineDown, },
+  components: { IconArrowDown, SearchInput, Pagination, IconSort, TemplateTabs, IconArrowRight, AlertModal, IconArrowLineDown, TalkStatusModal, TalkMoveRequestModal, },
   name: "ucAlimTalkTemplateList",
   data() {
     return {
@@ -197,12 +205,18 @@ export default {
     }
   },
   methods: {
-    navigateToEdit() {
-      this.$router.push(`/uc/template/rcsTemplateManage/edit`);
-    },
     navigateToManage() {
       this.$router.push(`/uc/template/alimTalkTemplateManage`);
-    }
+    },
+    openTalkReturnModal() {
+      this.$bvModal.show('alert-modal');
+    },
+    openTalkStatusModal() {
+      this.$bvModal.show('talk-status-modal');
+    },
+    openMoveRequestModal() {
+      this.$bvModal.show('talk-move-request-modal');
+    },
   }
 };
 </script>
@@ -232,5 +246,8 @@ export default {
 }
 .list-view .pageCount-dropdown {
   margin-right: auto;
+}
+.table td {
+  vertical-align: middle;
 }
 </style>

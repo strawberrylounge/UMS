@@ -164,7 +164,6 @@
               <thead>
                 <tr>
                   <th>타입
-                    <!-- <span><img src="@/assets/images/service/icon/icon-info.svg" alt=""></span> -->
                     <b-button v-b-tooltip.hover.html="tooltipMessage" variant="light" class="btn-icon p-0">
                       <IconInfo />
                     </b-button>
@@ -182,7 +181,10 @@
                         <span>{{ buttonType }}</span>
                         <IconArrowDown />
                       </template>
-                      <b-dropdown-item-button @click="setButtonType('URL 링크')">URL 링크</b-dropdown-item-button>
+                      <b-dropdown-item-button @click="setButtonType('배송조회')">배송조회</b-dropdown-item-button>
+                      <b-dropdown-item-button @click="setButtonType('웹 링크')">웹 링크</b-dropdown-item-button>
+                      <b-dropdown-item-button @click="setButtonType('앱 링크')">앱 링크</b-dropdown-item-button>
+                      <b-dropdown-item-button @click="setButtonType('봇 키워드')">봇 키워드</b-dropdown-item-button>
                     </b-dropdown>
                   </td>
                   <td>
@@ -193,10 +195,32 @@
                     ></b-input>
                   </td>
                   <td>
-                    <p class="m-0 f-body5 c-gray400">카카오 메세지에 택배사 명과 송장번호를 기재한 후, 
+                    <p v-if="buttonType === '배송조회'" class="m-0 f-body5 c-gray400">카카오 메세지에 택배사 명과 송장번호를 기재한 후, 
                       배송 조회 버튼을 추가하시면 메세지에서 택배사 명과 송장번호를 추출하여 배송 조회 카카오 검색페이지 링크가 자동으로 생성됩니다. 
                       카카오에서 지원하는 택배사명과 운송장번호가 알림톡 메시지 내에 포함된 경우에만 배송조회 버튼이 표시됩니다. 
                       배송 조회가 가능한 택배사는 <span class="c-failure">카카오와 해당 택배사와의 계약 관계에 의해 변동될 수 있음을 유의해주시기 바랍니다.</span></p>
+                    <div v-if="buttonType === '웹 링크'">
+                      <div class="d-flex align-items-center">
+                        <label class="form-label">Mobile <span class="require">*</span></label>
+                        <b-input placeholder="[https://, https://]를 포함한 URL"></b-input>
+                      </div>
+                      <hr class="table-hr" />
+                      <div class="d-flex align-items-center">
+                        <label class="form-label">PC <span class="require">*</span></label>
+                        <b-input placeholder="[https://, https://]를 포함한 URL"></b-input>
+                      </div>
+                    </div>
+                    <div v-if="buttonType === '앱 링크'">
+                      <div class="d-flex align-items-center">
+                        <label class="form-label">Android <span class="require">*</span></label>
+                        <b-input placeholder="[https://, https://]를 포함한 URL"></b-input>
+                      </div>
+                      <hr class="table-hr" />
+                      <div class="d-flex align-items-center">
+                        <label class="form-label">IOS <span class="require">*</span></label>
+                        <b-input placeholder="[https://, https://]를 포함한 URL"></b-input>
+                      </div>
+                    </div>
                   </td>
                   <td>
                     <button class="btn btn-icon" @click="removeButton(index)">
@@ -205,7 +229,7 @@
                   </td>
                 </tr>
                 <tr>
-                  <td colspan="4" class="border-0">
+                  <td colspan="4" class="pt-0 border-0">
                     <button type="button" class="btn btn-add" @click="addButton">
                       <IconPlus />
                       <span class="pl-2 f-body2 c-gray600">추가</span>
@@ -243,7 +267,7 @@ export default {
       barnd: '',
       category1: '',
       category2: '',
-      buttonType: 'URL 링크',
+      buttonType: '배송조회',
       buttons: [
         { label: '버튼영역' },
       ],
@@ -267,6 +291,9 @@ export default {
     },
     addButton() {
       this.buttons.push({ label: '' });
+    },
+    setButtonType(value) {
+      this.buttonType = value;
     },
   },
   computed: {
@@ -351,5 +378,11 @@ export default {
       margin-left: 12px;
     }
   }
+}
+.table td {
+  vertical-align: middle;
+}
+.table-hr {
+  margin: 12px 0;
 }
 </style>
