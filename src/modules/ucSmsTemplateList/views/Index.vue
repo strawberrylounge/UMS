@@ -151,7 +151,7 @@
               </tr>
             </thead>
             <tbody>
-              <tr v-for="(item, index) in [0,1,2,3,4]" :key="index">
+              <tr v-for="(item, index) in [0,1,2,3,4]" :key="index" @click="navigateToManage">
                 <td class="text-center">
                   <b-form-checkbox
                     :id=index

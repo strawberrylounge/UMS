@@ -20,7 +20,7 @@
 
         <label for="template" class="m-0 f-body5 c-gray500">템플릿 유형</label>
         <b-form-group class="radio-group">
-          <b-form-radio-group inline>
+          <b-form-radio-group inline v-model="type">
             <b-form-radio name="type" value="all">전체</b-form-radio>
             <b-form-radio name="type" value="basic">기본형</b-form-radio>
             <b-form-radio name="type" value="point">강조표기형</b-form-radio>
@@ -72,7 +72,7 @@
           <!-- NOTE: 템플릿 내용 들어가는 부분 -->
           <div class="w-100">
             <p class="f-cpation1">웹템플릿 등록 테스트 입니다.</p>
-            <b-button variant="secondary" class="btn-sm w-100">배송조회</b-button>
+            <b-button variant="secondary" class="w-100">배송조회</b-button>
           </div>
         </PreviewTalk>
       </div>
@@ -94,7 +94,8 @@ export default {
   name: "selectTalkTemplateModal",
   data() {
     return {
-      channel: ''
+      channel: '',
+      type: 'all'
     }
   },
   methods: {

@@ -99,7 +99,7 @@
         <p class="mb-2 f-title1 c-gray900">템플릿 등록</p>
 
         <!-- 승인/비승인 선택 Start -->
-        <div class="d-flex align-items-center my-1 py-3">
+        <div class="d-flex align-items-center mt-1 pt-3">
           <label class="form-label">RCS 승인 여부 <span class="require">*</span></label>
           <b-form-group class="m-0">
             <b-form-radio-group inline v-model="subTab">
@@ -111,7 +111,7 @@
         <!-- 승인/비승인 선택 End -->
 
         <!-- 승인 템플릿 탭 Start -->
-        <div v-if="subTab === 'allow'" class="template-tabs-wrap">
+        <div v-if="subTab === 'allow'" class="template-tabs-wrap m-0">
           <div class="service-template-tabs">
             <div class="tab" :class="{active: templateTab === 'template'}">
               <button class="btn" @click="changeTemplateTab('template')">템플릿 형
@@ -146,7 +146,7 @@
         <!-- 승인 템플릿 탭 End -->
 
         <!-- 비승인 템플릿 탭 Start -->
-        <div v-if="subTab === 'notallow'" class="template-tabs-wrap">
+        <div v-if="subTab === 'notallow'" class="template-tabs-wrap m-0">
           <div class="service-template-tabs">
             <div class="tab" :class="{active: templateTab === 'template'}">
               <button class="btn" @click="changeTemplateTab('template')">템플릿 형
@@ -322,6 +322,10 @@
                         <IconArrowDown />
                       </template>
                       <b-dropdown-item-button @click="setButtonType('URL 링크')">URL 링크</b-dropdown-item-button>
+                      <b-dropdown-item-button @click="setButtonType('복사하기')">복사하기</b-dropdown-item-button>
+                      <b-dropdown-item-button @click="setButtonType('전화걸기')">전화걸기</b-dropdown-item-button>
+                      <b-dropdown-item-button @click="setButtonType('일정추가')">일정추가</b-dropdown-item-button>
+                      <b-dropdown-item-button @click="setButtonType('지도맵')">지도맵</b-dropdown-item-button>
                     </b-dropdown>
                   </td>
                   <td>

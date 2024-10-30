@@ -299,11 +299,11 @@ textarea.form-control {
     background-image: url('#{$icon}icon-caret-left.svg');
     background-repeat: no-repeat;
     background-size: 100%;
-    transform: translateY(-50%) rotate(90deg);
+    transform: translateY(-50%) rotate(-90deg);
   }
   &:has(.time-picker-overlay) {
     &::after {
-      transform: translateY(-50%) rotate(-90deg);
+      transform: translateY(-50%) rotate(90deg);
     }
   }
   input {
@@ -325,6 +325,25 @@ textarea.form-control {
       box-shadow: none;
       color: var(--gray900);
       outline: none;
+    }
+
+    & ~ .dropdown.drop-down {
+      top: calc(2.2em + 0px);
+      width: 100%;
+      border: 1px solid var(--gray500);
+      border-bottom-left-radius: 8px;
+      border-bottom-right-radius: 8px;
+      box-shadow: none;
+      .select-list {
+        width: 100%;
+        li {
+          @include typography.font-style(14px, 500, 140%, -0.28px);
+          color: var(--gray900);
+          &:hover {
+            background-color: var(--gray100);
+          }
+        }
+      }
     }
   }
   .clear-btn {

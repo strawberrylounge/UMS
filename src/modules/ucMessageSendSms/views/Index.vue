@@ -33,8 +33,8 @@
         </div>
         <div class="btn-wrap">
           <b-button variant="outline-primary" size="sm" v-b-modal.select-template-modal>템플릿 불러오기</b-button>
-          <b-button v-show="type === 'MMS'" variant="outline-primary" size="sm" v-b-modal.add-mms-content-modal>내용입력</b-button>
-          <b-button v-show="type === 'SMS' || type === 'LMS'" variant="outline-primary" size="sm" v-b-modal.add-content-modal>내용입력</b-button>
+          <b-button v-show="type === 'MMS' || type === 'LMS'" variant="outline-primary" size="sm" v-b-modal.add-mms-content-modal>내용입력</b-button>
+          <b-button v-show="type === 'SMS'" variant="outline-primary" size="sm" v-b-modal.add-content-modal>내용입력</b-button>
         </div>
 
         <div v-if="type === 'MMS'" class="d-flex align-items-start image-select">
@@ -80,7 +80,6 @@
               <span>엑셀 업로드</span>
               <IconArrowRight />
             </b-button>
-            <b-form-file v-model="file" class="" plain ref="fileInput"></b-form-file>
             <b-button variant="light" class="btn btn-sm btn-svg btn-svg-right btn-sample-download">
               <span>샘플 다운로드</span>
               <IconDownload />

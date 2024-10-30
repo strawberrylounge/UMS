@@ -6,7 +6,7 @@
       <div class="preview card">
         <p class="preview-title">미리보기</p>
         <PreviewDefault>
-          <div class="preview-section">
+          <div class="preview-section sms">
             <p class="m-0 f-body6 c-gray900">{{ displayTitle }}</p>
             <p class="m-0 mt-2 f-caption2 c-gray700" v-html="displayContent"></p>
           </div>

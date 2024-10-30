@@ -9,14 +9,14 @@
       <ul>
         <li>
           <span class="f-body5 c-gray900 text-truncate">무료수신거부 060-0000-0000</span>
-          <b-button variant="outline-primary" size="sm" @click="hideBlockList">선택</b-button>
+          <b-button variant="outline-primary" size="sm" @click="closeModal">선택</b-button>
           <button type="button" class="btn btn-icon p-0">
             <IconClose />
           </button>
         </li>
         <li>
           <span class="f-body5 c-gray900 text-truncate">무료수신거부 060-0000-0000</span>
-          <b-button variant="outline-primary" size="sm" @click="hideBlockList">선택</b-button>
+          <b-button variant="outline-primary" size="sm" @click="closeModal">선택</b-button>
           <button type="button" class="btn btn-icon p-0">
             <IconClose />
           </button>
@@ -43,12 +43,6 @@ export default {
   methods: {
     closeModal() {
       this.$bvModal.hide('block-number-modal');
-    },
-    openBlockList() {
-      this.showBlockList = true;
-    },
-    hideBlockList() {
-      this.showBlockList = false;
     },
   }
 };
