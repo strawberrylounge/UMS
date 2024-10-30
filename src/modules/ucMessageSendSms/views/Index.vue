@@ -11,7 +11,7 @@
       </div>
 
       <div class="section card">
-        <p class="section-title">01.메세지 내용</p>
+        <p class="section-title f-body1 c-gray700">01.메세지 내용</p>
         <div class="d-flex align-items-center">
           <label class="form-label">발송유형</label>
           <b-form-group class="radio-group m-0">
@@ -64,7 +64,7 @@
 
         <hr class="hr">
 
-        <p class="section-title">02.수신자 선택</p>
+        <p class="section-title f-body1 c-gray700">02.수신자 선택</p>
         <div class="d-flex align-items-center">
           <label class="form-label">수신자<span class="require">*</span></label>
           <div class="p-0 btn-wrap">
@@ -76,14 +76,16 @@
               <span>주소록 검색</span>
               <IconArrowRight />
             </b-button>
-            <b-button variant="outline-primary" size="sm" class="btn-svg btn-svg-right">
+            <b-button variant="outline-primary" size="sm" class="btn-svg btn-svg-right" @click="triggerFileInput">
               <span>엑셀 업로드</span>
               <IconArrowRight />
             </b-button>
+            <b-form-file v-model="file" class="" plain ref="fileInput"></b-form-file>
             <b-button variant="light" class="btn btn-sm btn-svg btn-svg-right btn-sample-download">
               <span>샘플 다운로드</span>
               <IconDownload />
             </b-button>
+            <b-form-file v-model="file" class="d-none" plain ref="fileInput"></b-form-file>
           </div>
         </div>
         <div class="d-flex align-items-center receive-count">
@@ -119,7 +121,7 @@
 
         <hr class="hr">
 
-        <p class="section-title">03.발송옵션 선택</p>
+        <p class="section-title f-body1 c-gray700">03.발송옵션 선택</p>
         <div class="d-flex align-items-center">
           <label class="form-label">발송시간<span class="require">*</span></label>
           <b-form-group class="radio-group">
@@ -138,7 +140,7 @@
 
         <hr class="hr">
 
-        <p class="section-title">04.발신자 선택</p>
+        <p class="section-title f-body1 c-gray700">04.발신자 선택</p>
         <div class="d-flex align-items-center">
           <label class="form-label">발신번호<span class="require">*</span></label>
           <b-dropdown id="number-dropdown" variant="secondary" class="send-number-dropdown">
@@ -201,7 +203,11 @@ export default {
   methods: {
     setPhoneNumber(value) {
       this.phoneNumber = value;
-    }
+    },
+    triggerFileInput() {
+      // 파일 입력 요소 클릭
+      this.$refs.fileInput.$el.click();
+    },
   },
   watch: {
     type: function (val) {

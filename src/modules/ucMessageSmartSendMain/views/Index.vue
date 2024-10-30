@@ -53,7 +53,7 @@
               <span>주소록 검색</span>
               <IconArrowRight />
             </b-button>
-            <b-button variant="outline-primary" size="sm" class="btn-svg btn-svg-right">
+            <b-button variant="outline-primary" size="sm" class="btn-svg btn-svg-right" @click="triggerFileInput">
               <span>엑셀 업로드</span>
               <IconArrowRight />
             </b-button>
@@ -61,6 +61,7 @@
               <span>샘플 다운로드</span>
               <IconDownload />
             </b-button>
+            <b-form-file v-model="file" class="d-none" plain ref="fileInput"></b-form-file>
           </div>
         </div>
         <div class="d-flex align-items-center receive-count">
@@ -184,7 +185,11 @@ export default {
     },
     changeTab(value) {
       this.previewType = value;
-    }
+    },
+    triggerFileInput() {
+      // 파일 입력 요소 클릭
+      this.$refs.fileInput.$el.click();
+    },
   }
 };
 </script>

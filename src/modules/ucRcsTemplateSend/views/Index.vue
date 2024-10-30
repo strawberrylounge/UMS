@@ -87,7 +87,7 @@
  
         <hr class="hr">
 
-        <p class="section-title">01.브랜드 선택</p>
+        <p class="section-title f-body1 c-gray700">01.브랜드 선택</p>
         <div class="d-flex align-items-center">
           <label class="form-label">브랜드</label>
           <b-dropdown id="brand-dropdown" variant="secondary" class="send-number-dropdown">
@@ -102,7 +102,7 @@
 
         <hr class="hr">
 
-        <p class="section-title">02.수신자 선택</p>
+        <p class="section-title f-body1 c-gray700">02.수신자 선택</p>
         <div class="d-flex align-items-center">
           <label class="form-label">템플릿</label>
           <div class="receive-btn-wrap">
@@ -133,7 +133,7 @@
 
         <hr class="hr">
 
-        <p class="section-title">03.수신자 선택</p>
+        <p class="section-title f-body1 c-gray700">03.수신자 선택</p>
         <div class="d-flex align-items-center">
           <label class="form-label">수신자<span class="require">*</span></label>
           <div class="receive-btn-wrap">
@@ -145,7 +145,7 @@
               <span>주소록 검색</span>
               <IconArrowRight />
             </b-button>
-            <b-button variant="outline-primary" size="sm" class="btn-svg btn-svg-right">
+            <b-button variant="outline-primary" size="sm" class="btn-svg btn-svg-right"  @click="triggerFileInput">
               <span>엑셀 업로드</span>
               <IconArrowRight />
             </b-button>
@@ -153,6 +153,7 @@
               <span>샘플 다운로드</span>
               <IconDownload />
             </b-button>
+            <b-form-file v-model="file" class="d-none" plain ref="fileInput"></b-form-file>
           </div>
         </div>
         <div class="d-flex align-items-center receive-count">
@@ -188,7 +189,7 @@
 
         <hr class="hr">
 
-        <p class="section-title">04.발송옵션 선택</p>
+        <p class="section-title f-body1 c-gray700">04.발송옵션 선택</p>
         <div class="d-flex align-items-center">
           <label class="form-label">발송시간<span class="require">*</span></label>
           <b-form-group class="radio-group">
@@ -269,7 +270,11 @@ export default {
     },
     showConfirmModal() {
       this.$bvModal.show('confirm-modal');
-    }
+    },
+    triggerFileInput() {
+      // 파일 입력 요소 클릭
+      this.$refs.fileInput.$el.click();
+    },
   },
 };
 </script>
