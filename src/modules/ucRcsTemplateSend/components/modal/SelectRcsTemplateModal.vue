@@ -69,7 +69,7 @@
               <span class="pl-1 f-caption1 c-gary900">출고</span>
             </div>
             <p class="my-3 f-caption2 c-gray900">웹템플릿 등록 테스트 입니다.</p>
-            <b-button variant="secondary" size="sm" class="w-100">배송조회</b-button>
+            <b-button variant="secondary" class="w-100">배송조회</b-button>
           </div>
         </PreviewDefault>
       </div>

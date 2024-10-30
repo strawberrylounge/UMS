@@ -293,7 +293,7 @@ export default {
       padding: 0 0 12px 0;
       border: none;
       @include typography.font-style(16px, 700, 140%, -0.32px);
-      color: var(--gray500)
+      color: var(--gray500);
     }
     & + .tab {
       margin-left: 28px;

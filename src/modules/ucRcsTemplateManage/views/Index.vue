@@ -49,11 +49,9 @@
               <div v-for="(item, index) in displayContents" :key="index">
                 <hr v-if="item.hasLine" class="rcs-col-content-hr" />
                 <template v-if="item.type === 'one'">
-                  <!-- Display 'one' type as a single paragraph -->
                   <p>{{ item.text[0] }}</p>
                 </template>
                 <template v-else-if="item.type === 'two'">
-                  <!-- Display 'two' type as two columns -->
                   <div class="row">
                     <div v-for="(text, i) in item.text" :key="i" class="col">
                       <p>{{ text }}</p>

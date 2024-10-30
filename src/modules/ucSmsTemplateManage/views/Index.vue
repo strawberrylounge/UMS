@@ -158,6 +158,7 @@ export default {
 }
 .content-image {
   display: flex;
+  align-items: center;
   .btn {
     margin-right: 28px;
   }

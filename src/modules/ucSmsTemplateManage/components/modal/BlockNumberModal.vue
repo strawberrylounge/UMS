@@ -10,14 +10,14 @@
         <li>
           <span class="f-body5 c-gray900 text-truncate">무료수신거부 060-0000-0000</span>
           <b-button variant="outline-primary" size="sm" @click="closeModal">선택</b-button>
-          <button type="button" class="btn btn-icon p-0">
+          <button type="button" class="btn btn-icon p-0" v-b-modal.confirm-modal>
             <IconClose />
           </button>
         </li>
         <li>
           <span class="f-body5 c-gray900 text-truncate">무료수신거부 060-0000-0000</span>
           <b-button variant="outline-primary" size="sm" @click="closeModal">선택</b-button>
-          <button type="button" class="btn btn-icon p-0">
+          <button type="button" class="btn btn-icon p-0" v-b-modal.confirm-modal>
             <IconClose />
           </button>
         </li>
@@ -27,14 +27,17 @@
     <template #modal-footer>
       <b-button variant="outline-primary" @click="closeModal">닫기</b-button>
     </template>
+
+    <ConfirmModal title="수신거부번호 관리" desc="삭제하시겠습니까?" />
   </b-modal>
 </template>
 
 <script>
 import IconClose from '@/components/service/icons/IconClose.vue';
+import ConfirmModal from '@/components/service/modal/ConfirmModal.vue'
 
 export default {
-  components: { IconClose, },
+  components: { IconClose, ConfirmModal, },
   name: "BlockNumberModal",
   data() {
     return {
