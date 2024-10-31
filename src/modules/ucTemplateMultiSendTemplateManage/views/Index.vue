@@ -169,7 +169,7 @@ export default {
       this.$bvModal.show('confirm-modal');
     },
     sortByPriority() {
-      if (this.selectedChannels.length < 3) {
+      if (this.selectedChannels.length < 2) {
         this.alertMsg = {
           title: '통합 템플릿 관리',
           desc: '채널을 2개 이상 선택하세요.'

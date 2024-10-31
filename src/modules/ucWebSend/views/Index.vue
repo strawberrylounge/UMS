@@ -127,7 +127,7 @@
                 <td>X</td>
                 <td>X</td>
                 <td>
-                  <b-button variant="outline-secondary" size="sm" @mouseenter="openModal">발송실패확인</b-button>
+                  <b-button variant="outline-secondary" size="sm" @click="openModal">발송실패확인</b-button>
                 </td>
                 <td>2024.02.06 12:15:11</td>
               </tr>

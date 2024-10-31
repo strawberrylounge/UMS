@@ -23,10 +23,10 @@
               <span>~</span>
               <CustomDatepicker ref="endDatePicker" />
             </div>
-            <button type="button" class="btn btn-filter active" @click="setDateRange('all')">전체</button>
-            <button type="button" class="btn btn-filter" @click="setDateRange('1week')">1주일</button>
-            <button type="button" class="btn btn-filter" @click="setDateRange('15days')">15일</button>
-            <button type="button" class="btn btn-filter" @click="setDateRange('1month')">1개월</button>
+            <button type="button" class="btn btn-filter" :class="{active: dateFilter === 'all'}" @click="setDateRange('all')">전체</button>
+            <button type="button" class="btn btn-filter" :class="{active: dateFilter === '1week'}" @click="setDateRange('1week')">1주일</button>
+            <button type="button" class="btn btn-filter" :class="{active: dateFilter === '15days'}" @click="setDateRange('15days')">15일</button>
+            <button type="button" class="btn btn-filter" :class="{active: dateFilter === '1month'}" @click="setDateRange('1month')">1개월</button>
           </div>
           
           <!-- Hideable section -->
@@ -221,6 +221,7 @@ export default {
         { text: '저장', value: 'status-save' },
       ],
       pageCount: 10,
+      dateFilter: 'all',
     }
   },
   methods: {
@@ -237,12 +238,15 @@ export default {
       switch (rangeType) {
         case '1week':
           startDate.setDate(endDate.getDate() - 7);
+          this.dateFilter = '1week'
           break;
         case '15days':
           startDate.setDate(endDate.getDate() - 15);
+          this.dateFilter = '15days'
           break;
         case '1month':
           startDate.setMonth(endDate.getMonth() - 1);
+          this.dateFilter = '1month'
           break;
         default:
           startDate = null;
