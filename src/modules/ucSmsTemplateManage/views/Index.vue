@@ -26,7 +26,7 @@
         <div class="form-wrap">
           <div class="form-row">
             <label for="name">템플릿 명 <span class="require">*</span></label>
-            <b-input id="name" v-model="title" @blur="updateTitle"></b-input>
+            <b-input id="name"></b-input>
           </div>
           <div class="form-row">
             <label for="desc">템플릿 설명</label>
@@ -45,7 +45,7 @@
           <div class="form-row">
             <label>메시지구분 <span class="require">*</span></label>
             <b-form-group class="radio-group">
-              <b-form-radio-group inline>
+              <b-form-radio-group inline v-model="messageType">
                 <b-form-radio name="type" value="a">광고성</b-form-radio>
                 <b-form-radio name="type" value="b">정보성</b-form-radio>
               </b-form-radio-group>
@@ -53,7 +53,7 @@
           </div>
           <div class="form-row" v-if="type !== 'sms'">
             <label>제목 <span class="require">*</span></label>
-            <b-input id="desd"></b-input>
+            <b-input id="desd" v-model="title" @blur="updateTitle"></b-input>
           </div>
           <div class="form-row align-items-start">
             <label for="content">내용 <span class="require">*</span></label>
@@ -121,7 +121,8 @@ export default {
       title: '',
       content: '',
       displayTitle: '',
-      displayContent: ''
+      displayContent: '',
+      messageType: 'b',
     }
   },
   methods: {
@@ -139,6 +140,11 @@ export default {
   }
   },
   watch: {
+    messageType(newValue) {
+      if (newValue === 'a') {
+        this.title = '(광고)' + this.title
+      }
+    }
   }
 };
 </script>

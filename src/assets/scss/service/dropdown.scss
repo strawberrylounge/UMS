@@ -38,12 +38,14 @@
   .dropdown-menu {
     width: 100%;
     min-width: auto;
+    height: 140px;
     margin: 0;
     padding: 0;
     border-top: 0;
     border-radius: 0 0 8px 8px;
     transform-origin: top; 
     transform: translate3d(0px, 44px, 0px) !important;
+    overflow-y: auto;
     &:focus-visible {
       outline: none;
     }
