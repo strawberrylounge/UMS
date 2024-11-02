@@ -1,54 +1,115 @@
 <template lang="">
   <header id="landingHeader" class="landing-header">
-    <h1 class="logo">
-      <router-link to="/">EC-톡톡</router-link>
-    </h1>
+    <div class="header-container">
+      <h1 class="logo">
+        <router-link to="/">EC-톡톡</router-link>
+      </h1>
 
-    <!-- PC & TABLET 메뉴 -->
-    <nav class="menu-wrap">
-      <ul class="menu">
-        <li><a href="">서비스 소개</a></li>
-        <li><a href="">채널 소개</a></li>
-        <li>
-          <router-link to="public/pricing">요금제 안내</router-link>
-        </li>
-        <li><a href="">고객 안내</a></li>
-        <li>
-          <a href="">회사 소개<i class="icon-link"></i></a>
-        </li>
-      </ul>
-      <ul class="user-menu">
-        <li><a href="">로그인&nbsp;|</a></li>
-        <li><a href="">&nbsp;회원가입</a></li>
-      </ul>
-    </nav>
+      <!-- PC & TABLET 메뉴 -->
+      <nav class="menu-wrap">
+        <ul class="menu">
+          <li>
+            <router-link to="/public" exact-active-class="on"
+              >서비스 소개</router-link
+            >
+          </li>
+          <li>
+            <router-link to="/" exact-active-class="on">채널 소개</router-link>
+          </li>
+          <li>
+            <router-link to="public/pricing" exact-active-class="on"
+              >요금제 안내</router-link
+            >
+          </li>
+          <li>
+            <router-link to="/" exact-active-class="on">고객 안내</router-link>
+          </li>
+          <li>
+            <a href="">회사 소개<i class="icon-link"></i></a>
+          </li>
+        </ul>
+      </nav>
 
-    <!-- MOBILE 메뉴 -->
-    <nav class="menu-wrap-m">
-      <button type="button" class="btn-menu">
-        <span class="sr-only">메뉴</span>
-      </button>
-      <ul class="menu">
-        <li><a href="">서비스 소개</a></li>
-        <li><a href="">채널 소개</a></li>
-        <li><router-link to="public/pricing">요금제 안내</router-link></li>
-        <li><a href="">고객 안내</a></li>
-        <li>
-          <a href="">회사 소개<i class="icon-link"></i></a>
-        </li>
-        <li class="user-menu">
-          <div>
-            <a href="">로그인&nbsp;|</a>
-            <a href="">&nbsp;회원가입</a>
-          </div>
-        </li>
-      </ul>
-    </nav>
+      <div class="user-area">
+        <ul class="user-menu">
+          <li><router-link to="/">로그인&nbsp;|</router-link></li>
+          <li><router-link to="/">&nbsp;회원가입</router-link></li>
+        </ul>
+
+        <button
+          type="button"
+          class="btn-menu"
+          @click="isMobileMenuOpen = !isMobileMenuOpen"
+        >
+          <span class="sr-only">메뉴</span>
+        </button>
+      </div>
+
+      <!-- MOBILE 메뉴 -->
+      <div :class="{ active: isMobileMenuOpen }" class="mobile-menu">
+        <ul class="menu">
+          <li><router-link to="/public">서비스 소개</router-link></li>
+          <li><router-link to="/">채널 소개</router-link></li>
+          <li><router-link to="public/pricing">요금제 안내</router-link></li>
+          <li><router-link to="/">고객 안내</router-link></li>
+          <li>
+            <a href="">회사 소개<i class="icon-link"></i></a>
+          </li>
+          <li class="user-menu">
+            <div>
+              <router-link to="/">로그인&nbsp;|</router-link>
+              <router-link to="/">&nbsp;회원가입</router-link>
+            </div>
+          </li>
+        </ul>
+      </div>
+    </div>
   </header>
 </template>
 <script>
 export default {
   name: "Header",
+  data() {
+    return {
+      isMobileMenuOpen: false,
+    };
+  },
+  watch: {
+    $route() {
+      this.isMobileMenuOpen = false;
+      document.body.style.overflow = "";
+    },
+  },
+  methods: {
+    handleClickOutside(event) {
+      const mobileMenu = document.querySelector(".mobile-menu");
+      const btnMenu = document.querySelector(".btn-menu");
+
+      if (
+        this.isMobileMenuOpen &&
+        mobileMenu &&
+        !mobileMenu.contains(event.target) &&
+        !btnMenu.contains(event.target)
+      ) {
+        this.isMobileMenuOpen = false;
+        document.body.style.overflow = "";
+      }
+    },
+    handleResize() {
+      if (window.innerWidth >= 768 && this.isMobileMenuOpen) {
+        this.isMobileMenuOpen = false;
+        document.body.style.overflow = "";
+      }
+    },
+  },
+  mounted() {
+    document.addEventListener("click", this.handleClickOutside);
+    window.addEventListener("resize", this.handleResize);
+  },
+  beforeUnmount() {
+    document.removeEventListener("click", this.handleClickOutside);
+    window.removeEventListener("resize", this.handleResize);
+  },
 };
 </script>
 <style lang="scss" scoped>
@@ -75,41 +136,47 @@ i.icon-link {
   left: 0;
   width: 100%;
   height: 36px;
-  @include v.flex-between;
-  padding: 0 20px;
   background: v.color(white);
-  white-space: nowrap;
   @include v.tablet {
     height: 68px;
-    padding: 0 60px;
   }
   @include v.desktop {
-    padding: 0 120px;
   }
-  // 로고
-  .logo {
-    cursor: pointer;
+
+  .header-container {
+    position: relative;
+    @include v.flex-between;
+    max-width: 1920px;
+    height: 100%;
+    margin: 0 auto;
+    padding: 0 20px;
     @include v.tablet {
-      font-size: 1.25rem;
+      padding: 0 60px;
     }
-  }
-  // 메뉴
-  nav {
+    @include v.desktop {
+      padding: 0 120px;
+    }
+
+    // 로고
+    .logo {
+      flex: 0 0 auto;
+      cursor: pointer;
+      @include v.tablet {
+        font-size: 1.25rem;
+      }
+    }
+    // 메뉴
     // pc
-    &.menu-wrap {
+    .menu-wrap {
       display: none;
       height: 100%;
+      position: absolute;
+      left: 50%;
+      transform: translateX(-50%);
       @include v.tablet {
-        @include v.flex-between;
-        flex: 0.7;
-        min-width: 0;
+        display: block;
       }
-      @include v.desktop {
-        flex: 0.6;
-      }
-      @include v.full {
-        flex: 0.5;
-      }
+
       .menu {
         @include v.flex(row, null, center);
         height: 100%;
@@ -117,10 +184,17 @@ i.icon-link {
           height: 100%;
           line-height: 68px;
           a {
+            height: 100%;
             font-size: clamp(0.75rem, 1.5vw, 0.875rem);
             white-space: nowrap;
             @include v.desktop {
               font-size: 1.25rem;
+            }
+            &:hover,
+            &.on {
+              border-bottom: 2px solid #5859ff;
+              font-weight: 700;
+              color: #5859ff;
             }
           }
           &:not(:last-child) {
@@ -129,27 +203,19 @@ i.icon-link {
               margin-right: clamp(40px, 2.604vw, 60px);
             }
           }
-          &:last-child {
-            a {
-              display: inline-flex;
-              align-items: center;
-            }
-          }
-          &:hover {
-            border-bottom: 2px solid #5859ff;
-            a {
-              font-weight: 700;
-              color: #5859ff;
-            }
-          }
         }
       }
-      // 로그인 & 회원가입
+    }
+
+    // 로그인 & 회원가입
+    .user-area {
+      @include v.flex(row, null, center);
+      flex: 0 0 auto;
       .user-menu {
-        @include v.flex(row, null, center);
-        padding-left: clamp(20px, 5vw, 12.1%);
-        @include v.desktop {
-          padding-left: clamp(0px, 4.229vw, 18.75%);
+        display: none;
+        @include v.tablet {
+          @include v.flex(row, null, center);
+          margin-left: 40px;
         }
         li {
           a {
@@ -162,55 +228,49 @@ i.icon-link {
           }
         }
       }
-    }
-    // mobile
-    &.menu-wrap-m {
-      position: relative;
-      @include v.flex-between;
-      @include v.tablet {
-        display: none;
-      }
+
       .btn-menu {
+        display: block;
         width: 20px;
         height: 20px;
         background: url(v.$icon + "ico-hamburger.png") no-repeat;
         background-size: 100%;
-      }
-      .menu {
-        z-index: 2;
-        position: absolute;
-        top: 28px;
-        right: 0;
-        display: none;
-        width: 212px;
-        padding: 20px;
-        border-radius: 12px;
-        border: 1px solid v.color(gray300);
-        background: v.color(white);
-        box-shadow: 2px 6px 12px 0px rgba(98, 104, 138, 0.24);
-        li {
-          &:not(:last-child) {
-            padding-bottom: 16px;
-            border-bottom: 1px solid v.color(gray200);
-            a {
-              color: v.color(gray600);
-            }
-          }
-          &:not(:first-child) {
-            padding-top: 16px;
-          }
-          &:last-child {
-            @include v.flex(row, null, center);
-            a {
-              color: v.color(gray500);
-            }
-          }
-          a {
-            font-weight: 700;
-            font-size: 0.875rem;
-            line-height: 140%;
-          }
+        @include v.tablet {
+          display: none;
         }
+      }
+    }
+  }
+
+  // mobile
+  .mobile-menu {
+    display: none;
+    position: absolute;
+    top: 50px;
+    right: 20px;
+    width: 212px;
+    padding: 20px;
+    border-radius: 12px;
+    border: 1px solid v.color(gray300);
+    background: v.color(white);
+    box-shadow: 2px 6px 12px 0px rgba(98, 104, 138, 0.24);
+
+    &.active {
+      display: block;
+    }
+    .menu li {
+      &:not(:last-child) {
+        padding-bottom: 16px;
+        border-bottom: 1px solid v.color(gray200);
+      }
+      &:not(:first-child) {
+        padding-top: 16px;
+      }
+      a {
+        font-weight: 700;
+        font-size: 0.875rem;
+        line-height: 140%;
+        color: v.color(gray600);
       }
     }
   }

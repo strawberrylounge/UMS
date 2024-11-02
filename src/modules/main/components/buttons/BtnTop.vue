@@ -30,7 +30,7 @@ export default {
   width: 40px;
   height: 40px;
   border-radius: 4px 0px 0px 0px;
-  background: v.color(gray600);
+  background: v.color(gray600) !important;
   box-shadow: 2px 6px 12px 0px rgba(98, 104, 138, 0.24);
   line-height: 60px;
   @include v.tablet {
