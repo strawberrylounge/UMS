@@ -17,7 +17,7 @@
             <router-link to="/" exact-active-class="on">채널 소개</router-link>
           </li>
           <li>
-            <router-link to="public/pricing" exact-active-class="on"
+            <router-link to="/public/pricing" exact-active-class="on"
               >요금제 안내</router-link
             >
           </li>
@@ -50,7 +50,7 @@
         <ul class="menu">
           <li><router-link to="/public">서비스 소개</router-link></li>
           <li><router-link to="/">채널 소개</router-link></li>
-          <li><router-link to="public/pricing">요금제 안내</router-link></li>
+          <li><router-link to="/public/pricing">요금제 안내</router-link></li>
           <li><router-link to="/">고객 안내</router-link></li>
           <li>
             <a href="">회사 소개<i class="icon-link"></i></a>

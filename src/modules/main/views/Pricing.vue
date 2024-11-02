@@ -3,7 +3,11 @@
     <Header />
     <main class="page-pricing landing-sub">
       <div class="sub-top">
-        <PageHeader title="요금제 안내" subtitle="나에게 딱 맞는 요금제는?" />
+        <PageHeader
+          title="요금제 안내"
+          subtitle="나에게 딱 맞는 요금제는?"
+          imageName="pricing-header"
+        />
         <TabNavigation :tabs="pricingSections" mode="scroll" />
       </div>
       <div class="sub-contents">
