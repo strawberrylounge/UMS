@@ -138,30 +138,6 @@
           @include v.tablet {
             font-size: 1.25rem;
           }
-          &:first-child {
-            width: 15%;
-            @include v.desktop {
-              width: 10%;
-            }
-          }
-          &:nth-child(2) {
-            width: 15%;
-            @include v.desktop {
-              width: 10%;
-            }
-          }
-          &:nth-child(3) {
-            width: 35%;
-            @include v.desktop {
-              width: 45%;
-            }
-          }
-          &:nth-child(4) {
-            width: 25%;
-          }
-          &:last-child {
-            width: 15%;
-          }
         }
       }
     }

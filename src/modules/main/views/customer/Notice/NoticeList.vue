@@ -73,13 +73,6 @@ import SelectBox from "../../../components/SelectBox.vue";
 export default {
   name: "NoticeList",
   components: { SelectBox, SearchBox, LabelNotice, Pagination },
-  methods: {
-    goToDetail() {
-      this.$router.push({
-        name: "NoticeDetail",
-      });
-    },
-  },
 };
 </script>
 <style lang="scss" scoped>
@@ -99,6 +92,36 @@ export default {
   }
   .notice-list {
     table {
+      thead {
+        tr {
+          th {
+            &:first-child {
+              width: 15%;
+              @include v.desktop {
+                width: 10%;
+              }
+            }
+            &:nth-child(2) {
+              width: 15%;
+              @include v.desktop {
+                width: 10%;
+              }
+            }
+            &:nth-child(3) {
+              width: 35%;
+              @include v.desktop {
+                width: 45%;
+              }
+            }
+            &:nth-child(4) {
+              width: 25%;
+            }
+            &:last-child {
+              width: 15%;
+            }
+          }
+        }
+      }
       tbody {
         tr {
           td {

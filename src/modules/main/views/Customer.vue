@@ -24,7 +24,13 @@
           <NoticeDetail v-else @go-back="showNoticeDetail = false" />
         </div>
         <FaqList v-if="activeTab === 'faq'" />
-        <ResourceList v-if="activeTab === 'resource'" />
+        <div v-if="activeTab === 'resource'">
+          <ResourceList
+            v-if="!showResourceDetail"
+            @show-detail="showResourceDetail = true"
+          />
+          <ResourceDetail v-else @go-back="showResourceDetail = false" />
+        </div>
         <InquiryForm v-if="activeTab === 'inquiry'" />
       </div>
     </main>
@@ -45,6 +51,7 @@ import InquiryForm from "./customer/Inquiry/InquiryForm.vue";
 import BtnInquiry from "../components/buttons/BtnInquiry.vue";
 import BtnTop from "../components/buttons/BtnTop.vue";
 import NoticeDetail from "./customer/Notice/NoticeDetail.vue";
+import ResourceDetail from "./customer/ResourceCenter/ResourceDetail.vue";
 
 export default {
   name: "Customer",
@@ -60,11 +67,13 @@ export default {
     BtnInquiry,
     BtnTop,
     NoticeDetail,
+    ResourceDetail,
   },
   data() {
     return {
       activeTab: "notice",
       showNoticeDetail: false,
+      showResourceDetail: false,
       customerSections: [
         {
           id: "notice",
@@ -89,6 +98,7 @@ export default {
     handleTabChange(newTab) {
       this.activeTab = newTab;
       this.showNoticeDetail = false;
+      this.showResourceDetail = false;
     },
   },
 };
