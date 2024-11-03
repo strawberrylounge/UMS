@@ -1,5 +1,6 @@
 <template>
   <div class="landing-wrapper">
+    <h2 class="sr-only">채널 소개 페이지</h2>
     <Header />
     <main class="page-channel landing-sub">
       <div class="sub-top">

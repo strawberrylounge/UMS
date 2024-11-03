@@ -1,66 +1,299 @@
 @use "../abstracts/variables" as v;
 
-/* 서브페이지 */
-.landing-sub {
-  margin-top: 36px;
-  padding-bottom: 60px;
-  @include v.tablet {
-    margin-top: 68px;
-    padding-bottom: 100px;
-  }
-  // inner container
-  .inner {
-    padding: 0 20px;
+@mixin commonStyles() {
+  /* 서브페이지 */
+  .landing-sub {
+    margin-top: 36px;
+    padding-bottom: 60px;
     @include v.tablet {
-      @include v.flex-column;
-      width: 100%;
-      padding: 0 60px;
+      margin-top: 68px;
+      padding-bottom: 100px;
     }
-    @include v.desktop {
-      width: 1200px;
-      max-width: 1200px;
-      padding: 0;
-    }
-  }
-  // 서브페이지 탑 영역
-  .sub-top {
-    position: relative;
-    width: 100%;
-    @include v.flex-column-center;
-    .tab-navigation {
-      position: absolute;
-      bottom: -20px;
-      left: 50%;
-      transform: translateX(-50%);
+    // inner container
+    .inner {
+      padding: 0 20px;
       @include v.tablet {
-        bottom: -92px;
+        @include v.flex-column;
+        width: 100%;
+        padding: 0 60px;
+      }
+      @include v.desktop {
+        width: 1200px;
+        max-width: 1200px;
+        padding: 0;
+      }
+    }
+    // 서브페이지 탑 영역
+    .sub-top {
+      position: relative;
+      width: 100%;
+      @include v.flex-column-center;
+      .tab-navigation {
+        position: absolute;
+        bottom: -20px;
+        left: 50%;
+        transform: translateX(-50%);
+        @include v.tablet {
+          bottom: -92px;
+        }
+      }
+    }
+    // 서브페이지 컨텐츠 영역
+    .sub-contents {
+      width: 100%;
+      margin: 0 auto;
+      padding: 0 20px;
+      background: v.color(white);
+      @include v.tablet {
+        padding: 0 60px;
+      }
+      @include v.desktop {
+        max-width: 1390px;
       }
     }
   }
-  // 서브페이지 컨텐츠 영역
-  .sub-contents {
-    width: 100%;
-    padding: 0 20px;
-    background: v.color(white);
+  /* 고객안내 페이지 */
+  h3.customer-title {
+    padding-bottom: 20px;
+    font-size: 1.25rem;
+    color: #000;
+    line-height: 140%;
     @include v.tablet {
-      padding: 0 60px;
-    }
-    @include v.desktop {
-      max-width: 1390px;
+      padding-bottom: 40px;
+      font-size: 2.5rem;
     }
   }
-}
 
-/* 반응형 */
-.mb {
-  display: block !important;
-  @include v.tablet {
+  /* 반응형 */
+  .mb {
+    display: block !important;
+    @include v.tablet {
+      display: none !important;
+    }
+  }
+  .pc {
     display: none !important;
+    @include v.tablet {
+      display: block !important;
+    }
+  }
+
+  /* 텍스트 */
+  .align-left {
+    text-align: left !important;
+  }
+  .align-center {
+    text-align: center;
+  }
+  .align-right {
+    text-align: right;
+  }
+  .txt-ellipsis {
+    overflow: hidden;
+    white-space: nowrap;
+    text-overflow: ellipsis;
+  }
+
+  /* 컴포넌트 */
+  // input
+  input.base-input {
+    height: 35px;
+    padding: 8px 12px;
+    border-radius: 8px;
+    border: 1px solid v.color(gray300);
+    background: #fff;
+    font-weight: 400;
+    font-size: 0.875rem;
+    color: v.color(gray900);
+    @include v.tablet {
+      height: 44px;
+      padding: 16px;
+    }
+    &::placeholder {
+      font-weight: 400;
+      font-size: 0.75rem;
+      color: v.color(gray400);
+    }
+    &:focus {
+      border: 1px solid v.color(gray900);
+    }
+  }
+  // table
+  table.tbl {
+    table-layout: fixed;
+    width: 100%;
+    thead {
+      tr {
+        height: 42px;
+        background: v.color(gray100);
+        @include v.tablet {
+          height: 58px;
+        }
+        th {
+          font-weight: 700;
+          font-size: 0.75rem;
+          color: v.color(gray600);
+          text-align: center;
+          vertical-align: middle;
+          @include v.tablet {
+            font-size: 1.25rem;
+          }
+          &:first-child {
+            width: 15%;
+            @include v.desktop {
+              width: 10%;
+            }
+          }
+          &:nth-child(2) {
+            width: 15%;
+            @include v.desktop {
+              width: 10%;
+            }
+          }
+          &:nth-child(3) {
+            width: 35%;
+            @include v.desktop {
+              width: 45%;
+            }
+          }
+          &:nth-child(4) {
+            width: 25%;
+          }
+          &:last-child {
+            width: 15%;
+          }
+        }
+      }
+    }
+    tbody {
+      tr {
+        height: 50px;
+        border-bottom: 1px solid v.color(gray300);
+        cursor: pointer;
+        @include v.tablet {
+          height: 66px;
+        }
+        td {
+          font-weight: 400;
+          font-size: 0.75rem;
+          color: v.color(gray600);
+          text-align: center;
+          vertical-align: middle;
+          @include v.tablet {
+            font-size: 1rem;
+          }
+          &.overflow {
+            text-overflow: ellipsis;
+            overflow: hidden;
+            white-space: nowrap;
+          }
+        }
+      }
+    }
+  }
+  div.tbl-detail {
+    @include v.flex(column, null, flex-start);
+    gap: 20px;
+    padding: 20px;
+    border-radius: 12px;
+    background: v.color(gray50);
+    @include v.tablet {
+      gap: 40px;
+      padding: 40px;
+      border-radius: 20px;
+    }
+    .tbl-header {
+      width: 100%;
+      padding-bottom: 12px;
+      border-bottom: 1px solid v.color(gray300);
+      @include v.tablet {
+        @include v.flex-between;
+        padding-top: 20px;
+        padding-bottom: 40px;
+      }
+      .title {
+        @include v.flex-column;
+        padding-bottom: 12px;
+        @include v.tablet {
+          @include v.flex(row, null, center);
+          padding-bottom: 0;
+        }
+        h4 {
+          padding-top: 12px;
+          font-size: 1.125rem;
+          color: v.color(gray700);
+          line-height: 140%;
+          @include v.tablet {
+            max-width: 500px;
+            padding-top: 0;
+            padding-left: 24px;
+            font-size: 1.75rem;
+          }
+          @media (min-width: 768px) and (max-width: 1023px) {
+            max-width: 290px;
+          }
+          @include v.desktop {
+            font-size: 1.5rem;
+          }
+        }
+      }
+      .info {
+        @include v.flex(row, null, center);
+        span {
+          display: inline-block;
+          font-weight: 500;
+          font-size: 0.875rem;
+          color: v.color(gray500);
+          line-height: 140%;
+          white-space: nowrap;
+          @include v.tablet {
+            font-size: 1.25rem;
+          }
+          &:first-child {
+            padding-right: 12px;
+            @include v.tablet {
+              padding-right: 40px;
+            }
+            @media (min-width: 768px) and (max-width: 1023px) {
+              padding-right: 20px;
+            }
+          }
+        }
+      }
+    }
+    .tbl-contents {
+      p {
+        font-weight: 500;
+        font-size: 0.875rem;
+        color: v.color(gray500);
+        line-height: 140%;
+        word-break: keep-all;
+        @include v.tablet {
+          font-size: 1.25rem;
+        }
+      }
+    }
   }
 }
-.pc {
-  display: none !important;
+// button
+.btn-go-list {
+  width: 107px;
+  height: 32px;
+  margin-top: 20px;
+  border-radius: 6px;
+  background: v.color(gray600);
+  font-weight: 400;
+  font-size: 0.875rem;
+  color: #fff;
+  text-align: center;
+  line-height: 32px;
   @include v.tablet {
-    display: block !important;
+    width: 160px;
+    height: 52px;
+    margin-top: 40px;
+    border-radius: 12px;
+    font-weight: 700;
+    font-size: 1rem;
+    line-height: 52px;
   }
 }

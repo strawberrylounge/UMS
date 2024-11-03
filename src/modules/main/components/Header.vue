@@ -24,7 +24,9 @@
             >
           </li>
           <li>
-            <router-link to="/" exact-active-class="on">고객 안내</router-link>
+            <router-link to="/public/customer" exact-active-class="on"
+              >고객 안내</router-link
+            >
           </li>
           <li>
             <a href="">회사 소개<i class="icon-link"></i></a>
@@ -53,7 +55,7 @@
           <li><router-link to="/public">서비스 소개</router-link></li>
           <li><router-link to="/public/channel">채널 소개</router-link></li>
           <li><router-link to="/public/pricing">요금제 안내</router-link></li>
-          <li><router-link to="/">고객 안내</router-link></li>
+          <li><router-link to="/public/customer">고객 안내</router-link></li>
           <li>
             <a href="">회사 소개<i class="icon-link"></i></a>
           </li>

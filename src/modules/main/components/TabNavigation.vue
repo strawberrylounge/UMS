@@ -1,16 +1,17 @@
 <template>
-  <div class="tab-navigation">
+  <div class="tab-navigation" :class="{ 'switch-mode': mode === 'switch' }">
     <ul class="tab-navigation-list">
       <li
         v-for="(tab, index) in tabs"
         :key="index"
         class="tab-navigation-item"
+        :class="{ active: modelValue === tab.id }"
         @click="handleTabClick(tab)"
       >
         <span class="item-name">
           {{ tab.label }}
         </span>
-        <i class="icon-down mb"></i>
+        <i v-if="mode === 'scroll'" class="icon-down mb"></i>
         <p class="item-desc pc">{{ tab.desc }}</p>
       </li>
     </ul>
@@ -33,7 +34,7 @@ export default {
     modelValue: {
       // v-model을 위한 prop
       type: String,
-      default: "",
+      default: "notice",
     },
   },
   emits: ["update:modelValue"],
@@ -47,16 +48,6 @@ export default {
   },
   beforeDestroy() {
     window.removeEventListener("resize", this.updateHeaderHeight);
-  },
-  computed: {
-    activeTab: {
-      get() {
-        return this.modelValue;
-      },
-      set(value) {
-        this.$emit("update:modelValue", value);
-      },
-    },
   },
   methods: {
     updateHeaderHeight() {
@@ -76,7 +67,7 @@ export default {
           });
         }
       } else {
-        this.activeTab = tab.id;
+        this.$emit("update:modelValue", tab.id);
       }
     },
   },
@@ -133,7 +124,6 @@ export default {
         }
       }
       &:not(:last-child) {
-        //padding-right: 20px;
         border-right: 2px solid v.color(primary100);
         @include v.tablet {
           padding-right: clamp(10px, 15px, 48px);
@@ -183,42 +173,43 @@ export default {
       }
     }
   }
+
+  // swtich mode
+  &.switch-mode {
+    @include v.tablet {
+      bottom: -38px !important;
+      max-height: 84px;
+    }
+    @include v.desktop {
+      max-height: 90px;
+    }
+    .tab-navigation-list {
+      @include v.desktop {
+        padding: 20px 0 !important;
+      }
+      .tab-navigation-item {
+        height: 100%;
+        align-items: center;
+        border: none;
+        background: #fff;
+        white-space: nowrap;
+        &:not(:last-child) {
+          @include v.tablet {
+            border-right: 2px solid v.color(primary100);
+          }
+        }
+        .item-name {
+          display: inline-block;
+          height: 100%;
+          color: v.color(gray400);
+        }
+        &.active {
+          .item-name {
+            color: v.color(gray900);
+          }
+        }
+      }
+    }
+  }
 }
 </style>
-
-<!-- 스크롤 모드로 사용할 경우 -->
-<!-- <template>
-  <div>
-    <page-header title="요금제 안내" />
-    <tab-navigation
-      :tabs="[
-        { id: 'sms', label: '문자', target: 'sms-section' },
-        { id: 'rcs', label: 'RCS', target: 'rcs-section' },
-        { id: 'kakao', label: '카카오', target: 'kakao-section' }
-      ]"
-      mode="scroll"
-    />
-    <div id="sms-section">문자 섹션 내용...</div>
-    <div id="rcs-section">RCS 섹션 내용...</div>
-    <div id="kakao-section">카카오 섹션 내용...</div>
-  </div>
-</template> -->
-
-<!-- v-if로 전환하는 모드로 사용할 경우 -->
-<!-- <template>
-  <div>
-    <page-header title="요금제 안내" />
-    <tab-navigation
-      v-model="activeTab"
-      :tabs="[
-        { id: 'sms', label: '문자' },
-        { id: 'rcs', label: 'RCS' },
-        { id: 'kakao', label: '카카오' }
-      ]"
-      mode="switch"
-    />
-    <div v-if="activeTab === 'sms'">문자 섹션 내용...</div>
-    <div v-if="activeTab === 'rcs'">RCS 섹션 내용...</div>
-    <div v-if="activeTab === 'kakao'">카카오 섹션 내용...</div>
-  </div>
-</template> -->

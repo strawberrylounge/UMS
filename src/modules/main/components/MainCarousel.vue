@@ -301,14 +301,9 @@ export default {
       padding: 0;
       border: none;
       border-radius: 50%;
-      /*
-      background: none;
+      background: rgba($color: #000, $alpha: 0.2);
       fill: rgba(0, 0, 0, 0.2);
       backdrop-filter: blur(12px);
-      */
-      background: linear-gradient(180deg, #a4b1ff 0%, #d2b6ff 100%),
-        lightgray 50% / cover no-repeat;
-      background-blend-mode: overlay, normal;
       transition: all 0.3s ease;
       transform: translateY(-50%);
       outline: none;

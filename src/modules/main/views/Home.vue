@@ -14,7 +14,7 @@
             >
               자세히 알아보기
             </button>
-            <BtnInquiry />
+            <BtnInquiry :is-landing="true" :current-section="currentSection" />
           </div>
         </section>
         <section class="section02">
@@ -241,11 +241,11 @@
             <a href="#">이용 가이드</a>
             <a href="#">고객안내</a>
           </div>
-          <BtnTop />
         </section>
-        <Footer class="footer-section" />
       </div>
+      <Footer class="footer-section" />
     </main>
+    <BtnTop :is-landing="true" :current-section="currentSection" />
     <router-view></router-view>
   </div>
 </template>
@@ -255,8 +255,8 @@ import { PATHS } from "../constants/paths";
 import Header from "../components/Header.vue";
 import Footer from "../components/Footer.vue";
 import BtnTop from "../components/buttons/BtnTop.vue";
-import BtnInquiry from "../components/buttons/BtnInquiry.vue";
 import MainCarousel from "../components/MainCarousel.vue";
+import BtnInquiry from "../components/buttons/BtnInquiry.vue";
 
 export default {
   name: "Home",
@@ -280,7 +280,8 @@ export default {
       const totalHeight = container.scrollHeight;
 
       // 현재 섹션 계산
-      this.currentSection = Math.round(scrollPosition / windowHeight);
+      this.currentSection = Math.floor(scrollPosition / windowHeight);
+      console.log("Current Section:", this.currentSection); // 추가
 
       const lastSection = document.querySelector(".section06");
       if (lastSection) {
@@ -833,7 +834,7 @@ $feature-icons: (
           position: relative;
           @include v.flex-column-center;
           min-height: 100vh;
-          margin-bottom: 155px;
+          //margin-bottom: 155px;
           scroll-snap-align: start;
           text-align: center;
           @include v.tablet {
@@ -912,23 +913,16 @@ $feature-icons: (
               }
             }
           }
-          .btn-top {
-            position: absolute;
-            right: 0;
-            bottom: 155px;
-            @include v.tablet {
-              bottom: 330px;
-            }
-          }
         }
       }
     }
   }
 }
 
-:deep(.footer-section) {
+.footer-section {
   scroll-snap-align: none;
   height: 155px;
+  margin-top: auto;
   @include v.tablet {
     height: 330px;
   }

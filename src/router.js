@@ -14,6 +14,8 @@ import ucMessageSmartSendMain from "@/modules/ucMessageSmartSendMain/views/Index
 import ucRcsTemplateSend from "@/modules/ucRcsTemplateSend/views/Index.vue";
 import ucMessageSendAlimTalk from "@/modules/ucMessageSendAlimTalk/views/Index.vue";
 import Channel from "./modules/main/views/Channel.vue";
+import Customer from "./modules/main/views/Customer.vue";
+import NoticeDetail from "./modules/main/views/customer/Notice/NoticeDetail.vue";
 
 Vue.use(Router);
 
@@ -35,6 +37,10 @@ const router = new Router({
     {
       path: "/public/channel",
       component: Channel,
+    },
+    {
+      path: "/public/customer",
+      component: Customer,
     },
     {
       path: "/ac/home",

@@ -119,7 +119,7 @@ export default {
     @include v.flex(column, null, center);
   }
   .sub-contents {
-    padding-top: 60px;
+    padding: 60px 20px 0;
     @include v.tablet {
       padding-top: 130px;
     }
