@@ -34,6 +34,15 @@
     height: 100%;
   }
 }
+.preview-avatar {
+  width: 60px;
+  height: 60px;
+  padding: 3px;
+  img {
+    width: 100%;
+    height: 100%;
+  }
+}
 
 /* 목업 화면 RCS 미리보기 */
 .uc-rcs-template-manage .preview-mockup {

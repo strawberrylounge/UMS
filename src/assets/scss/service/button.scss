@@ -151,7 +151,7 @@
       }
     }
   }
-  &-lg { // 사이즈 l
+  &-lg {
     padding: 15px 19px;
     border-radius: 12px;
     @include typography.font-style(16px, 700, 140%, -0.32px);
@@ -222,5 +222,17 @@
       @include typography.font-style(14px, 700, 140%, -0.28px);
       color: var(--gray900);
     }
+  }
+  &-table-link,
+  &-table-link:hover,
+  &-table-link:focus,
+  &-table-link:active,
+  &-table-link:focus:active {
+    margin: 0;
+    padding: 0;
+    border: 0;
+    @include typography.font-style(16px, 500, 140%, -0.32px);
+    color: var(--gray900);
+    text-decoration: underline;
   }
 }

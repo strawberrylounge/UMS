@@ -77,6 +77,8 @@ export default {
           return '템플릿'
         case '/ac/user/manage':
           return '사용자목록'
+        case '/ac/channel/rcs':
+          return '채널 관리'
         default:
           return ''
       }

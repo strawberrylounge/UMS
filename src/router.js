@@ -25,6 +25,7 @@ import ucAlimTalkTemplateList from "@/modules/ucAlimTalkTemplateList/views/Index
 import ucAlimTalkTemplateManage from "@/modules/ucAlimTalkTemplateManage/views/Index.vue";
 import ucTemplateMultiSendTemplateManage from "@/modules/ucTemplateMultiSendTemplateManage/views/Index.vue";
 import userManage from "@/modules/userManage/views/Index.vue";
+import channelRcs from "@/modules/channelRcs/views/Index.vue";
 
 Vue.use(Router);
 
@@ -223,6 +224,26 @@ const router = new Router({
         },
       ],
     },
+    {
+      path: "/ac/channel/rcs",
+      component: ServiceLayout,
+      children: [
+        {
+          path: "",
+          component: channelRcs,
+        },
+      ],
+    },
+    // {
+    //   path: "/ac/channel/kakao",
+    //   component: ServiceLayout,
+    //   children: [
+    //     {
+    //       path: "",
+    //       component: channelKaKao,
+    //     },
+    //   ],
+    // }
   ],
 });
 

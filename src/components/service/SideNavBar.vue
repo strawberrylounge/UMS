@@ -65,9 +65,9 @@
           <IconArrowDown />
         </b-button>
         <b-collapse id="collapse-admin-manage" class="menu-list" visible>
-          <a href="#" class="d-flex align-items-center menu-item">
+          <a href="/ac/channel/rcs" class="d-flex align-items-center menu-item" :class="{ active: ($route.path.includes('/ac/channel/rcs'))}">
             <icon-channel />
-            <span >채널관리</span>
+            <span>채널관리</span>
           </a>
           <a href="#" class="d-flex align-items-center menu-item">
             <icon-API-key />
