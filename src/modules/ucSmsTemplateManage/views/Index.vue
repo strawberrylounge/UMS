@@ -150,8 +150,8 @@ export default {
 </script>
 
 <style scoped lang="scss">
-@import '@/assets/scss/service/message.scss';
-@import '@/assets/scss/service/template.scss';
+@use '@/assets/scss/service/message.scss';
+@use '@/assets/scss/service/template.scss';
 
 .input-group-append {
   .btn {

@@ -73,7 +73,7 @@
             <icon-API-key />
             <span >API KEY</span>
           </a>
-          <a href="#" class="d-flex align-items-center menu-item">
+          <a href="/ac/user/manage" class="d-flex align-items-center menu-item" :class="{ active: ($route.path.includes('/ac/user/manage'))}">
             <icon-user />
             <span >사용자</span>
           </a>

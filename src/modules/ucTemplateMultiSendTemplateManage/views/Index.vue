@@ -224,8 +224,8 @@ export default {
 <style scoped lang="scss">
 @use "~@/assets/scss/service/base/typography" as typography;
 @use "~@/assets/scss/service/abstracts/variables" as *;
-@import '@/assets/scss/service/message.scss';
-@import '@/assets/scss/service/template.scss';
+@use '@/assets/scss/service/message.scss';
+@use '@/assets/scss/service/template.scss';
 
 .section.no-preview {
   width: 100%;

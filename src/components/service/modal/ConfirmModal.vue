@@ -1,7 +1,7 @@
 <template>  
   <b-modal id="confirm-modal" :title="title" hide-header-close centered content-class="confirm-modal">
 
-    <p class="desc">{{ desc }}</p>
+    <p class="desc" v-html="nl2br(desc)"></p>
 
     <template #modal-footer>
       <b-button variant="danger" @click="handleSubmit">확인</b-button>
@@ -41,7 +41,13 @@ export default {
         return;
       }
       this.$bvModal.hide('confirm-modal');
-    }
+    },
+    nl2br(str) {
+      if (typeof str === 'string') {
+        return str.replace(/\n/g, '<br>');
+      }
+      return str;
+    },
   }
 };
 </script>

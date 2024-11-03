@@ -24,6 +24,7 @@ import ucRcsTemplateManageEdit from "@/modules/ucRcsTemplateManageEdit/views/Ind
 import ucAlimTalkTemplateList from "@/modules/ucAlimTalkTemplateList/views/Index.vue";
 import ucAlimTalkTemplateManage from "@/modules/ucAlimTalkTemplateManage/views/Index.vue";
 import ucTemplateMultiSendTemplateManage from "@/modules/ucTemplateMultiSendTemplateManage/views/Index.vue";
+import userManage from "@/modules/userManage/views/Index.vue";
 
 Vue.use(Router);
 
@@ -209,6 +210,16 @@ const router = new Router({
         {
           path: "",
           component: ucTemplateMultiSendTemplateManage,
+        },
+      ],
+    },
+    {
+      path: "/ac/user/manage",
+      component: ServiceLayout,
+      children: [
+        {
+          path: "",
+          component: userManage,
         },
       ],
     },

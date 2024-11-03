@@ -189,7 +189,7 @@ export default {
 </script>
 
 <style scoped lang="scss">
-@import '@/assets/scss/service/message.scss';
+@use '@/assets/scss/service/message.scss';
 
 .search-section {
   .form-control {

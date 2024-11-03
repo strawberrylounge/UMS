@@ -75,6 +75,8 @@ export default {
         case '/uc/template/alimTalkTemplateManage':
         case '/uc/template/multiSendTemplateManage':
           return '템플릿'
+        case '/ac/user/manage':
+          return '사용자목록'
         default:
           return ''
       }

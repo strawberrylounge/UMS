@@ -281,7 +281,7 @@ export default {
 
 <style scoped lang="scss">
 @use "~@/assets/scss/service/base/typography" as typography;
-@import '@/assets/scss/service/message.scss';
+@use '@/assets/scss/service/message.scss';
 
 .service-sub-tabs {
   display: flex;

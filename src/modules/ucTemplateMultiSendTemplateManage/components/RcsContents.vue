@@ -202,8 +202,8 @@ export default {
 
 <style scoped lang="scss">
 @use "~@/assets/scss/service/base/typography" as typography;
-@import '@/assets/scss/service/message.scss';
-@import '@/assets/scss/service/template.scss';
+@use '@/assets/scss/service/message.scss';
+@use '@/assets/scss/service/template.scss';
 
 .service-template {
   &-tabs {
