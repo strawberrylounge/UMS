@@ -1,5 +1,6 @@
 <template>
   <div class="landing-wrapper">
+    <h2 class="sr-only">요금제 안내 페이지</h2>
     <Header />
     <main class="page-pricing landing-sub">
       <div class="sub-top">

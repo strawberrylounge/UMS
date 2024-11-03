@@ -14,7 +14,9 @@
             >
           </li>
           <li>
-            <router-link to="/" exact-active-class="on">채널 소개</router-link>
+            <router-link to="/public/channel" exact-active-class="on"
+              >채널 소개</router-link
+            >
           </li>
           <li>
             <router-link to="/public/pricing" exact-active-class="on"
@@ -49,7 +51,7 @@
       <div :class="{ active: isMobileMenuOpen }" class="mobile-menu">
         <ul class="menu">
           <li><router-link to="/public">서비스 소개</router-link></li>
-          <li><router-link to="/">채널 소개</router-link></li>
+          <li><router-link to="/public/channel">채널 소개</router-link></li>
           <li><router-link to="/public/pricing">요금제 안내</router-link></li>
           <li><router-link to="/">고객 안내</router-link></li>
           <li>

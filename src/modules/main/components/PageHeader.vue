@@ -9,8 +9,6 @@
   </div>
 </template>
 <script>
-import { PATHS } from "../constants/paths";
-
 export default {
   name: "PageHeader",
   props: {
@@ -65,7 +63,6 @@ export default {
   background-position: center;
   background-repeat: no-repeat;
   background-image: var(--background-mobile);
-  //overflow: hidden;
   @include v.tablet {
     @include v.flex-center;
     height: 240px;
