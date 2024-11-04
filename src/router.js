@@ -13,6 +13,9 @@ import ucMessageSendSms from "@/modules/ucMessageSendSms/views/Index.vue";
 import ucMessageSmartSendMain from "@/modules/ucMessageSmartSendMain/views/Index.vue";
 import ucRcsTemplateSend from "@/modules/ucRcsTemplateSend/views/Index.vue";
 import ucMessageSendAlimTalk from "@/modules/ucMessageSendAlimTalk/views/Index.vue";
+import Channel from "./modules/main/views/Channel.vue";
+import Customer from "./modules/main/views/Customer.vue";
+import NoticeDetail from "./modules/main/views/customer/Notice/NoticeDetail.vue";
 import ucMessageStatus from "@/modules/ucMessageStatus/views/Index.vue";
 import ucWebSend from "@/modules/ucWebSend/views/Index.vue";
 import ucMultiSendTemplateList from "@/modules/ucMultiSendTemplateList/views/Index.vue";
@@ -41,6 +44,14 @@ const router = new Router({
     {
       path: "/public/pricing",
       component: Pricing,
+    },
+    {
+      path: "/public/channel",
+      component: Channel,
+    },
+    {
+      path: "/public/customer",
+      component: Customer,
     },
     {
       path: "/ac/home",

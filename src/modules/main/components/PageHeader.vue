@@ -1,5 +1,5 @@
 <template>
-  <div class="page-header">
+  <div class="page-header" :style="isReady ? headerStyle : {}">
     <div class="inner">
       <span class="page-header-subtitle" v-if="subtitle">{{ subtitle }}</span>
       <h3 class="page-header-title">
@@ -20,6 +20,35 @@ export default {
       type: String,
       default: "",
     },
+    imageName: {
+      type: String,
+      required: true,
+    },
+  },
+  data() {
+    return {
+      isReady: false,
+    };
+  },
+  computed: {
+    headerStyle() {
+      return {
+        backgroundImage: `url(${require("@/assets/images/landing/" +
+          this.imageName +
+          ".png")})`,
+        backgroundImageTablet: `url(${require("@/assets/images/landing/" +
+          this.imageName +
+          "-1024.png")})`,
+        backgroundImageMobile: `url(${require("@/assets/images/landing/" +
+          this.imageName +
+          "-375.png")})`,
+      };
+    },
+  },
+  mounted() {
+    this.$nextTick(() => {
+      this.isReady = true;
+    });
   },
 };
 </script>
@@ -30,15 +59,26 @@ export default {
   @include v.flex(column, center, null);
   width: 100%;
   height: 160px;
-  background: #6d6efa; //임시
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  background-image: var(--background-mobile);
   @include v.tablet {
     @include v.flex-center;
     height: 240px;
+    background-image: var(--background-tablet);
+    background-size: cover;
   }
   @include v.desktop {
     height: 455px;
+    background-image: var(--background-desktop);
   }
   .inner {
+    padding: 0 20px;
+    @include v.tablet {
+      max-width: none;
+      padding: 0 40px;
+    }
     @include v.desktop {
       padding-left: 60px;
     }

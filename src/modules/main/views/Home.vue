@@ -14,7 +14,7 @@
             >
               자세히 알아보기
             </button>
-            <BtnInquiry />
+            <BtnInquiry :is-landing="true" :current-section="currentSection" />
           </div>
         </section>
         <section class="section02">
@@ -241,11 +241,11 @@
             <a href="#">이용 가이드</a>
             <a href="#">고객안내</a>
           </div>
-          <BtnTop />
         </section>
-        <Footer class="footer-section" />
       </div>
+      <Footer class="footer-section" />
     </main>
+    <BtnTop :is-landing="true" :current-section="currentSection" />
     <router-view></router-view>
   </div>
 </template>
@@ -255,8 +255,8 @@ import { PATHS } from "../constants/paths";
 import Header from "../components/Header.vue";
 import Footer from "../components/Footer.vue";
 import BtnTop from "../components/buttons/BtnTop.vue";
-import BtnInquiry from "../components/buttons/BtnInquiry.vue";
 import MainCarousel from "../components/MainCarousel.vue";
+import BtnInquiry from "../components/buttons/BtnInquiry.vue";
 
 export default {
   name: "Home",
@@ -277,8 +277,22 @@ export default {
       const container = event.target;
       const scrollPosition = container.scrollTop;
       const windowHeight = window.innerHeight;
+      const totalHeight = container.scrollHeight;
+
       // 현재 섹션 계산
-      this.currentSection = Math.round(scrollPosition / windowHeight);
+      this.currentSection = Math.floor(scrollPosition / windowHeight);
+      console.log("Current Section:", this.currentSection); // 추가
+
+      const lastSection = document.querySelector(".section06");
+      if (lastSection) {
+        const lastSectionTop = lastSection.offsetTop;
+
+        if (scrollPosition >= lastSectionTop) {
+          container.style.scrollSnapType = "none";
+        } else {
+          container.style.scrollSnapType = "y mandatory";
+        }
+      }
     },
     scrollToSection(sectionClass) {
       const container = document.querySelector(".landing-main");
@@ -463,14 +477,24 @@ $feature-icons: (
 
 /* 메인 페이지 */
 .landing-wrapper {
+  position: relative;
+  width: 100%;
+  height: 100vh;
+  overflow: hidden;
   #landingMain {
     position: relative;
-    height: 100vh;
+    height: calc(100vh - 36px);
     margin-top: 36px;
     overflow-y: scroll;
     scroll-snap-type: y mandatory;
     scroll-behavior: smooth;
+    -ms-overflow-style: none;
+    scrollbar-width: none;
+    &::-webkit-scrollbar {
+      display: none;
+    }
     @include v.tablet {
+      height: calc(100vh - 68px);
       margin-top: 68px;
     }
     .sections {
@@ -478,20 +502,22 @@ $feature-icons: (
         position: relative;
         width: 100%;
         height: 100vh;
+        min-height: 100vh;
         scroll-snap-align: start;
         scroll-snap-stop: always;
+        overflow: hidden;
 
         /* section 1 */
         &.section01 {
           position: relative;
           height: calc(100vh - 36px);
+          min-height: calc(100vh - 36px);
           background: v.color(gray100); // 임시
           @include v.tablet {
             height: calc(100vh - 68px);
+            min-height: calc(100vh - 68px);
           }
-          img {
-            height: 100%;
-          }
+
           .btn-area {
             text-align: center;
             .btn-detail {
@@ -772,11 +798,19 @@ $feature-icons: (
         }
         /* section 5 */
         &.section05 {
-          background: v.color(gray100); // 임시
           padding-top: 80px;
+          background: url(v.$img + "main-section05-bg-375.png") center center
+            no-repeat;
           @include v.tablet {
             @include v.flex(row, center, null);
             padding-top: 0;
+            background: url(v.$img + "main-section05-bg-1024.png") top center
+              no-repeat;
+          }
+          @include v.desktop {
+            background: url(v.$img + "main-section05-bg.png") top center
+              no-repeat;
+            background-size: cover;
           }
           .inner {
             @include v.tablet {
@@ -799,10 +833,13 @@ $feature-icons: (
         &.section06 {
           position: relative;
           @include v.flex-column-center;
-          height: auto;
           min-height: 100vh;
+          //margin-bottom: 155px;
           scroll-snap-align: start;
           text-align: center;
+          @include v.tablet {
+            margin-bottom: 330px;
+          }
           figure {
             height: 120px;
             margin-bottom: 80px;
@@ -876,18 +913,18 @@ $feature-icons: (
               }
             }
           }
-          .btn-top {
-            position: absolute;
-            right: 0;
-            bottom: 0;
-          }
         }
       }
     }
   }
 }
 
-:deep(.footer-section) {
-  scroll-snap-align: start;
+.footer-section {
+  scroll-snap-align: none;
+  height: 155px;
+  margin-top: auto;
+  @include v.tablet {
+    height: 330px;
+  }
 }
 </style>
