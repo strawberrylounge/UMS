@@ -235,4 +235,18 @@
     color: var(--gray900);
     text-decoration: underline;
   }
+  &-tooltip,
+  &-tooltip:hover,
+  &-tooltip:focus,
+  &-tooltip:active,
+  &-tooltip:focus:active,
+  &-tooltip:not(:disabled):not(.disabled):active:focus {
+    border: none;
+    background: none;
+    box-shadow: none;
+  }
+  &-tooltip-dark path:first-child {
+    fill: var(--gray700);
+    stroke: var(--gray700);
+  }
 }

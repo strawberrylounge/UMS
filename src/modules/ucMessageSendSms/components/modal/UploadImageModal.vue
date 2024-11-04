@@ -14,15 +14,15 @@
     <label class="mt-1 pt-3 mb-0 f-body1 c-gray900">이미지 사용 채널</label>
     <div class="checkbox-wrap">
       <b-form-checkbox value="MMS" >MMS</b-form-checkbox>
-      <b-button v-b-tooltip.hover.html="mmsTooltip" variant="dark" class="btn-icon p-0">
+      <b-button v-b-tooltip.hover.html="mmsTooltip" variant="dark" class="btn-icon p-0 btn-tooltip">
         <IconQuestion />
       </b-button>
       <b-form-checkbox value="RCS" >RCS</b-form-checkbox>
-      <b-button v-b-tooltip.hover.html="rcsTooltip" variant="dark" class="btn-icon p-0">
+      <b-button v-b-tooltip.hover.html="rcsTooltip" variant="dark" class="btn-icon p-0 btn-tooltip">
         <IconQuestion />
       </b-button>
       <b-form-checkbox value="talk" >친구톡</b-form-checkbox>
-      <b-button v-b-tooltip.hover.html="talkTooltip" variant="dark" class="btn-icon p-0">
+      <b-button v-b-tooltip.hover.html="talkTooltip" variant="dark" class="btn-icon p-0 btn-tooltip">
         <IconQuestion />
       </b-button>
       <b-dropdown id="channel-dropdown" variant="secondary" class="channel-dropdown">

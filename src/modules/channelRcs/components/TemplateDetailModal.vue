@@ -6,7 +6,7 @@
       <p class="m-0 f-body6 c-gray900">더미브랜드 이름</p>
     </div>
 
-    <div class="d-flex align-items-center mt-2">
+    <div class="d-flex align-items-center pt-2">
       <label class="form-label m-0 f-body5 c-gray500">브랜드 ID</label>
       <p class="m-0 f-body6 c-gray900">BR.I62629h5u8</p>
     </div>

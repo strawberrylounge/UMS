@@ -3,12 +3,12 @@
     <div class="d-flex align-items-end">
       <h2 class="m-0 heading1">{{ headerTitle }}</h2>
       <p v-if="showMsgDesc" class="msg-desc f-body4">야간 메시지 발송 제한으로 21:00 ~ 다음날 08:00까지 메시지를 발송할 수 없습니다.
-        <b-button v-b-tooltip.hover.html="msgTooltip" variant="light" class="btn-icon p-0">
+        <b-button v-b-tooltip.hover.html="msgTooltip" variant="light" class="btn-icon p-0 btn-tooltip">
           <IconQuestion isRed />
         </b-button>
       </p>
       <p v-else-if="showSmartMsgDesc" class="msg-desc f-body4">(친구톡 광고 메시지는 20시~8시 발송 시 실패 처리 됩니다.)야간 메시지 발송 제한으로 21:00 ~ 다음날 08:00 까지 메시지 발송을 할 수 없습니다.
-        <b-button v-b-tooltip.hover.html="msgTooltip" variant="light" class="btn-icon p-0">
+        <b-button v-b-tooltip.hover.html="msgTooltip" variant="light" class="btn-icon p-0 btn-tooltip">
           <IconQuestion isRed />
         </b-button>
       </p>
@@ -78,6 +78,7 @@ export default {
         case '/ac/user/manage':
           return '사용자목록'
         case '/ac/channel/rcs':
+        case '/ac/channel/kakao':
           return '채널 관리'
         default:
           return ''

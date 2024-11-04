@@ -113,28 +113,28 @@
           <div class="service-template-tabs">
             <div class="tab" :class="{active: templateTab === 'template'}">
               <button class="btn" @click="changeTemplateTab('template')">템플릿 형
-                <b-button v-b-tooltip.hover.html="tooltipContent" variant="light" class="btn-icon p-0">
+                <b-button v-b-tooltip.hover.html="tooltipContent" variant="light" class="btn-icon p-0 btn-tooltip">
                   <IconQuestionLine />
                 </b-button>
               </button>
             </div>
             <div class="tab" :class="{active: templateTab === 'style'}">
               <button class="btn" @click="changeTemplateTab('style')">스타일 형
-                <b-button v-b-tooltip.hover.html="tooltipContent" variant="light" class="btn-icon p-0">
+                <b-button v-b-tooltip.hover.html="tooltipContent" variant="light" class="btn-icon p-0 btn-tooltip">
                   <IconQuestionLine />
                 </b-button>
               </button>
             </div>
             <div class="tab" :class="{active: templateTab === 'thumb'}">
               <button class="btn" @click="changeTemplateTab('thumb')">썸네일 형
-                <b-button v-b-tooltip.hover.html="tooltipContent" variant="light" class="btn-icon p-0">
+                <b-button v-b-tooltip.hover.html="tooltipContent" variant="light" class="btn-icon p-0 btn-tooltip">
                   <IconQuestionLine />
                 </b-button>
               </button>
             </div>
             <div class="tab" :class="{active: templateTab === 'sns'}">
               <button class="btn" @click="changeTemplateTab('sns')">SNS 형
-                <b-button v-b-tooltip.hover.html="tooltipContent" variant="light" class="btn-icon p-0">
+                <b-button v-b-tooltip.hover.html="tooltipContent" variant="light" class="btn-icon p-0 btn-tooltip">
                   <IconQuestionLine />
                 </b-button>
               </button>
@@ -148,28 +148,28 @@
           <div class="service-template-tabs">
             <div class="tab" :class="{active: templateTab === 'template'}">
               <button class="btn" @click="changeTemplateTab('template')">템플릿 형
-                <b-button v-b-tooltip.hover.html="tooltipContent" variant="light" class="btn-icon p-0">
+                <b-button v-b-tooltip.hover.html="tooltipContent" variant="light" class="btn-icon p-0 btn-tooltip">
                   <IconQuestionLine />
                 </b-button>
               </button>
             </div>
             <div class="tab" :class="{active: templateTab === 'style'}">
               <button class="btn" @click="changeTemplateTab('style')">스타일 형
-                <b-button v-b-tooltip.hover.html="tooltipContent" variant="light" class="btn-icon p-0">
+                <b-button v-b-tooltip.hover.html="tooltipContent" variant="light" class="btn-icon p-0 btn-tooltip">
                   <IconQuestionLine />
                 </b-button>
               </button>
             </div>
             <div class="tab" :class="{active: templateTab === 'thumb'}">
               <button class="btn" @click="changeTemplateTab('thumb')">썸네일 형
-                <b-button v-b-tooltip.hover.html="tooltipContent" variant="light" class="btn-icon p-0">
+                <b-button v-b-tooltip.hover.html="tooltipContent" variant="light" class="btn-icon p-0 btn-tooltip">
                   <IconQuestionLine />
                 </b-button>
               </button>
             </div>
             <div class="tab" :class="{active: templateTab === 'sns'}">
               <button class="btn" @click="changeTemplateTab('sns')">SNS 형
-                <b-button v-b-tooltip.hover.html="tooltipContent" variant="light" class="btn-icon p-0">
+                <b-button v-b-tooltip.hover.html="tooltipContent" variant="light" class="btn-icon p-0 btn-tooltip">
                   <IconQuestionLine />
                 </b-button>
               </button>

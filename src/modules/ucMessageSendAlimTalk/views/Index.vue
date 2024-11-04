@@ -37,7 +37,7 @@
                 <tr>
                   <th>
                     타입
-                    <b-button v-b-tooltip.hover.html="msgTooltip" variant="light" class="btn-icon p-0">
+                    <b-button v-b-tooltip.hover.html="msgTooltip" variant="light" class="btn-icon p-0 btn-tooltip">
                       <IconInfo />
                     </b-button>
                   </th>

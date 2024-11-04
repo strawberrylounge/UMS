@@ -17,20 +17,20 @@
       <p class="m-0 f-body6 c-gray900">더미브랜드이름</p>
       <ul class="card-list">
         <li>
-          <p class="m-0 f-body6 c-gary900">전화번호</p>
-          <p class="m-0 mt-2 f-caption2 c-gray700">10006900</p>
+          <p class="m-0 f-caption1 c-gary900">전화번호</p>
+          <p class="m-0 mt-1 f-caption2 c-gray700">10006900</p>
         </li>
         <li>
-          <p class="m-0 f-body6 c-gary900">웹사이트</p>
-          <p class="m-0 mt-2 f-caption2 c-gray700">http://www.naver.com</p>
+          <p class="m-0 f-caption1 c-gary900">웹사이트</p>
+          <p class="m-0 mt-1 f-caption2 c-gray700">http://www.naver.com</p>
         </li>
         <li>
-          <p class="m-0 f-body6 c-gary900">이메일</p>
-          <p class="m-0 mt-2 f-caption2 c-gray700">test@test.co.kr</p>
+          <p class="m-0 f-caption1 c-gary900">이메일</p>
+          <p class="m-0 mt-1 f-caption2 c-gray700">test@test.co.kr</p>
         </li>
         <li>
-          <p class="m-0 f-body6 c-gary900">주소</p>
-          <p class="m-0 mt-2 f-caption2 c-gray700">detailAddress</p>
+          <p class="m-0 f-caption1 c-gary900">주소</p>
+          <p class="m-0 mt-1 f-caption2 c-gray700">detailAddress</p>
         </li>
       </ul>
     </PreviewDefault>

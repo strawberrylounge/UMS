@@ -32,14 +32,14 @@
           <div class="service-template-tabs">
             <div class="tab" :class="{active: templateTab === 'template'}">
               <button class="btn" @click="changeTemplateTab('template')">템플릿 형
-                <b-button v-b-tooltip.hover.html="tooltipContent" variant="light" class="btn-icon p-0">
+                <b-button v-b-tooltip.hover.html="tooltipContent" variant="light" class="btn-icon p-0 btn-tooltip">
                   <IconQuestionLine />
                 </b-button>
               </button>
             </div>
             <div class="tab" :class="{active: templateTab === 'aaa'}">
               <button class="btn" @click="changeTemplateTab('aaa')">템플릿 형
-                <b-button v-b-tooltip.hover.html="tooltipContent" variant="light" class="btn-icon p-0">
+                <b-button v-b-tooltip.hover.html="tooltipContent" variant="light" class="btn-icon p-0 btn-tooltip">
                   <IconQuestionLine />
                 </b-button>
               </button>
@@ -53,14 +53,14 @@
           <div class="service-template-tabs">
             <div class="tab" :class="{active: templateTab === 'template'}">
               <button class="btn" @click="changeTemplateTab('template')">템플릿 형
-                <b-button v-b-tooltip.hover.html="tooltipContent" variant="light" class="btn-icon p-0">
+                <b-button v-b-tooltip.hover.html="tooltipContent" variant="light" class="btn-icon p-0 btn-tooltip">
                   <IconQuestionLine />
                 </b-button>
               </button>
             </div>
             <div class="tab" :class="{active: templateTab === 'aaa'}">
               <button class="btn" @click="changeTemplateTab('aaa')">템플릿 형
-                <b-button v-b-tooltip.hover.html="tooltipContent" variant="light" class="btn-icon p-0">
+                <b-button v-b-tooltip.hover.html="tooltipContent" variant="light" class="btn-icon p-0 btn-tooltip">
                   <IconQuestionLine />
                 </b-button>
               </button>

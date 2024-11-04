@@ -49,7 +49,7 @@
 
       <div class="d-flex section-col">
         <label class="form-label">내용 <span class="require">*</span>
-          <b-button v-b-tooltip.hover.html="tooltipMessage" variant="light" class="btn-icon p-0">
+          <b-button v-b-tooltip.hover.html="tooltipMessage" variant="light" class="btn-icon p-0 btn-tooltip">
             <IconInfo />
           </b-button>
         </label>

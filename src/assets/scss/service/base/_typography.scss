@@ -23,8 +23,11 @@
 .f-caption1 {
   @include font-style(12px, 700, 160%, -0.24px);
 }
+.f-body7 {
+  @include font-style(14px, 400, 180%, 0);
+}
 .f-body6 {
-  @include font-style(14px, 400, 180%, -0.28px);
+  @include font-style(14px, 400, 140%, -0.28px);
 }
 .f-body5 {
   @include font-style(14px, 500, 140%, -0.28px);
