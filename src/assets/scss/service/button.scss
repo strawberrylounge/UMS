@@ -123,6 +123,9 @@
     &:disabled {
       background-color: var(--gray200);
     }
+    &.btn-svg path {
+      stroke: var(--white);
+    }
   }
   &-danger {
     background-color: var(--status-failure);

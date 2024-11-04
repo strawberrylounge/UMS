@@ -69,7 +69,7 @@
             <icon-channel />
             <span>채널관리</span>
           </a>
-          <a href="#" class="d-flex align-items-center menu-item">
+          <a href="/ac/apikey" class="d-flex align-items-center menu-item" :class="{ active: ($route.path.includes('/ac/apikey'))}">
             <icon-API-key />
             <span >API KEY</span>
           </a>

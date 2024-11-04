@@ -27,6 +27,7 @@ import ucTemplateMultiSendTemplateManage from "@/modules/ucTemplateMultiSendTemp
 import userManage from "@/modules/userManage/views/Index.vue";
 import channelRcs from "@/modules/channelRcs/views/Index.vue";
 import channelKaKao from "@/modules/channelKaKao/views/Index.vue";
+import apiKey from "@/modules/apiKey/views/Index.vue";
 
 Vue.use(Router);
 
@@ -244,8 +245,18 @@ const router = new Router({
           component: channelKaKao,
         },
       ],
+    },
+    {
+      path: "/ac/apikey",
+      component: ServiceLayout,
+      children: [
+        {
+          path: "",
+          component: apiKey,
+        },
+      ],
     }
-  ],
+  ]
 });
 
 export default router;

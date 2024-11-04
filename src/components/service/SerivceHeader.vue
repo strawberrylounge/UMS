@@ -80,6 +80,8 @@ export default {
         case '/ac/channel/rcs':
         case '/ac/channel/kakao':
           return '채널 관리'
+        case '/ac/apikey':
+          return 'API KEY'
         default:
           return ''
       }
