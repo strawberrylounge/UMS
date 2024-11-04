@@ -75,6 +75,7 @@ export default {
 </script>
 <style lang="scss" scoped>
 @use "../../../assets/scss/landing/abstracts/variables" as v;
+
 .tab-navigation {
   width: 335px;
   height: 40px;
@@ -94,118 +95,157 @@ export default {
     padding: 0 60px;
     border-radius: 32px;
   }
-  .tab-navigation-list {
-    @include v.flex(row, null, center);
-    height: 100%;
-    padding: 10px 0;
-    @include v.tablet {
-      padding: 20px 0;
-    }
-    @include v.desktop {
-      padding: 40px 0;
-    }
-    .tab-navigation-item {
-      display: flex;
-      align-items: center;
-      width: 33.33%;
-      height: 100%;
-      //white-space: nowrap;
-      cursor: pointer;
-      @include v.tablet {
-        @include v.flex(column, center, baseline);
-      }
-      &:not(:first-child) {
-        padding-left: 20px;
-        @include v.tablet {
-          //padding-left: 48px;
-        }
-        @include v.desktop {
-          padding-left: 30px;
-        }
-      }
-      &:not(:last-child) {
-        border-right: 2px solid v.color(primary100);
-        @include v.tablet {
-          padding-right: clamp(10px, 15px, 48px);
-        }
-        @include v.desktop {
-          padding-right: 30px;
-        }
-      }
-      &:first-child {
-        padding-left: 10px;
-        @include v.tablet {
-          padding-left: 0;
-        }
-      }
-      .item-name {
-        font-weight: 700;
-        font-size: 0.875rem;
-        color: v.color(gray900);
-        @include v.tablet {
-          font-size: 1.25rem;
-        }
-        @include v.desktop {
-          font-size: 1.75rem;
-        }
-      }
-      .icon-down {
-        width: 12px;
-        height: 12px;
-        margin-left: 8px;
-        background: url(v.$icon + "ico-down-gray.png") no-repeat;
-        background-size: cover;
-      }
-      .item-desc {
-        display: none;
-        font-size: 400px;
-        font-size: 0.75rem;
-        color: v.color(gray600);
-        @include v.tablet {
-          padding-top: 4px;
-          display: block;
-        }
-        @include v.desktop {
-          padding-top: 24px;
-          font-weight: 500;
-          font-size: 1.125rem;
-        }
-      }
-    }
-  }
 
   // swtich mode
   &.switch-mode {
     @include v.tablet {
       bottom: -38px !important;
       max-height: 84px;
+      padding: 0;
     }
     @include v.desktop {
       max-height: 90px;
     }
     .tab-navigation-list {
+      display: flex;
+      justify-content: space-between;
+      align-items: stretch;
+      padding: 0;
+      margin: 0;
+      height: 100%;
+      @include v.tablet {
+        height: 84px;
+        border-radius: 24px;
+        background: #fff;
+        overflow: hidden;
+      }
       @include v.desktop {
-        padding: 20px 0 !important;
+        height: 90px;
       }
       .tab-navigation-item {
-        height: 100%;
-        align-items: center;
+        @include v.flex-center;
+        flex: 1;
+        margin: 0;
+        padding: 0;
         border: none;
         background: #fff;
         white-space: nowrap;
+        @include v.tablet {
+          height: 84px;
+        }
+        @include v.desktop {
+          height: 90px;
+        }
         &:not(:last-child) {
           @include v.tablet {
-            border-right: 2px solid v.color(primary100);
+            position: relative;
+            //border-right: 2px solid v.color(primary100);
+            &::after {
+              content: "";
+              position: absolute;
+              top: 50%;
+              right: 0;
+              width: 2px;
+              height: 40px;
+              background: v.color(primary100);
+              transform: translateY(-50%);
+            }
           }
         }
         .item-name {
-          display: inline-block;
-          height: 100%;
+          font-weight: 700;
+          font-size: 0.875rem;
           color: v.color(gray400);
+          @include v.tablet {
+            font-size: 1.25rem;
+          }
+          @include v.desktop {
+            font-size: 1.75rem;
+          }
         }
         &.active {
           .item-name {
             color: v.color(gray900);
+          }
+        }
+      }
+    }
+  }
+
+  &:not(.switch-mode) {
+    .tab-navigation-list {
+      @include v.flex(row, center, center);
+      height: 100%;
+      padding: 10px 0;
+      @include v.tablet {
+        padding: 20px 0;
+      }
+      @include v.desktop {
+        padding: 40px 0;
+      }
+      .tab-navigation-item {
+        @include v.flex(row, center, center);
+        width: 33.33%;
+        height: 100%;
+        cursor: pointer;
+        @include v.tablet {
+          @include v.flex(column, center, baseline);
+        }
+        &:not(:first-child) {
+          padding-left: 20px;
+          @include v.tablet {
+            //padding-left: 48px;
+          }
+          @include v.desktop {
+            padding-left: 30px;
+          }
+        }
+        &:not(:last-child) {
+          border-right: 2px solid v.color(primary100);
+          @include v.tablet {
+            padding-right: clamp(10px, 15px, 48px);
+          }
+          @include v.desktop {
+            padding-right: 30px;
+          }
+        }
+        &:first-child {
+          padding-left: 10px;
+          @include v.tablet {
+            padding-left: 0;
+          }
+        }
+        .item-name {
+          font-weight: 700;
+          font-size: 0.875rem;
+          color: v.color(gray900);
+          @include v.tablet {
+            font-size: 1.25rem;
+          }
+          @include v.desktop {
+            font-size: 1.75rem;
+          }
+        }
+        .icon-down {
+          width: 12px;
+          height: 12px;
+          margin-left: 8px;
+          background: url(v.$icon + "ico-down-gray.png") no-repeat;
+          background-size: cover;
+        }
+        .item-desc {
+          display: none;
+          font-size: 400px;
+          font-size: 0.75rem;
+          color: v.color(gray600);
+          @include v.tablet {
+            padding-top: 4px;
+            display: block;
+          }
+          @include v.desktop {
+            padding-top: 24px;
+            font-weight: 500;
+            font-size: 1.125rem;
           }
         }
       }
