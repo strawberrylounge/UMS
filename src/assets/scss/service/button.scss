@@ -1,4 +1,4 @@
-@use "../service/abstracts/variables" as *;
+@use "../../scss/service/base/typography" as typography;
 
 /* 버튼 */
 .btn {
@@ -7,10 +7,7 @@
   justify-content: center;
   padding: 11px 15px;
   border-radius: 8px;
-  font-size: 14px;
-  font-weight: 700;
-  line-height: 140%; /* 19.6px */
-  letter-spacing: -0.28px;
+  @include typography.font-style(14px, 700, 140%, -0.28px);
   &:focus {
     box-shadow: none;
   }
@@ -22,18 +19,18 @@
     &:active,
     &:focus:active,
     &:not(:disabled):not(.disabled):active:focus {
-      background-color: var(--primary-400);
-      border-color: var(--primary-400);
+      background-color: var(--primary400);
+      border-color: var(--primary400);
       box-shadow: none;
     }
     &:disabled {
-      background-color: var(--gray-300);
-      border-color: var(--gray-300);
+      background-color: var(--gray300);
+      border-color: var(--gray300);
     }
   }
   &-secondary {
-    background-color: var(--primary-50);
-    border-color: var(--primary-50);
+    background-color: var(--primary50);
+    border-color: var(--primary50);
     color: var(--primary);
     path {
       stroke: var(--primary);
@@ -41,14 +38,16 @@
     &:focus,
     &:active,
     &:focus:active,
-    &:hover{
-      background-color: var(--primary-100);
-      border-color: var(--primary-100);
+    &:hover,
+    &:not(:disabled):not(.disabled):active:focus,
+    &:not(:disabled):not(.disabled):active:active {
+      background-color: var(--primary100);
+      border-color: var(--primary100);
       color: var(--primary);
     }
     &:disabled {
-      background-color: var(--primary-300);
-      border-color: var(--primary-300);
+      background-color: var(--primary300);
+      border-color: var(--primary300);
       color: var(--white);
       path {
         stroke: var(--white);
@@ -73,10 +72,10 @@
     }
     &:disabled {
       background-color: var(--white);
-      border-color: var(--gray-300);
-      color: var(--gray-400);
+      border-color: var(--gray300);
+      color: var(--gray400);
       &.btn-svg path {
-        stroke: var(--gray-400);
+        stroke: var(--gray400);
       }
     }
     &.btn-svg path {
@@ -85,44 +84,44 @@
   }
   &-outline-secondary {
     border-radius: 8px;
-    border: 1px solid var(--gray-300);
+    border: 1px solid var(--gray300);
     background-color: #fff;
-    color: var(--gray-900);
+    color: var(--gray900);
     path {
-      fill: var(--gray-900);
+      fill: var(--gray900);
     }
     &:hover,
     &:focus,
     &:active,
     &:focus:active {
-      background-color: var(--gray-600);
-      border-color: var(--gray-400);
+      background-color: var(--gray600);
+      border-color: var(--gray400);
       color: var(--white);
       path {
         fill: var(--white);
       }
     }
     &:disabled {
-      background-color: var(--gray-200);
-      border-color: var(--gray-300);
-      color: var(--gray-400);
+      background-color: var(--gray200);
+      border-color: var(--gray300);
+      color: var(--gray400);
       path {
-        fill: var(--gray-400);
+        fill: var(--gray400);
       }
     }
   }
   &-dark {
-    background-color: var(--gray-600);
-    border-color: var(--gray-600);
+    background-color: var(--gray600);
+    border-color: var(--gray600);
     &:hover,
     &:focus,
     &:active,
     &:focus:active {
-      background-color: var(--gray-500);
-      border-color: var(--gray-500);
+      background-color: var(--gray500);
+      border-color: var(--gray500);
     }
     &:disabled {
-      background-color: var(--gray-200);
+      background-color: var(--gray200);
     }
   }
   &-danger {
@@ -153,12 +152,9 @@
     }
   }
   &-lg { // 사이즈 l
-    padding: 14px 19px;
+    padding: 15px 19px;
     border-radius: 12px;
-    font-size: 16px;
-    font-weight: 700;
-    line-height: 140%; /* 22.4px */
-    letter-spacing: -0.32px;
+    @include typography.font-style(16px, 700, 140%, -0.32px);
     &.btn-svg-left svg {
       width: 20px;
       height: 20px;
@@ -174,10 +170,7 @@
     & > .btn {
       padding: 14px 18px;
       border-radius: 12px;
-      font-size: 16px;
-      font-weight: 700;
-      line-height: 140%; /* 22.4px */
-      letter-spacing: -0.32px;
+      @include typography.font-style(16px, 700, 140%, -0.32px);
     }
   }
   &-icon {
@@ -187,10 +180,7 @@
     line-height: 1;
     font-size: 0;
     span {
-      font-size: 14px;
-      font-weight: 700;
-      line-height: 140%;
-      letter-spacing: -0.28px;
+      @include typography.font-style(14px, 700, 140%, -0.28px);
     }
     &-left svg {
       width: 16px;
@@ -207,15 +197,30 @@
     padding: 5px 11px;
     border: 1px solid var(--border-color);
     border-radius: 100px;
-    font-size: 14px;
-    font-weight: 500;
-    line-height: 140%; /* 19.6px */
-    letter-spacing: -0.28px;
-    color: var(--gray-700);
+    @include typography.font-style(14px, 500, 140%, -0.28px);
+    color: var(--gray700);
     &.active {
       background: rgba(109, 110, 250, 0.10);
       border-color: var(--primary);
       color: var(--primary);
+    }
+  }
+  &-kakao-channel {
+   display: flex;
+   align-items: center;
+   width: 100%;
+   padding: 12px 0;
+   background-color: #FAE100;
+   border: none;
+   border-radius: 8px;
+    img {
+      width: 16px;
+      height: 16px;
+      margin-right: 6px;
+    }
+    span {
+      @include typography.font-style(14px, 700, 140%, -0.28px);
+      color: var(--gray900);
     }
   }
 }

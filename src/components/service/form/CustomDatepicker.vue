@@ -21,31 +21,20 @@ export default {
   data() {
     return {
       selectedDate: null,
-      formattedDate: null,
       dateFormatOptions: { year: 'numeric', month: '2-digit', day: '2-digit' }
     };
   },
-  watch: {
-    selectedDate(newDate) {
-      if (newDate) {
-        this.formattedDate = this.formatDate(newDate);
-      } else {
-        this.formattedDate = null;
-      }
-    }
-  },
   methods: {
-    formatDate(date) {
-      const year = date.getFullYear();
-      const month = (`0${date.getMonth() + 1}`).slice(-2); // 0부터 시작하므로 +1
-      const day = (`0${date.getDate()}`).slice(-2);
-      return `${year}-${month}-${day}`;
+    setDate(date) {
+      this.selectedDate = date;
     }
   }
 };
 </script>
 
 <style scoped lang="scss">
+@use "~@/assets/scss/service/base/typography" as typography;
+
 .datepicker-container {
   position: relative;
 }
@@ -60,16 +49,13 @@ export default {
   border: 1px solid var(--border-color);
   background: var(--white);
   box-shadow: none;
-  font-size: 14px;
-  font-weight: 400;
-  line-height: 140%; /* 19.6px */
-  letter-spacing: -0.28px;
-  color: var(--gray-900);
+  @include typography.font-style(14px, 400, 140%, -0.28px);
+  color: var(--gray900);
   &::placeholder {
-    color: var(--gray-400);
+    color: var(--gray400);
   }
   &:hover {
-    border-color: var(--gray-500);
+    border-color: var(--gray500);
   }
   &.is-invalid {
     border-color: var(--red-600);
@@ -78,9 +64,9 @@ export default {
     }
   }
   &:disabled {
-    background-color: var(--gray-50);
+    background-color: var(--gray50);
     & + .calendar-icon svg path {
-      fill: var(--gray-400);
+      fill: var(--gray400);
     }
   }
 }
@@ -96,7 +82,7 @@ export default {
     width: 20px;
     height: 20px;
     path {
-      fill: var(--gray-700);
+      fill: var(--gray700);
     }
   }
 }

@@ -13,13 +13,15 @@
     </template>
 
     <div class="d-flex form-row">
-      <label>휴대폰 번호<span class="require">*</span></label>
-      <label>이름<span class="require">*</span></label>
+      <label class="mb-1 pb-2 f-body5 c-gray500">휴대폰 번호<span class="require">*</span></label>
+      <label class="mb-1 pb-2 f-body5 c-gray500">이름<span class="require">*</span></label>
     </div>
 
-    <div v-for="(receiver, index) in receivers" :key="index" class="d-flex form-row input-row">
-      <b-input v-model="receiver.phone" placeholder="010-1234-5678"></b-input>
-      <b-input v-model="receiver.name" placeholder="이름 입력"></b-input>
+    <div v-for="(receiver, index) in receivers" :key="index">
+      <div class="d-flex form-row input-row" :class="index > 0 ? 'mt-1 pt-3' : ''">
+        <b-input v-model="receiver.phone" placeholder="010-1234-5678"></b-input>
+        <b-input v-model="receiver.name" placeholder="이름 입력"></b-input>
+      </div>
     </div>
 
     <template #modal-footer>
@@ -61,38 +63,23 @@ export default {
 </script>
 
 <style scoped lang="scss">
-.title-desc {
-  margin: 20px 0 0;
-  font-size: 14px;
-  font-weight: 700;
-  line-height: 140%; /* 19.6px */
-  letter-spacing: -0.28px;
-  color: var(--gray-500);
-  span {
-    color: var(--status-failure);
-  }
-}
-label {
-  margin-bottom: 12px;
-  font-size: 14px;
-  font-weight: 500;
-  line-height: 140%; /* 19.6px */
-  letter-spacing: -0.28px;
-  color: var(--gray-500);
-}
 .form-row {
   display: flex;
   & > * {
     width: calc(50% - 10px);
+    margin-right: 10px;
   }
   label + label {
-    margin-left: 20px;
+    margin-right: 0;
+    margin-left: 10px;
   }
   .form-control + .form-control {
-    margin-left: 20px;
+    margin-right: 0;
+    margin-left: 10px;
   }
   &.input-row + .input-row {
-    margin-top: 20px;
+    margin-right: 0;
+    margin-left: 10px;
   }
 }
 </style>

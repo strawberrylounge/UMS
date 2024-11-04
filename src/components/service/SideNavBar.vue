@@ -37,18 +37,18 @@
       <li>
         <b-button v-b-toggle.collapse-admin-service class="d-flex align-items-center justify-content-between menu-title">
           <span >서비스</span>
-          <icon-arrow-down />
+          <IconArrowDown />
         </b-button>
-        <b-collapse id="collapse-admin-service" class="menu-list">
-          <a href="/uc/message/multiSendList" class="d-flex align-items-center menu-item" :class="{ active: $route.path.includes('/uc')}">
+        <b-collapse id="collapse-admin-service" class="menu-list" visible>
+          <a href="/uc/message/multiSendList" class="d-flex align-items-center menu-item" :class="{ active: ($route.path.includes('/uc/message/') || $route.path.includes('/uc/rcsTemplateSend'))}">
             <icon-send />
             <span >발송</span>
           </a>
-          <a href="#" class="d-flex align-items-center menu-item">
+          <a href="/uc/messageStatus" class="d-flex align-items-center menu-item" :class="{ active: ($route.path === '/uc/messageStatus' || $route.path === '/uc/webSend')}">
             <icon-menu-search />
             <span >조회</span>
           </a>
-          <a href="#" class="d-flex align-items-center menu-item">
+          <a href="/uc/template/multiSendTemplateList" class="d-flex align-items-center menu-item" :class="{ active: $route.path.includes('/uc/template/')}">
             <icon-template />
             <span >템플릿</span>
           </a>
@@ -62,9 +62,9 @@
       <li>
         <b-button v-b-toggle.collapse-admin-manage class="d-flex align-items-center justify-content-between menu-title">
           <span >관리</span>
-          <icon-arrow-down />
+          <IconArrowDown />
         </b-button>
-        <b-collapse id="collapse-admin-manage" class="menu-list">
+        <b-collapse id="collapse-admin-manage" class="menu-list" visible>
           <a href="#" class="d-flex align-items-center menu-item">
             <icon-channel />
             <span >채널관리</span>
@@ -110,17 +110,17 @@
       <li>
         <b-button v-b-toggle.collapse-user disabled class="menu-title">서비스</b-button>
         <b-collapse visible id="collapse-user" class="menu-list">
-          <a href="/uc/message/multiSendList" class="d-flex align-items-center menu-item" :class="{ active: $route.path === '/uc/message/multiSendList' }">
+          <a href="/uc/message/multiSendList" class="d-flex align-items-center menu-item" :class="{ active: ($route.path.includes('/uc/message/') || $route.path.includes('/uc/rcsTemplateSend'))}">
             <icon-send />
             <span >발송</span>
           </a>
-          <a href="#" class="d-flex align-items-center menu-item">
+          <a href="/uc/messageStatus" class="d-flex align-items-center menu-item" :class="{ active: ($route.path === '/uc/messageStatus' || $route.path === '/uc/webSend')}">
             <icon-menu-search />
             <span >조회</span>
           </a>
-          <a href="#" class="d-flex align-items-center menu-item">
+          <a href="/uc/template/multiSendTemplateList" class="d-flex align-items-center menu-item" :class="{ active: $route.path.includes('/uc/template/')}">
             <icon-template />
-            <span >템플릿</span>
+            <span>템플릿</span>
           </a>
           <a href="#" class="d-flex align-items-center menu-item">
             <icon-stats />
@@ -149,6 +149,7 @@ import IconAddress from '@/components/service/icons/IconAddress.vue'
 import IconCall from '@/components/service/icons/IconCall.vue'
 import IconAlarm from '@/components/service/icons/IconAlarm.vue'
 import IconGraph from '@/components/service/icons/IconGraph.vue'
+import '@/assets/scss/service/sidebar.scss';
 
 export default {
   name: 'SideNavBar',
@@ -183,136 +184,12 @@ export default {
     IconCall,
     IconAlarm,
     IconGraph,
+  },
+  computed: {
+
   }
 };
 </script>
 
 <style scoped lang="scss">
-#sidebar {
-  flex: 0 0 260px ;
-  width: 260px;
-  min-height: 100vh;
-  transition: all 0.3s;
-  background: var(--primary);
-  /* 메뉴 닫혔을 때 */
-  &.hide {
-    flex: 0 0 80px;
-    width: 80px;
-    overflow: hidden;
-    .sidebar-header .logo,
-    .menu-list,
-    .sidebar-info,
-    .sidebar-menu {
-      display: none;
-    }
-  }
-}
-
-.sidebar-header {
-  padding: 30px 24px;
-
-  .logo {
-    padding-left: 12px;
-  }
-  .btn {
-    margin: 0;
-    padding: 4px;
-
-    img {
-      width: 24px;
-      height: 24px;
-    }
-  }
-}
-
-.sidebar-info {
-  margin-bottom: 32px;
-  padding: 16px 24px;
-  color: var(--white);
-  
-  p {
-    margin: 0;
-    padding: 0 12px 12px;
-    font-size: 18px;
-    font-weight: 700;
-    line-height: 160%; /* 28.8px */
-    letter-spacing: -0.36px;
-  }
-}
-
-.sidebar-menu {
-  margin: 0;
-
-  .menu-title {
-    width: 100%;
-    padding: 12px 36px;
-    background-color: transparent;
-    border: none;
-    color: #ECEFF2;
-    font-size: 14px;
-    font-weight: 700;
-    line-height: 140%;
-    letter-spacing: -0.28px;
-    text-align: left;
-
-    &:disabled {
-      opacity: 1;
-    }
-
-    /* 관리자 메뉴 열었을때 화살표 스타일 */
-    &.not-collapsed svg {
-      transform: rotate(180deg);
-    }
-  }
-
-  .menu-divider {
-    padding: 0 36px;
-
-    hr {
-      margin: 12px 0;
-      border-color: rgba(255, 255, 255, 0.2);
-    }
-  }
-
-  .menu-list {
-    display: flex;
-    flex-direction: column;
-    margin: 6px 0;
-    padding: 0 24px;
-
-    & > a {
-      margin: 2px 0;
-    }
-  }
-
-  .menu-item {
-    padding: 12px 36px;
-    color: #fff;
-
-    svg {
-      width: 20px;
-      height: 20px;
-      margin-right: 10px;
-    }
-
-    span {
-      font-size: 14px;
-      font-weight: 700;
-      line-height: 140%; /* 19.6px */
-      letter-spacing: -0.28px;
-      color: #fff;
-    }
-
-    // 현재 메뉴일 경우
-    &.active {
-      background-color: #fff;
-      border-radius: 8px;
-      color: #6D6EFA;
-
-      span {
-        color: #111827;
-      }
-    }
-  }
-}
 </style>

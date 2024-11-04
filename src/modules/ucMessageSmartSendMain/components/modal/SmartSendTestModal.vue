@@ -6,8 +6,8 @@
     </template>
 
     <div class="d-flex form-row">
-      <label>휴대폰 번호<span class="require">*</span></label>
-      <label>이름<span class="require">*</span></label>
+      <label class="mb-1 pb-2 f-body5 c-gray500">휴대폰 번호<span class="require">*</span></label>
+      <label class="mb-1 pb-2 f-body5 c-gray500">이름<span class="require">*</span></label>
     </div>
 
     <div class="d-flex form-row input-row">
@@ -48,35 +48,24 @@ export default {
 </script>
 
 <style scoped lang="scss">
-.title-desc {
-  margin: 20px 0 0;
-  font-size: 14px;
-  font-weight: 700;
-  line-height: 140%; /* 19.6px */
-  letter-spacing: -0.28px;
-  color: var(--gray-500);
-}
-label {
-  margin-bottom: 12px;
-  font-size: 14px;
-  font-weight: 500;
-  line-height: 140%; /* 19.6px */
-  letter-spacing: -0.28px;
-  color: var(--gray-500);
-}
 .form-row {
   display: flex;
+  margin: 0;
   & > * {
     width: calc(50% - 10px);
+    margin-right: 10px;
   }
   label + label {
-    margin-left: 20px;
+    margin-left: 10px;
+    margin-right: 0;
   }
   .form-control + .form-control {
-    margin-left: 20px;
+    margin-left: 10px;
+    margin-right: 0;
   }
   &.input-row + .input-row {
-    margin-top: 20px;
+    margin-top: 10px;
+    margin-right: 0;
   }
 }
 </style>

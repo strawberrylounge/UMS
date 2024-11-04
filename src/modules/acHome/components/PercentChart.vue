@@ -16,8 +16,9 @@
     <div class="card chart-card">
       <div class="chart-container">
         <LineChart
-          :data="chartData"
-          :options="chartOptions"
+          :chart-options="chartOptions"
+          :chart-data="chartData"
+          :height="280"
         />
       </div>
     </div>

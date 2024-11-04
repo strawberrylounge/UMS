@@ -5,7 +5,7 @@
       <p class="title-desc">* 테스트 발송 시 대체 발송은 하지 않습니다.</p>
     </template>
 
-    <label>휴대폰 번호 <span class="require">*</span></label>
+    <label class="mb-1 pb-2 f-body5 c-gray500">휴대폰 번호 <span class="require">*</span></label>
     <b-input placeholder="010-1234-5678"></b-input>
     <b-input placeholder="010-1234-5678"></b-input>
     <b-input placeholder="010-1234-5678"></b-input>
@@ -35,22 +35,6 @@ export default {
 </script>
 
 <style scoped lang="scss">
-.title-desc {
-  margin: 20px 0 0;
-  font-size: 14px;
-  font-weight: 700;
-  line-height: 140%; /* 19.6px */
-  letter-spacing: -0.28px;
-  color: var(--gray-500);
-}
-label {
-  margin: 0 0 12px 0;
-  font-size: 14px;
-  font-weight: 500;
-  line-height: 140%; /* 19.6px */
-  letter-spacing: -0.28px;
-  color: var(--gray-500);
-}
 .form-control + .form-control {
   margin-top: 20px;;
 }

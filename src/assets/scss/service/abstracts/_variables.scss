@@ -1,5 +1,5 @@
 @forward "../../landing/abstracts/prefix";
-@forward "../base/typography";
+// @forward "../base/typography";
 
 /* 
 * img path
@@ -24,6 +24,7 @@ $colors: (
   gray700: #374151,
   gray800: #1f2937,
   gray900: #111827,
+  primary: #6d6efa,
   primary50: #e9e9fe,
   primary100: #d2d2fd,
   primary200: #7c7dfa,

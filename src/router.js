@@ -16,6 +16,17 @@ import ucMessageSendAlimTalk from "@/modules/ucMessageSendAlimTalk/views/Index.v
 import Channel from "./modules/main/views/Channel.vue";
 import Customer from "./modules/main/views/Customer.vue";
 import NoticeDetail from "./modules/main/views/customer/Notice/NoticeDetail.vue";
+import ucMessageStatus from "@/modules/ucMessageStatus/views/Index.vue";
+import ucWebSend from "@/modules/ucWebSend/views/Index.vue";
+import ucMultiSendTemplateList from "@/modules/ucMultiSendTemplateList/views/Index.vue";
+import ucSmsTemplateList from "@/modules/ucSmsTemplateList/views/Index.vue";
+import ucSmsTemplateManage from "@/modules/ucSmsTemplateManage/views/Index.vue";
+import ucRcsTemplateList from "@/modules/ucRcsTemplateList/views/Index.vue";
+import ucRcsTemplateManage from "@/modules/ucRcsTemplateManage/views/Index.vue";
+import ucRcsTemplateManageEdit from "@/modules/ucRcsTemplateManageEdit/views/Index.vue";
+import ucAlimTalkTemplateList from "@/modules/ucAlimTalkTemplateList/views/Index.vue";
+import ucAlimTalkTemplateManage from "@/modules/ucAlimTalkTemplateManage/views/Index.vue";
+import ucTemplateMultiSendTemplateManage from "@/modules/ucTemplateMultiSendTemplateManage/views/Index.vue";
 
 Vue.use(Router);
 
@@ -99,6 +110,116 @@ const router = new Router({
         {
           path: "",
           component: ucMessageSendAlimTalk,
+        },
+      ],
+    },
+    {
+      path: "/uc/messageStatus",
+      component: ServiceLayout,
+      children: [
+        {
+          path: "",
+          component: ucMessageStatus,
+        },
+      ],
+    },
+    {
+      path: "/uc/webSend",
+      component: ServiceLayout,
+      children: [
+        {
+          path: "",
+          component: ucWebSend,
+        },
+      ],
+    },
+    {
+      path: "/uc/template/multiSendTemplateList",
+      component: ServiceLayout,
+      children: [
+        {
+          path: "",
+          component: ucMultiSendTemplateList,
+        },
+      ],
+    },
+    {
+      path: "/uc/template/smsTemplateList",
+      component: ServiceLayout,
+      children: [
+        {
+          path: "",
+          component: ucSmsTemplateList,
+        },
+      ],
+    },
+    {
+      path: "/uc/template/smsTemplateManage",
+      component: ServiceLayout,
+      children: [
+        {
+          path: "",
+          component: ucSmsTemplateManage,
+        },
+      ],
+    },
+    {
+      path: "/uc/template/rcsTemplateList",
+      component: ServiceLayout,
+      children: [
+        {
+          path: "",
+          component: ucRcsTemplateList,
+        },
+      ],
+    },
+    {
+      path: "/uc/template/rcsTemplateManage",
+      component: ServiceLayout,
+      children: [
+        {
+          path: "",
+          component: ucRcsTemplateManage,
+        },
+      ],
+    },
+    {
+      path: "/uc/template/rcsTemplateManage/edit",
+      component: ServiceLayout,
+      children: [
+        {
+          path: "",
+          component: ucRcsTemplateManageEdit,
+        },
+      ],
+    },
+    {
+      path: "/uc/template/alimTalkTemplateList",
+      component: ServiceLayout,
+      children: [
+        {
+          path: "",
+          component: ucAlimTalkTemplateList,
+        },
+      ],
+    },
+    {
+      path: "/uc/template/alimTalkTemplateManage",
+      component: ServiceLayout,
+      children: [
+        {
+          path: "",
+          component: ucAlimTalkTemplateManage,
+        },
+      ],
+    },
+    {
+      path: "/uc/template/multiSendTemplateManage",
+      component: ServiceLayout,
+      children: [
+        {
+          path: "",
+          component: ucTemplateMultiSendTemplateManage,
         },
       ],
     },

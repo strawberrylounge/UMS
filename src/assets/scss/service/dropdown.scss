@@ -1,0 +1,76 @@
+@use "../../scss/service/base/typography" as typography;
+
+/* dropdown */
+#service .b-dropdown.dropdown:not(.user-dropdown),
+.service-modal .b-dropdown.dropdown {
+  &.show {
+    .dropdown-toggle {
+      &:not(.btn-primary) {
+        border-end-start-radius: 0;
+        border-end-end-radius: 0;
+      }
+      svg {
+        transform: rotate(180deg);
+      }
+    }
+  }
+  .dropdown-toggle:not(.btn-primary) {
+    width: 100%;
+    padding: 11px 15px;
+    border: 1px solid var(--border-color);
+    border-radius: 8px;
+    background: var(--white);
+    @include typography.font-style(14px, 400, 140%, -0.28px);
+    color: var(--gray900);
+    &::after {
+      display: none;
+    }
+    &:focus {
+      box-shadow: none;
+    }
+    svg {
+      margin-left: auto;
+      path {
+        stroke: var(--gray900);
+      }
+    }
+  }
+  .dropdown-menu {
+    width: 100%;
+    min-width: auto;
+    max-height: 140px;
+    margin: 0;
+    padding: 0;
+    border-top: 0;
+    border-radius: 0 0 8px 8px;
+    transform-origin: top; 
+    transform: translate3d(0px, 44px, 0px) !important;
+    overflow-y: auto;
+    &:focus-visible {
+      outline: none;
+    }
+    li {
+      padding: 8px 16px;
+      &.active,
+      &:hover {
+        background-color: var(--gray100);
+      }
+      &:last-child {
+        border-radius: 0 0 8px 8px;
+      }
+      a,
+      button {
+        padding: 0;
+        @include typography.font-style(14px, 400, 140%, -0.28px);
+        color: var(--gray900);
+        &:hover {
+          background-color: var(--gray100);
+        }
+      }
+    }
+  }
+  .dropdown-toggle.disabled {
+    background-color: var(--gray50);
+    opacity: 1;
+  }
+}

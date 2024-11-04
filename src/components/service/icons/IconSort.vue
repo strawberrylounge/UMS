@@ -24,7 +24,7 @@ export default {
   border: none;
   &.up {
     .ic-up path {
-      fill: var(--gray-900);
+      fill: var(--gray900);
     }
     .ic-down {
       display: none;
@@ -32,7 +32,7 @@ export default {
   }
   &.down {
     .ic-down path {
-      fill: var(--gray-900);
+      fill: var(--gray900);
     }
     .ic-up {
       display: none;

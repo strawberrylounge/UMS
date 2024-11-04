@@ -1,7 +1,7 @@
 <template>
   <div class="status-card" :class="item.type">
     <div class="status-card-body">
-      <p class="status-card-title">{{ item.title }}</p>
+      <p class="m-0 f-title3 c-gray400">{{ item.title }}</p>
       <p class="status-card-text"><span>{{ item.value }}</span>건</p>
     </div>
   </div>
@@ -20,6 +20,8 @@ export default {
 </script>
 
 <style scoped lang="scss">
+@use "~@/assets/scss/service/base/typography" as typography;
+
 .status-card {
   width: 20%;
   padding: 0 12.5px;
@@ -29,24 +31,13 @@ export default {
     justify-content: space-between;
     padding: 26px 23px;
     background: var(--white);
-    border: 1px solid var(--gray-300);
+    border: 1px solid var(--gray300);
     border-radius: 12px;
-  }
-  &-title {
-    margin: 0;
-    font-size: 18px;
-    font-weight: 700;
-    line-height: 140%; /* 25.2px */
-    letter-spacing: -0.36px;
-    color: var(--gray-400);
   }
   &-text {
     margin: 0;
-    font-size: 20px;
-    font-weight: 700;
-    line-height: 140%; /* 28px */
-    letter-spacing: -0.4px;
-    color: var(--gray-700);
+    @include typography.font-style(20px, 700, 140%, -0.4px);
+    color: var(--gray700);
     span {
       padding-right: 4px;
     }

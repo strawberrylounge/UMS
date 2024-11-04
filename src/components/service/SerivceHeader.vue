@@ -2,12 +2,12 @@
   <header id="header" class="d-flex align-items-end justify-content-between header">
     <div class="d-flex align-items-end">
       <h2 class="m-0 heading1">{{ headerTitle }}</h2>
-      <p v-if="showMsgDesc" class="msg-desc">야간 메시지 발송 제한으로 21:00 ~ 다음날 08:00까지 메시지를 발송할 수 없습니다.
+      <p v-if="showMsgDesc" class="msg-desc f-body4">야간 메시지 발송 제한으로 21:00 ~ 다음날 08:00까지 메시지를 발송할 수 없습니다.
         <b-button v-b-tooltip.hover.html="msgTooltip" variant="light" class="btn-icon p-0">
           <IconQuestion isRed />
         </b-button>
       </p>
-      <p v-else-if="showSmartMsgDesc" class="msg-desc">(친구톡 광고 메시지는 20시~8시 발송 시 실패 처리 됩니다.)야간 메시지 발송 제한으로 21:00 ~ 다음날 08:00 까지 메시지 발송을 할 수 없습니다.
+      <p v-else-if="showSmartMsgDesc" class="msg-desc f-body4">(친구톡 광고 메시지는 20시~8시 발송 시 실패 처리 됩니다.)야간 메시지 발송 제한으로 21:00 ~ 다음날 08:00 까지 메시지 발송을 할 수 없습니다.
         <b-button v-b-tooltip.hover.html="msgTooltip" variant="light" class="btn-icon p-0">
           <IconQuestion isRed />
         </b-button>
@@ -41,6 +41,7 @@
 <script>
 import IconCoin from '@/components/service/icons/IconCoin.vue'
 import IconQuestion from '@/components/service/icons/IconQuestion.vue'
+import '@/assets/scss/service/header.scss';
 
 export default {
   components: { IconCoin, IconQuestion, },
@@ -60,6 +61,20 @@ export default {
           return 'RCS';
         case '/uc/message/sendAlimTalk':
           return '알림톡';
+        case '/uc/messageStatus':
+          return '발송현황';
+        case '/uc/webSend':
+          return '발송내역';
+        case '/uc/template/multiSendTemplateList':
+        case '/uc/template/smsTemplateList':
+        case '/uc/template/smsTemplateManage':
+        case '/uc/template/rcsTemplateList':
+        case '/uc/template/rcsTemplateManage':
+        case '/uc/template/rcsTemplateManage/edit':
+        case '/uc/template/alimTalkTemplateList':
+        case '/uc/template/alimTalkTemplateManage':
+        case '/uc/template/multiSendTemplateManage':
+          return '템플릿'
         default:
           return ''
       }
@@ -82,18 +97,14 @@ export default {
 <style scoped lang="scss">
 .header {
   padding: 20px 40px 19px 40px;
-  border-bottom: 1px solid var(--gray-300);
+  border-bottom: 1px solid var(--gray300);
   h2 {
-    color: var(--gray-700);
+    color: var(--gray700);
   }
   .msg-desc {
     display: flex;
     align-items: center;
     margin: 0 0 0 20px;
-    font-size: 14px;
-    font-weight: 700;
-    line-height: 140%; /* 19.6px */
-    letter-spacing: -0.28px;
     color: #FF6057;
     .btn {
       margin-left: 8px;

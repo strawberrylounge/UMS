@@ -46,7 +46,7 @@ export default {
     width: 20px;
     height: 20px;
     path {
-      fill: var(--gray-700);
+      fill: var(--gray700);
     }
   }
 }

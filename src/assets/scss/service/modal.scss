@@ -1,4 +1,4 @@
-@use "../service/abstracts/variables" as *;
+@use "../../scss/service/base/typography" as typography;
 
 .modal {
   &-dialog {
@@ -14,10 +14,7 @@
       max-width: 684px;
       background-color: var(--white);
       .modal-title {
-        font-size: 20px;
-        font-weight: 700;
-        line-height: 140%; /* 28px */
-        letter-spacing: -0.4px;
+        @include typography.font-style(20px, 700, 140%, -0.4px);
         color: var(--grary-900);
       }
       .modal-body {
@@ -25,10 +22,7 @@
       }
       .desc {
         margin: 0;
-        font-size: 16px;
-        font-weight: 500;
-        line-height: 140%; /* 22.4px */
-        letter-spacing: -0.32px;
+        @include typography.font-style(16px, 500, 140%, -0.32px);
         color: var(--grary-500);
       }
       .modal-footer {
@@ -42,11 +36,16 @@
   }
   &-title {
     width: 100%;
-    font-size: 20px;
-    font-weight: 700;
-    line-height: 28px;
-    letter-spacing: -0.02em;
+    @include typography.font-style(20px, 700, 28px, -0.02em);
     color: var(--grary-900);
+  }
+  .title-desc {
+    margin: 20px 0 0;
+    @include typography.font-style(14px, 700, 140%, -0.28px);
+    color: var(--gray500);
+    span {
+      color: var(--status-failure);
+    }
   }
   &-body {
     max-height: 740px;
@@ -95,4 +94,14 @@
 #search-address-modal .modal-dialog {
   width: 955px;
   max-width: 955px;
+}
+#select-image-modal {
+  .btn-icon {
+    path {
+      stroke: var(--primary)
+    }
+  }
+}
+#talk-move-request-modal .modal-body {
+  overflow: visible;
 }

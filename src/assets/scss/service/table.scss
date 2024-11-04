@@ -1,3 +1,5 @@
+@use "../../scss/service/base/typography" as typography;
+
 .table-responsive {
   border: 1px solid var(--border-color);
   border-radius: 8px;
@@ -10,7 +12,7 @@
     }
   }
   thead th {
-    background-color: var(--gray-50);
+    background-color: var(--gray50);
     border-top: none;
     border-bottom: none;
   }
@@ -20,18 +22,21 @@
         border-bottom: none;
       }
       &:hover td {
-        background-color: var(--gray-100);
+        background-color: var(--gray100);
       }
     }
   }
-  th, td {
-    padding: 16px;
+  th {
+    padding: 13px 16px;
     border-color: var(--border-color);
-    font-size: 16px;
-    font-weight: 500;
-    line-height: 140%; /* 22.4px */
-    letter-spacing: -0.32px;
-    color: var(--gray-900);
+    @include typography.font-style(16px, 500, 140%, -0.32px);
+    color: var(--gray900);
+  }
+  td {
+    padding: 17px 16px;
+    border-color: var(--border-color);
+    @include typography.font-style(16px, 500, 140%, -0.32px);
+    color: var(--gray900);
   }
   tr:last-child td {
     border-bottom:  1px solid var(--border-color);
@@ -54,11 +59,8 @@
   &-link {
     display: inline-block;
     margin-right: 28px;
-    font-size: 16px;
-    font-weight: 400;
-    line-height: 140%; /* 22.4px */
-    letter-spacing: -0.32px;
-    color: var(--gray-600);
+    @include typography.font-style(16px, 400, 140%, -0.32px);
+    color: var(--gray600);
     text-align: center;
     &.last-link {
       margin-right: 0;
@@ -68,7 +70,7 @@
       color: var(--primary);
     }
     &:hover {
-      color: var(--gray-600);
+      color: var(--gray600);
       text-decoration: none;
     }
   }
@@ -78,7 +80,7 @@
     background-color: #fff;
     &:disabled {
       path {
-        stroke: var(--gray-300);
+        stroke: var(--gray300);
       }
     }
     &:active:focus {
@@ -91,7 +93,7 @@
       height: 16px;
     }
     path {
-      stroke: var(--gray-600);
+      stroke: var(--gray600);
     }
   }
   .arrow-left {
@@ -108,7 +110,6 @@
   thead th {
     position: sticky;
     top: 0;
-    background-color: var(--white);
     z-index: 2;
   }
 }

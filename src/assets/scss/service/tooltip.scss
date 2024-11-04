@@ -1,0 +1,25 @@
+@use "../../scss/service/base/typography" as typography;
+
+/* tooltip */
+.tooltip {
+  opacity: 1;
+  &-inner {
+    max-width: 464px;
+    padding: 16px;
+    background-color: var(--gray50);
+    border: 1px solid var(--border-color);
+    border-radius: 8px;
+    @include typography.font-style(14px, 400, 180%, -0.28px);
+    color: var(--gray700);
+    text-align: left;
+    ul {
+      margin: 0;
+      padding: 0;
+      list-style: none;
+      text-align: start;
+    }
+  }
+  .arrow:before {
+    border-top-color: var(--gray50);
+  }
+}

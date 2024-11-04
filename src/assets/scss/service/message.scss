@@ -1,36 +1,9 @@
-.service-tabs {
-  display: flex;
-  width: 100%;
-  padding-bottom: 16px;
-  &:has(.btn) {
-    padding-bottom: 0;
-  }
-  .tab {
-    padding-left: 40px;
-    &:first-child {
-      padding: 0;
-    }
-    &.active a,
-    &.active button {
-      border-bottom: 4px solid var(--primary);
-      color: var(--gray-900);
-    }
-    a,
-    button {
-      padding: 0;
-      padding-bottom: 16px;
-      border: none;
-      border-radius: 0;
-      background-color: transparent;
-      font-size: 20px;
-      font-weight: 700;
-      line-height: 140%; /* 28px */
-      letter-spacing: -0.4px;
-      color: var(--gray-500);
-    }
-  }
-}
+@use "../../scss/service/base/typography" as typography;
 
+/* 발송 공통 스타일*/
+.tab-contents {
+  padding: 20px 40px 64px;
+}
 #service-checkbox-group-message,
 #service-checkbox-group-template {
   .custom-checkbox {
@@ -40,27 +13,25 @@
     }
   }
 }
-.btn-search-condition path {
-  stroke: var(--gray-700);
+.btn-search-condition {
+  padding: 0;
+  span {
+    padding-right: 8px;
+    @include typography.font-style(14px, 500, 140%, -0.28px);
+    text-decoration-line: underline;
+    color: var(--gray700);
+  }
+  svg {
+    width: 16px;
+    height: 16px;
+    transform: rotate(180deg); /* 아이콘 회전 */
+    &.rotated {
+      transform: rotate(0deg); 
+    }
+  }
 }
 .service-template-tabs  {
   .tab {
-    &.active {
-      .btn-icon {
-        path {
-          &:first-child {
-            fill: transparent;
-            stroke: var(--white);
-          }
-          &:nth-child(2) {
-            stroke: var(--white);
-          }
-          &:last-child {
-            fill: var(--white);
-          }
-        }
-      }
-    }
     .btn-icon {
       margin-top: -2px;
       margin-left: 8px;
@@ -69,17 +40,262 @@
       width: 16px;
       height: 16px;
       path {
-        &:first-child {
-          fill: transparent;
-          stroke: var(--gray-400);
-        }
-        &:nth-child(2) {
-          stroke: var(--gray-400);
-        }
+        stroke: var(--gray400);
         &:last-child {
-          fill: var(--gray-400);
+          stroke: none;
+          fill: var(--gray400)
         }
       }
     }
+  }
+}
+/* 통합발송 미리보기 스타일 */
+.preview {
+  padding: 28px;
+  &-title {
+    margin: 0 0 28px 0;
+    @include typography.font-style(20px, 700, 140%, -0.4px);
+    color: var(--gray700);
+  }
+}
+/* 통합발송 공통 스타일 */
+.section {
+  width: calc(100% - 400px);
+  margin-left: 20px;
+  padding: 28px;
+  .form-label {
+    width: 120px;
+    margin: 0 12px 0 0;
+    @include typography.font-style(14px, 500, 140%, -0.28px);
+    color: var(--gray500);
+  }
+  &-title {
+    margin: 0 0 20px 0;
+  }
+}
+.messag-btn-group {
+  button + button {
+    margin-left: 12px;
+  }
+}
+.btn-sample-download {
+  padding: 0;
+  background-color: var(--white);
+  border: none;
+  span {
+    @include typography.font-style(14px, 400, 140%, -0.28px);
+    color: var(--gray700);
+    text-decoration-line: underline;
+  }
+  svg {
+    margin-left: 4px;
+  }
+  &:not(:disabled):active:focus {
+    background-color: var(--white);
+    border: none;
+    box-shadow: none;
+  }
+  &:hover {
+    span {
+      color: var(--primary);
+    }
+  }
+}
+.book-form {
+  display: flex;
+  align-items: center;
+  .datepicker-container {
+    width: 180px;
+    margin-right: 12px;
+  }
+  .time-divider {
+    padding: 0 12px;
+    font-size: 14px;
+  }
+}
+.receive-table {
+  max-width: 602px;
+  margin-top: 20px;
+  padding-left: 132px;
+  .table {
+    tbody tr:last-child td {
+      border-bottom: none;
+    }
+    th, td {
+      padding-left: 16px;
+      padding-right: 16px;
+    }
+  }
+}
+.submit-wrap {
+  text-align: center;
+  button {
+    min-width: 200px;
+    & + button {
+      margin-left: 20px;
+    }
+  }
+}
+.send-number-dropdown {
+  width: 348px;
+}
+.hr {
+  margin: 24px 0;
+}
+.receive-count {
+  margin-top: 20px;
+  padding-left: 132px;
+}
+/* 템플릿 선택 공통 스타일 */
+.select-template-modal {
+  .section {
+    width: calc(100% / 3);
+    margin: 0;
+    padding: 0 20px;
+    & + .section {
+      border-left: 1px solid var(--border-color);
+    }
+    &:first-child {
+      padding-left: 0;
+    }
+    &:last-child {
+      padding-right: 0;
+    }
+  }
+  .input-group {
+    margin: 12px 0 20px;
+    .btn {
+      width: 95px;
+      margin-left: 4px;
+    }
+  }
+  .template-list {
+    height: 345px;
+    overflow-y: auto;
+    .dropdown-menu {
+      position: static;
+      width: 100%;
+      height: 100%;
+      max-height: 100%;
+      margin: 0;
+      padding: 0;
+      border: 1px solid var(--border-color) !important;
+      border-radius: 0;
+      transform: none !important;
+      li {
+        padding: 8px 16px;
+        &.active,
+        &:hover {
+          background-color: var(--gray100);
+        }
+        &:last-child {
+          border-bottom: 1px solid var(--border-color);
+          border-radius: 0 !important;
+        }
+        a,button {
+          padding: 0;
+          @include typography.font-style(14px, 400, 140%, -0.28px);
+          color: var(--gray900);
+          &:hover {
+            background-color: var(--gray100);
+          }
+        }
+        & + li {
+          border-top: 1px solid var(--border-color);
+        }
+      }
+    }
+  }
+  dl.template-content {
+    margin-bottom: 0;
+    & + dl {
+      margin-top: 28px;
+    }
+    dt {
+      margin: 0 0 8px 0;
+      @include typography.font-style(14px, 500, 140%, -0.28px);
+      color: var(--gray500);
+    }
+    dd {
+      @include typography.font-style(14px, 400, 140%, -0.28px);
+      color: var(--gray700);
+    }
+  }
+  .hr {
+    margin: 20px 0;
+  }
+  .dropdown-container {
+    label.form-label {
+      width: 120px;
+      margin-right: 12px;
+    }
+    .brand-dropdown {
+      width: 100%;
+    }
+  }
+}
+/* 조회 화면 공통 스타일 */
+.list-view .search-section {
+  display: flex;
+  align-items: center;
+  flex-direction: row;
+  padding: 28px;
+  box-shadow: none;
+  &-forms {
+    width: 100%;
+    max-width: calc(100% - 120px - 24px);
+  }
+  label {
+    margin: 0;
+    @include typography.font-style(14px, 500, 140%, -0.28px);
+    color: var(--gray700);
+  }
+  .datepicker-group {
+    display: inline-flex;
+    align-items: center;
+    margin-right: 4px;
+    & > div {
+      width: 180px;
+    }
+    & > span {
+      padding: 0 12px;
+      @include typography.font-style(16px, 700, 140%, -0.32px);
+      color: var(--gray500);
+    }
+  }
+  .btn-filter {
+    margin-left: 8px;
+  }
+  .vertical-divider {
+    width: 1px;
+    height: 16px;
+    margin: 0 20px;
+    background: var(--border-color);
+  }
+  .btn-submit {
+    width: 120px;
+    margin-left: 24px;
+  }
+}
+.list-view .table-section {
+  margin-top: 20px;
+  padding: 28px;
+  .table-responsive {
+    margin-top: 40px;
+  }
+  tbody tr:last-child td {
+    border-bottom: 1px solid var(--border-color);
+  }
+  .list-count {
+    margin: 0 12px 0 0;
+    @include typography.font-style(14px, 700, 140%, -0.28px);
+    color: var(--gray500);
+    span {
+      padding-left: 6px;
+    }
+  }
+  .pageCount-dropdown {
+    width: 132px;
+    margin-right: 20px;
   }
 }

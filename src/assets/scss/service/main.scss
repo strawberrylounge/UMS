@@ -6,27 +6,19 @@
 @use "../service/abstracts/variables" as *;
 
 :root {
-  --primary: #{map.get($colors, primary300)};
-  --primary-50: #{map.get($colors, primary50)};
-  --primary-100: #{map.get($colors, primary100)};
-  --primary-200: #{map.get($colors, primary200)};
-  --primary-300: #{map.get($colors, primary300)};
-  --primary-400: #{map.get($colors, primary400)};
-  --gray-900: #{map.get($colors, gray900)};
-  --gray-700: #{map.get($colors, gray700)};
-  --gray-600: #{map.get($colors, gray600)};
-  --gray-500: #{map.get($colors, gray500)};
-  --gray-400: #{map.get($colors, gray400)};
-  --gray-300: #{map.get($colors, gray300)};
-  --gray-200: #{map.get($colors, gray200)};
-  --gray-100: #{map.get($colors, gray100)};
-  --gray-50: #{map.get($colors, gray50)};
-  --red-600: #{map.get($colors, red600)};
+  // colors map을 순회하여 각 색상에 대해 CSS 변수를 생성
+  @each $name, $color in $colors {
+    --#{$name}: #{$color};
+  }
+
+  // 추가적으로 필요한 변수들 수동 설정
   --border-color: #{map.get($colors, gray300)};
   --status-request: #{map.get($colors, states-green)};
   --status-waiting: #{map.get($colors, states-yellow)};
   --status-success: #{map.get($colors, states-blue)};
   --status-failure: #{map.get($colors, states-red)};
+
+  // 폰트 설정
   --font-family-sans-serif: "Pretendard Variable", Pretendard, -apple-system,
     BlinkMacSystemFont, system-ui, Roboto, "Helvetica Neue", "Segoe UI",
     "Apple SD Gothic Neo", "Noto Sans KR", "Malgun Gothic", "Apple Color Emoji",
@@ -43,10 +35,6 @@ body {
   height: 100%;
 }
 
-.text-primary {
-  color: var(--primary) !important;
-}
-
 .card {
   border-radius: 12px;
   border: 1px solid var(--border-color);
@@ -54,295 +42,27 @@ body {
   box-shadow: 0px 10px 13px 0px rgba(17, 38, 146, 0.05);
 }
 
-/* sidebar */
-#sidebar {
-  .user-dropdown.b-dropdown.dropdown {
-    .dropdown-toggle {
-      display: flex;
-      align-items: center;
-      padding: 12px;
-      border-radius: 8px;
-      border: 1px solid rgba(255, 255, 255, 0.2);
-      background: var(--primary-200);
-      &::after {
-        display: none;
-      }
-      svg:last-child {
-        margin-left: auto;
-      }
-    }
-    .name {
-      padding-left: 6px;
-      font-size: 14px;
-      font-weight: 700;
-      letter-spacing: -0.28px;
-    }
-    .dropdown-menu {
-      min-width: 212px;
-      margin-left: 8px;
-      padding: 20px;
-      border-radius: 12px;
-      border: 1px solid var(--border-color);
-      background: var(--white);
-      box-shadow: 2px 6px 12px 0px rgba(98, 104, 138, 0.24);
-      li {
-        padding: 0;
-      }
-    }
-    .dropdown-item {
-      padding: 0;
-      font-size: 14px;
-      font-weight: 700;
-      line-height: 140%;
-      letter-spacing: -0.28px;
-      color: var(--gray-600);
-    }
-    .dropdown-divider {
-      margin: 16px 0;
+.list-view {
+  .custom-checkbox {
+    margin-left: 28px;
+    &:first-child {
+      margin-left: 0;
     }
   }
 }
-
-#header {
-  .cash-dropdown.b-dropdown.dropdown {
-    &.show > .btn-primary.dropdown-toggle {
-      background-color: var(--primary-400);
-      border-color: var(--primary-400);
-    }
-    .dropdown-toggle::after {
-      display: none;
-    }
-    .dropdown-menu {
-      min-width: 270px;
-      margin-top: 8px;
-      padding: 23px;
-      border-radius: 16px;
-      border: 1px solid var(--border-color);
-      background: var(--white);
-      &:focus-visible {
-        outline: none;
-      }
-      li {
-        padding: 0;
-      }
-    }
-    li:nth-child(2) .b-dropdown-text {
-      margin-top: 20px;
-    }
-    .b-dropdown-text {
-      display: flex;
-      align-items: center;
-      margin: 0;
-      span {
-        font-size: 16px;
-        font-weight: 500;
-        line-height: 140%; /* 22.4px */
-        letter-spacing: -0.32px;
-        color: var(--gray-700);
-        &:last-child {
-          margin-left: auto;
-          font-weight: 700;
-          color: var(--gray-900);
-        }
-      }
-    }
-    .dropdown-divider {
-      margin: 20px 0;
-    }
+.list-view .btn-search-condition path {
+  stroke: var(--gray700);
+}
+.service-template-tabs .tab.active .btn-icon path {
+  stroke: var(--white);
+  &:last-child {
+    stroke: none;
+    fill: var(--white)
   }
 }
-
-.service-home-slide {
-  .carousel-inner {
-    max-width: 100%;
-  }
-  .carousel-caption {
-    position: static;
-    padding: 0;
-  }
-  .carousel-control {
-    &-prev {
-      left: 16px;
-      width: 20px;
-      &-icon {
-        background-image: url("#{$icon}icon-caret-left.svg");
-      }
-    }
-    &-next {
-      right: 16px;
-      width: 20px;
-      &-icon {
-        background-image: url("#{$icon}icon-caret-right.svg");
-      }
-    }
-  }
+.btn-add path {
+  stroke: var(--gray700);
 }
-
-#service .ac-home {
-  .chart {
-    &-title {
-      display: inline-flex;
-      align-items: center;
-      margin: 0;
-      font-size: 20px;
-      font-weight: 700;
-      line-height: 140%; /* 28px */
-      letter-spacing: -0.4px;
-      color: var(--gray-700);
-    }
-    &-date {
-      padding-left: 20px;
-      font-size: 16px;
-      font-weight: 400;
-      line-height: 140%; /* 22.4px */
-      letter-spacing: -0.32px;
-    }
-    &-card {
-      width: 100%;
-      margin-top: 16px;
-    }
-    &-container {
-      position: relative;
-      width: 100%;
-      height: 280px;
-    }
-    &-category {
-      &-list {
-        display: inline-flex;
-        align-items: center;
-        margin: 0 -8px;
-        padding: 0;
-        list-style: none;
-      }
-      &-item {
-        padding: 0 8px;
-        i {
-          display: inline-block;
-          width: 8px;
-          height: 8px;
-          margin-right: 8px;
-        }
-        span {
-          font-size: 14px;
-          font-weight: 400;
-          line-height: 140%; /* 19.6px */
-          letter-spacing: -0.28px;
-          color: var(--gray-700);
-        }
-      }
-    }
-  }
-}
-
-/* dropdown */
-#service .b-dropdown.dropdown,
-.service-modal .b-dropdown.dropdown {
-  &.show {
-    .dropdown-toggle {
-      &:not(.btn-primary) {
-        border-end-start-radius: 0;
-        border-end-end-radius: 0;
-      }
-      svg {
-        transform: rotate(180deg);
-      }
-    }
-  }
-  .dropdown-toggle:not(.btn-primary) {
-    width: 100%;
-    padding: 11px 15px;
-    border: 1px solid var(--border-color);
-    border-radius: 8px;
-    background: var(--white);
-    font-size: 14px;
-    font-weight: 400;
-    line-height: 140%; /* 19.6px */
-    letter-spacing: -0.28px;
-    color: var(--gray-900);
-    &::after {
-      display: none;
-    }
-    &:focus {
-      box-shadow: none;
-    }
-    svg {
-      margin-left: auto;
-      path {
-        stroke: var(--gray-900);
-      }
-    }
-  }
-  .dropdown-menu {
-    width: 100%;
-    min-width: auto;
-    margin: 0;
-    padding: 0;
-    border-top: 0;
-    border-radius: 0 0 8px 8px;
-    &:focus-visible {
-      outline: none;
-    }
-    li {
-      padding: 8px 16px;
-      &.active,
-      &:hover {
-        background-color: var(--gray-100);
-      }
-      &:last-child {
-        border-radius: 0 0 8px 8px;
-      }
-      a,
-      button {
-        padding: 0;
-        font-size: 14px;
-        font-weight: 400;
-        line-height: 140%; /* 19.6px */
-        letter-spacing: -0.28px;
-        color: var(--gray-900);
-        &:hover {
-          background-color: var(--gray-100);
-        }
-      }
-    }
-  }
-}
-
-/* 목업 화면 미리보기 */
-.preview-image {
-  width: 320px;
-  min-height: 643px;
-  background: url("~@/assets/images/service/preview-mockup.png") no-repeat;
-  background-size: 100% 100%;
-  padding: 55px 35px 35px;
-}
-.preview-section-title {
-  padding: 13px 0;
-  border-radius: 10.35px;
-  background: var(--white);
-  text-align: center;
-  font-size: 14px;
-  font-weight: 400;
-  line-height: 140%; /* 19.6px */
-  letter-spacing: -0.28px;
-  color: var(--gray-700);
-}
-
-/* tooltip */
-.tooltip {
-  opacity: 1;
-  &-inner {
-    max-width: 500px;
-    background-color: var(--gray-300);
-    font-size: 11px;
-    color: var(--gray-700);
-    ul {
-      margin: 0;
-      padding: 0;
-      list-style: none;
-      text-align: start;
-    }
-  }
-  .arrow:before {
-    border-top-color: var(--gray-300);
-  }
+.btn-sample-download:hover path {
+  stroke: var(--primary);
 }

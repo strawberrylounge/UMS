@@ -1,0 +1,47 @@
+@use "../../scss/service/base/typography" as typography;
+
+#header {
+  .cash-dropdown.b-dropdown.dropdown {
+    &.show > .btn-primary.dropdown-toggle {
+      background-color: var(--primary400);
+      border-color: var(--primary400);
+    }
+    .dropdown-toggle::after {
+      display: none;
+    }
+    .dropdown-menu {
+      min-width: 270px;
+      margin-top: 8px;
+      padding: 23px;
+      border-radius: 16px;
+      border: 1px solid var(--border-color);
+      background: var(--white);
+      &:focus-visible {
+        outline: none;
+      }
+      li {
+        padding: 0;
+      }
+    }
+    li:nth-child(2) .b-dropdown-text {
+      margin-top: 20px;
+    }
+    .b-dropdown-text {
+      display: flex;
+      align-items: center;
+      margin: 0;
+      span {
+        @include typography.font-style(16px, 500, 140%, -0.32px);
+        color: var(--gray700);
+        &:last-child {
+          margin-left: auto;
+          font-weight: 700;
+          color: var(--gray900);
+        }
+      }
+    }
+    .dropdown-divider {
+      margin: 20px 0;
+    }
+  }
+}

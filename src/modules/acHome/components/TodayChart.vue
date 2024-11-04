@@ -5,8 +5,9 @@
       <div class="chart-container">
         <Bar
           id="service-today-chart"
-          :options="chartOptions"
-          :data="chartData"
+          :chart-options="chartOptions"
+          :chart-data="chartData"
+          :height="280"
         />
       </div>
     </div>

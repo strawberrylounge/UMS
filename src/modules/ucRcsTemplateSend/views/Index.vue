@@ -1,38 +1,20 @@
 <template>
   <div class="uc-message-send-sms">
-    <!-- 탭 Start -->
-    <div class="tabs-wrap">
-      <div class="service-tabs">
-        <div class="tab">
-          <a href="/uc/message/multiSendList">원스텝메시지</a>
-        </div>
-        <div class="tab">
-          <a href="/uc/message/sendSms">문자</a>
-        </div>
-        <div class="tab active">
-          <a href="#">RCS</a>
-        </div>
-        <div class="tab">
-          <a href="/uc/message/sendAlimTalk">카카오톡</a>
-        </div>
-      </div>
-      <p class="breadcrumb">발송 > RCS</p>
-    </div>
-    <!-- 탭 End -->
+    <MessageTabs />
 
-    <div class="tab-contents">
+    <div class="d-flex tab-contents">
       <div class="preview card">
         <p class="preview-title">미리보기</p>
-        <div class="preview-image">
-        </div>
+        <PreviewDefault>
+        </PreviewDefault>
       </div>
-      <div class="sms-area card">
-        <div class="card-title">
-          <p>RCS 상품</p>
-          <p>* RCS 유형을 먼저 선택해 주십시오. 템플릿형은 광고성 메세지를 보내실 수 없습니다.</p>
+      <div class="section card scroll-area">
+        <div class="d-flex align-items-end">
+          <p class="m-0 mr-1 pr-2 f-title1 c-gray900">RCS 상품</p>
+          <p class="m-0 ml-3 f-body4 f-bold c-gray500">* RCS 유형을 먼저 선택해 주십시오. 템플릿형은 광고성 메세지를 보내실 수 없습니다.</p>
         </div>
 
-        <!-- 템플릿 탭 Start -->
+        <!-- 승인/비승인 탭 Start -->
         <div class="sub-tabs-wrap">
           <div class="service-sub-tabs">
             <div class="tab" :class="{active: subTab === 'allow'}">
@@ -43,7 +25,7 @@
             </div>
           </div>
         </div>
-        <!-- 템플릿 탭 End -->
+        <!-- 승인/비승인 탭 End -->
 
         <!-- 승인 템플릿 탭 Start -->
         <div v-if="subTab === 'allow'" class="template-tabs-wrap">
@@ -51,14 +33,14 @@
             <div class="tab" :class="{active: templateTab === 'template'}">
               <button class="btn" @click="changeTemplateTab('template')">템플릿 형
                 <b-button v-b-tooltip.hover.html="tooltipContent" variant="light" class="btn-icon p-0">
-                  <IconQuestion />
+                  <IconQuestionLine />
                 </b-button>
               </button>
             </div>
             <div class="tab" :class="{active: templateTab === 'aaa'}">
-              <button class="btn" @click="changeTemplateTab('aaa')">000형
+              <button class="btn" @click="changeTemplateTab('aaa')">템플릿 형
                 <b-button v-b-tooltip.hover.html="tooltipContent" variant="light" class="btn-icon p-0">
-                  <IconQuestion />
+                  <IconQuestionLine />
                 </b-button>
               </button>
             </div>
@@ -72,14 +54,14 @@
             <div class="tab" :class="{active: templateTab === 'template'}">
               <button class="btn" @click="changeTemplateTab('template')">템플릿 형
                 <b-button v-b-tooltip.hover.html="tooltipContent" variant="light" class="btn-icon p-0">
-                  <IconQuestion />
+                  <IconQuestionLine />
                 </b-button>
               </button>
             </div>
             <div class="tab" :class="{active: templateTab === 'aaa'}">
-              <button class="btn" @click="changeTemplateTab('aaa')">000형
+              <button class="btn" @click="changeTemplateTab('aaa')">템플릿 형
                 <b-button v-b-tooltip.hover.html="tooltipContent" variant="light" class="btn-icon p-0">
-                  <IconQuestion />
+                  <IconQuestionLine />
                 </b-button>
               </button>
             </div>
@@ -105,10 +87,10 @@
  
         <hr class="hr">
 
-        <p class="sms-title">01.브랜드 선택</p>
+        <p class="section-title f-body1 c-gray700">01.브랜드 선택</p>
         <div class="d-flex align-items-center">
-          <label class="form-labal">브랜드</label>
-          <b-dropdown id="brand-dropdown" variant="secondary" class="brand-dropdown">
+          <label class="form-label">브랜드</label>
+          <b-dropdown id="brand-dropdown" variant="secondary" class="send-number-dropdown">
             <template #button-content>
               <span>{{ barnd === '' ? '선택' : barnd }}</span>
               <IconArrowDown />
@@ -120,16 +102,16 @@
 
         <hr class="hr">
 
-        <p class="sms-title">02.수신자 선택</p>
+        <p class="section-title f-body1 c-gray700">02.수신자 선택</p>
         <div class="d-flex align-items-center">
-          <label class="form-labal">템플릿</label>
+          <label class="form-label">템플릿</label>
           <div class="receive-btn-wrap">
-            <b-button variant="outline-primary" size="sm" v-b-modal.select-template-modal>RCS 템플릿 선택</b-button>
+            <b-button variant="outline-primary" size="sm" v-b-modal.select-rcs-template-modal>RCS 템플릿 선택</b-button>
           </div>
         </div>
-        <div class="d-flex align-items-center sms-select">
-          <label class="form-labal">발신번호</label>
-          <b-form-group class="radio-group">
+        <div class="d-flex align-items-center my-1 py-3">
+          <label class="form-label">발신번호</label>
+          <b-form-group class="m-0">
             <b-form-radio-group inline>
               <b-form-radio name="some-radios" value="A">불가능</b-form-radio>
               <b-form-radio name="some-radios" value="B">가능</b-form-radio>
@@ -138,8 +120,8 @@
           <span class="radio-info">※ 단말 내 메시지에 대한 복사가능여부 설정입니다.</span>
         </div>
         <div class="d-flex align-items-center">
-          <label class="form-labal">발신번호<span class="require">*</span></label>
-          <b-dropdown id="number-dropdown" variant="secondary" class="number-dropdown">
+          <label class="form-label">발신번호<span class="require">*</span></label>
+          <b-dropdown id="number-dropdown" variant="secondary" class="send-number-dropdown">
             <template #button-content>
               <span>{{ phoneNumber === '' ? '선택' : phoneNumber }}</span>
               <IconArrowDown />
@@ -151,9 +133,9 @@
 
         <hr class="hr">
 
-        <p class="sms-title">03.수신자 선택</p>
+        <p class="section-title f-body1 c-gray700">03.수신자 선택</p>
         <div class="d-flex align-items-center">
-          <label class="form-labal">수신자<span class="require">*</span></label>
+          <label class="form-label">수신자<span class="require">*</span></label>
           <div class="receive-btn-wrap">
             <b-button variant="outline-primary" size="sm" class="btn-svg btn-svg-right" v-b-modal.enter-receiver-modal>
               <span>수신자 직접입력</span>
@@ -163,21 +145,22 @@
               <span>주소록 검색</span>
               <IconArrowRight />
             </b-button>
-            <b-button variant="outline-primary" size="sm" class="btn-svg btn-svg-right">
+            <b-button variant="outline-primary" size="sm" class="btn-svg btn-svg-right"  @click="triggerFileInput">
               <span>엑셀 업로드</span>
               <IconArrowRight />
             </b-button>
-            <b-button variant="light" class="btn btn-sm btn-svg btn-svg-right btn-download">
+            <b-button variant="light" class="btn btn-sm btn-svg btn-svg-right btn-sample-download">
               <span>샘플 다운로드</span>
               <IconDownload />
             </b-button>
+            <b-form-file v-model="file" class="d-none" plain ref="fileInput"></b-form-file>
           </div>
         </div>
         <div class="d-flex align-items-center receive-count">
-          <p>수신자: <span class="text-primary">0명</span></p>
+          <p class="m-0 mr-1 pr-3 f-body4 c-gray600">수신자: <span class="text-primary">0명</span></p>
           <b-button variant="outline-secondary" size="sm">수신자 모두삭제</b-button>
         </div>
-        <div class="receive-list">
+        <div class="receive-table">
           <div class="table-responsive">
             <table class="table">
               <thead>
@@ -206,9 +189,9 @@
 
         <hr class="hr">
 
-        <p class="sms-title">04.발송옵션 선택</p>
+        <p class="section-title f-body1 c-gray700">04.발송옵션 선택</p>
         <div class="d-flex align-items-center">
-          <label class="form-labal">발송시간<span class="require">*</span></label>
+          <label class="form-label">발송시간<span class="require">*</span></label>
           <b-form-group class="radio-group">
             <b-form-radio-group inline v-model="time">
               <b-form-radio name="time" value="now" >즉시</b-form-radio>
@@ -234,14 +217,13 @@
 
     <SearchAddressModal />
     <EnterReceiverModal />
-    <SelectTemplateModal />
+    <SelectRcsTemplateModal />
     <ConfirmModal title="RCS 발송" desc="템플릿을 변경하면 입력된 데이터가 모두 초기화됩니다. 변경하시겠습니까?" />
   </div>
 </template>
 
 <script>
-import '@/assets/scss/service/message.scss';
-import IconQuestion from '@/components/service/icons/IconQuestion.vue'
+import IconQuestionLine from '@/components/service/icons/IconQuestionLine.vue'
 import TemplateCard from '@/components/service/TemplateCard.vue'
 import IconArrowRight from '@/components/service/icons/IconArrowRight.vue';
 import IconArrowDown from '@/components/service/icons/IconArrowDown.vue';
@@ -251,10 +233,12 @@ import EnterReceiverModal from '@/modules/ucMessageSendSms/components/modal/Ente
 import IconClose from '@/components/service/icons/IconClose.vue';
 import CustomDatepicker from '@/components/service/form/CustomDatepicker.vue'
 import ConfirmModal from '@/components/service/modal/ConfirmModal.vue'
-import SelectTemplateModal from '@/modules/ucMessageSendSms/components/modal/SelectTemplateModal.vue';
+import MessageTabs from '@/components/service/message/MessageTabs.vue'
+import PreviewDefault from '@/components/service/preview/PreviewDefault.vue'
+import SelectRcsTemplateModal from '@/modules/ucRcsTemplateSend/components/modal/SelectRcsTemplateModal.vue';
 
 export default {
-  components: { IconQuestion, TemplateCard, IconArrowDown, IconArrowRight, IconDownload, IconClose, SearchAddressModal, EnterReceiverModal, CustomDatepicker, ConfirmModal, SelectTemplateModal },
+  components: { IconQuestionLine, TemplateCard, IconArrowDown, IconArrowRight, IconDownload, IconClose, SearchAddressModal, EnterReceiverModal, CustomDatepicker, ConfirmModal, SelectRcsTemplateModal, MessageTabs, PreviewDefault, },
   name: "ucRcsTemplateSend",
   data() {
     return {
@@ -286,77 +270,19 @@ export default {
     },
     showConfirmModal() {
       this.$bvModal.show('confirm-modal');
-    }
+    },
+    triggerFileInput() {
+      // 파일 입력 요소 클릭
+      this.$refs.fileInput.$el.click();
+    },
   },
 };
 </script>
 
 <style scoped lang="scss">
-.tabs-wrap {
-  display: flex;
-  align-items: center;
-  padding: 28px 40px 0;
-  border-bottom: 1px solid var(--border-color);
-}
-.breadcrumb {
-  margin: 0 0 0 auto;
-  padding: 0;
-  font-size: 14px;
-  font-weight: 500;
-  line-height: 140%; /* 19.6px */
-  letter-spacing: -0.28px;
-  color: var(--gray-700);
-  white-space: nowrap;
-}
-.tab-contents {
-  display: flex;
-  padding: 20px 40px 64px;
-}
-.preview {
-  padding: 28px;
-  &-title {
-    margin: 0 0 28px 0;
-    font-size: 20px;
-    font-weight: 700;
-    line-height: 140%; /* 28px */
-    letter-spacing: -0.4px;
-    color: var(--gray-700);
-  }
-}
-.sms-area {
-  width: calc(100% - 400px);
-  margin-left: 20px;
-  padding: 28px;
-  .form-labal {
-    width: 120px;
-    margin: 0 12px 0 0;
-    font-size: 14px;
-    font-weight: 500;
-    line-height: 140%; /* 19.6px */
-    letter-spacing: -0.28px;
-    color: var(--gray-500);
-  }
-}
-.card-title {
-  display: flex;
-  align-items: end;
-  p {
-    margin: 0;
-    font-size: 20px;
-    font-weight: 700;
-    line-height: 140%; /* 28px */
-    letter-spacing: -0.4px;
-    color: var(--gray-900);
-    & + p {
-      margin-left: 28px;
-      font-size: 14px;
-      font-weight: 700;
-      line-height: 140%; /* 19.6px */
-      letter-spacing: -0.28px;
-      color: var(--gray-500);
-    }
-  }
-}
+@use "~@/assets/scss/service/base/typography" as typography;
+@import '@/assets/scss/service/message.scss';
+
 .service-sub-tabs {
   display: flex;
   margin-top: 28px;
@@ -366,11 +292,8 @@ export default {
       margin: 0;
       padding: 0 0 12px 0;
       border: none;
-      font-size: 16px;
-      font-weight: 700;
-      line-height: 140%; /* 22.4px */
-      letter-spacing: -0.32px;
-      color: var(--gray-500)
+      @include typography.font-style(16px, 700, 140%, -0.32px);
+      color: var(--gray500);
     }
     & + .tab {
       margin-left: 28px;
@@ -399,14 +322,12 @@ export default {
     margin-top: 28px;
     .tab {
       .btn:not(.btn-icon) {
+        padding: 12px 24px;
         background-color: #F7F8FB;
         border: 1px solid var(--border-color);
         border-radius: 0;
         text-align: center;
-        font-size: 14px;
-        font-weight: 500;
-        line-height: 140%; /* 19.6px */
-        letter-spacing: -0.28px;
+        @include typography.font-style(14px, 500, 140%, -0.28px);
         color: #6E6F73;
       }
       & + .tab {
@@ -426,7 +347,7 @@ export default {
     min-height: 224px;
     margin-top: 12px;
     padding: 20px;
-    background-color: var(--gray-50);
+    background-color: var(--gray50);
     border: 1px solid var(--border-color);
   }
 }
@@ -435,146 +356,22 @@ export default {
     margin-left: 12px;
   }
 }
-.hr {
-  margin: 24px 0;
-}
+
 .radio-info {
   margin-left: 8px;
-  font-size: 14px;
-  font-weight: 500;
-  line-height: 140%; /* 19.6px */
-  letter-spacing: -0.28px;
-  color: var(--gray-600)
-}
-
-.sms-title {
-  margin: 0 0 20px 0;
-  font-size: 16px;
-  font-weight: 700;
-  line-height: 140%; /* 22.4px */
-  letter-spacing: -0.32px;
-  color: var(--gray-700);
-}
-.radio-group {
-  margin: 0;
+  @include typography.font-style(14px, 500, 140%, -0.28px);
+  color: var(--gray600)
 }
 .custom-radio:not(.custom-radio-vertical) {
   margin-right: 20px;
-}
-.sms-select {
-  margin: 20px 0;
-}
-.image-select {
-  margin-top: 20px;
-  &-list {
-    margin: 0 0 0 28px;
-    padding: 0;
-    list-style: none;
-    li {
-      display: flex;
-      align-items: center;
-      & + li {
-        margin-top: 16px;
-      }
-    }
-    span {
-      max-width: 240px;
-      overflow: hidden;
-      font-size: 16px;
-      font-weight: 500;
-      line-height: 140%; /* 22.4px */
-      letter-spacing: -0.32px;
-      color: var(--gray-900);
-    }
-    .btn {
-      margin-left: 12px;
-    }
-  }
-}
-.btn-wrap {
-  padding-left: 132px;
-  button + button {
-    margin-left: 12px;
-  }
-}
-.hr {
-  margin: 24px 0;
-}
-.btn-download {
-  padding: 0;
-  background-color: var(--white);
-  border: none;
-  span {
-    font-size: 14px;
-    font-weight: 400;
-    line-height: 140%; /* 19.6px */
-    letter-spacing: -0.28px;
-    color: var(--gray-700);
-    text-decoration-line: underline;
-  }
-  svg {
-    margin-left: 4px;
-  }
-  &:not(:disabled):active:focus {
-    background-color: var(--white);
-    border: none;
-    box-shadow: none;
-  }
 }
 .receive-btn-wrap {
   button + button {
     margin-left: 12px;
   }
 }
-.receive-count{
-  margin-top: 20px;
-  padding-left: 132px;
-  p {
-    margin: 0 20px 0 0;
-    font-size: 14px;
-    font-weight: 500;
-    line-height: 140%; /* 19.6px */
-    letter-spacing: -0.28px;
-    color: var(--gray-600);
-  }
-}
-.brand-dropdown,
-.number-dropdown {
-  width: 348px;
-}
-.submit-wrap {
-  text-align: center;
-  button {
-    min-width: 200px;
-    & + button {
-      margin-left: 20px;
-    }
-  }
-}
-.receive-list {
-  max-width: 602px;
-  margin-top: 20px;
-  padding-left: 132px;
-  .table {
-    tbody tr:last-child td {
-      border-bottom: none;
-    }
-    th, td {
-      padding-left: 16px;
-      padding-right: 16px;
-    }
-  }
-}
-.book-form {
-  display: flex;
-  align-items: center;
-  .datepicker-container {
-    width: 180px;
-    margin-right: 12px;
-  }
-  .time-divider {
-    padding: 0 12px;
-    font-size: 14px;
-  }
+.scroll-area {
+  height: calc(100vh - 254px);
+  overflow-y: auto;
 }
 </style>
