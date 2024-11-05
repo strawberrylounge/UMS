@@ -26,16 +26,18 @@ export default {
 
 #landingFooter {
   @include v.flex(column, space-between);
+  flex-shrink: 0;
   width: 100%;
   height: 155px;
   padding: 20px;
   background: #313a47;
   color: color.adjust(#fff, $alpha: -0.6);
-  line-height: 160%;
+  box-sizing: border-box;
+  //line-height: 160%;
   @include v.tablet {
     height: 330px;
     padding: 60px 75px;
-    line-height: 140%;
+    //line-height: 140%;
   }
   @include v.desktop {
     padding: {
@@ -43,7 +45,7 @@ export default {
       left: 360px;
       bottom: 60px;
     }
-    line-height: 160%;
+    //line-height: 160%;
   }
   // 서비스 이용 약관 & 개인정보처리방침
   ul.policy-list {

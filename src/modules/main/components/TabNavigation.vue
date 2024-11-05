@@ -1,16 +1,17 @@
 <template>
-  <div class="tab-navigation">
+  <div class="tab-navigation" :class="{ 'switch-mode': mode === 'switch' }">
     <ul class="tab-navigation-list">
       <li
         v-for="(tab, index) in tabs"
         :key="index"
         class="tab-navigation-item"
+        :class="{ active: modelValue === tab.id }"
         @click="handleTabClick(tab)"
       >
         <span class="item-name">
           {{ tab.label }}
         </span>
-        <i class="icon-down mb"></i>
+        <i v-if="mode === 'scroll'" class="icon-down mb"></i>
         <p class="item-desc pc">{{ tab.desc }}</p>
       </li>
     </ul>
@@ -33,7 +34,7 @@ export default {
     modelValue: {
       // v-model을 위한 prop
       type: String,
-      default: "",
+      default: "notice",
     },
   },
   emits: ["update:modelValue"],
@@ -47,16 +48,6 @@ export default {
   },
   beforeDestroy() {
     window.removeEventListener("resize", this.updateHeaderHeight);
-  },
-  computed: {
-    activeTab: {
-      get() {
-        return this.modelValue;
-      },
-      set(value) {
-        this.$emit("update:modelValue", value);
-      },
-    },
   },
   methods: {
     updateHeaderHeight() {
@@ -76,7 +67,7 @@ export default {
           });
         }
       } else {
-        this.activeTab = tab.id;
+        this.$emit("update:modelValue", tab.id);
       }
     },
   },
@@ -84,6 +75,7 @@ export default {
 </script>
 <style lang="scss" scoped>
 @use "../../../assets/scss/landing/abstracts/variables" as v;
+
 .tab-navigation {
   width: 335px;
   height: 40px;
@@ -103,122 +95,161 @@ export default {
     padding: 0 60px;
     border-radius: 32px;
   }
-  .tab-navigation-list {
-    @include v.flex(row, null, center);
-    height: 100%;
-    padding: 10px 0;
+
+  // swtich mode
+  &.switch-mode {
     @include v.tablet {
-      padding: 20px 0;
+      bottom: -38px !important;
+      max-height: 84px;
+      padding: 0;
     }
     @include v.desktop {
-      padding: 40px 0;
+      max-height: 90px;
     }
-    .tab-navigation-item {
+    .tab-navigation-list {
       display: flex;
-      align-items: center;
-      width: 33.33%;
+      justify-content: space-between;
+      align-items: stretch;
+      padding: 0;
+      margin: 0;
       height: 100%;
-      //white-space: nowrap;
-      cursor: pointer;
       @include v.tablet {
-        @include v.flex(column, center, baseline);
+        height: 84px;
+        border-radius: 24px;
+        background: #fff;
+        overflow: hidden;
       }
-      &:not(:first-child) {
-        padding-left: 20px;
+      @include v.desktop {
+        height: 90px;
+      }
+      .tab-navigation-item {
+        @include v.flex-center;
+        flex: 1;
+        margin: 0;
+        padding: 0;
+        border: none;
+        background: #fff;
+        white-space: nowrap;
         @include v.tablet {
-          //padding-left: 48px;
+          height: 84px;
         }
         @include v.desktop {
-          padding-left: 30px;
+          height: 90px;
+        }
+        &:not(:last-child) {
+          @include v.tablet {
+            position: relative;
+            //border-right: 2px solid v.color(primary100);
+            &::after {
+              content: "";
+              position: absolute;
+              top: 50%;
+              right: 0;
+              width: 2px;
+              height: 40px;
+              background: v.color(primary100);
+              transform: translateY(-50%);
+            }
+          }
+        }
+        .item-name {
+          font-weight: 700;
+          font-size: 0.875rem;
+          color: v.color(gray400);
+          @include v.tablet {
+            font-size: 1.25rem;
+          }
+          @include v.desktop {
+            font-size: 1.75rem;
+          }
+        }
+        &.active {
+          .item-name {
+            color: v.color(gray900);
+          }
         }
       }
-      &:not(:last-child) {
-        //padding-right: 20px;
-        border-right: 2px solid v.color(primary100);
+    }
+  }
+
+  &:not(.switch-mode) {
+    .tab-navigation-list {
+      @include v.flex(row, center, center);
+      height: 100%;
+      padding: 10px 0;
+      @include v.tablet {
+        padding: 20px 0;
+      }
+      @include v.desktop {
+        padding: 40px 0;
+      }
+      .tab-navigation-item {
+        @include v.flex(row, center, center);
+        width: 33.33%;
+        height: 100%;
+        cursor: pointer;
         @include v.tablet {
-          padding-right: clamp(10px, 15px, 48px);
+          @include v.flex(column, center, baseline);
         }
-        @include v.desktop {
-          padding-right: 30px;
+        &:not(:first-child) {
+          padding-left: 20px;
+          @include v.tablet {
+            //padding-left: 48px;
+          }
+          @include v.desktop {
+            padding-left: 30px;
+          }
         }
-      }
-      &:first-child {
-        padding-left: 10px;
-        @include v.tablet {
-          padding-left: 0;
+        &:not(:last-child) {
+          border-right: 2px solid v.color(primary100);
+          @include v.tablet {
+            padding-right: clamp(10px, 15px, 48px);
+          }
+          @include v.desktop {
+            padding-right: 30px;
+          }
         }
-      }
-      .item-name {
-        font-weight: 700;
-        font-size: 0.875rem;
-        color: v.color(gray900);
-        @include v.tablet {
-          font-size: 1.25rem;
+        &:first-child {
+          padding-left: 10px;
+          @include v.tablet {
+            padding-left: 0;
+          }
         }
-        @include v.desktop {
-          font-size: 1.75rem;
+        .item-name {
+          font-weight: 700;
+          font-size: 0.875rem;
+          color: v.color(gray900);
+          @include v.tablet {
+            font-size: 1.25rem;
+          }
+          @include v.desktop {
+            font-size: 1.75rem;
+          }
         }
-      }
-      .icon-down {
-        width: 12px;
-        height: 12px;
-        margin-left: 8px;
-        background: url(v.$icon + "ico-down-gray.png") no-repeat;
-        background-size: cover;
-      }
-      .item-desc {
-        display: none;
-        font-size: 400px;
-        font-size: 0.75rem;
-        color: v.color(gray600);
-        @include v.tablet {
-          padding-top: 4px;
-          display: block;
+        .icon-down {
+          width: 12px;
+          height: 12px;
+          margin-left: 8px;
+          background: url(v.$icon + "ico-down-gray.png") no-repeat;
+          background-size: cover;
         }
-        @include v.desktop {
-          padding-top: 24px;
-          font-weight: 500;
-          font-size: 1.125rem;
+        .item-desc {
+          display: none;
+          font-size: 400px;
+          font-size: 0.75rem;
+          color: v.color(gray600);
+          @include v.tablet {
+            padding-top: 4px;
+            display: block;
+          }
+          @include v.desktop {
+            padding-top: 24px;
+            font-weight: 500;
+            font-size: 1.125rem;
+          }
         }
       }
     }
   }
 }
 </style>
-
-<!-- 스크롤 모드로 사용할 경우 -->
-<!-- <template>
-  <div>
-    <page-header title="요금제 안내" />
-    <tab-navigation
-      :tabs="[
-        { id: 'sms', label: '문자', target: 'sms-section' },
-        { id: 'rcs', label: 'RCS', target: 'rcs-section' },
-        { id: 'kakao', label: '카카오', target: 'kakao-section' }
-      ]"
-      mode="scroll"
-    />
-    <div id="sms-section">문자 섹션 내용...</div>
-    <div id="rcs-section">RCS 섹션 내용...</div>
-    <div id="kakao-section">카카오 섹션 내용...</div>
-  </div>
-</template> -->
-
-<!-- v-if로 전환하는 모드로 사용할 경우 -->
-<!-- <template>
-  <div>
-    <page-header title="요금제 안내" />
-    <tab-navigation
-      v-model="activeTab"
-      :tabs="[
-        { id: 'sms', label: '문자' },
-        { id: 'rcs', label: 'RCS' },
-        { id: 'kakao', label: '카카오' }
-      ]"
-      mode="switch"
-    />
-    <div v-if="activeTab === 'sms'">문자 섹션 내용...</div>
-    <div v-if="activeTab === 'rcs'">RCS 섹션 내용...</div>
-    <div v-if="activeTab === 'kakao'">카카오 섹션 내용...</div>
-  </div>
-</template> -->

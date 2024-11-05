@@ -1,9 +1,14 @@
 <template>
   <div class="landing-wrapper">
+    <h2 class="sr-only">요금제 안내 페이지</h2>
     <Header />
     <main class="page-pricing landing-sub">
       <div class="sub-top">
-        <PageHeader title="요금제 안내" subtitle="나에게 딱 맞는 요금제는?" />
+        <PageHeader
+          title="요금제 안내"
+          subtitle="나에게 딱 맞는 요금제는?"
+          imageName="pricing-header"
+        />
         <TabNavigation :tabs="pricingSections" mode="scroll" />
       </div>
       <div class="sub-contents">
@@ -114,12 +119,12 @@ export default {
     @include v.flex(column, null, center);
   }
   .sub-contents {
-    padding-top: 60px;
+    padding: 60px 20px 0 !important;
     @include v.tablet {
-      padding-top: 130px;
+      padding: 130px 60px 0 !important;
     }
     @include v.desktop {
-      padding: 210px 60px 0;
+      padding: 210px 60px 0 !important;
     }
     section {
       padding-bottom: 12px;

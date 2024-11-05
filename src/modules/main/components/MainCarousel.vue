@@ -2,16 +2,17 @@
   <div class="carousel-container">
     <carousel
       :per-page="1"
-      :navigate-to="0"
       :mouse-drag="true"
-      :loop="true"
+      :loop="false"
       :autoplay="true"
-      :atuoplay-timeout="5000"
-      :speed="1000"
+      :autoplay-timeout="10000"
+      :speed="800"
       :navigation-enabled="true"
       :navigation-click-target-size="20"
+      :pagination-size="originalSlides.length"
       :pagination-enabled="true"
       :pagination-padding="8"
+      @pageChange="handlePageChange"
       class="main-carousel"
       ref="carousel"
     >
@@ -25,7 +26,18 @@
             </p>
           </div>
           <div class="img-area">
-            <img v-if="slide.image" :src="slide.image" :alt="slide.imageAlt" />
+            <picture v-if="slide.image">
+              <source
+                media="(min-width:1920px)"
+                :srcset="slide.image.desktop"
+              />
+              <source media="(min-width:1024px)" :srcset="slide.image.tablet" />
+              <img
+                :src="slide.image.mobile"
+                :alt="slide.imageAlt"
+                class="banner-image"
+              />
+            </picture>
           </div>
         </div>
       </slide>
@@ -49,13 +61,16 @@ export default {
   data() {
     return {
       PATHS,
-      slides: [
+      originalSlides: [
         {
           title: "원스텝 발송, 대체발송!",
           boldText: "한번에, 빠르게, 편리하게.",
           description: "EC-톡톡은 손쉽게 다양한 메시지를 발송할 수 있습니다.",
-          image: require(`@/${PATHS.BANNER}banner01.png`),
-          // image: null,
+          image: {
+            desktop: require(`@/${PATHS.BANNER}banner01-1920.png`),
+            tablet: require(`@/${PATHS.BANNER}banner01-1024.png`),
+            mobile: require(`@/${PATHS.BANNER}banner01-375.png`),
+          },
           imageAlt:
             "원스텝 발송, 대체발송! 한번에, 빠르게, 편리하게. EC-톡톡은 손쉽게 다양한 메시지를 발송할 수 있습니다.",
         },
@@ -63,7 +78,11 @@ export default {
           title: "고객 만족을 최우선으로!",
           boldText: "수많은 기업이 선택하는 EC톡톡, 이제 당신 차례",
           description: "고객이 믿고 찾는 EC톡톡, 변함없는 품질을 약속드립니다.",
-          image: null,
+          image: {
+            desktop: require(`@/${PATHS.BANNER}banner02-1920.png`),
+            tablet: require(`@/${PATHS.BANNER}banner02-1024.png`),
+            mobile: require(`@/${PATHS.BANNER}banner02-375.png`),
+          },
           imageAlt:
             "고객 만족을 최우선으로! 수많은 기업이 선택하는 EC톡톡, 이제 당신 차례. 고객이 믿고 찾는 EC톡톡, 변함없는 품질을 약속드립니다.",
         },
@@ -72,30 +91,63 @@ export default {
           boldText: "높은 데이터 전송성공률",
           description:
             "EC톡톡은 원스텝 발송을 통한 최대의 전송성공 처리가 가능합니다.",
-          image: null,
+          image: {
+            desktop: require(`@/${PATHS.BANNER}banner03-1920.png`),
+            tablet: require(`@/${PATHS.BANNER}banner03-1024.png`),
+            mobile: require(`@/${PATHS.BANNER}banner03-375.png`),
+          },
           imageAlt:
             "최대한의 전송성공 처리! 높은 데이터 전송성공률. EC톡톡은 원스텝 발송을 통한 최대의 전송성공 처리가 가능합니다.",
         },
       ],
+      currentDirection: "forward",
+      isTransitioning: false,
     };
   },
+  computed: {
+    slides() {
+      return [
+        ...this.originalSlides,
+        ...this.originalSlides,
+        ...this.originalSlides,
+      ];
+    },
+  },
   methods: {
+    handlePageChange(currentPage) {
+      const totalSldies = this.originalSlides.length;
+
+      if (currentPage === totalSldies - 1) {
+        setTimeout(() => {
+          this.$refs.carousel.goToPage(0);
+        }, this.$refs.carousel.spped);
+      }
+    },
     prevSlide() {
       if (this.$refs.carousel) {
         const currentPage = this.$refs.carousel.currentPage;
-        const targetPage =
-          currentPage === 0 ? this.slides.length - 1 : currentPage - 1;
-        this.$refs.carousel.goToPage(targetPage);
+        if (currentPage === 0) {
+          this.$refs.carousel.goToPage(this.originalSlides.length - 1);
+        } else {
+          this.$refs.carousel.goToPage(currentPage - 1);
+        }
       }
     },
     nextSlide() {
       if (this.$refs.carousel) {
         const currentPage = this.$refs.carousel.currentPage;
-        const targetPage =
-          currentPage === this.slides.length - 1 ? 0 : currentPage + 1;
-        this.$refs.carousel.goToPage(targetPage);
+        if (currentPage === this.originalSlides.length - 1) {
+          this.$refs.carousel.goToPage(0);
+        } else {
+          this.$refs.carousel.goToPage(currentPage + 1);
+        }
       }
     },
+  },
+  mounted() {
+    this.$nextTick(() => {
+      this.$refs.carousel.goToPage(this.originalSlides.length);
+    });
   },
 };
 </script>
@@ -125,6 +177,12 @@ export default {
     user-select: none;
     backface-visibility: hidden;
     outline: none;
+    opacity: 0;
+    transition: opacity 0.8s ease;
+
+    &.VueCarousel-slide-active {
+      opacity: 1;
+    }
   }
 }
 .main-carousel {
@@ -205,9 +263,26 @@ export default {
     width: 100%;
     height: 100%;
     overflow: hidden;
+    picture {
+      display: block;
+      width: 100%;
+      height: 100%;
+      img {
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+        object-position: center center;
+        transition: opacity 0.5s ease;
+        @include v.tablet {
+          object-position: center top;
+        }
+        @include v.desktop {
+          object-position: center;
+        }
+      }
+    }
   }
 }
-
 .carousel-container {
   position: relative;
   height: 100%;
@@ -226,7 +301,7 @@ export default {
       padding: 0;
       border: none;
       border-radius: 50%;
-      background: none;
+      background: rgba($color: #000, $alpha: 0.2);
       fill: rgba(0, 0, 0, 0.2);
       backdrop-filter: blur(12px);
       transition: all 0.3s ease;
@@ -269,6 +344,9 @@ export default {
   @include v.desktop {
     display: none;
   }
+  .VueCarousel-dot:nth-child(n + 4) {
+    display: none;
+  }
   .VueCarousel-dot {
     &:not(:last-child) {
       margin-right: 8px;
@@ -279,7 +357,9 @@ export default {
     border-radius: 50%;
     background: v.color(white) !important;
     transition: width ease;
-    &.VueCarousel-dot--active {
+    &.VueCarousel-dot--active,
+    &:nth-child(n + 4).VueCarousel-dot--active
+      ~ .VueCarousel-dot:nth-child(-n + 3) {
       width: 60px !important;
       height: 5px !important;
       border-radius: 3px !important;

@@ -1,6 +1,6 @@
 /* import base */
 @use "./base/reset" as *;
-@use "./base/common";
+@use "./base/common" as c;
 @use "./base/typography";
 /* import abstracts */
 @use "./abstracts/variables" as v;
@@ -10,6 +10,7 @@
 @use "./abstracts/responsive";
 
 .landing-wrapper {
+  @include c.commonStyles;
   @include styles;
 
   // 부트스트랩 관련 요소만 선택적으로 revert
