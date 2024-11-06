@@ -85,7 +85,7 @@
             <icon-pay />
             <span >정산</span>
           </a>
-          <a href="#" class="d-flex align-items-center menu-item">
+          <a href="/ac/address/manage" class="d-flex align-items-center menu-item" :class="{ active: ($route.path.includes('/ac/address/manage'))}">
             <icon-address />
             <span >주소록</span>
           </a>

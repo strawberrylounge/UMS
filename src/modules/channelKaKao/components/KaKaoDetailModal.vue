@@ -30,10 +30,6 @@
 </template>
 
 <script>
-import IconArrowDown from '@/components/service/icons/IconArrowDown.vue'
-import Pagination from '@/components/service/Pagination.vue';
-import IconSort from '@/components/service/icons/IconSort.vue';
-
 export default {
   components: {  },
   name: "KaKaoDetailModal",

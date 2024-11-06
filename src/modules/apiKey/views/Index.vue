@@ -5,17 +5,6 @@
       <!-- 리스트 영역 Start -->
       <div class="table-section card">
         <div class="d-flex align-items-center">
-          <p class="list-count">전체 <span class="text-primary">10건</span></p>
-          <b-dropdown id="pageCount-dropdown" variant="secondary" class="pageCount-dropdown">
-            <template #button-content>
-              <span>{{ pageCount }}개씩 보기</span>
-              <IconArrowDown />
-            </template>
-            <b-dropdown-item-button :class="pageCount == 10 ? 'active' : ''">10개씩 보기</b-dropdown-item-button>
-            <b-dropdown-item-button :class="pageCount == 20 ? 'active' : ''">20개씩 보기</b-dropdown-item-button>
-            <b-dropdown-item-button :class="pageCount == 30 ? 'active' : ''">30개씩 보기</b-dropdown-item-button>
-          </b-dropdown>
-
           <b-button variant="primary" class="btn-svg btn-svg-right mr-2 ml-auto" v-b-modal.add-apikey-modal>
             <span>KEY 생성</span>
             <IconArrowRight />
@@ -100,8 +89,6 @@
 </template>
 
 <script>
-import IconArrowDown from '@/components/service/icons/IconArrowDown.vue'
-import IconPlus from '@/components/service/icons/IconPlus.vue'
 import IconSort from '@/components/service/icons/IconSort.vue';
 import IconArrowRight from '@/components/service/icons/IconArrowRight.vue';
 import Pagination from '@/components/service/Pagination.vue';
@@ -112,11 +99,10 @@ import AddApiKeyModal from '@/modules/apiKey/components/modal/AddApiKeyModal.vue
 
 
 export default {
-  components: { IconArrowDown, IconArrowRight, Pagination, IconSort, AlertModal, ConfirmModal, ApiKeyDetailModal, AddApiKeyModal, },
+  components: { IconArrowRight, Pagination, IconSort, AlertModal, ConfirmModal, ApiKeyDetailModal, AddApiKeyModal, },
   name: "apiKey",
   data() {
     return {
-      pageCount: 10,
     }
   },
   methods: {

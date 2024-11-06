@@ -82,6 +82,9 @@ export default {
           return '채널 관리'
         case '/ac/apikey':
           return 'API KEY'
+        case '/ac/address/manage':
+        case '/ac/address/receiver/manage':
+          return '주소록'
         default:
           return ''
       }

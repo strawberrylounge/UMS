@@ -31,6 +31,8 @@ import userManage from "@/modules/userManage/views/Index.vue";
 import channelRcs from "@/modules/channelRcs/views/Index.vue";
 import channelKaKao from "@/modules/channelKaKao/views/Index.vue";
 import apiKey from "@/modules/apiKey/views/Index.vue";
+import addressManage from "@/modules/addressManage/views/Index.vue";
+import addressReceiver from "@/modules/addressReceiver/views/Index.vue";
 
 Vue.use(Router);
 
@@ -264,6 +266,26 @@ const router = new Router({
         {
           path: "",
           component: apiKey,
+        },
+      ],
+    },
+    {
+      path: "/ac/address/manage",
+      component: ServiceLayout,
+      children: [
+        {
+          path: "",
+          component: addressManage,
+        },
+      ],
+    },
+    {
+      path: "/ac/address/receiver/manage",
+      component: ServiceLayout,
+      children: [
+        {
+          path: "",
+          component: addressReceiver,
         },
       ],
     }

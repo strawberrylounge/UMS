@@ -3,7 +3,7 @@
     <input
       type="text"
       class="form-control"
-      placeholder="검색어를 입력해주세요"
+      :placeholder="placeholder"
     />
     <span class="search-icon">
       <IconSearch />
@@ -18,6 +18,10 @@ export default {
   components: { IconSearch, },
   name: 'SearchInput',
   props: {
+    placeholder: {
+      type: String,
+      default: '검색어를 입력해주세요'
+    }
   },
   data() {
     return {
