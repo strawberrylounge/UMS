@@ -85,6 +85,8 @@ export default {
         case '/ac/address/manage':
         case '/ac/address/receiver/manage':
           return '주소록'
+        case '/ac/alarm/alarm':
+          return '알람'
         default:
           return ''
       }

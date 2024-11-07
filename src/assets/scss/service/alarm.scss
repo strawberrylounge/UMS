@@ -1,0 +1,42 @@
+@use "../../scss/service/base/typography" as typography;
+
+.row {
+  margin-right: -10px;
+  margin-left: -10px;
+  & + .row {
+    margin-top: 20px;
+  }
+}
+.col {
+  padding-right: 10px;
+  padding-left: 10px;
+}
+.card {
+  padding: 28px;
+  &-header {
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 20px;
+    padding: 0;
+    background-color: var(--white);
+    border: none;
+  }
+  &-alarm {
+    padding: 11px 12px;
+    background-color: #ECEFF2;
+    border-radius: 10px;
+    & + .btn {
+      min-width: 78px;
+    }
+    &-empty {
+      padding: 11px 0;
+      background-color: var(--white);
+    }
+  }
+  .desc {
+    min-height: 40px;
+    @include typography.font-style(14px, 500, 140%, -0.28px);
+    color: var(--gray500);
+    @include typography.multiline-ellipsis(2);
+  }
+}

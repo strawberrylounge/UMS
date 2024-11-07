@@ -93,7 +93,7 @@
             <icon-call />
             <span >발신제한</span>
           </a>
-          <a href="#" class="d-flex align-items-center menu-item">
+          <a href="/ac/alarm/alarm" class="d-flex align-items-center menu-item">
             <icon-alarm />
             <span >알람</span>
           </a>

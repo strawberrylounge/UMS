@@ -33,6 +33,7 @@ import channelKaKao from "@/modules/channelKaKao/views/Index.vue";
 import apiKey from "@/modules/apiKey/views/Index.vue";
 import addressManage from "@/modules/addressManage/views/Index.vue";
 import addressReceiver from "@/modules/addressReceiver/views/Index.vue";
+import alarm from "@/modules/alarm/views/Index.vue";
 
 Vue.use(Router);
 
@@ -286,6 +287,16 @@ const router = new Router({
         {
           path: "",
           component: addressReceiver,
+        },
+      ],
+    },
+    {
+      path: "/ac/alarm/alarm",
+      component: ServiceLayout,
+      children: [
+        {
+          path: "",
+          component: alarm,
         },
       ],
     }
