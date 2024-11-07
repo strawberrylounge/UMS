@@ -1,6 +1,6 @@
 <template>
   <div class="address-receiver">
-    <AddressTabs />
+    <AlarmTabs />
 
     <div class="tab-contents">
       <div class="info card">
@@ -76,7 +76,7 @@
 
 <script>
 import IconArrowDown from '@/components/service/icons/IconArrowDown.vue'
-import AddressTabs from '@/components/service/address/AddressTabs.vue'
+import AlarmTabs from '@/components/service/alarm/AlarmTabs.vue'
 import SearchInput from '@/components/service/form/SearchInput.vue'
 import AlertModal from '@/components/service/modal/AlertModal.vue'
 import ConfirmModal from '@/components/service/modal/ConfirmModal.vue'
@@ -96,7 +96,7 @@ import ApiTable from '@/modules/alarm/components/sucessAlarm/ApiTable.vue'
 import AlarmTable from '@/modules/alarm/components/sucessAlarm/AlarmTable.vue'
 
 export default {
-  components: { AlarmTable, ApiTable, AddReceiverAllModal, AddReceiverModal, IconArrowDown, SearchInput, AddressTabs,  AlertModal, ConfirmModal, IconPlus, IconArrowRight, IconDownload, Pagination },
+  components: { AlarmTable, ApiTable, AddReceiverAllModal, AddReceiverModal, IconArrowDown, SearchInput, AlarmTabs,  AlertModal, ConfirmModal, IconPlus, IconArrowRight, IconDownload, Pagination },
   name: "AddressReceiver",
   data() {
     return {

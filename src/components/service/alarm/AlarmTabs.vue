@@ -1,7 +1,7 @@
 <template>
   <div class="message-tabs-wrap">
     <div class="message-tabs">
-      <div :class="['tab', isActive('/ac/alarm/alarm')]">
+      <div :class="['tab', isActive('/ac/alarm/alarm'), isActive('/ac/alarm/alarm/success')]">
         <a href="/ac/alarm/alarm">알람</a>
       </div>
       <div :class="['tab', isActive('/')]">
@@ -25,8 +25,8 @@ export default {
       switch (this.$route.path) {
         case '/ac/alarm/alarm':
           return '알람';
-        case '/':
-          return '';
+        case '/ac/alarm/alarm/success':
+          return '알람 > 메시지 발송 성공율 알람 등록';
         default:
           return ''
       }

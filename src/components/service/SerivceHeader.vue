@@ -87,7 +87,7 @@ export default {
           return '주소록'
         case '/ac/alarm/alarm':
           return '알람'
-        case 'ac/alarm/alarm/success':
+        case '/ac/alarm/alarm/success':
           return '메시지 발송 성공율 알람'
         default:
           return ''
