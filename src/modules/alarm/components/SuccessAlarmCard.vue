@@ -2,7 +2,7 @@
   <div class="card">
     <div class="card-header">
       <p class="m-0 f-title1 c-gray700">메시지 발송 성공율 알람</p>
-      <b-button variant="dark" class="btn-svg btn-svg-right">
+      <b-button variant="dark" class="btn-svg btn-svg-right" @click="navigateToPage">
         <span>등록</span>
         <IconPlus />
       </b-button>
@@ -13,7 +13,7 @@
       <div class="card-alarm flex-fill mr-1">
         <p class="m-0 f-body2 c-gray600">테스트 알람</p>
       </div>
-      <b-button variant="outline-primary" class="ml-3">삭제</b-button>
+      <b-button variant="outline-primary" class="ml-3" @click="deleteAlarm">삭제</b-button>
     </div>
   </div>
 </template>
@@ -24,11 +24,19 @@ import IconPlus from '@/components/service/icons/IconPlus.vue'
 export default {
   components: {  IconPlus, },
   name: "SuccessAlarmCard",
+  props: {
+    deleteAlarm: {
+      type: Function
+    }
+  },
   data() {
     return {
     }
   },
   methods: {
+    navigateToPage() {
+      this.$router.push(`/ac/alarm/alarm/success`);
+    },
   }
 };
 </script>

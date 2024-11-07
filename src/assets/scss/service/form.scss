@@ -347,6 +347,9 @@ textarea.form-control {
           &.hint {
             display: none;
           }
+          &:not([disabled]).active {
+            background-color: var(--gray100);
+          }
         }
       }
     }

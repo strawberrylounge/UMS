@@ -40,3 +40,28 @@
     @include typography.multiline-ellipsis(2);
   }
 }
+.table-section {
+  width: calc(50% - 25px);
+  padding: 0;
+  &-header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    .title {
+      margin: 0;
+      @include typography.font-style(20px, 700, 140%, -0.4px);
+      color: var(--gray700);
+    }
+    .btn {
+      min-width: 88px;
+    }
+  }
+  &-body {
+    margin-top: 24px;
+  }
+  &-divider {
+    width: 1px;
+    margin: 0 24px;
+    background-color: var(--gray200);
+  }
+}

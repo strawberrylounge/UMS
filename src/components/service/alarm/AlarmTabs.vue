@@ -5,6 +5,9 @@
         <a href="/ac/alarm/alarm">알람</a>
       </div>
       <div :class="['tab', isActive('/')]">
+        <a href="/">수신그룹</a>
+      </div>
+      <div :class="['tab', isActive('/')]">
         <a href="/">수신자</a>
       </div>
     </div>

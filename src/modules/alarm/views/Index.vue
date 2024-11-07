@@ -5,7 +5,7 @@
     <div class="tab-contents">
       <div class="row">
         <div class="col">
-          <SuccessAlarmCard />
+          <SuccessAlarmCard :deleteAlarm="confirmDeleteAlarm" />
         </div>
         <div class="col">
           <InflowAlarmCard />
@@ -24,7 +24,7 @@
           <LimitsAlarmCard />
         </div>
         <div class="col">
-          <AverageAlarmCard />
+          <AverageAlarmCard :deleteAlarm="confirmDeleteAlarm" />
         </div>
       </div>
     </div>
@@ -50,9 +50,26 @@ export default {
   name: "Alarm",
   data() {
     return {
+      alertTitle: '',
+      alertDesc: '',
+      confirmTitle: '',
+      confirmDesc: '',
+      confirmSubmit: null,
     }
   },
   methods: {
+    deleteAlarm() {
+      this.$bvModal.hide('confirm-modal');
+      this.alertTitle = '알람 삭제 완료'
+      this.alertDesc = '알람 삭제가 완료되었습니다.'
+      this.$bvModal.show('alert-modal');
+    },
+    confirmDeleteAlarm() {
+      this.confirmTitle = '알람 삭제'
+      this.confirmDesc = '삭제하시겠습니까?'
+      this.confirmSubmit = this.deleteAlarm
+      this.$bvModal.show('confirm-modal');
+    }
   }
 };
 </script>

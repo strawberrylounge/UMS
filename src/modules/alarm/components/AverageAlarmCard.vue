@@ -13,7 +13,7 @@
       <div class="card-alarm flex-fill mr-1">
         <p class="m-0 f-body2 c-gray600">Test2</p>
       </div>
-      <b-button variant="outline-primary" class="ml-3">삭제</b-button>
+      <b-button variant="outline-primary" class="ml-3" @click="deleteAlarm">삭제</b-button>
     </div>
   </div>
 </template>
@@ -24,6 +24,11 @@ import IconPlus from '@/components/service/icons/IconPlus.vue'
 export default {
   components: {  IconPlus, },
   name: "AverageAlarmCard",
+  props: {
+    deleteAlarm: {
+      type: Function
+    }
+  },
   data() {
     return {
     }

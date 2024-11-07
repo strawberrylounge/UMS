@@ -34,6 +34,7 @@ import apiKey from "@/modules/apiKey/views/Index.vue";
 import addressManage from "@/modules/addressManage/views/Index.vue";
 import addressReceiver from "@/modules/addressReceiver/views/Index.vue";
 import alarm from "@/modules/alarm/views/Index.vue";
+import alarmSucess from "@/modules/alarmSucess/views/Index.vue";
 
 Vue.use(Router);
 
@@ -297,6 +298,16 @@ const router = new Router({
         {
           path: "",
           component: alarm,
+        },
+      ],
+    },
+    {
+      path: "/ac/alarm/alarm/success",
+      component: ServiceLayout,
+      children: [
+        {
+          path: "",
+          component: alarmSucess,
         },
       ],
     }
