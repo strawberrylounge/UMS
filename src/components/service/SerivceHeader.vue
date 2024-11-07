@@ -99,6 +99,10 @@ export default {
           return '발송 제한 금액 알람'
         case '/ac/alarm/alarm/average':
           return '전달 일 평균 건수 초과 알람'
+        case '/ac/alarm/receptGroup':
+          return '수신그룹'
+        case '/ac/alarm/recipient':
+          return '수신자'
         default:
           return ''
       }

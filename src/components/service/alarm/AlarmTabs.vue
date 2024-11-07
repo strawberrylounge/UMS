@@ -4,11 +4,11 @@
       <div :class="['tab', isActive('/ac/alarm/alarm'), isActive('/ac/alarm/alarm/success'), isActive('/ac/alarm/alarm/inflow'), isActive('/ac/alarm/alarm/ip'), isActive('/ac/alarm/alarm/prepayment'), isActive('/ac/alarm/alarm/limits'), isActive('/ac/alarm/alarm/average')]">
         <a href="/ac/alarm/alarm">알람</a>
       </div>
-      <div :class="['tab', isActive('/')]">
-        <a href="/">수신그룹</a>
+      <div :class="['tab', isActive('/ac/alarm/receptGroup')]">
+        <a href="/ac/alarm/receptGroup">수신그룹</a>
       </div>
-      <div :class="['tab', isActive('/')]">
-        <a href="/">수신자</a>
+      <div :class="['tab', isActive('/ac/alarm/recipient')]">
+        <a href="/ac/alarm/recipient">수신자</a>
       </div>
     </div>
     <p class="breadcrumb f-body5 c-gray700">알람 > {{breadCrumbTitle}}</p>
@@ -37,6 +37,10 @@ export default {
           return '알람 > 발송 제한 금액 알람 등록';
         case '/ac/alarm/alarm/average':
           return '알람 > 전달 일 평균 건수 초과 알람 등록';
+        case '/ac/alarm/receptGroup':
+          return '알람 > 수신그룹';
+        case '/ac/alarm/recipient':
+          return '알람 > 수신자';
         default:
           return ''
       }

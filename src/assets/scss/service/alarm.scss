@@ -113,3 +113,7 @@
     }
   }
 }
+.list-view .search-section label {
+  @include typography.font-style(14px, 500, 140%, -0.28px);
+  color: var(--gray500);
+}

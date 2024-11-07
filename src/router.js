@@ -40,6 +40,8 @@ import alarmIp from "@/modules/alarmIp/views/Index.vue";
 import alarmPrepayment from "@/modules/alarmPrepayment/views/Index.vue";
 import alarmLimits from "@/modules/alarmLimits/views/Index.vue";
 import alarmAverage from "@/modules/alarmAverage/views/Index.vue";
+import alarmReceptGroup from "@/modules/alarmReceptGroup/views/Index.vue";
+import alarmRecipient from "@/modules/alarmRecipient/views/Index.vue";
 
 Vue.use(Router);
 
@@ -363,6 +365,26 @@ const router = new Router({
         {
           path: "",
           component: alarmAverage,
+        },
+      ],
+    },
+    {
+      path: "/ac/alarm/receptGroup",
+      component: ServiceLayout,
+      children: [
+        {
+          path: "",
+          component: alarmReceptGroup,
+        },
+      ],
+    },
+    {
+      path: "/ac/alarm/recipient",
+      component: ServiceLayout,
+      children: [
+        {
+          path: "",
+          component: alarmRecipient,
         },
       ],
     }
