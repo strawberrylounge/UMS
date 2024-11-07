@@ -1,5 +1,5 @@
 <template>
-  <div class="address-receiver">
+  <div class="alarm-success">
     <AlarmTabs />
 
     <div class="tab-contents">
@@ -12,10 +12,10 @@
       <div class="card">
         <div class="form-row">
           <label>알람명 <span class="require">*</span></label>
-          <b-input placeholder="입력"></b-input>
+          <b-input placeholder="입력" v-model="title"></b-input>
         </div>
 
-        <div class="form-row">
+        <div class="form-row align-items-start">
           <label>수집 요일/시간 <span class="require">*</span></label>
           <div class="date">
             <div class="d-flex align-items-center">
@@ -29,10 +29,10 @@
             <hr  class="hr"/>
             <div class="d-flex align-items-center day-container" v-for="(day, index) in days" :key="index">
               <b-form-checkbox v-model="selectedDays[index]" @change="updateSelectAll" class="mr-4">{{ day }}</b-form-checkbox>
-              <vue-timepicker format="hh" :hour-range="[0, 23]" class="book-time" placeholder="선택"></vue-timepicker>
+              <vue-timepicker v-model="dayTimes[day].start" format="hh" :hour-range="[0, 23]" class="book-time" placeholder="선택"></vue-timepicker>
               <span class="time-text f-body6 c-gray900">시</span>
               <span class="time-divider">-</span>
-              <vue-timepicker format="hh" :hour-range="[0, 23]" class="book-time" placeholder="선택"></vue-timepicker>
+              <vue-timepicker v-model="dayTimes[day].end" format="hh" :hour-range="[0, 23]" class="book-time" placeholder="선택"></vue-timepicker>
               <span class="time-text f-body6 c-gray900">시</span>
             </div>
           </div>
@@ -41,7 +41,7 @@
         <div class="form-row">
           <label>수집 최소 건수 <span class="require">*</span></label>
           <div class="d-flex align-items-center">
-            <b-input placeholder="입력"></b-input>
+            <b-input placeholder="입력" v-model="count"></b-input>
             <span class="pl-2 f-body6 c-gray900">건 이상</span>
           </div>
         </div>
@@ -49,7 +49,7 @@
         <div class="form-row">
           <label>발송 성공율 <span class="require">*</span></label>
           <div class="d-flex align-items-center">
-            <b-input placeholder="입력"></b-input>
+            <b-input placeholder="입력" v-model="percent"></b-input>
             <span class="pl-2 f-body6 c-gray900">% 이하</span>
           </div>
         </div>
@@ -63,8 +63,8 @@
         </div>
 
         <div class="submit-wrap mt-5">
-          <b-button variant="outline-primary" size="lg" class="mr-1">취소</b-button>
-          <b-button variant="primary" size="lg" class="ml-3">저장</b-button>
+          <b-button variant="outline-primary" size="lg">취소</b-button>
+          <b-button variant="primary" size="lg" class="ml-3" @click="save">저장</b-button>
         </div>
       </div>
     </div>
@@ -75,31 +75,20 @@
 </template>
 
 <script>
-import IconArrowDown from '@/components/service/icons/IconArrowDown.vue'
 import AlarmTabs from '@/components/service/alarm/AlarmTabs.vue'
-import SearchInput from '@/components/service/form/SearchInput.vue'
 import AlertModal from '@/components/service/modal/AlertModal.vue'
 import ConfirmModal from '@/components/service/modal/ConfirmModal.vue'
-import IconPlus from '@/components/service/icons/IconPlus.vue'
-import IconArrowRight from '@/components/service/icons/IconArrowRight.vue'
-import IconDownload from '@/components/service/icons/IconDownload.vue'
-import IconOn from '@/components/service/icons/IconOn.vue'
-import IconOff from '@/components/service/icons/IconOff.vue'
-import AddCategoryModal from '@/modules/addressManage/components/modal/AddCategoryModal.vue'
-import UpdateCategoryModal from '@/modules/addressManage/components/modal/UpdateCategoryModal.vue'
-import AddAddressModal from '@/modules/addressManage/components/modal/AddAddressModal.vue'
-import UpdateAddressModal from '@/modules/addressManage/components/modal/UpdateAddressModal.vue'
-import AddReceiverModal from '@/modules/addressReceiver/components/modal/AddReceiverModal.vue'
-import AddReceiverAllModal from '@/modules/addressReceiver/components/modal/AddReceiverAllModal.vue'
-import Pagination from '@/components/service/Pagination.vue';
-import ApiTable from '@/modules/alarm/components/sucessAlarm/ApiTable.vue'
-import AlarmTable from '@/modules/alarm/components/sucessAlarm/AlarmTable.vue'
+import ApiTable from '@/modules/alarmSuccess/components/ApiTable.vue'
+import AlarmTable from '@/modules/alarmSuccess/components/AlarmTable.vue'
 
 export default {
-  components: { AlarmTable, ApiTable, AddReceiverAllModal, AddReceiverModal, IconArrowDown, SearchInput, AlarmTabs,  AlertModal, ConfirmModal, IconPlus, IconArrowRight, IconDownload, Pagination },
-  name: "AddressReceiver",
+  components: { AlarmTable, ApiTable, AlarmTabs,  AlertModal, ConfirmModal, },
+  name: "AlarmSuccess",
   data() {
     return {
+      title: '',
+      count: '',
+      percent: '',
       alertTitle: '',
       alertDesc: '',
       confirmTitle: '',
@@ -107,17 +96,61 @@ export default {
       confirmSubmit: null,
       selectAll: false,
       days: ["월요일", "화요일", "수요일", "목요일", "금요일", "토요일", "일요일"],
-      selectedDays: [false, false, false, false, false, false, false]
+      selectedDays: [false, false, false, false, false, false, false],
+      dayTimes: {
+        "월요일": { start: null, end: null },
+        "화요일": { start: null, end: null },
+        "수요일": { start: null, end: null },
+        "목요일": { start: null, end: null },
+        "금요일": { start: null, end: null },
+        "토요일": { start: null, end: null },
+        "일요일": { start: null, end: null }
+      }
     }
   },
   methods: {
     toggleSelectAll() {
-      // '전체' 체크박스를 클릭하면 월~일 체크박스 상태를 전체와 동일하게 설정
+      // '전체' 체크박스를 클릭하면 모든 요일 체크박스 상태와 시간을 전체와 동일하게 설정
       this.selectedDays = this.selectedDays.map(() => this.selectAll);
     },
     updateSelectAll() {
-      // 월~일 체크박스의 상태를 감지하여 '전체' 체크박스 상태 업데이트
+      // 요일 체크박스의 상태를 감지하여 '전체' 체크박스 상태 업데이트
       this.selectAll = this.selectedDays.every(isSelected => isSelected);
+    },
+    save() {
+      if (!this.title) {
+        this.alertTitle = '알람명 입력'
+        this.alertDesc = '알림명은 필수사항입니다.'
+        this.$bvModal.show('alert-modal');
+        return
+      }
+
+      // 요일이 선택되었지만 시간이 설정되지 않은 경우 경고(alert) 표시
+      for (let i = 0; i < this.days.length; i++) {
+        if (this.selectedDays[i] && (!this.dayTimes[this.days[i]].start || !this.dayTimes[this.days[i]].end)) {
+          this.alertTitle = `수집 ${this.days[i]} 입력`
+          this.alertDesc = `수집 ${this.days[i]} 시간은 필수사항입니다.`
+          this.$bvModal.show('alert-modal');
+          return;
+        }
+      }
+
+      if (!this.count) {
+        this.alertTitle = '수집 취소 건수'
+        this.alertDesc = '수집 취소 건수는 필수사항입니다.'
+        this.$bvModal.show('alert-modal');
+        return
+      }
+      if (!this.percent) {
+        this.alertTitle = '발송 성공률 입력'
+        this.alertDesc = '발송 성공율은 필수사항입니다.'
+        this.$bvModal.show('alert-modal');
+        return
+      }
+
+      this.alertTitle = '알람 저장'
+      this.alertDesc = '저장되었습니다.'
+      this.$bvModal.show('alert-modal')
     }
   }
 };
@@ -127,22 +160,4 @@ export default {
 @use '@/assets/scss/service/message.scss';
 @use '@/assets/scss/service/template.scss';
 @use '@/assets/scss/service/alarm.scss';
-
-.card:not(.info) {
-  padding: 28px;
-}
-.book-time.time-picker {
-  width: 132px;
-}
-.time-text {
-  padding-left: 6px;
-}
-.time-divider {
-  padding: 0 16px;
-}
-.day-container {
-  & + .day-container {
-    margin-top: 20px;
-  }
-}
 </style>

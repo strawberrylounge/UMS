@@ -1,7 +1,7 @@
 <template>
   <div class="message-tabs-wrap">
     <div class="message-tabs">
-      <div :class="['tab', isActive('/ac/alarm/alarm'), isActive('/ac/alarm/alarm/success')]">
+      <div :class="['tab', isActive('/ac/alarm/alarm'), isActive('/ac/alarm/alarm/success'), isActive('/ac/alarm/alarm/inflow'), isActive('/ac/alarm/alarm/ip'), isActive('/ac/alarm/alarm/prepayment'), isActive('/ac/alarm/alarm/limits'), isActive('/ac/alarm/alarm/average')]">
         <a href="/ac/alarm/alarm">알람</a>
       </div>
       <div :class="['tab', isActive('/')]">
@@ -27,6 +27,16 @@ export default {
           return '알람';
         case '/ac/alarm/alarm/success':
           return '알람 > 메시지 발송 성공율 알람 등록';
+        case '/ac/alarm/alarm/inflow':
+          return '알람 > 유입 알람 등록';
+        case '/ac/alarm/alarm/ip':
+          return '알람 > IP 체크 알람 등록';
+        case '/ac/alarm/alarm/prepayment':
+          return '알람 > 선불 금액 알람 등록';
+        case '/ac/alarm/alarm/limits':
+          return '알람 > 발송 제한 금액 알람 등록';
+        case '/ac/alarm/alarm/average':
+          return '알람 > 전달 일 평균 건수 초과 알람 등록';
         default:
           return ''
       }

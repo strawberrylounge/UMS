@@ -1,8 +1,8 @@
 <template>
   <div class="table-section">
     <div class="table-section-header">
-      <p class="title">수집 대상 API</p>
-      <b-button variant="dark">등록</b-button>
+      <p class="title">알람 수신</p>
+      <b-button variant="dark" v-b-modal.search-receiver-modal>등록</b-button>
     </div>
     <div class="table-section-body">
       <div class="table-responsive">
@@ -14,15 +14,15 @@
           </colgroup>
           <thead>
             <tr>
-              <th>API명</th>
-              <th>API Key</th>
+              <th>수신자명</th>
+              <th>핸드폰 번호</th>
               <th>삭제</th>
             </tr>
           </thead>
           <tbody>
             <tr v-for="(item, index) in [0,1,2,3,4]" :key="index">
-              <td>test</td>
-              <td>테스트</td>
+              <td>수신자</td>
+              <td>010-1234-5678</td>
               <td>
                 <button type="button" class="btn btn-icon p-0">
                   <IconClose />
@@ -56,15 +56,18 @@
         </table>
       </div>
     </div>
+
+    <SearchReceiverModal />
   </div>
 </template>
 
 <script>
 import IconClose from '@/components/service/icons/IconClose.vue';
+import SearchReceiverModal from '@/components/service/alarm/modal/SearchReceiverModal.vue'
 
 export default {
-  components: { IconClose },
-  name: 'ApiTable'
+  components: { IconClose, SearchReceiverModal },
+  name: 'AlarmTable'
 }
 </script>
 

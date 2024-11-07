@@ -2,7 +2,7 @@
   <div class="table-section">
     <div class="table-section-header">
       <p class="title">알람 수신</p>
-      <b-button variant="dark">등록</b-button>
+      <b-button variant="dark" v-b-modal.search-receiver-modal>등록</b-button>
     </div>
     <div class="table-section-body">
       <div class="table-responsive">
@@ -56,14 +56,17 @@
         </table>
       </div>
     </div>
+
+    <SearchReceiverModal />
   </div>
 </template>
 
 <script>
 import IconClose from '@/components/service/icons/IconClose.vue';
+import SearchReceiverModal from '@/components/service/alarm/modal/SearchReceiverModal.vue'
 
 export default {
-  components: { IconClose },
+  components: { IconClose, SearchReceiverModal },
   name: 'AlarmTable'
 }
 </script>

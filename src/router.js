@@ -34,7 +34,12 @@ import apiKey from "@/modules/apiKey/views/Index.vue";
 import addressManage from "@/modules/addressManage/views/Index.vue";
 import addressReceiver from "@/modules/addressReceiver/views/Index.vue";
 import alarm from "@/modules/alarm/views/Index.vue";
-import alarmSucess from "@/modules/alarmSucess/views/Index.vue";
+import alarmSucess from "@/modules/alarmSuccess/views/Index.vue";
+import alarmInflow from "@/modules/alarmInflow/views/Index.vue";
+import alarmIp from "@/modules/alarmIp/views/Index.vue";
+import alarmPrepayment from "@/modules/alarmPrepayment/views/Index.vue";
+import alarmLimits from "@/modules/alarmLimits/views/Index.vue";
+import alarmAverage from "@/modules/alarmAverage/views/Index.vue";
 
 Vue.use(Router);
 
@@ -308,6 +313,56 @@ const router = new Router({
         {
           path: "",
           component: alarmSucess,
+        },
+      ],
+    },
+    {
+      path: "/ac/alarm/alarm/inflow",
+      component: ServiceLayout,
+      children: [
+        {
+          path: "",
+          component: alarmInflow,
+        },
+      ],
+    },
+    {
+      path: "/ac/alarm/alarm/ip",
+      component: ServiceLayout,
+      children: [
+        {
+          path: "",
+          component: alarmIp,
+        },
+      ],
+    },
+    {
+      path: "/ac/alarm/alarm/prepayment",
+      component: ServiceLayout,
+      children: [
+        {
+          path: "",
+          component: alarmPrepayment,
+        },
+      ],
+    },
+    {
+      path: "/ac/alarm/alarm/limits",
+      component: ServiceLayout,
+      children: [
+        {
+          path: "",
+          component: alarmLimits,
+        },
+      ],
+    },
+    {
+      path: "/ac/alarm/alarm/average",
+      component: ServiceLayout,
+      children: [
+        {
+          path: "",
+          component: alarmAverage,
         },
       ],
     }

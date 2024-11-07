@@ -89,6 +89,16 @@ export default {
           return '알람'
         case '/ac/alarm/alarm/success':
           return '메시지 발송 성공율 알람'
+        case '/ac/alarm/alarm/inflow':
+          return '유입 알람'
+        case '/ac/alarm/alarm/ip':
+          return 'IP 체크 알람'
+        case '/ac/alarm/alarm/prepayment':
+          return '선불 금액 알람'
+        case '/ac/alarm/alarm/limits':
+          return '발송 제한 금액 알람'
+        case '/ac/alarm/alarm/average':
+          return '전달 일 평균 건수 초과 알람'
         default:
           return ''
       }

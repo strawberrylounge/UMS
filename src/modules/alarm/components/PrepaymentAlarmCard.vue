@@ -2,7 +2,7 @@
   <div class="card">
     <div class="card-header">
       <p class="m-0 f-title1 c-gray700">선불 금액 알람</p>
-      <b-button variant="dark" class="btn-svg btn-svg-right">
+      <b-button variant="dark" class="btn-svg btn-svg-right" @click="navigateToPage">
         <span>등록</span>
         <IconPlus />
       </b-button>
@@ -26,6 +26,9 @@ export default {
     }
   },
   methods: {
+    navigateToPage() {
+      this.$router.push(`/ac/alarm/alarm/prepayment`);
+    },
   }
 };
 </script>

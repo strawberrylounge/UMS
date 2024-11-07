@@ -2,7 +2,7 @@
   <div class="card">
     <div class="card-header">
       <p class="m-0 f-title1 c-gray700">전달 일 평균 건수 초과 알람</p>
-      <b-button variant="dark" class="btn-svg btn-svg-right">
+      <b-button variant="dark" class="btn-svg btn-svg-right" @click="navigateToPage">
         <span>등록</span>
         <IconPlus />
       </b-button>
@@ -34,6 +34,9 @@ export default {
     }
   },
   methods: {
+    navigateToPage() {
+      this.$router.push(`/ac/alarm/alarm/average`);
+    },
   }
 };
 </script>
