@@ -2,7 +2,7 @@
   <div class="uc-message-send-sms">
     <MessageTabs />
 
-    <div class="d-flex tab-contents">
+    <div class="d-flex tab-contents scroll-tab-contetns">
       <div class="preview card">
         <p class="preview-title">미리보기</p>
         <PreviewDefault>
@@ -209,7 +209,7 @@
         <hr class="hr">
 
         <div class="submit-wrap">
-          <b-button variant="secondary" size="lg">테스트 발송</b-button>
+          <b-button variant="secondary" size="lg" v-b-modal.send-test-modal>테스트 발송</b-button>
           <b-button variant="primary" size="lg">발송</b-button>
         </div>
       </div>
@@ -219,6 +219,7 @@
     <EnterReceiverModal />
     <SelectRcsTemplateModal />
     <ConfirmModal title="RCS 발송" desc="템플릿을 변경하면 입력된 데이터가 모두 초기화됩니다. 변경하시겠습니까?" />
+    <SendTestModal />
   </div>
 </template>
 
@@ -236,9 +237,10 @@ import ConfirmModal from '@/components/service/modal/ConfirmModal.vue'
 import MessageTabs from '@/components/service/message/MessageTabs.vue'
 import PreviewDefault from '@/components/service/preview/PreviewDefault.vue'
 import SelectRcsTemplateModal from '@/modules/ucRcsTemplateSend/components/modal/SelectRcsTemplateModal.vue';
+import SendTestModal from '@/modules/ucMessageSendSms/components/modal/SendTestModal.vue';
 
 export default {
-  components: { IconQuestionLine, TemplateCard, IconArrowDown, IconArrowRight, IconDownload, IconClose, SearchAddressModal, EnterReceiverModal, CustomDatepicker, ConfirmModal, SelectRcsTemplateModal, MessageTabs, PreviewDefault, },
+  components: { SendTestModal, IconQuestionLine, TemplateCard, IconArrowDown, IconArrowRight, IconDownload, IconClose, SearchAddressModal, EnterReceiverModal, CustomDatepicker, ConfirmModal, SelectRcsTemplateModal, MessageTabs, PreviewDefault, },
   name: "ucRcsTemplateSend",
   data() {
     return {
@@ -373,5 +375,8 @@ export default {
 .scroll-area {
   height: calc(100vh - 254px);
   overflow-y: auto;
+}
+.preview-default {
+  width: 320px;
 }
 </style>

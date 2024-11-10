@@ -46,7 +46,6 @@
 
 /* 목업 화면 RCS 미리보기 */
 .uc-rcs-template-manage .preview-mockup {
-  width: 360px !important;
   padding-top: 75px !important;
   padding-bottom: 55px !important;
 }
@@ -180,9 +179,6 @@
 }
 
 /* 목업 화면 카카오톡 미리보기 */
-.uc-alimtalk-template-manage .preview-mockup {
-  width: 360px !important;
-}
 .talk {
   &-button {
     .btn {

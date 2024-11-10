@@ -1,6 +1,6 @@
 <template>
   <div class="preview-talk">
-    <PreviewDefault>
+    <PreviewDefault :size="size">
       <img
         src="@/assets/images/service/preview/talk-button.png"
         alt="카카오톡 상단 버튼들"
@@ -29,6 +29,12 @@ import PreviewDefault from '@/components/service/preview/PreviewDefault.vue';
 export default {
   components: {PreviewDefault, },
   name: "PreviewTalk",
+  props: {
+    size: {
+      type: String,
+      default: 'md'
+    }
+  }
 };
 </script>
 

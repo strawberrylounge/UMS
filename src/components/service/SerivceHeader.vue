@@ -103,6 +103,10 @@ export default {
           return '수신그룹'
         case '/ac/alarm/recipient':
           return '수신자'
+        case '/ac/sendLimit/spam':
+        case '/ac/sendLimit/sendLimitAmount':
+        case '/ac/sendLimit/rejct080Num':
+          return '발신제한'
         default:
           return ''
       }

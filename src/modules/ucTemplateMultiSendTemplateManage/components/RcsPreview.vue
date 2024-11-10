@@ -1,6 +1,6 @@
 <template>
   <div class="uc-rcs-template-manage">
-    <PreviewDefault>
+    <PreviewDefault size="lg">
       <p class="mt-0 mb-1 pb-2 f-body1 c-gray700">썸네일형(세로)</p>
       <div class="preview-section rcs">
         <p class="rcs-title">[Web 발신]</p>

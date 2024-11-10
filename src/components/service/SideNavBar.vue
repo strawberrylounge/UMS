@@ -89,7 +89,7 @@
             <icon-address />
             <span >주소록</span>
           </a>
-          <a href="#" class="d-flex align-items-center menu-item">
+          <a href="/ac/sendLimit/spam" class="d-flex align-items-center menu-item" :class="{ active: ($route.path.includes('/ac/sendLimit/spam'))}">
             <icon-call />
             <span >발신제한</span>
           </a>

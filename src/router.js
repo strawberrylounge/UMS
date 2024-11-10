@@ -42,6 +42,9 @@ import alarmLimits from "@/modules/alarmLimits/views/Index.vue";
 import alarmAverage from "@/modules/alarmAverage/views/Index.vue";
 import alarmReceptGroup from "@/modules/alarmReceptGroup/views/Index.vue";
 import alarmRecipient from "@/modules/alarmRecipient/views/Index.vue";
+import sendLimitSpam from "@/modules/sendLimitSpam/views/Index.vue";
+import sendLimitAmount from "@/modules/sendLimitAmount/views/Index.vue";
+import rejctNum from "@/modules/rejctNum/views/Index.vue";
 
 Vue.use(Router);
 
@@ -385,6 +388,36 @@ const router = new Router({
         {
           path: "",
           component: alarmRecipient,
+        },
+      ],
+    },
+    {
+      path: "/ac/sendLimit/spam",
+      component: ServiceLayout,
+      children: [
+        {
+          path: "",
+          component: sendLimitSpam,
+        },
+      ],
+    },
+    {
+      path: "/ac/sendLimit/sendLimitAmount",
+      component: ServiceLayout,
+      children: [
+        {
+          path: "",
+          component: sendLimitAmount,
+        },
+      ],
+    },
+    {
+      path: "/ac/sendLimit/rejct080Num",
+      component: ServiceLayout,
+      children: [
+        {
+          path: "",
+          component: rejctNum,
         },
       ],
     }

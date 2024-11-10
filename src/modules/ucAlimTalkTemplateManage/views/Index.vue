@@ -16,7 +16,7 @@
       <!-- 미리보기 목업 Start -->
       <div class="preview card">
         <p class="preview-title">미리보기</p>
-        <PreviewTalk>
+        <PreviewTalk size="lg">
           <div class="preview-section talk">
             <p class="m-0 f-body7 c-black">{{ displaySubTitle }}</p>
             <p class="m-0 mb-1 f-title2 c-black">{{ displayTitle }}</p>
@@ -98,7 +98,7 @@
           <label class="form-label">이미지 <span class="require">*</span></label>
           <div>
             <div class="d-flex">
-              <b-button variant="outline-primary" size="sm" class="mr-1">이미지 선택</b-button>
+              <b-button variant="outline-primary" size="sm" class="mr-1" v-b-modal.select-image-modal>이미지 선택</b-button>
               <b-button variant="secondary" size="sm" class="ml-2">이미지형 제작 가이드</b-button>
             </div>
             <div class="img-info">
@@ -253,6 +253,8 @@
         </div>
       </div>
     </div>
+
+    <SelectImageModal />
   </div>
 </template>
 
@@ -264,9 +266,10 @@ import IconInfoRed from '@/components/service/icons/IconInfoRed.vue';
 import IconInfo from '@/components/service/icons/IconInfo.vue';
 import TemplateTabs from '@/components/service/template/TemplateTabs.vue'
 import PreviewTalk from '@/components/service/preview/PreviewTalk.vue'
+import SelectImageModal from '@/modules/ucMessageSendSms/components/modal/SelectImageModal.vue';
 
 export default {
-  components: { IconArrowDown, TemplateTabs, PreviewTalk, IconClose, IconPlus, IconInfoRed, IconInfo, },
+  components: { IconArrowDown, TemplateTabs, PreviewTalk, IconClose, IconPlus, IconInfoRed, IconInfo, SelectImageModal, },
   name: "ucRcsTemplateManage",
   data() {
     return {
@@ -338,7 +341,7 @@ export default {
 @use '@/assets/scss/service/template.scss';
 
 .section {
-  width: calc(100% - 420px - 28px);
+  width: calc(100% - 430px - 20px);
 }
 .template-input,
 .b-dropdown {

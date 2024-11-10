@@ -100,7 +100,7 @@
                 <th>
                   <div class="d-flex align-items-center">
                     휴대폰 번호
-                    <IconSort class="down" /> <!-- NOTE: 정렬시 class명 추가하면 스타일 변경됨 -->
+                    <IconSort />
                   </div>
                 </th>
                 <th>
@@ -121,7 +121,7 @@
                     size="lg"
                   ></b-form-checkbox>
                 </td>
-                <td><button class="btn btn-table-link" v-b-modal.kakao-detail-modal>test01</button></td>
+                <td><button class="btn btn-table-link">test01</button></td>
                 <td>ID 내용노출</td>
                 <td>testphone</td>
                 <td>010-1234-1234</td>

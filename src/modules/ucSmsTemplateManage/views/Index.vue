@@ -177,4 +177,8 @@ export default {
     }
   }
 }
+
+.uc-sms-tempalte-manage .preview-mockup {
+  width: 320px;
+}
 </style>

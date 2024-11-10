@@ -105,3 +105,10 @@
 #talk-move-request-modal .modal-body {
   overflow: visible;
 }
+/* 수신거부번호 추가 모달 */
+#rejct-num-modal {
+  .modal-body {
+    padding: 0;
+    background-color: transparent;
+  }
+}

@@ -16,7 +16,7 @@
       <!-- 미리보기 목업 Start -->
       <div class="preview card">
         <p class="preview-title">미리보기</p>
-        <PreviewDefault>
+        <PreviewDefault size="lg">
           <p class="mt-0 mb-1 pb-2 f-body1 c-gray700">썸네일형(세로)</p>
           <div class="preview-section rcs">
             <p class="rcs-title">[Web 발신]</p>
@@ -362,7 +362,7 @@
           <label class="form-label">이미지<span class="require">*</span></label>
           <div class="section-col-img">
             <div class="d-flex align-items-center">
-              <b-button variant="outline-primary" size="sm" class="mr-1">이미지 선택</b-button>
+              <b-button variant="outline-primary" size="sm" class="mr-1" v-b-modal.select-image-modal>이미지 선택</b-button>
               <b-button variant="secondary" size="sm" class="ml-2">이미지형 제작 가이드</b-button>
             </div>
             <div class="img-info">
@@ -385,7 +385,7 @@
         <div class="d-flex section-col">
           <label class="form-label">썸네일 이미지<span class="require">*</span></label>
           <div class="d-flex">
-            <b-button variant="outline-primary" size="sm" class="image-select-btn">이미지 선택</b-button>
+            <b-button variant="outline-primary" size="sm" class="image-select-btn" v-b-modal.select-image-modal>이미지 선택</b-button>
             <ul class="image-select-list">
               <li>
                 <span class="text-truncate">jpghttps://api.msghub-dev.uplus.co.kr/jpghttps://api.msghub-dev.uplus.co.kr/ </span>
@@ -443,6 +443,8 @@
         </div>
       </div>
     </div>
+
+    <SelectImageModal />
   </div>
 </template>
 
@@ -465,12 +467,13 @@ import IconClose from '@/components/service/icons/IconClose.vue';
 import IconPlus from '@/components/service/icons/IconPlus.vue';
 import TemplateTabs from '@/components/service/template/TemplateTabs.vue'
 import PreviewDefault from '@/components/service/preview/PreviewDefault.vue'
+import SelectImageModal from '@/modules/ucMessageSendSms/components/modal/SelectImageModal.vue';
 
 export default {
   components: {
     IconQuestionLine, TemplateCard, IconArrowDown, TemplateTabs, PreviewDefault, IconShoppingCart, 
     IconPaper, IconTruck, IconCheck, IconPiggyBank, IconWallet, IconCheckCancel, IconDocs, IconSignUp, IconExpand, IconClose,
-    IconPlus,
+    IconPlus, SelectImageModal,
   },
   name: "ucRcsTemplateManage",
   data() {
@@ -609,7 +612,7 @@ export default {
 @use '@/assets/scss/service/template.scss';
 
 .section {
-  width: calc(100% - 420px - 28px);
+  width: calc(100% - 430px - 20px);
 }
 .template-tabs-wrap {
   margin: 8px 0;

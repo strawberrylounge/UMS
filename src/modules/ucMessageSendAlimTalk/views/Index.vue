@@ -147,7 +147,7 @@
         <hr class="hr">
 
         <div class="submit-wrap">
-          <b-button variant="secondary" size="lg">테스트 발송</b-button>
+          <b-button variant="secondary" size="lg" v-b-modal.send-test-modal>테스트 발송</b-button>
           <b-button variant="primary" size="lg">발송</b-button>
         </div>
       </div>
@@ -157,6 +157,7 @@
     <EnterReceiverModal />
     <SelectTalkTemplateModal />
     <ViewContentModal />
+    <SendTestModal />
   </div>
 </template>
 
@@ -172,9 +173,10 @@ import SelectTalkTemplateModal from '@/modules/ucMessageSendAlimTalk/components/
 import ViewContentModal from '@/modules/ucMessageSendAlimTalk/components/modal/ViewContentModal.vue';
 import PreviewTalk from '@/components/service/preview/PreviewTalk.vue';
 import MessageTabs from '@/components/service/message/MessageTabs.vue'
+import SendTestModal from '@/modules/ucMessageSendSms/components/modal/SendTestModal.vue';
 
 export default {
-  components: { IconInfo, IconArrowRight, IconDownload, IconClose, SearchAddressModal, EnterReceiverModal, CustomDatepicker, SelectTalkTemplateModal, PreviewTalk, MessageTabs, ViewContentModal, },
+  components: { SendTestModal, IconInfo, IconArrowRight, IconDownload, IconClose, SearchAddressModal, EnterReceiverModal, CustomDatepicker, SelectTalkTemplateModal, PreviewTalk, MessageTabs, ViewContentModal, },
   name: "ucRcsTemplateSend",
   data() {
     return {

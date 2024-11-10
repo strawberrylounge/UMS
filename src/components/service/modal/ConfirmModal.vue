@@ -36,11 +36,11 @@ export default {
       this.$bvModal.hide('confirm-modal');
     },
     handleSubmit() {
+
       if (this.onSubmit) {
         this.onSubmit()
-        return;
       }
-      this.$bvModal.hide('confirm-modal');
+      this.closeModal()
     },
     nl2br(str) {
       if (typeof str === 'string') {
