@@ -29,6 +29,12 @@
     "Segoe UI Emoji", "Segoe UI Symbol", sans-serif;
 }
 
+@each $name, $color in $colors {
+  .bg-#{$name} {
+    background-color: var(--#{$name});
+  }
+}
+
 html,
 body {
   width: 100%;

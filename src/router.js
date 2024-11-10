@@ -45,6 +45,7 @@ import alarmRecipient from "@/modules/alarmRecipient/views/Index.vue";
 import sendLimitSpam from "@/modules/sendLimitSpam/views/Index.vue";
 import sendLimitAmount from "@/modules/sendLimitAmount/views/Index.vue";
 import rejctNum from "@/modules/rejctNum/views/Index.vue";
+import cashMain from "@/modules/cashMain/views/Index.vue";
 
 Vue.use(Router);
 
@@ -418,6 +419,16 @@ const router = new Router({
         {
           path: "",
           component: rejctNum,
+        },
+      ],
+    },
+    {
+      path: "/ac/cash/cashMain",
+      component: ServiceLayout,
+      children: [
+        {
+          path: "",
+          component: cashMain,
         },
       ],
     }

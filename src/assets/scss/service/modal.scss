@@ -91,7 +91,10 @@
   }
 }
 
-#search-address-modal .modal-dialog {
+/* 디자인시스템 모달 규격과 다르게 생긴 모달 크기 */
+#search-address-modal .modal-dialog,
+#charge-modal .modal-dialog,
+#auto-charge-modal .modal-dialog {
   width: 955px;
   max-width: 955px;
 }

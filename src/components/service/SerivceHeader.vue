@@ -107,6 +107,8 @@ export default {
         case '/ac/sendLimit/sendLimitAmount':
         case '/ac/sendLimit/rejct080Num':
           return '발신제한'
+        case '/ac/cash/cashMain':
+          return '충전관리'
         default:
           return ''
       }

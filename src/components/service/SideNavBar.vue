@@ -81,7 +81,7 @@
             <icon-send-info />
             <span >발신정보</span>
           </a>
-          <a href="#" class="d-flex align-items-center menu-item">
+          <a href="/ac/cash/cashMain" class="d-flex align-items-center menu-item" :class="{ active: ($route.path.includes('/ac/cash/cashMain'))}">
             <icon-pay />
             <span >정산</span>
           </a>
