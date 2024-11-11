@@ -113,6 +113,8 @@ export default {
           return '이용금액'
         case '/ac/cash/serviceHist':
           return '서비스 요금'
+        case '/uc/statisticsUser/sendByDay':
+          return '통계'
         default:
           return ''
       }

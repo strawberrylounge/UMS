@@ -48,6 +48,7 @@ import rejctNum from "@/modules/rejctNum/views/Index.vue";
 import cashMain from "@/modules/cashMain/views/Index.vue";
 import cashHistory from "@/modules/cashHistory/views/Index.vue";
 import cashServiceHist from "@/modules/cashServiceHist/views/Index.vue";
+import sendByDay from "@/modules/sendByDay/views/Index.vue";
 
 Vue.use(Router);
 
@@ -451,6 +452,16 @@ const router = new Router({
         {
           path: "",
           component: cashServiceHist,
+        },
+      ],
+    },
+    {
+      path: "/uc/statisticsUser/sendByDay",
+      component: ServiceLayout,
+      children: [
+        {
+          path: "",
+          component: sendByDay,
         },
       ],
     }
