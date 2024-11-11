@@ -25,31 +25,5 @@ export default {
 </script>
 
 <style scoped lang="scss">
-@use "~@/assets/scss/service/base/typography" as typography;
-
-.cash-table {
-  width: 724px;
-  border: 1px solid var(--border-color);
-  border-radius: 8px;
-  overflow: hidden;
-  &-row {
-    display: flex;
-    align-items: center;
-    padding: 16px;
-    & + .cash-table-row {
-      border-top: 1px solid var(--border-color);
-    }
-    p {
-      flex: 0 0 calc(50% - 21px);
-      @include typography.font-style(16px, 500, 140%, -0.32px);
-      color: var(--gray900);
-    }
-  }
-}
-.vertical-divider {
-    width: 1px;
-    height: 16px;
-    margin: 0 20px;
-    background: var(--border-color);
-  }
+@use '@/assets/scss/service/cash.scss';
 </style>

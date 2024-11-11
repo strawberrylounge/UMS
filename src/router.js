@@ -46,6 +46,8 @@ import sendLimitSpam from "@/modules/sendLimitSpam/views/Index.vue";
 import sendLimitAmount from "@/modules/sendLimitAmount/views/Index.vue";
 import rejctNum from "@/modules/rejctNum/views/Index.vue";
 import cashMain from "@/modules/cashMain/views/Index.vue";
+import cashHistory from "@/modules/cashHistory/views/Index.vue";
+import cashServiceHist from "@/modules/cashServiceHist/views/Index.vue";
 
 Vue.use(Router);
 
@@ -429,6 +431,26 @@ const router = new Router({
         {
           path: "",
           component: cashMain,
+        },
+      ],
+    },
+    {
+      path: "/ac/cash/history",
+      component: ServiceLayout,
+      children: [
+        {
+          path: "",
+          component: cashHistory,
+        },
+      ],
+    },
+    {
+      path: "/ac/cash/serviceHist",
+      component: ServiceLayout,
+      children: [
+        {
+          path: "",
+          component: cashServiceHist,
         },
       ],
     }

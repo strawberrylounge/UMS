@@ -109,6 +109,10 @@ export default {
           return '발신제한'
         case '/ac/cash/cashMain':
           return '충전관리'
+        case '/ac/cash/history':
+          return '이용금액'
+        case '/ac/cash/serviceHist':
+          return '서비스 요금'
         default:
           return ''
       }
