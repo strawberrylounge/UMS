@@ -52,7 +52,7 @@
             <icon-template />
             <span >템플릿</span>
           </a>
-          <a href="/uc/statisticsUser/sendByDay" class="d-flex align-items-center menu-item" :class="{ active: $route.path.includes('/uc/statisticsUser/sendByDay')}">
+          <a href="/uc/statisticsUser/realTime" class="d-flex align-items-center menu-item" :class="{ active: $route.path.includes('/uc/statisticsUser/realTime')}">
             <icon-stats />
             <span >통계</span>
           </a>
@@ -122,7 +122,7 @@
             <icon-template />
             <span>템플릿</span>
           </a>
-          <a href="/uc/statisticsUser/sendByDay" class="d-flex align-items-center menu-item" :class="{ active: $route.path.includes('/uc/statisticsUser/sendByDay')}">
+          <a href="/uc/statisticsUser/realTime" class="d-flex align-items-center menu-item" :class="{ active: $route.path.includes('/uc/statisticsUser/realTime')}">
             <icon-stats />
             <span >통계</span>
           </a>

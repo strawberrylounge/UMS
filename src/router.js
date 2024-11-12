@@ -48,7 +48,9 @@ import rejctNum from "@/modules/rejctNum/views/Index.vue";
 import cashMain from "@/modules/cashMain/views/Index.vue";
 import cashHistory from "@/modules/cashHistory/views/Index.vue";
 import cashServiceHist from "@/modules/cashServiceHist/views/Index.vue";
+import realTime from "@/modules/realTime/views/Index.vue";
 import sendByDay from "@/modules/sendByDay/views/Index.vue";
+import sendByMonth from "@/modules/sendByMonth/views/Index.vue";
 
 Vue.use(Router);
 
@@ -456,12 +458,32 @@ const router = new Router({
       ],
     },
     {
+      path: "/uc/statisticsUser/realTime",
+      component: ServiceLayout,
+      children: [
+        {
+          path: "",
+          component: realTime,
+        },
+      ],
+    },
+    {
       path: "/uc/statisticsUser/sendByDay",
       component: ServiceLayout,
       children: [
         {
           path: "",
           component: sendByDay,
+        },
+      ],
+    },
+    {
+      path: "/uc/statisticsUser/sendByMonth",
+      component: ServiceLayout,
+      children: [
+        {
+          path: "",
+          component: sendByMonth,
         },
       ],
     }

@@ -1,5 +1,5 @@
 <template>
-  <div class="statistics-day list-view">
+  <div class="statistics-month list-view">
     <StatisticsTabs />
 
     <div class="tab-contents">
@@ -13,9 +13,10 @@
               <span>~</span>
               <CustomDatepicker ref="endDatePicker" />
             </div>
-            <button type="button" class="btn btn-filter" :class="{active: dateFilter === '1week'}" @click="setDateRange('1week')">1주일</button>
-            <button type="button" class="btn btn-filter" :class="{active: dateFilter === '15days'}" @click="setDateRange('15days')">15일</button>
-            <button type="button" class="btn btn-filter" :class="{active: dateFilter === '1month'}" @click="setDateRange('1month')">1개월</button>          </div>
+            <button type="button" class="btn btn-filter" :class="{active: dateFilter === '3month'}" @click="setDateRange('3month')">3개월</button>      
+            <button type="button" class="btn btn-filter" :class="{active: dateFilter === '6month'}" @click="setDateRange('6month')">6개월</button>      
+            <button type="button" class="btn btn-filter" :class="{active: dateFilter === '12month'}" @click="setDateRange('12month')">12개월</button>      
+          </div>
         </div>
         <b-button variant="dark" class="btn-submit ml-auto">조회</b-button>
       </div>
@@ -23,7 +24,7 @@
 
       <!-- 리스트 영역 Start -->
       <div class="table-section card">
-        <SendByDaySubTabs :tab="tab" :setTab="setTab" />
+        <SendByMonthSubTabs :tab="tab" :setTab="setTab" />
         <StatusTabs :tab="graphTab" :setTab="setGraphTab" />
         <AllChart v-if="graphTab === 'all'" />
         <FailChart v-else />
@@ -35,14 +36,14 @@
 
 <script>
 import StatisticsTabs from '@/components/service/statistics/StatisticsTabs.vue'
-import SendByDaySubTabs from '@/modules/sendByDay/components/SendByDaySubTabs.vue';
-import AllChart from '@/modules/sendByDay/components/AllChart.vue';
-import FailChart from '@/modules/sendByDay/components/FailChart.vue';
-import StatusTabs from '@/modules/sendByDay/components/StatusTabs.vue';
+import SendByMonthSubTabs from '@/modules/sendByMonth/components/SendByMonthSubTabs.vue';
+import AllChart from '@/modules/sendByMonth/components/AllChart.vue';
+import FailChart from '@/modules/sendByMonth/components/FailChart.vue';
+import StatusTabs from '@/modules/sendByMonth/components/StatusTabs.vue';
 import CustomDatepicker from '@/components/service/form/CustomDatepicker.vue'
 
 export default {
-  components: { StatisticsTabs, SendByDaySubTabs, CustomDatepicker, StatusTabs, AllChart, FailChart },
+  components: { StatisticsTabs, SendByMonthSubTabs, CustomDatepicker, StatusTabs, AllChart, FailChart },
   name: "SendByDay",
   data() {
     return {

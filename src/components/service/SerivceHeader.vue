@@ -114,6 +114,8 @@ export default {
         case '/ac/cash/serviceHist':
           return '서비스 요금'
         case '/uc/statisticsUser/sendByDay':
+        case '/uc/statisticsUser/sendByMonth':
+        case '/uc/statisticsUser/realTime':
           return '통계'
         default:
           return ''
