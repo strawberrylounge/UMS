@@ -7,7 +7,7 @@
         <p class="preview-title">미리보기</p>
         <RcsPreview v-if="channelTab === 'rcs'" />
         <KaKaoPreveiw v-else-if="channelTab === 'kakao'" />
-        <SmsPreview v-else :title="currentType === 'mms' ? '(광고성)' : ''" />
+        <SmsPreview v-else :title="smsTitle" :desc="smsDesc" />
       </div>
 
       <div class="section card" :class="channelSelected.length === 0 ? 'no-preview' : ''">
@@ -92,7 +92,7 @@
 
         <RcsContents v-if="channelTab === 'rcs'" :message="message" />
         <KaKaoContents v-if="channelTab === 'kakao'" />
-        <SmsContents v-if="channelTab === 'sms'" ref="smsComponent"  @update-type="handleTypeUpdate" />
+        <SmsContents v-if="channelTab === 'sms'" ref="smsComponent"  @update-type="handleSMSData" />
 
         <div class="submit-wrap">
           <b-button variant="outline-secondary" size="lg">취소</b-button>
@@ -148,7 +148,9 @@ export default {
         title: '통합 템플릿 관리',
         desc: 'RCS 승인 서술형 템플릿 브랜드명을 선택해주세요.'
       },
-      currentType: 'sms'
+      currentType: 'sms',
+      smsTitle: '',
+      smsDesc: '',
     }
   },
   methods: {
@@ -186,8 +188,10 @@ export default {
     changeSubTab(value) {
       this.channelTab = value
     },
-    handleTypeUpdate(newType) {
-      this.currentType = newType;
+    handleSMSData(data) {
+      this.currentType = data.type;
+      this.smsTitle = data.title;
+      this.smsDesc = data.desc;
     }
   },
   watch: {

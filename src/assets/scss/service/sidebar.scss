@@ -45,6 +45,9 @@
       border: 1px solid var(--border-color);
       background: var(--white);
       box-shadow: 2px 6px 12px 0px rgba(98, 104, 138, 0.24);
+      &:focus-visible {
+        outline: none;
+      }
       li {
         padding: 0;
       }

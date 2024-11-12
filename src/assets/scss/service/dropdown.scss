@@ -1,7 +1,7 @@
 @use "../../scss/service/base/typography" as typography;
 
 /* dropdown */
-#service .b-dropdown.dropdown:not(.user-dropdown),
+#service .b-dropdown.dropdown:not(.user-dropdown):not(.cash-dropdown),
 .service-modal .b-dropdown.dropdown {
   &.show {
     .dropdown-toggle {

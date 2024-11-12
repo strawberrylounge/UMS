@@ -31,7 +31,7 @@
       <div v-if="type === 'mms'"  class="d-flex align-items-center section-col">
         <label class="form-label">제목 <span class="require">*</span></label>
         <div class="d-flex align-items-center section-col-img">
-          <b-input placeholder="20자 이내 이력" class="template-input" value="(광고성)"></b-input>
+          <b-input placeholder="20자 이내 이력" class="template-input" v-model="title"></b-input>
           <span class="ml-1 pl-2 f-body6 c-gary600">(6/40)</span>
         </div>
       </div>
@@ -58,6 +58,8 @@
             id="content"
             rows="6"
             max-rows="6"
+            v-model="desc"
+            @blur="updateType"
             :placeholder="placeholder"></b-form-textarea>
           <p class="textarea-count mt-2 mb-0">변수부 제외 길이 (00 / 90)</p>
         </div>
@@ -106,8 +108,9 @@ export default {
       isSelectTemplate: true,
       type: 'sms',
       placeholder: '변수로 설정하고자 하는 내용을 #{ } 표시로 작성해 주십시오.\n예) 이름과 출금일을 변수 설정\n예) #{name}님 #{yyymmdd} 출금 예정입니다.',
-      phoneNumber: ''
-
+      phoneNumber: '',
+      title: '(광고성)',
+      desc: '',
     }
   },
   methods: {
@@ -121,7 +124,11 @@ export default {
       this.phoneNumber = value;
     },
     updateType() {
-      this.$emit('update-type', this.type); 
+      this.$emit('update-type', {
+        type: this.type,
+        title: this.title,
+        desc: this.desc
+      }); 
     }
   },
   watch: {
