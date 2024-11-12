@@ -46,7 +46,7 @@
           <b-button variant="secondary">버튼 영역</b-button>
         </div>
         <div class="rcs-content m-0">
-          <p class="m-0 f-cpation2 c-gray700">무료 수신거부 <span class="ml-1 pl-2 text-underline text-primary">010-0000-0000</span></p>
+          <p class="m-0 f-caption2 c-gray700">무료 수신거부 <span class="ml-1 pl-2 text-underline text-primary">010-0000-0000</span></p>
         </div>
       </div>
     </PreviewDefault>

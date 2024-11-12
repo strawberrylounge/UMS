@@ -5,15 +5,16 @@
     <div class="d-flex tab-contents">
       <div class="preview card">
         <p class="preview-title">미리보기</p>
-        <PreviewDefault>
+        <PreviewDefault size="lg">
           <div class="preview-section sms">
             <p class="m-0 f-body6 c-gray900">{{ displayTitle }}</p>
             <p class="m-0 mt-2 f-caption2 c-gray700" v-html="displayContent"></p>
+            <p class="m-0 mt-3 f-caption2 c-gray700">무료 수신거부 <span class="ml-1 pl-2 text-underline text-primary">010-0000-0000</span></p>
           </div>
           <div class="preview-img">
             <div class="empty-img">
               <img src="@/assets/images/service/preview/preview-img.svg" alt="" class="img-icon">
-              <p class="m-0 mt-1 c-caption2 c-gray500">작성페이지에서 이미지를<br/>
+              <p class="m-0 mt-1 f-caption2 c-gray500">작성페이지에서 이미지를<br/>
                 삽입할 수 있습니다.</p>
             </div>
             <!-- <img src="" alt=""> -->
@@ -176,9 +177,5 @@ export default {
       margin-right: 12px;
     }
   }
-}
-
-.uc-sms-tempalte-manage .preview-mockup {
-  width: 320px;
 }
 </style>
