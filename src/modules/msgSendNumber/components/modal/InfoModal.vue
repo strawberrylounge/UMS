@@ -23,35 +23,56 @@
         </p>
       </div>
 
-      <div class="d-flex align-items-center">
-        <div class="file-upload flex-fill mr-1">
-          <label for="upload" class="btn btn-dark btn-sm mb-0">파일 선택</label>
-          <input
-            id="upload"
-            type="file"
-            @change="handleFileUpload"
-            class="d-none"
-          />
-          <span v-if="selectedFileName" class="f-body6 c-gray900">{{ selectedFileName }}</span>
-          <span v-else class="f-body6 c-gray400">선택된 파일 없음</span>
-        </div>
-        <b-button variant="light" class="btn btn-sm btn-svg btn-svg-right btn-sample-download ml-3">
-          <span>업로드 샘플</span>
-          <IconDownload />
-        </b-button>
+      <div class="table-responsive">
+        <table class="table">
+          <colgroup>
+            <col width="20%">
+            <col width="80%">
+          </colgroup>
+          <tbody>
+            <tr>
+              <th>휴대폰 번호 등록</th>
+              <td>
+                <p class="mb-1 pb-3 f-body4 c-gray500">휴대폰 번호 등록휴대폰에 설치된 PASS로 본인인증 후 아래 서류를 첨부하시면, 고객센터에서 검토 후 발신번호가<br/> 등록됩니다. (1~3일 소요)</p>
+                <p class="m-0 f-body5 c-gray500">제출서류</p>
+                <ul class="table-content-list">
+                  <li>휴대폰 소유자 재직증명서 (대표자는 제외)</li>
+                  <li>사업자 등록증</li>
+                  <li>통신서비스 가입증명원</li>
+                </ul>
+              </td>
+            </tr>
+            <tr>
+              <th>유선 번호 등록</th>
+              <td>
+                <p class="mb-1 pb-3 f-body4 c-gray500">유선 번호 입력 후 아래 서류를 첨부하시면, 고객센터에서 검토 후 발신번호가 등록됩니다. (1~3일 소요)</p>
+                <p class="m-0 f-body5 c-gray500">제출서류</p>
+                <ul class="table-content-list">
+                  <li>통신서비스 가입증명원</li>
+                </ul>
+              </td>
+            </tr>
+            <tr>
+              <th>타인 / 타사 번호 등록</th>
+              <td>
+                <p class="mb-1 pb-3 f-body4 c-gray500">타인/타사 번호 등록 신청 시 아래 서류를 첨부하시면, 고객센터에서 검토 후 발신번호가 등록됩니다. (1~3일 소요)</p>
+                <p class="m-0 f-body5 c-gray500">제출서류</p>
+                <ul class="table-content-list">
+                  <li>신분증 사본 (위임업체 대리인 / 수임업체 대리인)</li>
+                  <li>재직증명서 (위임업체 대리인 / 수임업체 대리인)</li>
+                  <li>인감증명서 (위임업체 / 수임업체)</li>
+                  <li>인감이 날인된 위임장</li>
+                  <li>위임-수임관계 확인 서류</li>
+                  <li>통신서비스 가입증명원</li>
+                </ul>
+              </td>
+            </tr>
+          </tbody>
+        </table>
       </div>
     </div>
 
-    <div class="mt-4">
-      <p class="f-bold">중복 확인 버튼 클릭시 유효성 검사에 따라 나오는 모달 예시입니다.</p>
-      <b-button variant="outline-dark" @click="validate(true)">사용 가능 번호일 경우</b-button>
-      <b-button variant="outline-dark" @click="validate(false)">사용 불가능 번호일 경우</b-button>
-      <b-button variant="outline-dark" @click="notAllow()">사용자 등록 허용되지 않는 확장자일 경우</b-button>
-      <b-button variant="outline-dark" @click="excel()">사용자 등록 엑셀파일</b-button>
-    </div>
-
     <template #modal-footer>
-      <b-button variant="primary">추가</b-button>
       <b-button variant="outline-primary" @click="closeModal">닫기</b-button>
     </template>
 
@@ -60,22 +81,16 @@
 </template>
 
 <script>
-import IconArrowDown from '@/components/service/icons/IconArrowDown.vue';
-import IconDownload from '@/components/service/icons/IconDownload.vue'
 import IconQuestion from '@/components/service/icons/IconQuestion.vue'
 import AlertModal from '@/components/service/modal/AlertModal.vue'
 
 export default {
-components: { IconArrowDown, IconDownload, AlertModal, IconQuestion, },
+components: { AlertModal, IconQuestion, },
 name: 'InfoModal',
   props: {
   },
   data() {
     return {
-      number: '',
-      selectedFileName: '',
-      alertTitle: '',
-      alertDesc: '',
     }
 },
   methods: { 
@@ -104,6 +119,33 @@ ul {
   li {
     @include typography.font-style(14px, 400, 180%, -0.28px);
     color: var(--gray500);
+  }
+}
+.btn-tooltip {
+  margin-bottom: 2px;
+  margin-left: 2px;
+}
+.table tr {
+  &:first-child th,
+  &:first-child td {
+    border-top: none;
+  }
+  &:last-child td {
+    border-bottom: none;
+  }
+  th {
+    padding: 16px;
+    background-color: var(--gray50);
+    @include typography.font-style(14px, 700, 140%, -0.28px);
+    color: var(--gray500);
+    text-align: center;
+    vertical-align: middle;
+  }
+  td {
+    padding: 16px;
+    &:hover {
+      background-color: var(--white);
+    }
   }
 }
 </style>

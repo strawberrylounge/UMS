@@ -117,14 +117,14 @@
               <tr v-for="(item, index) in [0,1,2,3,4]" :key="index">
                 <td>010-1234-1234</td>
                 <td>
-                  <button class="btn btn-table-link">유선번호 1</button>
+                  <button class="btn btn-table-link" v-b-modal.update-number-modal>유선번호 1</button>
                 </td>
                 <td>요청</td>
                 <td>서류 심사</td>
                 <td>2024.10.10</td>
                 <td>2024.10.11</td>
                 <td>
-                  <b-button variant="outline-secondary" size="sm">삭제</b-button>
+                  <b-button variant="outline-secondary" size="sm" @click="confirmDeleteNumber">삭제</b-button>
                 </td>
               </tr>
             </tbody>
@@ -137,8 +137,12 @@
     </div>
 
     <AlertModal :title="alertTitle" :desc="alertDesc" />
-    <ConfirmModal title="스팸 문구 삭제" desc="스팸 문구를 삭제 하시겠습니까?" :onSubmit="deleteSpam" />
+    <ConfirmModal :title="confirmTitle" :desc="confirmDesc" :onSubmit="deleteNumber" />
     <InfoModal />
+    <UpdateNumberModal :updateNumber="updateNumber" />
+
+    <p>등록방법이 RCS Biz 이거나 처리상태가 요청 및 접수일 경우 모달 예시</p>
+    <b-button variant="outline-primary" @click="notAllowUpdate">발신번호 수정 불가 모달</b-button>
   </div>
 </template>
 
@@ -152,9 +156,10 @@ import IconArrowRight from '@/components/service/icons/IconArrowRight.vue'
 import IconDownload from '@/components/service/icons/IconDownload.vue'
 import Pagination from '@/components/service/Pagination.vue';
 import InfoModal from '@/modules/msgSendNumber/components/modal/InfoModal.vue';
+import UpdateNumberModal from '@/modules/msgSendNumber/components/modal/UpdateNumberModal.vue';
 
 export default {
-  components: { InfoModal, IconDownload, IconArrowDown, MessageSendTabs,  AlertModal, ConfirmModal, IconSort, IconArrowRight, Pagination, },
+  components: { UpdateNumberModal, InfoModal, IconDownload, IconArrowDown, MessageSendTabs,  AlertModal, ConfirmModal, IconSort, IconArrowRight, Pagination, },
   name: "AddressManage",
   data() {
     return {
@@ -162,12 +167,34 @@ export default {
       pageCount: 10,
       alertTitle: '',
       alertDesc: '',
+      confirmTitle: '',
+      confirmDesc: '',
     }
   },
   methods: {
     setPageCount(value) {
       this.pageCount = value
     },
+    updateNumber() {
+      this.alertTitle = '발신번호 수정 완료'
+      this.alertDesc = '수정을 성공했습니다.'
+      this.$bvModal.show('alert-modal')
+    },
+    confirmDeleteNumber() {
+      this.confirmTitle = '발신번호 삭제'
+      this.confirmDesc = '해당 발신번호를 삭제하시겠습니까?'
+      this.$bvModal.show('confirm-modal')
+    },
+    deleteNumber() {
+      this.alertTitle = '발신번호 삭제 완료'
+      this.alertDesc = '삭제처리되었습니다.'
+      this.$bvModal.show('alert-modal')
+    },
+    notAllowUpdate() {
+      this.alertTitle = '발신번호 수정 불가'
+      this.alertDesc = '등록방법이 RCS Biz 이거나 처리상태가 요청 및 접수일 경우에는 발신번호명을 수정할 수 없습니다.'
+      this.$bvModal.show('alert-modal')
+    }
   }
 };
 </script>
