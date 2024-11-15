@@ -109,7 +109,8 @@
   overflow: visible;
 }
 /* 수신거부번호 추가 모달 */
-#rejct-num-modal {
+#rejct-num-modal,
+#info-modal {
   .modal-body {
     padding: 0;
     background-color: transparent;

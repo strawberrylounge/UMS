@@ -111,7 +111,7 @@
     </div>
 
     <template #modal-footer>
-      <b-button variant="primary" disabled>생성</b-button>
+      <b-button variant="primary">생성</b-button>
       <b-button variant="outline-primary" @click="closeModal">닫기</b-button>
     </template>
   </b-modal>

@@ -117,6 +117,8 @@ export default {
         case '/uc/statisticsUser/sendByMonth':
         case '/uc/statisticsUser/realTime':
           return '통계'
+        case '/ac/sendInfo/msgSendNumber':
+          return '발신정보'
         default:
           return ''
       }

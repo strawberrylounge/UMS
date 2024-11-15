@@ -77,7 +77,7 @@
             <icon-user />
             <span >사용자</span>
           </a>
-          <a href="#" class="d-flex align-items-center menu-item">
+          <a href="/ac/sendInfo/msgSendNumber" class="d-flex align-items-center menu-item" :class="{ active: ($route.path.includes('/ac/sendInfo/msgSendNumber'))}">
             <icon-send-info />
             <span >발신정보</span>
           </a>
