@@ -1,5 +1,5 @@
 <template>
-  <div class="template-card">
+  <div class="template-card" @click="selectCard">
     <div class="template-card-img">
       <!-- NOTE: 템플릿 이미지 추가 -->
       <!-- <img src="" alt=""> -->
@@ -10,7 +10,22 @@
 
 <script>
 export default {
-  name: 'templateCard'
+  props: {
+    setCard: {
+      type: Function
+    },
+    value: {
+      type: String
+    }
+  },
+  name: 'templateCard',
+  methods: {
+    selectCard() {
+      if (this.setCard && this.value) {
+        this.setCard(this.value)
+      }
+    }
+  }
 }
 </script>
 

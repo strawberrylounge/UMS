@@ -181,11 +181,11 @@
         <div class="service-template-content">
           <div v-if="templateTab === 'thumb'">
             <div class="template-select">
-              <TemplateCard>
-                <b-form-radio name="type" value="A" class="custom-radio-vertical" @change="showConfirmModal">내용A</b-form-radio>
+              <TemplateCard :setCard="setCard" value="A">
+                <b-form-radio v-model="card" name="type" value="A" class="custom-radio-vertical">내용A</b-form-radio>
               </TemplateCard>
-              <TemplateCard>
-                <b-form-radio name="type" value="B" class="custom-radio-vertical" @change="showConfirmModal">내용B</b-form-radio>
+              <TemplateCard :setCard="setCard" value="B">
+                <b-form-radio v-model="card" name="type" value="B" class="custom-radio-vertical">내용B</b-form-radio>
               </TemplateCard>
             </div>
           </div>
@@ -455,7 +455,6 @@ import IconArrowDown from '@/components/service/icons/IconArrowDown.vue';
 import IconShoppingCart from '@/components/service/icons/IconShoppingCart.vue';
 import IconPaper from '@/components/service/icons/IconPaper.vue';
 import IconTruck from '@/components/service/icons/IconTruck.vue';
-import IconCalendar from '@/components/service/icons/IconCalendar.vue';
 import IconCheck from '@/components/service/icons/IconCheck.vue';
 import IconPiggyBank from '@/components/service/icons/IconPiggyBank.vue';
 import IconWallet from '@/components/service/icons/IconWallet.vue';
@@ -501,9 +500,13 @@ export default {
       dispalyRcsTemplateDesc: '',
       number: '',
       displayNumber: '',
+      card: '',
     }
   },
   methods: {
+    setCard(value) {
+      this.card = value;
+    },
     changeSubTab(value) {
       this.subTab = value;
     },
@@ -521,9 +524,6 @@ export default {
     },
     setButtonType(value) {
       this.buttonType = value;
-    },
-    showConfirmModal() {
-      this.$bvModal.show('confirm-modal');
     },
     navigateToList() {
       this.$router.push(`/uc/template/rcsTemplateList`);
