@@ -52,6 +52,7 @@ import realTime from "@/modules/realTime/views/Index.vue";
 import sendByDay from "@/modules/sendByDay/views/Index.vue";
 import sendByMonth from "@/modules/sendByMonth/views/Index.vue";
 import msgSendNumber from "@/modules/msgSendNumber/views/Index.vue";
+import rcsSendNumber from "@/modules/rcsSendNumber/views/Index.vue";
 
 Vue.use(Router);
 
@@ -497,8 +498,18 @@ const router = new Router({
           component: msgSendNumber,
         },
       ],
+    },
+    {
+      path: "/ac/sendInfo/rcsSendNumber",
+      component: ServiceLayout,
+      children: [
+        {
+          path: "",
+          component: rcsSendNumber,
+        },
+      ],
     }
-  ]
+  ],
 });
 
 export default router;

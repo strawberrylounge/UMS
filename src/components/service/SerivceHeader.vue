@@ -118,6 +118,7 @@ export default {
         case '/uc/statisticsUser/realTime':
           return '통계'
         case '/ac/sendInfo/msgSendNumber':
+        case '/ac/sendInfo/rcsSendNumber':
           return '발신정보'
         default:
           return ''
