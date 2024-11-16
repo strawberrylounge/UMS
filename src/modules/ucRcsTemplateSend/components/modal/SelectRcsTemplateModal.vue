@@ -1,5 +1,5 @@
 <template>  
-  <b-modal id="select-rcs-template-modal" title="템플릿 선택" hide-header-close size="xl" centered content-class="service-modal select-template-modal">
+  <b-modal id="select-rcs-template-modal" title="템플릿 선택" hide-header-close size="xl" centered content-class="service-modal select-template-modal" no-fade>
     <div class="d-flex">
       <div class="section">
         <p class="m-0 mb-1 pb-3 f-body1 c-gray700">브랜드 선택</p>

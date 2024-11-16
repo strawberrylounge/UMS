@@ -116,3 +116,7 @@
     background-color: transparent;
   }
 }
+
+#select-template-modal.modal.fade .modal-dialog {
+  transition: none;
+}

@@ -1,5 +1,5 @@
 <template>  
-  <b-modal id="select-template-modal" title="템플릿 선택" hide-header-close size="xl" centered content-class="select-template-modal">
+  <b-modal id="select-template-modal" title="템플릿 선택" hide-header-close size="xl" centered content-class="select-template-modal" no-fade>
     <div class="d-flex">
       <div class="section">
         <label for="template" class="f-body5 c-gray500">템플릿 검색</label>
