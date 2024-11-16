@@ -3,7 +3,7 @@
     <div class="form-row">
       <label>주소록 설명</label>
       <div>
-        <b-input class="w-100" placeholder="입력" v-model="title"></b-input>
+        <b-input class="w-100" placeholder="입력"></b-input>
       </div>
     </div>
 

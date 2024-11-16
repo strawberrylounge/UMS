@@ -8,7 +8,7 @@
         <a href="/">RCS 발신번호</a>
       </div>
     </div>
-    <p class="breadcrumb f-body5 c-gray700">발신정보 > {{breadCrumbTitle}}</p>
+    <p class="breadcrumb f-body5 c-gray700">발신정보 > {{breadCrumbTitle}} {{ subTitle }}</p>
   </div>
 </template>
 
@@ -16,6 +16,12 @@
 import '@/assets/scss/service/messageTabs.scss'
 
 export default {
+  props: {
+    subTitle: {
+      type: String,
+      default: ''
+    }
+  },
   name: "LimitSpamTabs",
   computed: {
     breadCrumbTitle() {

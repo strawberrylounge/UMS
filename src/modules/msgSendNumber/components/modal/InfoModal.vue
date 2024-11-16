@@ -75,17 +75,14 @@
     <template #modal-footer>
       <b-button variant="outline-primary" @click="closeModal">닫기</b-button>
     </template>
-
-    <AlertModal :title="alertTitle" :desc="alertDesc" />
   </b-modal>
 </template>
 
 <script>
 import IconQuestion from '@/components/service/icons/IconQuestion.vue'
-import AlertModal from '@/components/service/modal/AlertModal.vue'
 
 export default {
-components: { AlertModal, IconQuestion, },
+components: { IconQuestion, },
 name: 'InfoModal',
   props: {
   },

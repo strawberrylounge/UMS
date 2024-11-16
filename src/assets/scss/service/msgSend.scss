@@ -1,0 +1,37 @@
+@use "../../scss/service/base/typography" as typography;
+.text-section {
+  max-width: 381px;
+  ul {
+    margin: 0;
+    padding-left: 24px;
+  }
+  li {
+    @include typography.font-style(14px, 400, 180%, -0.28px);
+    color: var(--gray500);
+  }
+}
+.vertical-divider {
+  width: 1px;
+  height: auto;
+  margin: 0 20px;
+  background-color: var(--gray200);
+}
+.file-upload {
+  display: flex;
+  align-items: center;
+  padding: 6px 8px;
+  background-color: var(--white);
+  border: 1px solid var(--gray300);
+  border-radius: 8px;
+  .btn {
+    min-width: 84px;
+    margin-right: 20px;
+  }
+}
+.form-row {
+  margin-right: 0;
+  margin-left: 0;
+  .file-upload {
+    max-width: 477px;
+  }
+}

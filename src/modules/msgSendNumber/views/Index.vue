@@ -1,8 +1,10 @@
 <template>
   <div class="send-limit-spam list-view">
-    <MessageSendTabs />
+    <MessageSendTabs :subTitle="viewType == 'manage' ? '> 문자 발신번호 등록' : ''" />
 
-    <div class="tab-contents">
+    <msgSendRegister v-if="viewType == 'manage'" :setListView="setListView" :addNumber="addNumber" />
+
+    <div v-else class="tab-contents">
       <div class="info card">
         <p class="mt-0 mb-1 pb-2 f-body1 c-gray700">문자 발신번호 조회</p>
         <ul>
@@ -61,7 +63,7 @@
             <b-dropdown-item-button :class="pageCount == 30 ? 'active' : ''" @click="setPageCount(30)">30개씩 보기</b-dropdown-item-button>
           </b-dropdown>
 
-          <b-button variant="secondary" class="btn-svg btn-svg-right ml-auto" v-b-modal.add-spam-modal>
+          <b-button variant="secondary" class="btn-svg btn-svg-right ml-auto" @click="setManageView">
             <span>문자 발신번호 등록</span>
             <IconArrowRight />
           </b-button>
@@ -143,6 +145,12 @@
 
     <p>등록방법이 RCS Biz 이거나 처리상태가 요청 및 접수일 경우 모달 예시</p>
     <b-button variant="outline-primary" @click="notAllowUpdate">발신번호 수정 불가 모달</b-button>
+    <b-button variant="outline-primary" @click="require1InfoModal">발신번호 변작방지 및 사전등록 동의서 요청 모달</b-button>
+    <b-button variant="outline-primary" @click="require2InfoModal">대리인 등록 신청서 요청 모달</b-button>
+    <b-button variant="outline-primary" @click="require3InfoModal">인감증명서 입력 요청 모달</b-button>
+    <b-button variant="outline-primary" @click="require4InfoModal">인감이 날인된 위임장 요청 모달</b-button>
+    <b-button variant="outline-primary" @click="require5InfoModal">재직증명서 제목 입력 요청 모달</b-button>
+    <b-button variant="outline-primary" @click="require6InfoModal">첨부파일 용량 확인 모달</b-button>
   </div>
 </template>
 
@@ -157,9 +165,10 @@ import IconDownload from '@/components/service/icons/IconDownload.vue'
 import Pagination from '@/components/service/Pagination.vue';
 import InfoModal from '@/modules/msgSendNumber/components/modal/InfoModal.vue';
 import UpdateNumberModal from '@/modules/msgSendNumber/components/modal/UpdateNumberModal.vue';
+import msgSendRegister from '@/modules/msgSendNumber/components/msgSendRegister.vue';
 
 export default {
-  components: { UpdateNumberModal, InfoModal, IconDownload, IconArrowDown, MessageSendTabs,  AlertModal, ConfirmModal, IconSort, IconArrowRight, Pagination, },
+  components: { msgSendRegister, UpdateNumberModal, InfoModal, IconDownload, IconArrowDown, MessageSendTabs,  AlertModal, ConfirmModal, IconSort, IconArrowRight, Pagination, },
   name: "AddressManage",
   data() {
     return {
@@ -169,9 +178,16 @@ export default {
       alertDesc: '',
       confirmTitle: '',
       confirmDesc: '',
+      viewType: 'list'
     }
   },
   methods: {
+    setManageView() {
+      this.viewType = 'manage'
+    },
+    setListView() {
+      this.viewType = 'list'
+    },
     setPageCount(value) {
       this.pageCount = value
     },
@@ -194,7 +210,43 @@ export default {
       this.alertTitle = '발신번호 수정 불가'
       this.alertDesc = '등록방법이 RCS Biz 이거나 처리상태가 요청 및 접수일 경우에는 발신번호명을 수정할 수 없습니다.'
       this.$bvModal.show('alert-modal')
-    }
+    },
+    addNumber() {
+      this.alertTitle = '발신번호 등록 완료'
+      this.alertDesc = '문자 발신번호 요청이 완료되었습니다.'
+      this.$bvModal.show('alert-modal')
+      this.setListView()
+    },
+    require1InfoModal() {
+      this.alertTitle = '발신번호 변작방지 및 사전등록 동의서 요청'
+      this.alertDesc = '발신번호 변작방지 및 사전등록 동의서는 필수사항입니다.'
+      this.$bvModal.show('alert-modal')
+    },
+    require2InfoModal() {
+      this.alertTitle = '대리인 등록 신청서 요청'
+      this.alertDesc = '대리인 등록 신청서는 필수사항입니다.'
+      this.$bvModal.show('alert-modal')
+    },
+    require3InfoModal() {
+      this.alertTitle = '인감증명서 입력 요청'
+      this.alertDesc = '인감증명서는 필수사항입니다.'
+      this.$bvModal.show('alert-modal')
+    },
+    require4InfoModal() {
+      this.alertTitle = '인감이 날인된 위임장 요청'
+      this.alertDesc = '인감이 날인된 위임장은 필수사항입니다.'
+      this.$bvModal.show('alert-modal')
+    },
+    require5InfoModal() {
+      this.alertTitle = '재직증명서 제목 입력 요청'
+      this.alertDesc = '재직증명서는 필수사항입니다.'
+      this.$bvModal.show('alert-modal')
+    },
+    require6InfoModal() {
+      this.alertTitle = '첨부파일 용량 확인'
+      this.alertDesc = '첨부 파일 용량은 5MB를 넘을 수 없습니다.'
+      this.$bvModal.show('alert-modal')
+    },
   }
 };
 </script>
