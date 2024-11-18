@@ -195,6 +195,11 @@ export default {
           isOpen: true,
           items: ['테스트'],
         },
+        {
+          name: '이커머스테크 (공용)22',
+          isOpen: true,
+          items: ['테스트1', '테스트22', '테스트333'],
+        },
       ],
       confirmTitle: '',
       confirmDesc: '',
@@ -383,6 +388,9 @@ export default {
       height: 100%;
       background-color: var(--gray300);
     }
+    &:last-child::after {
+      display: none;
+    }
     .collapse {
       padding-left: 38px;
     }
@@ -407,6 +415,7 @@ export default {
     & > li {
       margin-top: 12px;
       padding-left: 35px;
+      margin-left: 21px;
       position: relative;
       &::before {
         content: '';
@@ -418,8 +427,20 @@ export default {
         background-color: var(--gray300);
         transform: translateY(-50%);
       }
+      &::after {
+        content: '';
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 1px;
+        height: calc(25px + 12px);
+        background-color: var(--gray300);
+      }
       &:last-child {
         padding-bottom: 12px;
+        &::after {
+          height: 17px;
+        }
       }
     }
   }

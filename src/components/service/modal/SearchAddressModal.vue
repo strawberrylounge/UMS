@@ -260,6 +260,7 @@ export default {
     & > li {
       margin-top: 12px;
       padding-left: 35px;
+      margin-left: 21px;
       position: relative;
       &::before {
         content: '';
@@ -271,8 +272,20 @@ export default {
         background-color: var(--gray300);
         transform: translateY(-50%);
       }
+      &::after {
+        content: '';
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 1px;
+        height: calc(25px + 12px);
+        background-color: var(--gray300);
+      }
       &:last-child {
         padding-bottom: 12px;
+        &::after {
+          height: 17px;
+        }
       }
     }
   }
