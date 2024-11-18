@@ -16,80 +16,533 @@
       <!-- 미리보기 목업 Start -->
       <div class="preview card">
         <p class="preview-title">미리보기</p>
-        <PreviewDefault size="lg">
-          <p class="mt-0 mb-1 pb-2 f-body1 c-gray700">썸네일형(세로)</p>
-          <div class="preview-section rcs">
-            <p class="rcs-title">[Web 발신]</p>
-            <div class="preview-img">
-              <div class="empty-img">
-                <img src="@/assets/images/service/preview/preview-img.svg" alt="" class="img-icon">
-                <p class="m-0 mt-1 c-caption2 c-gray500">작성페이지에서 이미지를<br/>
-                  삽입할 수 있습니다.</p>
-              </div>
-              <!-- <img src="" alt=""> -->
-            </div>
-            <div class="rcs-content rcs-type">
-              <div class="icon">
-                <IconShoppingCart v-if="type === '출고'" />
-                <IconPaper v-if="type === '주문'" />
-                <IconTruck v-if="type === '배송'" />
-                <IconCalendar v-if="type === '예약'" />
-                <IconCheck v-if="type === '승인'" />
-                <IconPiggyBank v-if="type === '입금'" />
-                <IconWallet v-if="type === '출금'" />
-                <IconCheckCancel v-if="type === '취소'" />
-                <IconDocs v-if="type === '명세서'" />
-                <IconSignUp v-if="type === '회원가입'" />
-                <IconExpand v-if="type === '인증'" />
-              </div>
-              <span>{{ type }}</span>
-            </div>
-            <div class="rcs-content rcs-col-content">
-              <p class="rcs-col-content-title">썸네일형</p>
-              <div v-for="(item, index) in displayContents" :key="index">
-                <hr v-if="item.hasLine" class="rcs-col-content-hr" />
-                <template v-if="item.type === 'one'">
-                  <p>{{ item.text[0] }}</p>
-                </template>
-                <template v-else-if="item.type === 'two'">
-                  <div class="row">
-                    <div v-for="(text, i) in item.text" :key="i" class="col">
-                      <p>{{ text }}</p>
+        <div class="preview-slide">
+          <input type="radio" name="slide" id="slide01" checked>
+          <input type="radio" name="slide" id="slide02">
+          <input type="radio" name="slide" id="slide03">
+          <input type="radio" name="slide" id="slide04">
+          <input type="radio" name="slide" id="slide05">
+          <input type="radio" name="slide" id="slide06">
+
+          <div class="slidewrap">
+            <ul class="slidelist">
+              <li>
+                <a>
+                  <PreviewDefault size='lg'>
+                  <p class="mt-0 mb-1 pb-2 f-body1 c-gray700">썸네일형(세로)</p>
+                  <div class="preview-section rcs">
+                    <p class="rcs-title">[Web 발신]</p>
+                    <div class="preview-img">
+                      <div class="empty-img">
+                        <img src="@/assets/images/service/preview/preview-img.svg" alt="" class="img-icon">
+                        <p class="m-0 mt-1 c-caption2 c-gray500">작성페이지에서 이미지를<br/>
+                          삽입할 수 있습니다.</p>
+                      </div>
+                      <!-- <img src="" alt=""> -->
+                    </div>
+                    <div class="rcs-content rcs-type">
+                      <div class="icon">
+                        <IconShoppingCart v-if="type === '출고'" />
+                        <IconPaper v-if="type === '주문'" />
+                        <IconTruck v-if="type === '배송'" />
+                        <IconCalendar v-if="type === '예약'" />
+                        <IconCheck v-if="type === '승인'" />
+                        <IconPiggyBank v-if="type === '입금'" />
+                        <IconWallet v-if="type === '출금'" />
+                        <IconCheckCancel v-if="type === '취소'" />
+                        <IconDocs v-if="type === '명세서'" />
+                        <IconSignUp v-if="type === '회원가입'" />
+                        <IconExpand v-if="type === '인증'" />
+                      </div>
+                      <span>{{ type }}</span>
+                    </div>
+                    <div class="rcs-content rcs-col-content">
+                      <p class="rcs-col-content-title">썸네일형</p>
+                      <div v-for="(item, index) in displayContents" :key="index">
+                        <hr v-if="item.hasLine" class="rcs-col-content-hr" />
+                        <template v-if="item.type === 'one'">
+                          <p>{{ item.text[0] }}</p>
+                        </template>
+                        <template v-else-if="item.type === 'two'">
+                          <div class="row">
+                            <div v-for="(text, i) in item.text" :key="i" class="col">
+                              <p>{{ text }}</p>
+                            </div>
+                          </div>
+                        </template>
+                      </div>
+                    </div>
+                    <div class="rcs-content rcs-template-content">
+                      <p class="rcs-template-content-title">{{ displayRcsTemplateTitle}}</p>
+                      <p class="rcs-template-content-desc"> {{ dispalyRcsTemplateDesc }} </p>
+                    </div>
+                    <div class="rcs-content rcs-thumbnail">
+                      <ul>
+                        <li>
+                          <div class="thumb-img">
+                            <img src="/" alt="">
+                          </div>
+                          <p>썸네일 내용 영역입니다. 썸네일 내용 영역입니다. 썸네일 내용 영역입니다. </p>
+                        </li>
+                        <li>
+                          <div class="thumb-img"><p>썸네일 2</p></div>
+                          <p>썸네일 내용 영역입니다. 썸네일 내용 영역입니다. 썸네일 내용 영역입니다. </p>
+                        </li>
+                        <li>
+                          <div class="thumb-img"><p>썸네일 3</p></div>
+                          <p>썸네일 내용 영역입니다. 썸네일 내용 영역입니다. 썸네일 내용 영역입니다. </p>
+                        </li>
+                      </ul>
+                    </div>
+                    <div class="rcs-content rcs-button">
+                      <b-button variant="secondary" v-for="(item, index) in buttons" :key="'btn-display-' + index" >{{ item.label }}</b-button>
+                    </div>
+                    <div class="rcs-content m-0">
+                      <p class="m-0 f-cpation2 c-gray700">무료 수신거부 <span class="ml-1 pl-2 text-underline text-primary">{{displayNumber}}</span></p>
                     </div>
                   </div>
-                </template>
-              </div>
-            </div>
-            <div class="rcs-content rcs-template-content">
-              <p class="rcs-template-content-title">{{ displayRcsTemplateTitle}}</p>
-              <p class="rcs-template-content-desc"> {{ dispalyRcsTemplateDesc }} </p>
-            </div>
-            <div class="rcs-content rcs-thumbnail">
-              <ul>
-                <li>
-                  <div class="thumb-img">
-                    <img src="/" alt="">
+                  </PreviewDefault>
+                </a>
+              </li>
+              <li>
+                <a>
+                  <PreviewDefault size='lg'>
+                  <p class="mt-0 mb-1 pb-2 f-body1 c-gray700">썸네일형(세로)</p>
+                  <div class="preview-section rcs">
+                    <p class="rcs-title">[Web 발신]</p>
+                    <div class="preview-img">
+                      <div class="empty-img">
+                        <img src="@/assets/images/service/preview/preview-img.svg" alt="" class="img-icon">
+                        <p class="m-0 mt-1 c-caption2 c-gray500">작성페이지에서 이미지를<br/>
+                          삽입할 수 있습니다.</p>
+                      </div>
+                      <!-- <img src="" alt=""> -->
+                    </div>
+                    <div class="rcs-content rcs-type">
+                      <div class="icon">
+                        <IconShoppingCart v-if="type === '출고'" />
+                        <IconPaper v-if="type === '주문'" />
+                        <IconTruck v-if="type === '배송'" />
+                        <IconCalendar v-if="type === '예약'" />
+                        <IconCheck v-if="type === '승인'" />
+                        <IconPiggyBank v-if="type === '입금'" />
+                        <IconWallet v-if="type === '출금'" />
+                        <IconCheckCancel v-if="type === '취소'" />
+                        <IconDocs v-if="type === '명세서'" />
+                        <IconSignUp v-if="type === '회원가입'" />
+                        <IconExpand v-if="type === '인증'" />
+                      </div>
+                      <span>{{ type }}</span>
+                    </div>
+                    <div class="rcs-content rcs-col-content">
+                      <p class="rcs-col-content-title">썸네일형</p>
+                      <div v-for="(item, index) in displayContents" :key="index">
+                        <hr v-if="item.hasLine" class="rcs-col-content-hr" />
+                        <template v-if="item.type === 'one'">
+                          <p>{{ item.text[0] }}</p>
+                        </template>
+                        <template v-else-if="item.type === 'two'">
+                          <div class="row">
+                            <div v-for="(text, i) in item.text" :key="i" class="col">
+                              <p>{{ text }}</p>
+                            </div>
+                          </div>
+                        </template>
+                      </div>
+                    </div>
+                    <div class="rcs-content rcs-template-content">
+                      <p class="rcs-template-content-title">{{ displayRcsTemplateTitle}}</p>
+                      <p class="rcs-template-content-desc"> {{ dispalyRcsTemplateDesc }} </p>
+                    </div>
+                    <div class="rcs-content rcs-thumbnail">
+                      <ul>
+                        <li>
+                          <div class="thumb-img">
+                            <img src="/" alt="">
+                          </div>
+                          <p>썸네일 내용 영역입니다. 썸네일 내용 영역입니다. 썸네일 내용 영역입니다. </p>
+                        </li>
+                        <li>
+                          <div class="thumb-img"><p>썸네일 2</p></div>
+                          <p>썸네일 내용 영역입니다. 썸네일 내용 영역입니다. 썸네일 내용 영역입니다. </p>
+                        </li>
+                        <li>
+                          <div class="thumb-img"><p>썸네일 3</p></div>
+                          <p>썸네일 내용 영역입니다. 썸네일 내용 영역입니다. 썸네일 내용 영역입니다. </p>
+                        </li>
+                      </ul>
+                    </div>
+                    <div class="rcs-content rcs-button">
+                      <b-button variant="secondary" v-for="(item, index) in buttons" :key="'btn-display-' + index" >{{ item.label }}</b-button>
+                    </div>
+                    <div class="rcs-content m-0">
+                      <p class="m-0 f-cpation2 c-gray700">무료 수신거부 <span class="ml-1 pl-2 text-underline text-primary">{{displayNumber}}</span></p>
+                    </div>
                   </div>
-                  <p>썸네일 내용 영역입니다. 썸네일 내용 영역입니다. 썸네일 내용 영역입니다. </p>
-                </li>
-                <li>
-                  <div class="thumb-img"><p>썸네일 2</p></div>
-                  <p>썸네일 내용 영역입니다. 썸네일 내용 영역입니다. 썸네일 내용 영역입니다. </p>
-                </li>
-                <li>
-                  <div class="thumb-img"><p>썸네일 3</p></div>
-                  <p>썸네일 내용 영역입니다. 썸네일 내용 영역입니다. 썸네일 내용 영역입니다. </p>
-                </li>
-              </ul>
-            </div>
-            <div class="rcs-content rcs-button">
-              <b-button variant="secondary" v-for="(item, index) in buttons" :key="'btn-display-' + index" >{{ item.label }}</b-button>
-            </div>
-            <div class="rcs-content m-0">
-              <p class="m-0 f-cpation2 c-gray700">무료 수신거부 <span class="ml-1 pl-2 text-underline text-primary">{{displayNumber}}</span></p>
-            </div>
+                  </PreviewDefault>
+                </a>
+              </li>
+              <li>
+                <a>
+                  <PreviewDefault size='lg'>
+                  <p class="mt-0 mb-1 pb-2 f-body1 c-gray700">썸네일형(세로)</p>
+                  <div class="preview-section rcs">
+                    <p class="rcs-title">[Web 발신]</p>
+                    <div class="preview-img">
+                      <div class="empty-img">
+                        <img src="@/assets/images/service/preview/preview-img.svg" alt="" class="img-icon">
+                        <p class="m-0 mt-1 c-caption2 c-gray500">작성페이지에서 이미지를<br/>
+                          삽입할 수 있습니다.</p>
+                      </div>
+                      <!-- <img src="" alt=""> -->
+                    </div>
+                    <div class="rcs-content rcs-type">
+                      <div class="icon">
+                        <IconShoppingCart v-if="type === '출고'" />
+                        <IconPaper v-if="type === '주문'" />
+                        <IconTruck v-if="type === '배송'" />
+                        <IconCalendar v-if="type === '예약'" />
+                        <IconCheck v-if="type === '승인'" />
+                        <IconPiggyBank v-if="type === '입금'" />
+                        <IconWallet v-if="type === '출금'" />
+                        <IconCheckCancel v-if="type === '취소'" />
+                        <IconDocs v-if="type === '명세서'" />
+                        <IconSignUp v-if="type === '회원가입'" />
+                        <IconExpand v-if="type === '인증'" />
+                      </div>
+                      <span>{{ type }}</span>
+                    </div>
+                    <div class="rcs-content rcs-col-content">
+                      <p class="rcs-col-content-title">썸네일형</p>
+                      <div v-for="(item, index) in displayContents" :key="index">
+                        <hr v-if="item.hasLine" class="rcs-col-content-hr" />
+                        <template v-if="item.type === 'one'">
+                          <p>{{ item.text[0] }}</p>
+                        </template>
+                        <template v-else-if="item.type === 'two'">
+                          <div class="row">
+                            <div v-for="(text, i) in item.text" :key="i" class="col">
+                              <p>{{ text }}</p>
+                            </div>
+                          </div>
+                        </template>
+                      </div>
+                    </div>
+                    <div class="rcs-content rcs-template-content">
+                      <p class="rcs-template-content-title">{{ displayRcsTemplateTitle}}</p>
+                      <p class="rcs-template-content-desc"> {{ dispalyRcsTemplateDesc }} </p>
+                    </div>
+                    <div class="rcs-content rcs-thumbnail">
+                      <ul>
+                        <li>
+                          <div class="thumb-img">
+                            <img src="/" alt="">
+                          </div>
+                          <p>썸네일 내용 영역입니다. 썸네일 내용 영역입니다. 썸네일 내용 영역입니다. </p>
+                        </li>
+                        <li>
+                          <div class="thumb-img"><p>썸네일 2</p></div>
+                          <p>썸네일 내용 영역입니다. 썸네일 내용 영역입니다. 썸네일 내용 영역입니다. </p>
+                        </li>
+                        <li>
+                          <div class="thumb-img"><p>썸네일 3</p></div>
+                          <p>썸네일 내용 영역입니다. 썸네일 내용 영역입니다. 썸네일 내용 영역입니다. </p>
+                        </li>
+                      </ul>
+                    </div>
+                    <div class="rcs-content rcs-button">
+                      <b-button variant="secondary" v-for="(item, index) in buttons" :key="'btn-display-' + index" >{{ item.label }}</b-button>
+                    </div>
+                    <div class="rcs-content m-0">
+                      <p class="m-0 f-cpation2 c-gray700">무료 수신거부 <span class="ml-1 pl-2 text-underline text-primary">{{displayNumber}}</span></p>
+                    </div>
+                  </div>
+                  </PreviewDefault>
+                </a>
+              </li>
+              <li>
+                <a>
+                  <PreviewDefault size='lg'>
+                  <p class="mt-0 mb-1 pb-2 f-body1 c-gray700">썸네일형(세로)</p>
+                  <div class="preview-section rcs">
+                    <p class="rcs-title">[Web 발신]</p>
+                    <div class="preview-img">
+                      <div class="empty-img">
+                        <img src="@/assets/images/service/preview/preview-img.svg" alt="" class="img-icon">
+                        <p class="m-0 mt-1 c-caption2 c-gray500">작성페이지에서 이미지를<br/>
+                          삽입할 수 있습니다.</p>
+                      </div>
+                      <!-- <img src="" alt=""> -->
+                    </div>
+                    <div class="rcs-content rcs-type">
+                      <div class="icon">
+                        <IconShoppingCart v-if="type === '출고'" />
+                        <IconPaper v-if="type === '주문'" />
+                        <IconTruck v-if="type === '배송'" />
+                        <IconCalendar v-if="type === '예약'" />
+                        <IconCheck v-if="type === '승인'" />
+                        <IconPiggyBank v-if="type === '입금'" />
+                        <IconWallet v-if="type === '출금'" />
+                        <IconCheckCancel v-if="type === '취소'" />
+                        <IconDocs v-if="type === '명세서'" />
+                        <IconSignUp v-if="type === '회원가입'" />
+                        <IconExpand v-if="type === '인증'" />
+                      </div>
+                      <span>{{ type }}</span>
+                    </div>
+                    <div class="rcs-content rcs-col-content">
+                      <p class="rcs-col-content-title">썸네일형</p>
+                      <div v-for="(item, index) in displayContents" :key="index">
+                        <hr v-if="item.hasLine" class="rcs-col-content-hr" />
+                        <template v-if="item.type === 'one'">
+                          <p>{{ item.text[0] }}</p>
+                        </template>
+                        <template v-else-if="item.type === 'two'">
+                          <div class="row">
+                            <div v-for="(text, i) in item.text" :key="i" class="col">
+                              <p>{{ text }}</p>
+                            </div>
+                          </div>
+                        </template>
+                      </div>
+                    </div>
+                    <div class="rcs-content rcs-template-content">
+                      <p class="rcs-template-content-title">{{ displayRcsTemplateTitle}}</p>
+                      <p class="rcs-template-content-desc"> {{ dispalyRcsTemplateDesc }} </p>
+                    </div>
+                    <div class="rcs-content rcs-thumbnail">
+                      <ul>
+                        <li>
+                          <div class="thumb-img">
+                            <img src="/" alt="">
+                          </div>
+                          <p>썸네일 내용 영역입니다. 썸네일 내용 영역입니다. 썸네일 내용 영역입니다. </p>
+                        </li>
+                        <li>
+                          <div class="thumb-img"><p>썸네일 2</p></div>
+                          <p>썸네일 내용 영역입니다. 썸네일 내용 영역입니다. 썸네일 내용 영역입니다. </p>
+                        </li>
+                        <li>
+                          <div class="thumb-img"><p>썸네일 3</p></div>
+                          <p>썸네일 내용 영역입니다. 썸네일 내용 영역입니다. 썸네일 내용 영역입니다. </p>
+                        </li>
+                      </ul>
+                    </div>
+                    <div class="rcs-content rcs-button">
+                      <b-button variant="secondary" v-for="(item, index) in buttons" :key="'btn-display-' + index" >{{ item.label }}</b-button>
+                    </div>
+                    <div class="rcs-content m-0">
+                      <p class="m-0 f-cpation2 c-gray700">무료 수신거부 <span class="ml-1 pl-2 text-underline text-primary">{{displayNumber}}</span></p>
+                    </div>
+                  </div>
+                  </PreviewDefault>
+                </a>
+              </li>
+              <li>
+                <a>
+                  <PreviewDefault size='lg'>
+                  <p class="mt-0 mb-1 pb-2 f-body1 c-gray700">썸네일형(세로)</p>
+                  <div class="preview-section rcs">
+                    <p class="rcs-title">[Web 발신]</p>
+                    <div class="preview-img">
+                      <div class="empty-img">
+                        <img src="@/assets/images/service/preview/preview-img.svg" alt="" class="img-icon">
+                        <p class="m-0 mt-1 c-caption2 c-gray500">작성페이지에서 이미지를<br/>
+                          삽입할 수 있습니다.</p>
+                      </div>
+                      <!-- <img src="" alt=""> -->
+                    </div>
+                    <div class="rcs-content rcs-type">
+                      <div class="icon">
+                        <IconShoppingCart v-if="type === '출고'" />
+                        <IconPaper v-if="type === '주문'" />
+                        <IconTruck v-if="type === '배송'" />
+                        <IconCalendar v-if="type === '예약'" />
+                        <IconCheck v-if="type === '승인'" />
+                        <IconPiggyBank v-if="type === '입금'" />
+                        <IconWallet v-if="type === '출금'" />
+                        <IconCheckCancel v-if="type === '취소'" />
+                        <IconDocs v-if="type === '명세서'" />
+                        <IconSignUp v-if="type === '회원가입'" />
+                        <IconExpand v-if="type === '인증'" />
+                      </div>
+                      <span>{{ type }}</span>
+                    </div>
+                    <div class="rcs-content rcs-col-content">
+                      <p class="rcs-col-content-title">썸네일형</p>
+                      <div v-for="(item, index) in displayContents" :key="index">
+                        <hr v-if="item.hasLine" class="rcs-col-content-hr" />
+                        <template v-if="item.type === 'one'">
+                          <p>{{ item.text[0] }}</p>
+                        </template>
+                        <template v-else-if="item.type === 'two'">
+                          <div class="row">
+                            <div v-for="(text, i) in item.text" :key="i" class="col">
+                              <p>{{ text }}</p>
+                            </div>
+                          </div>
+                        </template>
+                      </div>
+                    </div>
+                    <div class="rcs-content rcs-template-content">
+                      <p class="rcs-template-content-title">{{ displayRcsTemplateTitle}}</p>
+                      <p class="rcs-template-content-desc"> {{ dispalyRcsTemplateDesc }} </p>
+                    </div>
+                    <div class="rcs-content rcs-thumbnail">
+                      <ul>
+                        <li>
+                          <div class="thumb-img">
+                            <img src="/" alt="">
+                          </div>
+                          <p>썸네일 내용 영역입니다. 썸네일 내용 영역입니다. 썸네일 내용 영역입니다. </p>
+                        </li>
+                        <li>
+                          <div class="thumb-img"><p>썸네일 2</p></div>
+                          <p>썸네일 내용 영역입니다. 썸네일 내용 영역입니다. 썸네일 내용 영역입니다. </p>
+                        </li>
+                        <li>
+                          <div class="thumb-img"><p>썸네일 3</p></div>
+                          <p>썸네일 내용 영역입니다. 썸네일 내용 영역입니다. 썸네일 내용 영역입니다. </p>
+                        </li>
+                      </ul>
+                    </div>
+                    <div class="rcs-content rcs-button">
+                      <b-button variant="secondary" v-for="(item, index) in buttons" :key="'btn-display-' + index" >{{ item.label }}</b-button>
+                    </div>
+                    <div class="rcs-content m-0">
+                      <p class="m-0 f-cpation2 c-gray700">무료 수신거부 <span class="ml-1 pl-2 text-underline text-primary">{{displayNumber}}</span></p>
+                    </div>
+                  </div>
+                  </PreviewDefault>
+                </a>
+              </li>
+              <li>
+                <a>
+                  <PreviewDefault size='lg'>
+                  <p class="mt-0 mb-1 pb-2 f-body1 c-gray700">썸네일형(세로)</p>
+                  <div class="preview-section rcs">
+                    <p class="rcs-title">[Web 발신]</p>
+                    <div class="preview-img">
+                      <div class="empty-img">
+                        <img src="@/assets/images/service/preview/preview-img.svg" alt="" class="img-icon">
+                        <p class="m-0 mt-1 c-caption2 c-gray500">작성페이지에서 이미지를<br/>
+                          삽입할 수 있습니다.</p>
+                      </div>
+                      <!-- <img src="" alt=""> -->
+                    </div>
+                    <div class="rcs-content rcs-type">
+                      <div class="icon">
+                        <IconShoppingCart v-if="type === '출고'" />
+                        <IconPaper v-if="type === '주문'" />
+                        <IconTruck v-if="type === '배송'" />
+                        <IconCalendar v-if="type === '예약'" />
+                        <IconCheck v-if="type === '승인'" />
+                        <IconPiggyBank v-if="type === '입금'" />
+                        <IconWallet v-if="type === '출금'" />
+                        <IconCheckCancel v-if="type === '취소'" />
+                        <IconDocs v-if="type === '명세서'" />
+                        <IconSignUp v-if="type === '회원가입'" />
+                        <IconExpand v-if="type === '인증'" />
+                      </div>
+                      <span>{{ type }}</span>
+                    </div>
+                    <div class="rcs-content rcs-col-content">
+                      <p class="rcs-col-content-title">썸네일형</p>
+                      <div v-for="(item, index) in displayContents" :key="index">
+                        <hr v-if="item.hasLine" class="rcs-col-content-hr" />
+                        <template v-if="item.type === 'one'">
+                          <p>{{ item.text[0] }}</p>
+                        </template>
+                        <template v-else-if="item.type === 'two'">
+                          <div class="row">
+                            <div v-for="(text, i) in item.text" :key="i" class="col">
+                              <p>{{ text }}</p>
+                            </div>
+                          </div>
+                        </template>
+                      </div>
+                    </div>
+                    <div class="rcs-content rcs-template-content">
+                      <p class="rcs-template-content-title">{{ displayRcsTemplateTitle}}</p>
+                      <p class="rcs-template-content-desc"> {{ dispalyRcsTemplateDesc }} </p>
+                    </div>
+                    <div class="rcs-content rcs-thumbnail">
+                      <ul>
+                        <li>
+                          <div class="thumb-img">
+                            <img src="/" alt="">
+                          </div>
+                          <p>썸네일 내용 영역입니다. 썸네일 내용 영역입니다. 썸네일 내용 영역입니다. </p>
+                        </li>
+                        <li>
+                          <div class="thumb-img"><p>썸네일 2</p></div>
+                          <p>썸네일 내용 영역입니다. 썸네일 내용 영역입니다. 썸네일 내용 영역입니다. </p>
+                        </li>
+                        <li>
+                          <div class="thumb-img"><p>썸네일 3</p></div>
+                          <p>썸네일 내용 영역입니다. 썸네일 내용 영역입니다. 썸네일 내용 영역입니다. </p>
+                        </li>
+                      </ul>
+                    </div>
+                    <div class="rcs-content rcs-button">
+                      <b-button variant="secondary" v-for="(item, index) in buttons" :key="'btn-display-' + index" >{{ item.label }}</b-button>
+                    </div>
+                    <div class="rcs-content m-0">
+                      <p class="m-0 f-cpation2 c-gray700">무료 수신거부 <span class="ml-1 pl-2 text-underline text-primary">{{displayNumber}}</span></p>
+                    </div>
+                  </div>
+                  </PreviewDefault>
+                </a>
+              </li>
+              <div class="slide-control">
+                <div class="control01">
+                  <label for="slide06" class="left"></label>
+                  <label for="slide02" class="right"></label>
+                </div>
+                <div class="control02">
+                  <label for="slide01" class="left"></label>
+                  <label for="slide03" class="right"></label>
+                </div>
+                <div class="control03">
+                  <label for="slide02" class="left"></label>
+                  <label for="slide04" class="right"></label>
+                </div>
+                <div class="control04">
+                  <label for="slide03" class="left"></label>
+                  <label for="slide05" class="right"></label>
+                </div>
+                <div class="control05">
+                  <label for="slide04" class="left"></label>
+                  <label for="slide06" class="right"></label>
+                </div>
+                <div class="control06">
+                  <label for="slide05" class="left"></label>
+                  <label for="slide01" class="right"></label>
+                </div>
+              </div>
+            </ul>
+            <ul class="slide-pagelist">
+              <li>
+                <label for="slide01"></label>
+              </li>
+              <li>
+                <label for="slide02"></label>
+              </li>
+              <li>
+                <label for="slide03"></label>
+              </li>
+              <li>
+                <label for="slide04"></label>
+              </li>
+              <li>
+                <label for="slide05"></label>
+              </li>
+              <li>
+                <label for="slide06"></label>
+              </li>
+		        </ul>
           </div>
-        </PreviewDefault>
+        </div>
       </div>
       <!-- 미리보기 목업 End -->
 
@@ -181,11 +634,11 @@
         <div class="service-template-content">
           <div v-if="templateTab === 'thumb'">
             <div class="template-select">
-              <TemplateCard :setCard="setCard" value="A">
-                <b-form-radio v-model="card" name="type" value="A" class="custom-radio-vertical">내용A</b-form-radio>
+              <TemplateCard>
+                <b-form-radio name="type" value="A" class="custom-radio-vertical" @change="showConfirmModal">내용A</b-form-radio>
               </TemplateCard>
-              <TemplateCard :setCard="setCard" value="B">
-                <b-form-radio v-model="card" name="type" value="B" class="custom-radio-vertical">내용B</b-form-radio>
+              <TemplateCard>
+                <b-form-radio name="type" value="B" class="custom-radio-vertical" @change="showConfirmModal">내용B</b-form-radio>
               </TemplateCard>
             </div>
           </div>
@@ -362,7 +815,7 @@
           <label class="form-label">이미지<span class="require">*</span></label>
           <div class="section-col-img">
             <div class="d-flex align-items-center">
-              <b-button variant="outline-primary" size="sm" class="mr-1" v-b-modal.select-image-modal>이미지 선택</b-button>
+              <b-button variant="outline-primary" size="sm" class="mr-1">이미지 선택</b-button>
               <b-button variant="secondary" size="sm" class="ml-2">이미지형 제작 가이드</b-button>
             </div>
             <div class="img-info">
@@ -385,7 +838,7 @@
         <div class="d-flex section-col">
           <label class="form-label">썸네일 이미지<span class="require">*</span></label>
           <div class="d-flex">
-            <b-button variant="outline-primary" size="sm" class="image-select-btn" v-b-modal.select-image-modal>이미지 선택</b-button>
+            <b-button variant="outline-primary" size="sm" class="image-select-btn">이미지 선택</b-button>
             <ul class="image-select-list">
               <li>
                 <span class="text-truncate">jpghttps://api.msghub-dev.uplus.co.kr/jpghttps://api.msghub-dev.uplus.co.kr/ </span>
@@ -443,8 +896,6 @@
         </div>
       </div>
     </div>
-
-    <SelectImageModal />
   </div>
 </template>
 
@@ -455,6 +906,7 @@ import IconArrowDown from '@/components/service/icons/IconArrowDown.vue';
 import IconShoppingCart from '@/components/service/icons/IconShoppingCart.vue';
 import IconPaper from '@/components/service/icons/IconPaper.vue';
 import IconTruck from '@/components/service/icons/IconTruck.vue';
+import IconCalendar from '@/components/service/icons/IconCalendar.vue';
 import IconCheck from '@/components/service/icons/IconCheck.vue';
 import IconPiggyBank from '@/components/service/icons/IconPiggyBank.vue';
 import IconWallet from '@/components/service/icons/IconWallet.vue';
@@ -466,13 +918,12 @@ import IconClose from '@/components/service/icons/IconClose.vue';
 import IconPlus from '@/components/service/icons/IconPlus.vue';
 import TemplateTabs from '@/components/service/template/TemplateTabs.vue'
 import PreviewDefault from '@/components/service/preview/PreviewDefault.vue'
-import SelectImageModal from '@/modules/ucMessageSendSms/components/modal/SelectImageModal.vue';
 
 export default {
   components: {
     IconQuestionLine, TemplateCard, IconArrowDown, TemplateTabs, PreviewDefault, IconShoppingCart, 
     IconPaper, IconTruck, IconCheck, IconPiggyBank, IconWallet, IconCheckCancel, IconDocs, IconSignUp, IconExpand, IconClose,
-    IconPlus, SelectImageModal,
+    IconPlus,
   },
   name: "ucRcsTemplateManage",
   data() {
@@ -500,13 +951,9 @@ export default {
       dispalyRcsTemplateDesc: '',
       number: '',
       displayNumber: '',
-      card: '',
     }
   },
   methods: {
-    setCard(value) {
-      this.card = value;
-    },
     changeSubTab(value) {
       this.subTab = value;
     },
@@ -524,6 +971,9 @@ export default {
     },
     setButtonType(value) {
       this.buttonType = value;
+    },
+    showConfirmModal() {
+      this.$bvModal.show('confirm-modal');
     },
     navigateToList() {
       this.$router.push(`/uc/template/rcsTemplateList`);
@@ -611,8 +1061,96 @@ export default {
 @use '@/assets/scss/service/message.scss';
 @use '@/assets/scss/service/template.scss';
 
+// 슬라이드 CSS
+.preview-slide input[id*="slide"] {
+  display: none;
+}
+.preview-slide .slidewrap {
+  max-width: 360px;
+  margin: 0 auto;
+  overflow: hidden;
+}
+.preview-slide .slidelist {
+  white-space: nowrap;
+  font-size: 0;
+}
+.preview-slide ul {
+  padding: 0;
+  margin: 0;
+}
+.preview-slide .slidelist > li {
+  display: inline-block;
+  vertical-align: middle;
+  width: 100%;
+  transition: all .5s;
+}
+.preview-slide .slidelist > li > a {
+  display: block;
+  position: relative;
+  white-space: wrap;
+}
+.preview-slide .slidelist label {
+  position: absolute;
+  z-index: 10;
+  top: 500px;
+  transform: translateY(-50%);
+  cursor: pointer;
+  width: 44px;
+  height: 44px;
+}
+.preview-slide .slidelist .left {
+  left: 10px;
+  background: url(../../../assets/images/service/icon/icon-circle-left.svg) center center / 100% no-repeat;
+}
+.preview-slide .slidelist .right {
+  right: 10px;
+  background: url(../../../assets/images/service/icon/icon-circle-right.svg) center center / 100% no-repeat;
+}
+
+.preview-slide .slide-control [class*="control"] {display: none;}
+.preview-slide [id="slide01"]:checked ~ .slidewrap .control01 {display: block;}
+.preview-slide [id="slide02"]:checked ~ .slidewrap .control02 {display: block;}
+.preview-slide [id="slide03"]:checked ~ .slidewrap .control03 {display: block;}
+.preview-slide [id="slide04"]:checked ~ .slidewrap .control04 {display: block;}
+.preview-slide [id="slide05"]:checked ~ .slidewrap .control05 {display: block;}
+.preview-slide [id="slide06"]:checked ~ .slidewrap .control06 {display: block;}
+
+.preview-slide input[id="slide01"]:checked ~ .slidewrap .slidelist > li {transform: translateX(0%);}
+.preview-slide input[id="slide02"]:checked ~ .slidewrap .slidelist > li {transform: translateX(-100%);}
+.preview-slide input[id="slide03"]:checked ~ .slidewrap .slidelist > li {transform: translateX(-200%);}
+.preview-slide input[id="slide04"]:checked ~ .slidewrap .slidelist > li {transform: translateX(-300%);}
+.preview-slide input[id="slide05"]:checked ~ .slidewrap .slidelist > li {transform: translateX(-400%);}
+.preview-slide input[id="slide06"]:checked ~ .slidewrap .slidelist > li {transform: translateX(-500%);}
+
+.slide-pagelist {
+  text-align: center;
+  padding: 20px;
+}
+.slide-pagelist > li {
+  display: inline-block;
+  vertical-align: middle;
+}
+.slide-pagelist > li > label {
+  display: block;
+  padding: 6px 6px;
+  border-radius: 30px;
+  background: var(--gray200);
+  margin: 16px 4px;
+  cursor: pointer;
+}
+
+.preview-slide input[id="slide01"]:checked ~ .slidewrap .slide-pagelist > li:nth-child(1) > label {background: var(--primary300);}
+.preview-slide input[id="slide02"]:checked ~ .slidewrap .slide-pagelist > li:nth-child(2) > label {background: var(--primary300);}
+.preview-slide input[id="slide03"]:checked ~ .slidewrap .slide-pagelist > li:nth-child(3) > label {background: var(--primary300);}
+.preview-slide input[id="slide04"]:checked ~ .slidewrap .slide-pagelist > li:nth-child(4) > label {background: var(--primary300);}
+.preview-slide input[id="slide05"]:checked ~ .slidewrap .slide-pagelist > li:nth-child(5) > label {background: var(--primary300);}
+.preview-slide input[id="slide06"]:checked ~ .slidewrap .slide-pagelist > li:nth-child(6) > label {background: var(--primary300);}
+
+// 슬라이드 내용 끝
+
+
 .section {
-  width: calc(100% - 430px - 20px);
+  width: calc(100% - 420px - 28px);
 }
 .template-tabs-wrap {
   margin: 8px 0;

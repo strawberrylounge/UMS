@@ -2,11 +2,104 @@
   <div class="uc-message-send-sms">
     <MessageTabs />
 
-    <div class="d-flex tab-contents scroll-tab-contetns">
+    <div class="d-flex tab-contents">
       <div class="preview card">
         <p class="preview-title">미리보기</p>
-        <PreviewDefault>
-        </PreviewDefault>
+        <div class="preview-slide">
+          <input type="radio" name="slide" id="slide01" checked>
+          <input type="radio" name="slide" id="slide02">
+          <input type="radio" name="slide" id="slide03">
+          <input type="radio" name="slide" id="slide04">
+          <input type="radio" name="slide" id="slide05">
+          <input type="radio" name="slide" id="slide06">
+
+          <div class="slidewrap">
+            <ul class="slidelist">
+              <li>
+                <a>
+                  <PreviewDefault>
+                  </PreviewDefault>
+                </a>
+              </li>
+              <li>
+                <a>
+                  <PreviewDefault>
+                  </PreviewDefault>
+                </a>
+              </li>
+              <li>
+                <a>
+                  <PreviewDefault>
+                  </PreviewDefault>
+                </a>
+              </li>
+              <li>
+                <a>
+                  <PreviewDefault>
+                  </PreviewDefault>
+                </a>
+              </li>
+              <li>
+                <a>
+                  <PreviewDefault>
+                  </PreviewDefault>
+                </a>
+              </li>
+              <li>
+                <a>
+                  <PreviewDefault>
+                  </PreviewDefault>
+                </a>
+              </li>
+              <div class="slide-control">
+                <div class="control01">
+                  <label for="slide06" class="left"></label>
+                  <label for="slide02" class="right"></label>
+                </div>
+                <div class="control02">
+                  <label for="slide01" class="left"></label>
+                  <label for="slide03" class="right"></label>
+                </div>
+                <div class="control03">
+                  <label for="slide02" class="left"></label>
+                  <label for="slide04" class="right"></label>
+                </div>
+                <div class="control04">
+                  <label for="slide03" class="left"></label>
+                  <label for="slide05" class="right"></label>
+                </div>
+                <div class="control05">
+                  <label for="slide04" class="left"></label>
+                  <label for="slide06" class="right"></label>
+                </div>
+                <div class="control06">
+                  <label for="slide05" class="left"></label>
+                  <label for="slide01" class="right"></label>
+                </div>
+              </div>
+            </ul>
+            <ul class="slide-pagelist">
+              <li>
+                <label for="slide01"></label>
+              </li>
+              <li>
+                <label for="slide02"></label>
+              </li>
+              <li>
+                <label for="slide03"></label>
+              </li>
+              <li>
+                <label for="slide04"></label>
+              </li>
+              <li>
+                <label for="slide05"></label>
+              </li>
+              <li>
+                <label for="slide06"></label>
+              </li>
+            </ul>
+          </div>
+        </div>
       </div>
       <div class="section card scroll-area">
         <div class="d-flex align-items-end">
@@ -209,7 +302,7 @@
         <hr class="hr">
 
         <div class="submit-wrap">
-          <b-button variant="secondary" size="lg" v-b-modal.send-test-modal>테스트 발송</b-button>
+          <b-button variant="secondary" size="lg">테스트 발송</b-button>
           <b-button variant="primary" size="lg">발송</b-button>
         </div>
       </div>
@@ -219,7 +312,6 @@
     <EnterReceiverModal />
     <SelectRcsTemplateModal />
     <ConfirmModal title="RCS 발송" desc="템플릿을 변경하면 입력된 데이터가 모두 초기화됩니다. 변경하시겠습니까?" />
-    <SendTestModal />
   </div>
 </template>
 
@@ -237,10 +329,9 @@ import ConfirmModal from '@/components/service/modal/ConfirmModal.vue'
 import MessageTabs from '@/components/service/message/MessageTabs.vue'
 import PreviewDefault from '@/components/service/preview/PreviewDefault.vue'
 import SelectRcsTemplateModal from '@/modules/ucRcsTemplateSend/components/modal/SelectRcsTemplateModal.vue';
-import SendTestModal from '@/modules/ucMessageSendSms/components/modal/SendTestModal.vue';
 
 export default {
-  components: { SendTestModal, IconQuestionLine, TemplateCard, IconArrowDown, IconArrowRight, IconDownload, IconClose, SearchAddressModal, EnterReceiverModal, CustomDatepicker, ConfirmModal, SelectRcsTemplateModal, MessageTabs, PreviewDefault, },
+  components: { IconQuestionLine, TemplateCard, IconArrowDown, IconArrowRight, IconDownload, IconClose, SearchAddressModal, EnterReceiverModal, CustomDatepicker, ConfirmModal, SelectRcsTemplateModal, MessageTabs, PreviewDefault, },
   name: "ucRcsTemplateSend",
   data() {
     return {
@@ -284,6 +375,94 @@ export default {
 <style scoped lang="scss">
 @use "~@/assets/scss/service/base/typography" as typography;
 @use '@/assets/scss/service/message.scss';
+
+// 슬라이드 CSS
+.preview-slide input[id*="slide"] {
+  display: none;
+}
+.preview-slide .slidewrap {
+  max-width: 320px;
+  margin: 0 auto;
+  overflow: hidden;
+}
+.preview-slide .slidelist {
+  white-space: nowrap;
+  font-size: 0;
+}
+.preview-slide ul {
+  padding: 0;
+  margin: 0;
+}
+.preview-slide .slidelist > li {
+  display: inline-block;
+  vertical-align: middle;
+  width: 100%;
+  transition: all .5s;
+}
+.preview-slide .slidelist > li > a {
+  display: block;
+  position: relative;
+  white-space: wrap;
+}
+.preview-slide .slidelist label {
+  position: absolute;
+  z-index: 10;
+  top: 400px;
+  transform: translateY(-50%);
+  cursor: pointer;
+  width: 44px;
+  height: 44px;
+}
+.preview-slide .slidelist .left {
+  left: 10px;
+  background: url(../../../assets/images/service/icon/icon-circle-left.svg) center center / 100% no-repeat;
+}
+.preview-slide .slidelist .right {
+  right: 10px;
+  background: url(../../../assets/images/service/icon/icon-circle-right.svg) center center / 100% no-repeat;
+}
+
+.preview-slide .slide-control [class*="control"] {display: none;}
+.preview-slide [id="slide01"]:checked ~ .slidewrap .control01 {display: block;}
+.preview-slide [id="slide02"]:checked ~ .slidewrap .control02 {display: block;}
+.preview-slide [id="slide03"]:checked ~ .slidewrap .control03 {display: block;}
+.preview-slide [id="slide04"]:checked ~ .slidewrap .control04 {display: block;}
+.preview-slide [id="slide05"]:checked ~ .slidewrap .control05 {display: block;}
+.preview-slide [id="slide06"]:checked ~ .slidewrap .control06 {display: block;}
+
+.preview-slide input[id="slide01"]:checked ~ .slidewrap .slidelist > li {transform: translateX(0%);}
+.preview-slide input[id="slide02"]:checked ~ .slidewrap .slidelist > li {transform: translateX(-100%);}
+.preview-slide input[id="slide03"]:checked ~ .slidewrap .slidelist > li {transform: translateX(-200%);}
+.preview-slide input[id="slide04"]:checked ~ .slidewrap .slidelist > li {transform: translateX(-300%);}
+.preview-slide input[id="slide05"]:checked ~ .slidewrap .slidelist > li {transform: translateX(-400%);}
+.preview-slide input[id="slide06"]:checked ~ .slidewrap .slidelist > li {transform: translateX(-500%);}
+
+.slide-pagelist {
+  text-align: center;
+  padding: 20px;
+}
+.slide-pagelist > li {
+  display: inline-block;
+  vertical-align: middle;
+}
+.slide-pagelist > li > label {
+  display: block;
+  padding: 6px 6px;
+  border-radius: 30px;
+  background: var(--gray200);
+  margin: 16px 4px;
+  cursor: pointer;
+}
+
+.preview-slide input[id="slide01"]:checked ~ .slidewrap .slide-pagelist > li:nth-child(1) > label {background: var(--primary300);}
+.preview-slide input[id="slide02"]:checked ~ .slidewrap .slide-pagelist > li:nth-child(2) > label {background: var(--primary300);}
+.preview-slide input[id="slide03"]:checked ~ .slidewrap .slide-pagelist > li:nth-child(3) > label {background: var(--primary300);}
+.preview-slide input[id="slide04"]:checked ~ .slidewrap .slide-pagelist > li:nth-child(4) > label {background: var(--primary300);}
+.preview-slide input[id="slide05"]:checked ~ .slidewrap .slide-pagelist > li:nth-child(5) > label {background: var(--primary300);}
+.preview-slide input[id="slide06"]:checked ~ .slidewrap .slide-pagelist > li:nth-child(6) > label {background: var(--primary300);}
+
+// 슬라이드 내용 끝
+
 
 .service-sub-tabs {
   display: flex;
@@ -375,8 +554,5 @@ export default {
 .scroll-area {
   height: calc(100vh - 254px);
   overflow-y: auto;
-}
-.preview-default {
-  width: 320px;
 }
 </style>
