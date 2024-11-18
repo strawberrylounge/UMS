@@ -122,6 +122,8 @@ export default {
           return '발신정보'
         case '/ac/use/state':
           return '이용현황'
+        case '/ac/consoleQnA':
+          return '나의 문의내역'
         default:
           return ''
       }

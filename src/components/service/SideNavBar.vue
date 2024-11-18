@@ -26,7 +26,7 @@
         <b-dropdown-divider></b-dropdown-divider>
         <b-dropdown-item href="#">회원정보</b-dropdown-item>
         <b-dropdown-divider></b-dropdown-divider>
-        <b-dropdown-item href="#">나의 문의내역</b-dropdown-item>
+        <b-dropdown-item href="/ac/consoleQnA">나의 문의내역</b-dropdown-item>
         <b-dropdown-divider></b-dropdown-divider>
         <b-dropdown-item href="#">로그아웃</b-dropdown-item>
       </b-dropdown>
