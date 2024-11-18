@@ -4,7 +4,8 @@
       v-model="selectedDate"
       :date-format-options="dateFormatOptions"
       class="service-custom-datepicker"
-      placeholder="YYYY-MM-DD"
+      :placeholder="placeholderText"
+      :min-view-mode="minViewMode"
     />
     <div class="calendar-icon">
       <IconCalendarBlank />
@@ -16,19 +17,40 @@
 import IconCalendarBlank from '@/components/service/icons/IconCalendarBlank.vue'
 
 export default {
+  props: {
+    mode: {
+      type: String,
+      default: "day", // 기본값은 일별 선택
+    },
+  },
   components: { IconCalendarBlank },
   name: "CustomDatepicker",
   data() {
     return {
       selectedDate: null,
-      dateFormatOptions: { year: 'numeric', month: '2-digit', day: '2-digit' }
     };
+  },
+  computed: {
+    // `mode`에 따라 ViewMode를 동적으로 설정
+    minViewMode() {
+      return this.mode === "month" ? "month" : "day"; // 월 선택 시 "month"
+    },
+    // `mode`에 따라 placeholder 텍스트 변경
+    placeholderText() {
+      return this.mode === "month" ? "YYYY-MM" : "YYYY-MM-DD";
+    },
+    // `mode`에 따라 포맷 설정 (월 또는 일)
+    dateFormatOptions() {
+      return this.mode === "month"
+        ? { year: "numeric", month: "2-digit" } // 월 선택
+        : { year: "numeric", month: "2-digit", day: "2-digit" }; // 일 선택
+    },
   },
   methods: {
     setDate(date) {
       this.selectedDate = date;
-    }
-  }
+    },
+  },
 };
 </script>
 

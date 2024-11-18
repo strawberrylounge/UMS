@@ -17,6 +17,7 @@
     "vue-chartjs": "^4.0.1",
     "vue-router": "^3.6.5",
     "vue-scroll-snap": "^0.1.11",
+    "vue2-datepicker": "^3.11.1",
     "vue2-timepicker": "^1.1.6",
     "vuedraggable": "^2.24.3"
   },

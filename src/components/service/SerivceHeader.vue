@@ -120,6 +120,8 @@ export default {
         case '/ac/sendInfo/msgSendNumber':
         case '/ac/sendInfo/rcsSendNumber':
           return '발신정보'
+        case '/ac/use/state':
+          return '이용현황'
         default:
           return ''
       }

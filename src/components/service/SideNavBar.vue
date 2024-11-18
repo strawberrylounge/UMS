@@ -93,11 +93,11 @@
             <icon-call />
             <span >발신제한</span>
           </a>
-          <a href="/ac/alarm/alarm" class="d-flex align-items-center menu-item">
+          <a href="/ac/alarm/alarm" class="d-flex align-items-center menu-item" :class="{ active: ($route.path.includes('/ac/alarm/alarm'))}">
             <icon-alarm />
             <span >알람</span>
           </a>
-          <a href="#" class="d-flex align-items-center menu-item">
+          <a href="/ac/use/state" class="d-flex align-items-center menu-item" :class="{ active: ($route.path.includes('/ac/use/state'))}">
             <icon-graph />
             <span >이용현황</span>
           </a>
