@@ -4,7 +4,7 @@
 
     <StateDetail v-if="activeTab == '이용상세'" />
     <StateCurrent v-if="activeTab == '이용현황'" />
-
+    <StateFail v-if="activeTab == '실패현황'" />
   </div>
 </template>
 
@@ -12,9 +12,10 @@
 import StateTabs from '@/components/service/State/StateTabs.vue'
 import StateDetail from '@/modules/State/components/StateDetail.vue'
 import StateCurrent from '@/modules/State/components/StateCurrent.vue'
+import StateFail from '@/modules/State/components/StateFail.vue'
 
 export default {
-  components: { StateTabs, StateDetail, StateCurrent },
+  components: { StateTabs, StateDetail, StateCurrent, StateFail },
   name: "State",
   data() {
     return {

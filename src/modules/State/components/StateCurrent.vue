@@ -46,7 +46,7 @@
           <StateCurrentBarChart /> <!-- 이용(발송성공)건수 추이 -->
         </div>
         <div class="col">
-          <StateCurrentDoughnutChart /> <!-- 이용(발송성공)건수 추이 -->
+          <StateCurrentDoughnutChart /> <!-- 이용서비스별추이 -->
         </div>
       </div>
     </div>
