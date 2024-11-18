@@ -34,6 +34,9 @@
         stroke: var(--gray900);
       }
     }
+    &.disabled path {
+      stroke: var(--gray400);
+    }
   }
   .dropdown-menu {
     width: 100%;

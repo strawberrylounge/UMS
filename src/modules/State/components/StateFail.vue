@@ -91,9 +91,6 @@ export default {
     setPageCount(value) {
       this.pageCount = value
     },
-    toggleMenu() {
-      this.hideMenu = !this.hideMenu;
-    },
     setDateRange(rangeType) {
       let startDate = new Date();
 

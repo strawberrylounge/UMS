@@ -22,7 +22,7 @@
           </span>
           <icon-arrow-right />
         </template>
-        <b-dropdown-item href="#">고객사 정보</b-dropdown-item>
+        <b-dropdown-item-button v-b-modal.client-info-modal>고객사 정보</b-dropdown-item-button>
         <b-dropdown-divider></b-dropdown-divider>
         <b-dropdown-item href="#">회원정보</b-dropdown-item>
         <b-dropdown-divider></b-dropdown-divider>
@@ -129,6 +129,8 @@
         </b-collapse>
       </li>
     </ul>
+
+    <ClientInfoModal />
   </nav>
 </template>
 
@@ -149,6 +151,7 @@ import IconAddress from '@/components/service/icons/IconAddress.vue'
 import IconCall from '@/components/service/icons/IconCall.vue'
 import IconAlarm from '@/components/service/icons/IconAlarm.vue'
 import IconGraph from '@/components/service/icons/IconGraph.vue'
+import ClientInfoModal from '@/components/service/user/ClientInfoModal.vue'
 import '@/assets/scss/service/sidebar.scss';
 
 export default {
@@ -184,9 +187,9 @@ export default {
     IconCall,
     IconAlarm,
     IconGraph,
+    ClientInfoModal,
   },
   computed: {
-
   }
 };
 </script>
