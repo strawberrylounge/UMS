@@ -32,7 +32,7 @@
             <label>템플릿 상태</label>
             <b-form-group>
               <b-form-checkbox-group
-                id="service-checkbox-group-template"
+                id="service-checkbox-group-template2"
                 v-model="statusSelected"
                 :options="statusOptions"
                 name="template-1"
