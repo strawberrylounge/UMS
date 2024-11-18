@@ -36,11 +36,11 @@ const backgroundHighlightFail = {
       const xAxisLength = chart.scales.x.ticks.length
       const activePoint = tooltip._active[0];
       const barWidth = activePoint.element.width
-      const x = activePoint.element.x - 12 - barWidth / 2;
+      const x = activePoint.element.x - 16 - barWidth / 2;
 
       ctx.save();
       ctx.fillStyle = '#f3f4f6'; // 배경색 설정
-      ctx.fillRect(x, chartArea.top, (chartWidth / xAxisLength - 2), chartArea.bottom - chartArea.top); // x축 영역 너비에 맞춰서 설정
+      ctx.fillRect(x, chartArea.top, (chartWidth / xAxisLength - 4), chartArea.bottom - chartArea.top); // x축 영역 너비에 맞춰서 설정
       ctx.restore();
     }
   }
@@ -103,8 +103,6 @@ const htmlLegendPlugin = {
     }
   }
 };
-
-ChartJS.register(Title, Tooltip, BarElement, CategoryScale, LinearScale, backgroundHighlightFail, htmlLegendPlugin)
 
 export default {
   name: 'FailChart',
@@ -233,6 +231,12 @@ export default {
       });
       this.chartData.datasets = datasets;
     }
+  },
+  mounted() {
+    ChartJS.register(Title, Tooltip, BarElement, CategoryScale, LinearScale, backgroundHighlightFail, htmlLegendPlugin)
+  },
+  beforeDestroy() {
+    ChartJS.unregister(backgroundHighlightFail); // 플러그인 해제
   },
 }
 </script>

@@ -1,20 +1,20 @@
 <template>
   <div class="datepicker-container">
-    <b-form-datepicker
-      v-model="selectedDate"
-      :date-format-options="dateFormatOptions"
-      class="service-custom-datepicker"
-      :placeholder="placeholderText"
-      :min-view-mode="minViewMode"
-    />
-    <div class="calendar-icon">
+    <DatePicker v-model="selectedDate" :type="mode" :lang="lang" :placeholder="placeholderText">
+      <template slot="icon-calendar">
+        <IconCalendarBlank />
+      </template>
+    </DatePicker>
+    <!-- <div class="calendar-icon">
       <IconCalendarBlank />
-    </div>
+    </div> -->
   </div>
 </template>
 
 <script>
 import IconCalendarBlank from '@/components/service/icons/IconCalendarBlank.vue'
+import DatePicker from 'vue2-datepicker';
+import 'vue2-datepicker/index.css';
 
 export default {
   props: {
@@ -23,27 +23,24 @@ export default {
       default: "day", // 기본값은 일별 선택
     },
   },
-  components: { IconCalendarBlank },
+  components: { IconCalendarBlank, DatePicker },
   name: "CustomDatepicker",
   data() {
     return {
       selectedDate: null,
+      lang: {
+        days: ["일", "월", "화", "수", "목", "금", "토"],
+        months: ["1월", "2월", "3월", "4월", "5월", "6월", "7월", "8월", "9월", "10월", "11월", "12월"],
+        yearFormat: "YYYY년",
+        monthFormat: "MM월",
+        monthBeforeYear: false,
+      },
     };
   },
   computed: {
-    // `mode`에 따라 ViewMode를 동적으로 설정
-    minViewMode() {
-      return this.mode === "month" ? "month" : "day"; // 월 선택 시 "month"
-    },
     // `mode`에 따라 placeholder 텍스트 변경
     placeholderText() {
       return this.mode === "month" ? "YYYY-MM" : "YYYY-MM-DD";
-    },
-    // `mode`에 따라 포맷 설정 (월 또는 일)
-    dateFormatOptions() {
-      return this.mode === "month"
-        ? { year: "numeric", month: "2-digit" } // 월 선택
-        : { year: "numeric", month: "2-digit", day: "2-digit" }; // 일 선택
     },
   },
   methods: {
@@ -54,58 +51,105 @@ export default {
 };
 </script>
 
-<style scoped lang="scss">
+<style lang="scss">
 @use "~@/assets/scss/service/base/typography" as typography;
 
 .datepicker-container {
   position: relative;
-}
-.form-group {
-  margin: 0;
-}
-.service-custom-datepicker {
-  width: 100%;
-  height: auto;
-  padding: 11px 43px 11px 15px;
-  border-radius: 8px;
-  border: 1px solid var(--border-color);
-  background: var(--white);
-  box-shadow: none;
-  @include typography.font-style(14px, 400, 140%, -0.28px);
-  color: var(--gray900);
-  &::placeholder {
-    color: var(--gray400);
+  .mx-datepicker {
+    width: 100%;
   }
-  &:hover {
-    border-color: var(--gray500);
-  }
-  &.is-invalid {
-    border-color: var(--red-600);
-    & + .calendar-icon svg path {
-      fill: var(--red-600);
+  .mx-input {
+    width: 100%;
+    height: auto;
+    padding: 11px 43px 11px 15px;
+    border-radius: 8px;
+    border: 1px solid var(--border-color);
+    background: var(--white);
+    box-shadow: none;
+    @include typography.font-style(14px, 400, 140%, -0.28px);
+    color: var(--gray900);
+    &::placeholder {
+      color: var(--gray400);
+    }
+    &:hover {
+      border-color: var(--gray500);
+    }
+    &.is-invalid {
+      border-color: var(--red-600);
+      & + .calendar-icon svg path {
+        fill: var(--red-600);
+      }
+    }
+    &:disabled {
+      background-color: var(--gray50);
+      & + .calendar-icon svg path {
+        fill: var(--gray400);
+      }
     }
   }
-  &:disabled {
-    background-color: var(--gray50);
-    & + .calendar-icon svg path {
-      fill: var(--gray400);
+  .mx-icon-calendar {
+    right: 16px;
+    svg {
+      width: 20px;
+      height: 20px;
     }
-  }
-}
-.calendar-icon {
-  position: absolute;
-  top: 50%;
-  right: 15px;
-  cursor: pointer;
-  transform: translateY(-50%);
-  z-index: 10; /* 다른 요소보다 위에 표시 */
-  pointer-events: none; /* 아이콘 클릭시 달력이 닫히지 않게 */
-  svg {
-    width: 20px;
-    height: 20px;
     path {
-      fill: var(--gray700);
+      fill: var(--white)
     }
   }
+}
+.mx-datepicker-main {
+  font-family: "Pretendard Variable", Pretendard, -apple-system,
+    BlinkMacSystemFont, system-ui, Roboto, "Helvetica Neue", "Segoe UI",
+    "Apple SD Gothic Neo", "Noto Sans KR", "Malgun Gothic", "Apple Color Emoji",
+    "Segoe UI Emoji", "Segoe UI Symbol", sans-serif;
+    @include typography.font-style(14px, 400, 140%, -0.28px);
+    color: var(--gray900);
+}
+.mx-table {
+  &:not(.mx-table-month) {
+    .cell:hover,
+    .active {
+      border-radius: 50%;
+    }
+  }
+  th {
+    @include typography.font-style(12px, 400, 160%, -0.24px);
+    color: var(--gray500);
+  }
+  td {
+    @include typography.font-style(14px, 400, 180%, -0.28px);
+    color: var(--gray900);
+    &.cell:hover,
+    &.cell.active  {
+      background-color: var(--primary);
+      color: var(--white);
+    }
+  }
+  .today {
+    color: var(--primary);
+  }
+}
+.mx-calendar {
+  &-header-label {
+    button {
+      @include typography.font-style(16px, 700, 140%, -0.32px);
+      color: var(--gray900);
+    }
+  }
+  .mx-btn:hover {
+    border-color: var(--primary);
+    color: var(--primary);
+  }
+}
+.mx-icon-left:before, .mx-icon-right:before, .mx-icon-double-left:before, .mx-icon-double-right:before, .mx-icon-double-left:after, .mx-icon-double-right:after {
+  width: 12px;
+  height: 12px;
+  border-width: 3px 0 0 3px;
+  border-color: var(--gray900);
+}
+.mx-datepicker-popup {
+  border-radius: 8px;
 }
 </style>

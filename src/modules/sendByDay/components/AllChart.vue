@@ -39,7 +39,7 @@ const backgroundHighlightAllDay = {
       const xAxisLength = chart.scales.x.ticks.length
       const activePoint = tooltip._active[0];
       const barWidth = activePoint.element.width
-      const x = activePoint.element.x - 10 - barWidth / 2;
+      const x = activePoint.element.x - 14 - barWidth / 2;
 
       ctx.save();
       ctx.fillStyle = '#f3f4f6'; // 배경색 설정
@@ -48,8 +48,6 @@ const backgroundHighlightAllDay = {
     }
   }
 };
-
-ChartJS.register(Title, Tooltip, BarElement, CategoryScale, LinearScale, backgroundHighlightAllDay)
 
 export default {
   name: 'AllChart',
@@ -174,6 +172,12 @@ export default {
       });
       this.chartData.datasets = datasets;
     }
+  },
+  mounted() {
+    ChartJS.register(Title, Tooltip, BarElement, CategoryScale, LinearScale, backgroundHighlightAllDay)
+  },
+  beforeDestroy() {
+    ChartJS.unregister(backgroundHighlightAllDay); // 플러그인 해제
   },
 }
 </script>

@@ -1,24 +1,16 @@
 <template>
-  <div>
-    <div class="d-flex align-items-center">
-      <p class="m-0 mr-1 pr-3 f-title3 c-gray900">전체 성공/실패 현황</p>
-      <p class="m-0 f-body4 c-gray500">발송성공 <span class="count c-primary">1건</span></p>
-      <i class="vertical-divier"></i>
-      <p class="m-0 f-body4 c-gray500">발송실패 <span class="count c-states-red">1건</span></p>
-      <div id="legend-container">
-        <ul class="category"></ul>
-      </div>
+  <div class="card">
+    <p class="mt-0 f-title1 c-gray700">이용(발송성공)건수 추이</p>
+    <div id="legend-container" class="d-flex">
+      <ul class="category ml-auto pb-1"></ul>
     </div>
-
-    <div class="chart-card card">
-      <div class="chart-container">
-        <Bar
-          ref="chartCanvas"
-          :chart-options="chartOptions"
-          :chart-data="chartData"
-          :height="540"
-        />
-      </div>
+    <div class="chart-container">
+      <Bar
+        ref="stateChartCanvas"
+        :chart-options="chartOptions"
+        :chart-data="chartData"
+        :height="470"
+      />
     </div>
   </div>
 </template>
@@ -27,20 +19,19 @@
 import { Bar } from 'vue-chartjs/legacy'
 import { Chart as ChartJS, Title, Tooltip, BarElement, CategoryScale, LinearScale } from 'chart.js'
 
-const backgroundHighlightFailDay = {
-  id: 'backgroundHighlightFailDay',
+const backgroundHighlightStateCurrent = {
+  id: 'backgroundHighlightStateCurrent',
   beforeDraw(chart) {
     const { ctx, chartArea, tooltip } = chart;
     if (tooltip._active && tooltip._active.length) {
       const chartWidth = chart.width;
-      const xAxisLength = chart.scales.x.ticks.length
       const activePoint = tooltip._active[0];
       const barWidth = activePoint.element.width
-      const x = activePoint.element.x - 14 - barWidth / 2;
+      const x = activePoint.element.x - 48 - barWidth / 2;
 
       ctx.save();
       ctx.fillStyle = '#f3f4f6'; // 배경색 설정
-      ctx.fillRect(x, chartArea.top, (chartWidth / xAxisLength - 2), chartArea.bottom - chartArea.top); // x축 영역 너비에 맞춰서 설정
+      ctx.fillRect(x, chartArea.top, (chartWidth / 2 - 14), chartArea.bottom - chartArea.top); // x축 영역 너비에 맞춰서 설정
       ctx.restore();
     }
   }
@@ -105,12 +96,12 @@ const htmlLegendPlugin = {
 };
 
 export default {
-  name: 'FailChart',
+  name: 'StateCurrentBarChart',
   components: { Bar },
   data() {
     return {
-      categories: ['미등록 발신번호', '요청한 데이터 없음', '발송타임아웃', '승인된카카오톡 템플릿 없음', '기타 오류'],
-      colors: ['#6D6EFA', '#FF594F', '#D2D2FD', '#FED932', '#F7A355'],
+      categories: ['이용 건수'],
+      colors: ['#5C6EFD'],
       chartData: {
         labels: [], 
         datasets: []
@@ -215,14 +206,14 @@ export default {
   methods: {
     // 임시 데이터
     generateRandomData() {
-      const dates = ['2024.09.29', '2024.09.30', '2024.10.01', '2024.10.02', '2024.10.03', '2024.10.04', '2024.10.05', '2024.10.06', '2024.10.07', '2024.10.08', '2024.10.09', '2024.10.10', '2024.10.11', '2024.10.12', '2024.10.13', '2024.10.14'];
-      
+      const dates = ['2024-09', '2024-10'];
+
       this.chartData.labels = dates;
 
       const datasets = this.categories.map((category, index) => {
         return {
           label: category,
-          data: dates.map(() => Math.floor(Math.random() * 100001)), // 0 ~ 100000 사이의 임의의 값
+          data: dates.map(() => Math.floor(Math.random() * 5)), // 0 ~ 100000 사이의 임의의 값
           backgroundColor: this.colors[index],
           borderColor: this.colors[index],
           borderRadius: 8,
@@ -233,36 +224,21 @@ export default {
     }
   },
   mounted() {
-    ChartJS.register(Title, Tooltip, BarElement, CategoryScale, LinearScale, backgroundHighlightFailDay, htmlLegendPlugin)
+    ChartJS.register(Title, Tooltip, BarElement, CategoryScale, LinearScale, backgroundHighlightStateCurrent, htmlLegendPlugin)
   },
   beforeDestroy() {
-    ChartJS.unregister(backgroundHighlightFailDay); // 플러그인 해제
+    ChartJS.unregister(backgroundHighlightStateCurrent); // 플러그인 해제
   },
 }
 </script>
 
 <style scoped lang="scss">
-.count {
-  padding-left: 6px;
-}
-.vertical-divier {
-  width: 1px;
-  height: 16px;
-  background: var(--border-color);
-  margin: 0 12px;
-}
-#legend-container {
-  margin-left: auto;
-}
-.category {
-  display: flex;
-  margin: 0;
-  padding: 0;
-  list-style: none;
-}
-.chart-card {
-  margin-top: 28px;
+.card {
   padding: 28px;
-  box-shadow: 0px 10px 13px 0px rgba(17, 38, 146, 0.05);
+  .f-title1 {
+    margin-bottom: 20px;
+    padding-bottom: 20px;
+    border-bottom: 1px solid var(--border-color);
+  }
 }
 </style>

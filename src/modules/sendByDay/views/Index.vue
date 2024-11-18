@@ -15,7 +15,8 @@
             </div>
             <button type="button" class="btn btn-filter" :class="{active: dateFilter === '1week'}" @click="setDateRange('1week')">1주일</button>
             <button type="button" class="btn btn-filter" :class="{active: dateFilter === '15days'}" @click="setDateRange('15days')">15일</button>
-            <button type="button" class="btn btn-filter" :class="{active: dateFilter === '1month'}" @click="setDateRange('1month')">1개월</button>          </div>
+            <button type="button" class="btn btn-filter" :class="{active: dateFilter === '1month'}" @click="setDateRange('1month')">1개월</button> 
+          </div>
         </div>
         <b-button variant="dark" class="btn-submit ml-auto">조회</b-button>
       </div>

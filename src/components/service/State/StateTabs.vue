@@ -1,45 +1,45 @@
 <template>
   <div class="message-tabs-wrap">
     <div class="message-tabs">
-      <div :class="['tab', isActive('/ac/use/state')]">
-        <a href="/ac/use/state">이용상세</a>
+      <div :class="['tab', isActive('이용상세')]">
+        <button type="button" @click="setTab('이용상세')">이용상세</button>
       </div>
-      <div :class="['tab', isActive('/')]">
-        <a href="/">이용현황</a>
+      <div :class="['tab', isActive('이용현황')]">
+        <button type="button" @click="setTab('이용현황')">이용현황</button>
       </div>
-      <div :class="['tab', isActive('/')]">
-        <a href="/">실패현황</a>
+      <div :class="['tab', isActive('실패현황')]">
+        <button type="button" @click="setTab('실패현황')">실패현황</button>
       </div>
     </div>
-    <p class="breadcrumb f-body5 c-gray700">이용현황 > {{breadCrumbTitle}}</p>
+    <p class="breadcrumb f-body5 c-gray700">이용현황 > {{activeTab}}</p>
   </div>
 </template>
 
 <script>
-import '@/assets/scss/service/messageTabs.scss'
-
 export default {
   props: {
+    activeTab: {
+      type: String
+    },
+    setTab: {
+      type: Function
+    }
   },
   name: "StateTabs",
   computed: {
-    breadCrumbTitle() {
-      switch (this.$route.path) {
-        case '/ac/use/state':
-          return '이용상세';
-        case '/':
-          return '이용현황';
-        case '/':
-          return '실패현황';
-        default:
-          return ''
-      }
-    },
   },
   methods: {
     isActive(link) {
-      return window.location.pathname === link ? 'active' : '';
+      return this.activeTab === link ? 'active' : '';
     }
   }
 }
 </script>
+
+<style scoped lang="scss">
+@use '@/assets/scss/service/messageTabs.scss';
+
+.message-tabs-wrap .message-tabs {
+  padding-bottom: 0;
+}
+</style>
