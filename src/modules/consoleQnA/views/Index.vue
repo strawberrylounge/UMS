@@ -128,8 +128,8 @@
                 <td>2024.02.06</td>
                 <td>
                   <div class="d-flex">
-                    <b-button variant="outline-secondary" size="sm" class="mr-1">수정</b-button>
-                    <b-button variant="outline-secondary" size="sm">삭제</b-button>
+                    <b-button variant="outline-secondary" size="sm" class="mr-1" @click="confirmUpdate">수정</b-button>
+                    <b-button variant="outline-secondary" size="sm" @click="confirmDelete">삭제</b-button>
                   </div>
                 </td>
               </tr>
@@ -141,6 +141,11 @@
       </div>
       <!-- 리스트 영역 End -->
     </div>
+
+    <p>예시별 모달 추가</p>
+    <b-button variant="outline-secondary" class="mr-1" @click="notUpdate">수정불가</b-button>
+    <b-button variant="outline-secondary" @click="notDelete">삭제불가</b-button>
+    <b-button variant="outline-secondary" @click="validateModal">문의유형 입력 요청</b-button>
 
     <AlertModal :title="alertTitle" :desc="alertDesc" />
     <ConfirmModal :title="confirmTitle" :desc="confirmDesc" :onSubmit="confirmSubmit" />
@@ -195,6 +200,43 @@ export default {
       this.confirmDesc = '저장하시겠습니까?'
       this.confirmSubmit = this.qnaSave
       this.$bvModal.show('confirm-modal')
+    },
+    qnaUpdate() {
+      this.alertTitle = '문의 수정 완료'
+      this.alertDesc = '문의 수정이 완료되었습니다.'
+      this.$bvModal.show('alert-modal')
+    },
+    confirmUpdate() {
+      this.confirmTitle = '문의 수정'
+      this.confirmDesc = '문의를 수정 하시겠습니까?'
+      this.confirmSubmit = this.qnaUpdate
+      this.$bvModal.show('confirm-modal')
+    },
+    qnaDelete() {
+      this.alertTitle = '문의 삭제 완료'
+      this.alertDesc = '문의 삭제가 완료되었습니다.'
+      this.$bvModal.show('alert-modal')
+    },
+    confirmDelete() {
+      this.confirmTitle = '문의 삭제'
+      this.confirmDesc = '문의를 삭제 하시겠습니까?'
+      this.confirmSubmit = this.qnaDelete
+      this.$bvModal.show('confirm-modal')
+    },
+    notUpdate() {
+      this.alertTitle = '수정 불가'
+      this.alertDesc = '요청 중인 경우만 수정이 가능합니다.'
+      this.$bvModal.show('alert-modal')
+    },
+    notDelete() {
+      this.alertTitle = '삭제 불가'
+      this.alertDesc = '요청 중인 경우만 삭제가 가능합니다.'
+      this.$bvModal.show('alert-modal')
+    },
+    validateModal() {
+      this.alertTitle = '문의유형 입력'
+      this.alertDesc = '문의 유형은 필수사항입니다.'
+      this.$bvModal.show('alert-modal')
     }
   }
 };
