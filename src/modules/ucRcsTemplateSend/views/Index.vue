@@ -166,11 +166,10 @@
         <div class="service-template-content">
           <div v-if="templateTab === 'template'">
             <div class="template-select">
-              <TemplateCard>
-                <b-form-radio name="type" value="A" class="custom-radio-vertical" @change="showConfirmModal">내용A</b-form-radio>
-              </TemplateCard>
-              <TemplateCard>
-                <b-form-radio name="type" value="B" class="custom-radio-vertical" @change="showConfirmModal">내용B</b-form-radio>
+              <TemplateCard :setCard="setCard" value="A">
+                <b-form-radio v-model="card" name="type" value="A" class="custom-radio-vertical">내용A</b-form-radio>              </TemplateCard>
+              <TemplateCard :setCard="setCard" value="B">
+                <b-form-radio v-model="card" name="type" value="B" class="custom-radio-vertical">내용B</b-form-radio>
               </TemplateCard>
             </div>
           </div>
@@ -343,6 +342,7 @@ export default {
       templateCard: 'A',
       startTime: null,
       endTime: null,
+      card: '',
     }
   },
   methods: {
@@ -368,6 +368,9 @@ export default {
       // 파일 입력 요소 클릭
       this.$refs.fileInput.$el.click();
     },
+    setCard(value) {
+      this.card = value;
+    }
   },
 };
 </script>

@@ -31,11 +31,11 @@
     <!-- 템플릿형 카드 Start -->
     <div class="service-template-content">
       <div class="template-select">
-        <TemplateCard>
-          <b-form-radio name="type" value="A" v-model="card" class="custom-radio-vertical">내용A</b-form-radio>
+        <TemplateCard :setCard="setCard" value="A">
+          <b-form-radio v-model="card" name="type" value="A" class="custom-radio-vertical">내용A</b-form-radio>
         </TemplateCard>
-        <TemplateCard>
-          <b-form-radio name="type" value="B" class="custom-radio-vertical">내용B</b-form-radio>
+        <TemplateCard :setCard="setCard" value="B">
+          <b-form-radio v-model="card" name="type" value="B" class="custom-radio-vertical">내용B</b-form-radio>
         </TemplateCard>
       </div>
     </div>
@@ -160,7 +160,7 @@ import IconInfo from '@/components/service/icons/IconInfo.vue';
 import IconPlus from '@/components/service/icons/IconPlus.vue';
 
 export default {
-  components: { TemplateCard, IconQuestionLine, SelectRcsTemplateModal, IconArrowDown, IconInfo, IconPlus, },
+  components: { TemplateCard, IconQuestionLine, SelectRcsTemplateModal, IconArrowDown, IconInfo, },
   name: "rcsContents",
   props: {
     message: {
@@ -172,7 +172,7 @@ export default {
     return {
       type: '승인형',
       templateTab: 'template',
-      card: 'A',
+      card: '',
       isSelectTemplate: true,
     }
   },
@@ -188,7 +188,10 @@ export default {
     },
     testView() {
       this.isSelectTemplate = !this.isSelectTemplate;
-    }
+    },
+    setCard(value) {
+      this.card = value;
+    },
   },
   watch: {
     message(newSelected) {

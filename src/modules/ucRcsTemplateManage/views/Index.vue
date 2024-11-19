@@ -634,11 +634,11 @@
         <div class="service-template-content">
           <div v-if="templateTab === 'thumb'">
             <div class="template-select">
-              <TemplateCard>
-                <b-form-radio name="type" value="A" class="custom-radio-vertical" @change="showConfirmModal">내용A</b-form-radio>
+              <TemplateCard :setCard="setCard" value="A">
+                <b-form-radio v-model="card" name="type" value="A" class="custom-radio-vertical">내용A</b-form-radio>              </TemplateCard>
               </TemplateCard>
-              <TemplateCard>
-                <b-form-radio name="type" value="B" class="custom-radio-vertical" @change="showConfirmModal">내용B</b-form-radio>
+              <TemplateCard :setCard="setCard" value="B">
+                <b-form-radio v-model="card" name="type" value="B" class="custom-radio-vertical">내용B</b-form-radio>
               </TemplateCard>
             </div>
           </div>
@@ -951,6 +951,7 @@ export default {
       dispalyRcsTemplateDesc: '',
       number: '',
       displayNumber: '',
+      card: '',
     }
   },
   methods: {
@@ -1039,6 +1040,9 @@ export default {
     updateNumber() {
       this.displayNumber = this.number
     },
+    setCard(value) {
+      this.card = value;
+    }
   },
   computed: {
     typeOneContents() {
