@@ -54,6 +54,9 @@
 
     <AlertModal :title="alertTitle" :desc="alertDesc" />
     <ConfirmModal :title="confirmTitle" :desc="confirmDesc" :onSubmit="confirmSubmit" />
+
+    <p>상황별 모달입니다.</p>
+    <b-button variant="secondary" @click="dayAlertModal">수집 요일 입력하지 않은 경우</b-button>
   </div>
 </template>
 
@@ -98,6 +101,11 @@ export default {
       this.alertTitle = '알람 저장'
       this.alertDesc = '저장되었습니다.'
       this.$bvModal.show('alert-modal')
+    },
+    dayAlertModal() {
+      this.alertTitle = '수집 요일 입력'
+      this.alertDesc = '수집 요일 시간은 필수사항입니다.'
+      this.$bvModal.show('alert-modal');
     }
   }
 };

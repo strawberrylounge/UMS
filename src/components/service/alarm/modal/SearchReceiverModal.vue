@@ -50,7 +50,7 @@
               <tr>
                 <td class="text-center">
                   <b-form-checkbox
-                    id="1"
+                    id="2"
                     name="check"
                     value="1"
                     size="lg"
@@ -62,7 +62,7 @@
               <tr>
                 <td class="text-center">
                   <b-form-checkbox
-                    id="1"
+                    id="3"
                     name="check"
                     value="1"
                     size="lg"
@@ -93,7 +93,7 @@
               <tr>
                 <th class="text-center">
                   <b-form-checkbox
-                    id="selectAll"
+                    id="selectAll2"
                     name="selectAll"
                     value="selectAll"
                     size="lg"
@@ -107,7 +107,7 @@
               <tr>
                 <td class="text-center">
                   <b-form-checkbox
-                    id="1"
+                    id="4"
                     name="check"
                     value="1"
                     size="lg"
@@ -119,7 +119,7 @@
               <tr>
                 <td class="text-center">
                   <b-form-checkbox
-                    id="1"
+                    id="5"
                     name="check"
                     value="1"
                     size="lg"
