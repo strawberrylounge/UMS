@@ -50,7 +50,7 @@
       </div>
     </div>
 
-    <div class="mt-4">
+    <div class="mt-4 pb-2">
       <p class="f-bold">중복 확인 버튼 클릭시 유효성 검사에 따라 나오는 모달 예시입니다.</p>
       <b-button variant="outline-dark" @click="validate(true)">사용 가능 번호일 경우</b-button>
       <b-button variant="outline-dark" @click="validate(false)">사용 불가능 번호일 경우</b-button>
