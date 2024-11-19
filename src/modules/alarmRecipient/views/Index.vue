@@ -92,6 +92,9 @@
     <AlertModal :title="alertTitle" :desc="alertDesc" />
     <ConfirmModal :title="confirmTitle" :desc="confirmDesc" :onSubmit="confirmSubmit" />
     <AddReceiverModal :save="addReceiver" />
+
+    <p>상황별 모달</p>
+    <b-button variant="secondary"  @click="alertSelectReceiverModal">수신자 선택 요청</b-button>
   </div>
 </template>
 
@@ -139,7 +142,12 @@ export default {
       this.confirmDesc = '수신자를 삭제 하시겠습니까?'
       this.confirmSubmit = this.deleteReceiver
       this.$bvModal.show('confirm-modal')
-    }
+    },
+    alertSelectReceiverModal() {
+      this.alertTitle = '수신자 선택 요청'
+      this.alertDesc = '삭제할 수신자를 선택해주세요.'
+      this.$bvModal.show('alert-modal')
+    },
   }
 };
 </script>

@@ -140,6 +140,10 @@
     <ConfirmModal :title="confirmTitle" :desc="confirmDesc" :onSubmit="confirmSubmit" />
     <AddReceiverGroupModal :save="saveReceiverGroup" />
     <AddGroupReceiverModal :save="saveGroupReceiver" />
+
+    <p>상황별 모달</p>
+    <b-button variant="secondary" @click="alertDeleteReceiverModal">그룹 수신자 삭제</b-button>
+    <b-button variant="secondary" @click="alertSelectReceiverModal">그룹 수신자 선택 팝업창</b-button>
   </div>
 </template>
 
@@ -205,6 +209,16 @@ export default {
       this.confirmDesc = '그룹 수신자를 삭제 하시겠습니까?'
       this.confirmSubmit = this.deleteGroupReceiver
       this.$bvModal.show('confirm-modal')
+    },
+    alertDeleteReceiverModal() {
+      this.alertTitle = '수신 그룹 선택'
+      this.alertDesc = '삭제하실 수신 그룹을 선택해주세요.'
+      this.$bvModal.show('alert-modal')
+    },
+    alertSelectReceiverModal() {
+      this.alertTitle = '그룹 수신자 선택'
+      this.alertDesc = '삭제하실 수신자를 선택해주세요.'
+      this.$bvModal.show('alert-modal')
     },
   }
 };

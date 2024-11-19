@@ -16,7 +16,7 @@
           <tr>
             <th class="text-center">
               <b-form-checkbox
-                id="selectAll"
+                id="addselectAll"
                 name="selectAll"
                 value="selectAll"
                 size="lg"
@@ -30,7 +30,7 @@
           <tr>
             <td class="text-center">
               <b-form-checkbox
-                id="1"
+                id="add1"
                 name="check"
                 value="1"
                 size="lg"
