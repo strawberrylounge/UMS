@@ -3,7 +3,7 @@
     <TemplateTabs />
 
     <div class="d-flex tab-contents">
-      <div class="preview card">
+      <div class="preview card p-sticky">
         <p class="preview-title">미리보기</p>
         <PreviewDefault size="lg">
           <div class="preview-section sms">

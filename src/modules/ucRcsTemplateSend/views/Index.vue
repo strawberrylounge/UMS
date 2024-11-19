@@ -2,8 +2,8 @@
   <div class="uc-message-send-sms">
     <MessageTabs />
 
-    <div class="d-flex tab-contents">
-      <div class="preview card">
+    <div class="d-flex tab-contents align-items-start">
+      <div class="preview card p-sticky">
         <p class="preview-title">미리보기</p>
         <div class="preview-slide">
           <input type="radio" name="slide" id="slide01" checked>
@@ -101,7 +101,7 @@
           </div>
         </div>
       </div>
-      <div class="section card scroll-area">
+      <div class="section card">
         <div class="d-flex align-items-end">
           <p class="m-0 mr-1 pr-2 f-title1 c-gray900">RCS 상품</p>
           <p class="m-0 ml-3 f-body4 f-bold c-gray500">* RCS 유형을 먼저 선택해 주십시오. 템플릿형은 광고성 메세지를 보내실 수 없습니다.</p>
@@ -550,9 +550,5 @@ export default {
   button + button {
     margin-left: 12px;
   }
-}
-.scroll-area {
-  height: calc(100vh - 254px);
-  overflow-y: auto;
 }
 </style>

@@ -14,7 +14,7 @@
       </div>
       
       <!-- 미리보기 목업 Start -->
-      <div class="preview card">
+      <div class="preview card p-sticky">
         <p class="preview-title">미리보기</p>
         <div class="preview-slide">
           <input type="radio" name="slide" id="slide01" checked>
@@ -546,7 +546,7 @@
       </div>
       <!-- 미리보기 목업 End -->
 
-      <div class="section card">
+      <div class="section card flex-fill">
         <p class="mb-2 f-title1 c-gray900">템플릿 등록</p>
 
         <!-- 승인/비승인 선택 Start -->
@@ -1150,7 +1150,7 @@ export default {
 
 
 .section {
-  width: calc(100% - 420px - 28px);
+  width: calc(100% - 430px - 20px);
 }
 .template-tabs-wrap {
   margin: 8px 0;

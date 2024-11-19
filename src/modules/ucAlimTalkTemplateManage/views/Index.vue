@@ -14,7 +14,7 @@
       </div>
       
       <!-- 미리보기 목업 Start -->
-      <div class="preview card">
+      <div class="preview card p-sticky">
         <p class="preview-title">미리보기</p>
         <PreviewTalk size="lg">
           <div class="preview-section talk">

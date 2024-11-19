@@ -2,8 +2,8 @@
   <div class="uc-template-multi-send-manage">
     <TemplateTabs />
 
-    <div class="tab-contents" :class="channelSelected.length ? 'd-flex' : ''">
-      <div class="preview card" v-if="channelSelected.length">
+    <div class="tab-contents" :class="channelSelected.length ? 'd-flex align-items-start' : ''">
+      <div class="preview card p-sticky" v-if="channelSelected.length">
         <p class="preview-title">미리보기</p>
         <RcsPreview v-if="channelTab === 'rcs'" />
         <KaKaoPreveiw v-else-if="channelTab === 'kakao'" />

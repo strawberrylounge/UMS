@@ -19,7 +19,7 @@
 
     <div class="tab-contents d-flex">
       <!-- 미리보기 Start -->
-      <div class="preview card">
+      <div class="preview card p-sticky">
         <p class="preview-title">미리보기</p>
         <PreviewTalk v-if="previewType === 'talk'">
           <div></div>

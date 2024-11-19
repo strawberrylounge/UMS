@@ -71,3 +71,7 @@ body {
 .btn-sample-download:hover path {
   stroke: var(--primary);
 }
+.p-sticky {
+  position: sticky;
+  top: 0;
+}
