@@ -247,7 +247,7 @@ textarea.form-control {
       transform: translateX(-50%);
       &:checked ~ .custom-control-label::after {
         top: initial;
-        bottom: 0;
+        bottom: 3px;
         left: 50%;
         transform: translateX(-50%);
       }
