@@ -52,7 +52,7 @@
               <b-collapse :visible="group.isOpen">
                 <ul class="menu-list-sub">
                   <li v-for="(item, itemIndex) in group.items" :key="itemIndex">
-                    {{ item }}
+                    <button type="button" class="f-body6" :class="{active: tree === item}" @click="setTree(item)">{{ item }}</button>
                   </li>
                 </ul>
               </b-collapse>
@@ -206,6 +206,7 @@ export default {
       confirmSubmit: null,
       alertTitle: '',
       alertDesc: '',
+      tree: ''
     }
   },
   methods: {
@@ -314,7 +315,9 @@ export default {
       this.confirmSubmit = this.deleteUser
       this.$bvModal.show('confirm-modal')
     },
-
+    setTree(value) {
+      this.tree = value;
+    }
   }
 };
 </script>
@@ -362,11 +365,8 @@ export default {
   overflow: auto;
 }
 .tree-menu-list {
-  height: 100%;
-  margin: 20px 0 0;
-  padding: 20px;
-  border: 1px solid var(--border-color);
-  border-radius: 8px;
+  margin: 0;
+  padding: 0;
   list-style: none;
   & > li {
     position: relative;
@@ -388,11 +388,11 @@ export default {
       height: 100%;
       background-color: var(--gray300);
     }
-    &:last-child::after {
-      display: none;
-    }
     .collapse {
       padding-left: 38px;
+    }
+    &:last-child::after {
+      display: none;
     }
   }
   .btn {
@@ -414,18 +414,17 @@ export default {
     list-style: none;
     & > li {
       margin-top: 12px;
-      padding-left: 35px;
       margin-left: 21px;
+      padding: 0;
       position: relative;
       &::before {
         content: '';
         position: absolute;
-        top: 50%;
+        top: 10px;
         left: 0;
         width: 26px;
         height: 1px;
         background-color: var(--gray300);
-        transform: translateY(-50%);
       }
       &::after {
         content: '';
@@ -439,7 +438,16 @@ export default {
       &:last-child {
         padding-bottom: 12px;
         &::after {
-          height: 17px;
+          height: 11px;
+        }
+      }
+      button {
+        padding: 0 0 0 35px;
+        background-color: var(--white);
+        border: none;
+        color: var(--gray900);
+        &.active {
+          color: var(--primary);
         }
       }
     }
