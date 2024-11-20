@@ -58,6 +58,16 @@
       </div>
 
       <div class="d-flex align-items-center section-col">
+        <label class="form-label">카드 개수</label>
+        <b-dropdown id="brand-dropdown" variant="secondary" class="send-number-dropdown" disabled>
+          <template #button-content>
+            <span>1</span>
+            <IconArrowDown />
+          </template>
+        </b-dropdown>
+      </div>
+
+      <div class="d-flex align-items-center section-col">
         <label class="form-label">유형</label>
         <b-dropdown id="type-dropdown" variant="secondary" class="send-number-dropdown" disabled>
           <template #button-content>

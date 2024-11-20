@@ -197,7 +197,7 @@
           <div v-if="templateTab === 'thumb'">
             <div class="template-select">
               <TemplateCard :setCard="setCard" value="A">
-                <b-form-radio v-model="card" name="type" value="A" class="custom-radio-vertical">내용A</b-form-radio>              </TemplateCard>
+                <b-form-radio v-model="card" name="type" value="A" class="custom-radio-vertical">내용A</b-form-radio>
               </TemplateCard>
               <TemplateCard :setCard="setCard" value="B">
                 <b-form-radio v-model="card" name="type" value="B" class="custom-radio-vertical">내용B</b-form-radio>
@@ -216,6 +216,22 @@
             </template>
             <b-dropdown-item-button @click="setBrand('BRAND_A')">BRAND_A</b-dropdown-item-button>
             <b-dropdown-item-button @click="setBrand('BRAND_B')">BRAND_B</b-dropdown-item-button>
+          </b-dropdown>
+        </div>
+
+        <div class="d-flex align-items-center section-col">
+          <label class="form-label">카드 개수</label>
+          <b-dropdown id="brand-dropdown" variant="secondary" class="send-number-dropdown">
+            <template #button-content>
+              <span>{{ rcsnumber === '' ? '선택' : rcsnumber }}</span>
+              <IconArrowDown />
+            </template>
+            <b-dropdown-item-button @click="setnumder('1')">1</b-dropdown-item-button>
+            <b-dropdown-item-button @click="setnumder('2')">2</b-dropdown-item-button>
+            <b-dropdown-item-button @click="setnumder('3')">3</b-dropdown-item-button>
+            <b-dropdown-item-button @click="setnumder('4')">4</b-dropdown-item-button>
+            <b-dropdown-item-button @click="setnumder('5')">5</b-dropdown-item-button>
+            <b-dropdown-item-button @click="setnumder('6')">6</b-dropdown-item-button>
           </b-dropdown>
         </div>
 
@@ -482,6 +498,7 @@ export default {
       templateTab: 'thumb',
       barnd: '',
       templateCard: 'A',
+      rcsnumber: '1',
       type: '출고',
       buttonType: 'URL 링크',
       contents: [
@@ -516,6 +533,9 @@ export default {
     },
     setBrand(value) {
       this.barnd = value;
+    },
+    setnumder(value) {
+      this.rcsnumber = value;
     },
     setType(value) {
       this.type = value;
