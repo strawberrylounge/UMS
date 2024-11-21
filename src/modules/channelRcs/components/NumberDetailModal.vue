@@ -1,5 +1,5 @@
 <template>  
-  <b-modal id="number-detail-modal" title="등록 발신번호 상세" hide-header-close size="xl" centered content-class="service-modal">
+  <b-modal scrollable id="number-detail-modal" title="등록 발신번호 상세" hide-header-close size="xl" centered content-class="service-modal">
 
     <div class="d-flex align-items-center mb-1">
       <label class="form-label m-0 f-body5 c-gray500">브랜드 명</label>

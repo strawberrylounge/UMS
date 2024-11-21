@@ -1,5 +1,5 @@
 <template>  
-  <b-modal id="talk-status-modal" hide-header-close size="lg" centered>
+  <b-modal scrollable id="talk-status-modal" hide-header-close size="lg" centered>
     <template #modal-title>
       <h5 class="modal-title">승인상태 상세</h5>
       <p class="title-desc">* 사용자가 수정요청 한 템플릿이며, 기존 템플릿으로 발송은 가능합니다.</p>

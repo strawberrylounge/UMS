@@ -1,5 +1,5 @@
 <template>  
-  <b-modal id="view-content-modal" title="내용보기" hide-header-close centered>
+  <b-modal scrollable id="view-content-modal" title="내용보기" hide-header-close centered>
 
     <label for="content" class="f-body5 c-gray500 mb-1 pb-2">내용</label>
     <b-form-textarea

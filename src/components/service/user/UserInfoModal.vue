@@ -1,5 +1,5 @@
 <template>
-  <b-modal id="user-info-modal" title="회원 정보" hide-header-close size="md" centered content-class="service-modal">
+  <b-modal scrollable id="user-info-modal" title="회원 정보" hide-header-close size="md" centered content-class="service-modal">
 
     <div class="form-row">
       <label>사용자ID</label>

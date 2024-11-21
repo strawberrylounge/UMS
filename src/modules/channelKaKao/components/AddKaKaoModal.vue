@@ -1,5 +1,5 @@
 <template>  
-  <b-modal id="add-kakao-modal" hide-header-close size="lg" centered content-class="service-modal">
+  <b-modal scrollable id="add-kakao-modal" hide-header-close size="lg" centered content-class="service-modal">
     <template #modal-title>
       <h5 class="modal-title">카카오 채널 추가</h5>
       <ul>

@@ -1,5 +1,5 @@
 <template>
-  <b-modal id="update-number-modal" title="발신번호 수정" hide-header-close size="md" centered>
+  <b-modal scrollable id="update-number-modal" title="발신번호 수정" hide-header-close size="md" centered>
     <div class="form-row">
       <label>주소록 설명</label>
       <div>

@@ -1,5 +1,5 @@
 <template>
-  <b-modal id="qna-detail-modal" title="1:1 문의" hide-header-close size="md" centered>
+  <b-modal scrollable id="qna-detail-modal" title="1:1 문의" hide-header-close size="md" centered>
     <dl>
       <dt>문의유형</dt>
       <dd>회원</dd>

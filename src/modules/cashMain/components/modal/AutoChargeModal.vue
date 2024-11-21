@@ -1,5 +1,5 @@
 <template>
-  <b-modal id="auto-charge-modal" hide-header-close size="md" centered content-class="service-modal">
+  <b-modal scrollable id="auto-charge-modal" hide-header-close size="md" centered content-class="service-modal">
     <template #modal-title>
       <h5 class="modal-title">자동 충전</h5>
       <p class="title-desc">* 1일 1회 08:00 고객사 잔액을 확인하여 하한금액 이하로 잔액이 남았을 경우 자동충전이 되며, 등록하신 결제방식으로 즉시 결제됩니다.</p>

@@ -1,5 +1,5 @@
 <template>  
-  <b-modal id="search-api-modal" title="API 검색" hide-header-close centered size="lg" content-class="service-modal">
+  <b-modal scrollable id="search-api-modal" title="API 검색" hide-header-close centered size="lg" content-class="service-modal">
 
     <div class="d-flex align-items-center search">
       <b-dropdown id="apikey-dropdown" variant="secondary" class="apikey-dropdown">

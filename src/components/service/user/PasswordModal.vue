@@ -1,5 +1,5 @@
 <template>
-  <b-modal id="password-modal" title="고객사 정보" hide-header-close size="md" centered>
+  <b-modal scrollable id="password-modal" title="고객사 정보" hide-header-close size="md" centered>
     <template #modal-title>
       <h5 class="modal-title">비밀번호 확인</h5>
       <p class="title-desc">* 안전을 위하여 비밀번호를 한 번 더 입력해 주시기 바랍니다.</p>

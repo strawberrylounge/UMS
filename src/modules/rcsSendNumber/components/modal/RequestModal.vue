@@ -1,5 +1,5 @@
 <template>
-  <b-modal id="request-modal" hide-header-close size="md" centered>
+  <b-modal scrollable id="request-modal" hide-header-close size="md" centered>
     <template #modal-title>
       <h5 class="modal-title">대리인 등록 요청</h5>
       <p class="title-desc">* 담당자가 등록한 서류 심사 후 영업일 기준 1~2일 내 승인이 완료됩니다. (반려 후 재 신청 가능)<br />

@@ -1,5 +1,5 @@
 <template>  
-  <b-modal id="add-mms-content-modal" title="내용 입력" hide-header-close centered>
+  <b-modal scrollable id="add-mms-content-modal" title="내용 입력" hide-header-close centered>
     <template #modal-title>
       <h5 class="modal-title">내용 입력</h5>
       <p class="title-desc">* 광고성메시지 수신거부번호는 내용 하단에 포함됩니다. 또한 광고 표기는 제목 또는 내용에 포함되어 있어야 합니다.</p>

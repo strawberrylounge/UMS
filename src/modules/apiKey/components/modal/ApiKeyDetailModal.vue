@@ -1,5 +1,5 @@
 <template>
-  <b-modal id="apikey-detail-modal" hide-header-close size="lg" centered content-class="service-modal">
+  <b-modal scrollable id="apikey-detail-modal" hide-header-close size="lg" centered content-class="service-modal">
     <template #modal-title>
       <h5 class="modal-title">API KEY 상세</h5>
       <p v-if="!isEdit" class="mt-1 pt-3 mb-0 f-body4 c-failure">* 자동으로 생성된 '웹 APIKEY 기본'은 수정이 불가능합니다.</p>

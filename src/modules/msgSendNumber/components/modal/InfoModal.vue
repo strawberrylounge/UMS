@@ -1,5 +1,5 @@
 <template>
-  <b-modal id="info-modal" hide-header-close size="lg" centered title="문자 발신번호 사전등록 안내">
+  <b-modal scrollable id="info-modal" hide-header-close size="lg" centered title="문자 발신번호 사전등록 안내">
 
     <div class="card">
       <p class="mt-0 mb-1 pb-3 f-body1 c-gray700">문자 발신번호 사전등록 안내</p>

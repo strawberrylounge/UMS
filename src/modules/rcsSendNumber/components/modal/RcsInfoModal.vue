@@ -1,5 +1,5 @@
 <template>
-  <b-modal id="rcs-info-modal" hide-header-close size="lg" centered title="RCS 발신번호 사전등록 안내">
+  <b-modal scrollable id="rcs-info-modal" hide-header-close size="lg" centered title="RCS 발신번호 사전등록 안내">
 
     <div class="card">
       <p class="mt-0 mb-1 pb-3 f-body1 c-gray700">RCS 발신번호 사전등록 안내</p>

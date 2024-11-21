@@ -1,5 +1,5 @@
 <template>
-  <b-modal id="add-spam-modal" hide-header-close size="md" centered>
+  <b-modal scrollable id="add-spam-modal" hide-header-close size="md" centered>
     <template #modal-title>
       <h5 class="modal-title">스팸 등록</h5>
       <p class="title-desc">* 메시지 발송 시 스팸 문구가 포함된 메시지는 스팸으로 분류되어 발송되지 않습니다.</p>

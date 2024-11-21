@@ -1,5 +1,5 @@
 <template>
-  <b-modal id="client-info-modal" title="고객사 정보" hide-header-close size="md" centered content-class="service-modal">
+  <b-modal scrollable id="client-info-modal" title="고객사 정보" hide-header-close size="md" centered content-class="service-modal">
     <p class="mt-0 mb-1 pb-3 f-body1 c-gray900">사업자 정보</p>
 
     <div class="form-row">

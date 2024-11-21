@@ -1,5 +1,5 @@
 <template>  
-  <b-modal id="preview-modal" title="미리보기" hide-header-close size="s" centered content-class="preview-modal" no-fade>
+  <b-modal scrollable id="preview-modal" title="미리보기" hide-header-close size="s" centered content-class="preview-modal">
 
     <PreviewDefault>
       <div class="preview-img">

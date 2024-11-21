@@ -1,5 +1,5 @@
 <template>
-  <b-modal id="rejct-num-modal" hide-header-close size="md" centered content-class="service-modal">
+  <b-modal scrollable id="rejct-num-modal" hide-header-close size="md" centered content-class="service-modal">
     <template #modal-title>
       <h5 class="modal-title">수신거부번호 추가</h5>
       <p class="title-desc">* 수신거부 목록에 추가된 번호는 광고성 문자 발송시 자동으로 수신 대상에서 제외됩니다.<br />일괄 등록 기능으로 대량의 번호를 추가할 수 있습니다.</p>

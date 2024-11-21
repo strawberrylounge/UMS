@@ -1,5 +1,5 @@
 <template>
-  <b-modal id="charge-modal" title="일반 충전" hide-header-close centered content-class="service-modal">
+  <b-modal scrollable id="charge-modal" title="일반 충전" hide-header-close centered content-class="service-modal">
 
     <div class="form-row">
       <label>충전금액</label>

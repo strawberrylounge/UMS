@@ -1,5 +1,5 @@
 <template>
-  <b-modal id="add-receiver-all-modal" hide-header-close size="md" centered>
+  <b-modal scrollable id="add-receiver-all-modal" hide-header-close size="md" centered>
     <template #modal-title>
       <h5 class="modal-title">수신자 일괄 등록</h5>
       <ul class="modal-info">

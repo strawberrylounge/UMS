@@ -1,5 +1,5 @@
 <template>  
-  <b-modal id="select-talk-template-modal" title="템플릿 선택" hide-header-close size="xl" centered content-class="service-modal select-template-modal" no-fade>
+  <b-modal scrollable id="select-talk-template-modal" title="템플릿 선택" hide-header-close size="xl" centered content-class="service-modal select-template-modal">
     <div class="d-flex">
       <div class="section">
         <p class="m-0 mb-1 pb-3 f-body1 c-gray700"><span class="require">*</span>카카오 채널</p>

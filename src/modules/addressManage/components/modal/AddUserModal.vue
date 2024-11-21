@@ -1,5 +1,5 @@
 <template>  
-  <b-modal id="add-user-modal" title="구성원 추가" hide-header-close size="lg" centered content-class="service-modal">
+  <b-modal scrollable id="add-user-modal" title="구성원 추가" hide-header-close size="lg" centered content-class="service-modal">
 
     <div class="d-flex align-items-center search">
       <div class="flex-fill">

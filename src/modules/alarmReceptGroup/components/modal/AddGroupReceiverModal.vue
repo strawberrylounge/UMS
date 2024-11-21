@@ -1,5 +1,5 @@
 <template>  
-  <b-modal id="add-group-receiver-modal" title="그룹 수신자 추가" hide-header-close centered size="md" content-class="service-modal">
+  <b-modal scrollable id="add-group-receiver-modal" title="그룹 수신자 추가" hide-header-close centered size="md" content-class="service-modal">
 
     <div class="d-flex align-items-center search">
       <label class="f-body5 c-gray500">수신자명 <span class="require">*</span></label>

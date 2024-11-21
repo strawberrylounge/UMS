@@ -1,5 +1,5 @@
 <template>  
-  <b-modal id="confirm-modal" :title="title" hide-header-close centered content-class="confirm-modal">
+  <b-modal scrollable id="confirm-modal" :title="title" hide-header-close centered content-class="confirm-modal">
 
     <p class="desc" v-html="nl2br(desc)"></p>
 

@@ -1,5 +1,5 @@
 <template>
-  <b-modal id="register-user-modal" title="사용자 등록" hide-header-close centered size="md" content-class="service-modal">
+  <b-modal scrollable id="register-user-modal" title="사용자 등록" hide-header-close centered size="md" content-class="service-modal">
 
     <div class="d-flex form-row">
       <label class="mb-1 pb-2 f-body5 c-gray500">사용자 ID<span class="require">*</span></label>

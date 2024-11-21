@@ -1,5 +1,5 @@
 <template>  
-  <b-modal id="enter-receiver-modal" title="내용 입력" hide-header-close centered size="md">
+  <b-modal scrollable id="enter-receiver-modal" title="내용 입력" hide-header-close centered size="md">
     <template #modal-title>
       <h5 class="modal-title">수신자 직접입력</h5>
       <div class="d-flex align-items-end justify-content-between w-100">

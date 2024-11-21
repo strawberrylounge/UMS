@@ -1,5 +1,5 @@
 <template>
-  <b-modal id="edit-user-modal" title="사용자정보 수정" hide-header-close centered size="md" content-class="service-modal">
+  <b-modal scrollable id="edit-user-modal" title="사용자정보 수정" hide-header-close centered size="md" content-class="service-modal">
 
     <div class="d-flex form-row">
       <label class="mb-1 pb-2 f-body5 c-gray500">사용자 ID<span class="require">*</span></label>

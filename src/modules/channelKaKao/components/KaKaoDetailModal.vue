@@ -1,5 +1,5 @@
 <template>  
-  <b-modal id="kakao-detail-modal" hide-header-close size="md" centered>
+  <b-modal scrollable id="kakao-detail-modal" hide-header-close size="md" centered>
     <template #modal-title>
       <h5 class="modal-title">카카오 채널 상세</h5>
       <ul>

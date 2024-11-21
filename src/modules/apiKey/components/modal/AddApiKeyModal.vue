@@ -1,5 +1,5 @@
 <template>
-  <b-modal id="add-apikey-modal" title="API KEY 생성" hide-header-close size="md" centered content-class="service-modal">
+  <b-modal scrollable id="add-apikey-modal" title="API KEY 생성" hide-header-close size="md" centered content-class="service-modal">
     <div class="form-row">
       <label>API KEY 명</label>
       <div>

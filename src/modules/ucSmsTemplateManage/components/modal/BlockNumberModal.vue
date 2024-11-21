@@ -1,5 +1,5 @@
 <template>  
-  <b-modal id="block-number-modal" title="수신거부번호 관리" hide-header-close centered size="lg">
+  <b-modal scrollable id="block-number-modal" title="수신거부번호 관리" hide-header-close centered size="lg">
     <div class="block-list">
       <div class="input-group">
         <b-input value="무료수신거부"></b-input>

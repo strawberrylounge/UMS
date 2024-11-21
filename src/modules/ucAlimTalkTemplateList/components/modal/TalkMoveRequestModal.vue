@@ -1,5 +1,5 @@
 <template>  
-  <b-modal id="talk-move-request-modal" title="운영 이관 요청" hide-header-close centered content-class="confirm-modal">
+  <b-modal scrollable id="talk-move-request-modal" title="운영 이관 요청" hide-header-close centered content-class="confirm-modal">
 
     <b-form-group class="radio-group m-0">
       <b-form-radio-group inline v-model="type">

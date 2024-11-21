@@ -1,5 +1,5 @@
 <template>
-  <b-modal id="account-info-modal" hide-header-close size="md" centered content-class="service-modal">
+  <b-modal scrollable id="account-info-modal" hide-header-close size="md" centered content-class="service-modal">
     <template #modal-title>
       <h5 class="modal-title">가상계좌 정보</h5>
       <p class="title-desc">* 유효기간 내 가상 계좌에 입금이 안되면 신청 정보는 자동으로 삭제됩니다.</p>

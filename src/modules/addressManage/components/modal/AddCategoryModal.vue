@@ -1,5 +1,5 @@
 <template>
-  <b-modal id="add-category-modal" title="카테고리 등록" hide-header-close size="md" centered>
+  <b-modal scrollable id="add-category-modal" title="카테고리 등록" hide-header-close size="md" centered>
     <div class="form-row">
       <label>상위 카테고리</label>
       <div>

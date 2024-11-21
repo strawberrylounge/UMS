@@ -1,5 +1,5 @@
 <template>  
-  <b-modal id="fail-message-info-modal" title="발송실패 정보" hide-header-close centered size="lg">
+  <b-modal scrollable id="fail-message-info-modal" title="발송실패 정보" hide-header-close centered size="lg">
 
     <div class="d-flex align-items-center">
       <label class="f-body5 c-gray500">총 발송건수</label>

@@ -1,5 +1,5 @@
 <template>  
-  <b-modal id="alert-modal" :title="title" hide-header-close centered content-class="alert-modal">
+  <b-modal scrollable id="alert-modal" :title="title" hide-header-close centered content-class="alert-modal">
 
     <p class="desc" v-html="desc"></p>
 

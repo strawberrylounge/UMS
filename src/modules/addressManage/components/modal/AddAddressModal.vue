@@ -1,5 +1,5 @@
 <template>
-  <b-modal id="add-address-modal" title="주소록 등록" hide-header-close size="md" centered>
+  <b-modal scrollable id="add-address-modal" title="주소록 등록" hide-header-close size="md" centered>
     <div class="form-row">
       <label>주소록명 <span class="require">*</span></label>
       <div>

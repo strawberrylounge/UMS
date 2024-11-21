@@ -1,5 +1,5 @@
 <template>  
-  <b-modal id="search-receiver-modal" title="API 검색" hide-header-close centered size="lg" content-class="service-modal">
+  <b-modal scrollable id="search-receiver-modal" title="API 검색" hide-header-close centered size="lg" content-class="service-modal">
     <template #modal-title>
       <h5 class="modal-title">수신자 검색</h5>
       <p class="modal-info">* 좌측에 그룹이 지정되면 우측 그룹에 속해 있는 수신자가 검색됩니다.</p>

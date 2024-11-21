@@ -1,5 +1,5 @@
 <template>
-  <b-modal id="add-reciever-modal" title="수신자 등록" hide-header-close size="md" centered content-class="service-modal">
+  <b-modal scrollable id="add-reciever-modal" title="수신자 등록" hide-header-close size="md" centered content-class="service-modal">
     <div class="form-row">
       <label>수신자 명 <span class="require">*</span></label>
       <div>
