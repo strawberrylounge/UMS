@@ -14,95 +14,97 @@
       </div>
       
       <!-- 미리보기 목업 Start -->
-      <div class="preview card p-sticky">
-        <p class="preview-title">미리보기</p>
-        <div class="preview-slide">
-          <input type="radio" name="slide" id="slide01" checked>
-          <input type="radio" name="slide" id="slide02">
-          <input type="radio" name="slide" id="slide03">
-          <input type="radio" name="slide" id="slide04">
-          <input type="radio" name="slide" id="slide05">
-          <input type="radio" name="slide" id="slide06">
+      <div class="card">
+        <div class="preview p-sticky">
+          <p class="preview-title">미리보기</p>
+          <div class="preview-slide">
+            <input type="radio" name="slide" id="slide01" checked>
+            <input type="radio" name="slide" id="slide02">
+            <input type="radio" name="slide" id="slide03">
+            <input type="radio" name="slide" id="slide04">
+            <input type="radio" name="slide" id="slide05">
+            <input type="radio" name="slide" id="slide06">
 
-          <div class="slidewrap lg">
-            <ul class="slidelist">
-              <li>
-                <a>
-                  <RCSPreview :type="type" :displayContents="displayContents" :displayRcsTemplateTitle="displayRcsTemplateTitle" :dispalyRcsTemplateDesc="dispalyRcsTemplateDesc" :buttons="buttons" :displayNumber="displayNumber" />
-                </a>
-              </li>
-              <li>
-                <a>
-                  <RCSPreview :type="type" :displayContents="displayContents" :displayRcsTemplateTitle="displayRcsTemplateTitle" :dispalyRcsTemplateDesc="dispalyRcsTemplateDesc" :buttons="buttons" :displayNumber="displayNumber" />
-                </a>
-              </li>
-              <li>
-                <a>
-                  <RCSPreview :type="type" :displayContents="displayContents" :displayRcsTemplateTitle="displayRcsTemplateTitle" :dispalyRcsTemplateDesc="dispalyRcsTemplateDesc" :buttons="buttons" :displayNumber="displayNumber" />
-                </a>
-              </li>
-              <li>
-                <a>
-                  <RCSPreview :type="type" :displayContents="displayContents" :displayRcsTemplateTitle="displayRcsTemplateTitle" :dispalyRcsTemplateDesc="dispalyRcsTemplateDesc" :buttons="buttons" :displayNumber="displayNumber" />
-                </a>
-              </li>
-              <li>
-                <a>
-                  <RCSPreview :type="type" :displayContents="displayContents" :displayRcsTemplateTitle="displayRcsTemplateTitle" :dispalyRcsTemplateDesc="dispalyRcsTemplateDesc" :buttons="buttons" :displayNumber="displayNumber" />
-                </a>
-              </li>
-              <li>
-                <a>
-                  <RCSPreview :type="type" :displayContents="displayContents" :displayRcsTemplateTitle="displayRcsTemplateTitle" :dispalyRcsTemplateDesc="dispalyRcsTemplateDesc" :buttons="buttons" :displayNumber="displayNumber" />
-                </a>
-              </li>
-              <div class="slide-control">
-                <div class="control01">
-                  <label for="slide06" class="left"></label>
-                  <label for="slide02" class="right"></label>
+            <div class="slidewrap lg">
+              <ul class="slidelist">
+                <li>
+                  <a>
+                    <RCSPreview :type="type" :displayContents="displayContents" :displayRcsTemplateTitle="displayRcsTemplateTitle" :dispalyRcsTemplateDesc="dispalyRcsTemplateDesc" :buttons="buttons" :displayNumber="displayNumber" />
+                  </a>
+                </li>
+                <li>
+                  <a>
+                    <RCSPreview :type="type" :displayContents="displayContents" :displayRcsTemplateTitle="displayRcsTemplateTitle" :dispalyRcsTemplateDesc="dispalyRcsTemplateDesc" :buttons="buttons" :displayNumber="displayNumber" />
+                  </a>
+                </li>
+                <li>
+                  <a>
+                    <RCSPreview :type="type" :displayContents="displayContents" :displayRcsTemplateTitle="displayRcsTemplateTitle" :dispalyRcsTemplateDesc="dispalyRcsTemplateDesc" :buttons="buttons" :displayNumber="displayNumber" />
+                  </a>
+                </li>
+                <li>
+                  <a>
+                    <RCSPreview :type="type" :displayContents="displayContents" :displayRcsTemplateTitle="displayRcsTemplateTitle" :dispalyRcsTemplateDesc="dispalyRcsTemplateDesc" :buttons="buttons" :displayNumber="displayNumber" />
+                  </a>
+                </li>
+                <li>
+                  <a>
+                    <RCSPreview :type="type" :displayContents="displayContents" :displayRcsTemplateTitle="displayRcsTemplateTitle" :dispalyRcsTemplateDesc="dispalyRcsTemplateDesc" :buttons="buttons" :displayNumber="displayNumber" />
+                  </a>
+                </li>
+                <li>
+                  <a>
+                    <RCSPreview :type="type" :displayContents="displayContents" :displayRcsTemplateTitle="displayRcsTemplateTitle" :dispalyRcsTemplateDesc="dispalyRcsTemplateDesc" :buttons="buttons" :displayNumber="displayNumber" />
+                  </a>
+                </li>
+                <div class="slide-control">
+                  <div class="control01">
+                    <label for="slide06" class="left"></label>
+                    <label for="slide02" class="right"></label>
+                  </div>
+                  <div class="control02">
+                    <label for="slide01" class="left"></label>
+                    <label for="slide03" class="right"></label>
+                  </div>
+                  <div class="control03">
+                    <label for="slide02" class="left"></label>
+                    <label for="slide04" class="right"></label>
+                  </div>
+                  <div class="control04">
+                    <label for="slide03" class="left"></label>
+                    <label for="slide05" class="right"></label>
+                  </div>
+                  <div class="control05">
+                    <label for="slide04" class="left"></label>
+                    <label for="slide06" class="right"></label>
+                  </div>
+                  <div class="control06">
+                    <label for="slide05" class="left"></label>
+                    <label for="slide01" class="right"></label>
+                  </div>
                 </div>
-                <div class="control02">
-                  <label for="slide01" class="left"></label>
-                  <label for="slide03" class="right"></label>
-                </div>
-                <div class="control03">
-                  <label for="slide02" class="left"></label>
-                  <label for="slide04" class="right"></label>
-                </div>
-                <div class="control04">
-                  <label for="slide03" class="left"></label>
-                  <label for="slide05" class="right"></label>
-                </div>
-                <div class="control05">
-                  <label for="slide04" class="left"></label>
-                  <label for="slide06" class="right"></label>
-                </div>
-                <div class="control06">
-                  <label for="slide05" class="left"></label>
-                  <label for="slide01" class="right"></label>
-                </div>
-              </div>
-            </ul>
-            <ul class="slide-pagelist">
-              <li>
-                <label for="slide01"></label>
-              </li>
-              <li>
-                <label for="slide02"></label>
-              </li>
-              <li>
-                <label for="slide03"></label>
-              </li>
-              <li>
-                <label for="slide04"></label>
-              </li>
-              <li>
-                <label for="slide05"></label>
-              </li>
-              <li>
-                <label for="slide06"></label>
-              </li>
-		        </ul>
+              </ul>
+              <ul class="slide-pagelist">
+                <li>
+                  <label for="slide01"></label>
+                </li>
+                <li>
+                  <label for="slide02"></label>
+                </li>
+                <li>
+                  <label for="slide03"></label>
+                </li>
+                <li>
+                  <label for="slide04"></label>
+                </li>
+                <li>
+                  <label for="slide05"></label>
+                </li>
+                <li>
+                  <label for="slide06"></label>
+                </li>
+              </ul>
+            </div>
           </div>
         </div>
       </div>

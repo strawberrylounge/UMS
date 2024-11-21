@@ -14,31 +14,33 @@
       </div>
       
       <!-- 미리보기 목업 Start -->
-      <div class="preview card p-sticky">
-        <p class="preview-title">미리보기</p>
-        <PreviewTalk size="lg">
-          <div class="preview-section talk">
-            <p class="m-0 f-body7 c-black">{{ displaySubTitle }}</p>
-            <p class="m-0 mb-1 f-title2 c-black">{{ displayTitle }}</p>
-            <div class="preview-img">
-              <div class="empty-img">
-                <img src="@/assets/images/service/preview/preview-img.svg" alt="" class="img-icon">
-                <p class="m-0 mt-1 c-caption2 c-gray500">작성페이지에서 이미지를<br/>
-                  삽입할 수 있습니다.</p>
+      <div class="card">
+        <div class="preview p-sticky">
+          <p class="preview-title">미리보기</p>
+          <PreviewTalk size="lg">
+            <div class="preview-section talk">
+              <p class="m-0 f-body7 c-black">{{ displaySubTitle }}</p>
+              <p class="m-0 mb-1 f-title2 c-black">{{ displayTitle }}</p>
+              <div class="preview-img">
+                <div class="empty-img">
+                  <img src="@/assets/images/service/preview/preview-img.svg" alt="" class="img-icon">
+                  <p class="m-0 mt-1 c-caption2 c-gray500">작성페이지에서 이미지를<br/>
+                    삽입할 수 있습니다.</p>
+                </div>
+                <!-- <img src="" alt=""> -->
               </div>
-              <!-- <img src="" alt=""> -->
+              <p class="mt-2 mb-0 f-body7 c-black" v-html="displayImgDesc"></p>
+              <p class="my-4 f-caption2 c-gray400">카카오톡 채널을 추가하면 광고와 마케팅 메시지를 카카오톡으로 받아볼 수 있습니다.</p>
+              <div class="talk-button">
+                <button v-if="type === 'channel'" class="btn btn-kakao-channel">
+                  <img src="@/assets/images/service/icon/icon-kakao.svg" alt="카카오톡 로고">
+                  <span>채널 추가</span>
+                </button>
+                <b-button variant="secondary" v-for="(item, index) in buttons" :key="'btn-display-' + index" >{{ item.label }}</b-button>
+              </div>
             </div>
-            <p class="mt-2 mb-0 f-body7 c-black" v-html="displayImgDesc"></p>
-            <p class="my-4 f-caption2 c-gray400">카카오톡 채널을 추가하면 광고와 마케팅 메시지를 카카오톡으로 받아볼 수 있습니다.</p>
-            <div class="talk-button">
-              <button v-if="type === 'channel'" class="btn btn-kakao-channel">
-                <img src="@/assets/images/service/icon/icon-kakao.svg" alt="카카오톡 로고">
-                <span>채널 추가</span>
-              </button>
-              <b-button variant="secondary" v-for="(item, index) in buttons" :key="'btn-display-' + index" >{{ item.label }}</b-button>
-            </div>
-          </div>
-        </PreviewTalk>
+          </PreviewTalk>
+        </div>
       </div>
       <!-- 미리보기 목업 End -->
 

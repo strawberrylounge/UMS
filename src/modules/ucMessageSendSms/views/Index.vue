@@ -3,11 +3,13 @@
     <MessageTabs />
 
     <div class="d-flex tab-contents">
-      <div class="preview card p-sticky">
-        <p class="preview-title">미리보기</p>
-        <PreviewDefault size="lg">
-          <div v-if="showPreviewTitle" class="preview-section-title">0904_SMS_광고성  #{내용}입니다.</div>
-        </PreviewDefault>
+      <div class="card">
+        <div class="preview p-sticky">
+          <p class="preview-title">미리보기</p>
+          <PreviewDefault size="lg">
+            <div v-if="showPreviewTitle" class="preview-section-title">0904_SMS_광고성  #{내용}입니다.</div>
+          </PreviewDefault>
+        </div>
       </div>
 
       <div class="section card flex-fill">

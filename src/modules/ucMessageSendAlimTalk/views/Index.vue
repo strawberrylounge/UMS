@@ -3,11 +3,13 @@
     <MessageTabs />
 
     <div class="d-flex tab-contents">
-      <div class="preview card p-sticky">
-        <p class="preview-title">미리보기</p>
-        <PreviewTalk size="lg">
-          <div></div>
-        </PreviewTalk>
+      <div class="card">
+        <div class="preview p-sticky">
+          <p class="preview-title">미리보기</p>
+          <PreviewTalk size="lg">
+            <div></div>
+          </PreviewTalk>
+        </div>
       </div>
       <div class="section card flex-fill">
         <p class="section-title f-body1 c-gray700">01.발송정보</p>

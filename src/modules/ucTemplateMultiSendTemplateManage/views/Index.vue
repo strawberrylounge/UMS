@@ -2,12 +2,14 @@
   <div class="uc-template-multi-send-manage">
     <TemplateTabs />
 
-    <div class="tab-contents" :class="channelSelected.length ? 'd-flex align-items-start' : ''">
-      <div class="preview card p-sticky" v-if="channelSelected.length">
-        <p class="preview-title">미리보기</p>
-        <RcsPreview v-if="channelTab === 'rcs'" />
-        <KaKaoPreveiw v-else-if="channelTab === 'kakao'" />
-        <SmsPreview v-else :title="smsTitle" :desc="smsDesc" />
+    <div class="tab-contents" :class="channelSelected.length ? 'd-flex' : ''">
+      <div class="card">
+        <div class="preview p-sticky" v-if="channelSelected.length">
+          <p class="preview-title">미리보기</p>
+          <RcsPreview v-if="channelTab === 'rcs'" />
+          <KaKaoPreveiw v-else-if="channelTab === 'kakao'" />
+          <SmsPreview v-else :title="smsTitle" :desc="smsDesc" />
+        </div>
       </div>
 
       <div class="section card" :class="channelSelected.length === 0 ? 'no-preview' : ''">

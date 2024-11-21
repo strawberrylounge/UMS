@@ -19,16 +19,18 @@
 
     <div class="tab-contents d-flex">
       <!-- 미리보기 Start -->
-      <div class="preview card p-sticky">
-        <p class="preview-title">미리보기</p>
-        <PreviewTalk size="lg" v-if="previewType === 'talk'">
-          <div></div>
-        </PreviewTalk>
+      <div class="card">
+        <div class="preview p-sticky">
+          <p class="preview-title">미리보기</p>
+          <PreviewTalk size="lg" v-if="previewType === 'talk'">
+            <div></div>
+          </PreviewTalk>
 
-        <PreviewDefault size="lg" v-else>
-          <div v-if="previewType === 'mms'" class="preview-section-title">더미텍스트 메시지 내용입니다.</div>
-          <div v-if="previewType === 'mms'" class="preview-section-title mt-2">더미텍스트 메시지 내용입니다.</div>
-        </PreviewDefault>
+          <PreviewDefault size="lg" v-else>
+            <div v-if="previewType === 'mms'" class="preview-section-title">더미텍스트 메시지 내용입니다.</div>
+            <div v-if="previewType === 'mms'" class="preview-section-title mt-2">더미텍스트 메시지 내용입니다.</div>
+          </PreviewDefault>
+        </div>
       </div>
       <!-- 미리보기 End -->
 
