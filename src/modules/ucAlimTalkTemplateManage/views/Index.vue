@@ -42,7 +42,7 @@
       </div>
       <!-- 미리보기 목업 End -->
 
-      <div class="section card">
+      <div class="section card flex-fill">
         <p class="mb-2 f-title1 c-gray900">템플릿 등록</p>
 
         <div class="d-flex align-items-center section-col">
@@ -340,9 +340,6 @@ export default {
 @use '@/assets/scss/service/message.scss';
 @use '@/assets/scss/service/template.scss';
 
-.section {
-  width: calc(100% - 430px - 20px);
-}
 .template-input,
 .b-dropdown {
   width: 335px;

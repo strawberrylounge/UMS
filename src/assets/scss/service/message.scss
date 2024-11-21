@@ -60,7 +60,8 @@
 }
 /* 통합발송 공통 스타일 */
 .section {
-  width: calc(100% - 400px);
+  // 미리보기 우측 영역 (100% - 목업 width - 미리보기 padding - border width - section의 margin)
+  width: calc(100% - 371px - 28px - 28px - 2px - 20px);
   margin-left: 20px;
   padding: 28px;
   .form-label {

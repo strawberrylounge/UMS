@@ -5,12 +5,12 @@
     <div class="d-flex tab-contents">
       <div class="preview card p-sticky">
         <p class="preview-title">미리보기</p>
-        <PreviewDefault>
+        <PreviewDefault size="lg">
           <div v-if="showPreviewTitle" class="preview-section-title">0904_SMS_광고성  #{내용}입니다.</div>
         </PreviewDefault>
       </div>
 
-      <div class="section card">
+      <div class="section card flex-fill">
         <p class="section-title f-body1 c-gray700">01.메세지 내용</p>
         <div class="d-flex align-items-center">
           <label class="form-label">발송유형</label>

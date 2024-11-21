@@ -21,18 +21,18 @@
       <!-- 미리보기 Start -->
       <div class="preview card p-sticky">
         <p class="preview-title">미리보기</p>
-        <PreviewTalk v-if="previewType === 'talk'">
+        <PreviewTalk size="lg" v-if="previewType === 'talk'">
           <div></div>
         </PreviewTalk>
 
-        <PreviewDefault v-else>
+        <PreviewDefault size="lg" v-else>
           <div v-if="previewType === 'mms'" class="preview-section-title">더미텍스트 메시지 내용입니다.</div>
           <div v-if="previewType === 'mms'" class="preview-section-title mt-2">더미텍스트 메시지 내용입니다.</div>
         </PreviewDefault>
       </div>
       <!-- 미리보기 End -->
 
-      <div class="section card">
+      <div class="section card flex-fill">
         <p class="section-title f-body1 f-bold c-gray700">01.템플릿</p>
         <div class="d-flex align-items-center">
           <label class="form-label">기본, 정보성</label>

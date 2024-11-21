@@ -22,7 +22,7 @@
         </PreviewDefault>
       </div>
 
-      <div class="section card">
+      <div class="section card flex-fill">
         <p class="title f-title1 c-gray900">템플릿 등록</p>
         <div class="form-wrap">
           <div class="form-row">

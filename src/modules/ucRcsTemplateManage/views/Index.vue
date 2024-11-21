@@ -635,9 +635,6 @@ export default {
 @use '@/assets/scss/service/message.scss';
 @use '@/assets/scss/service/template.scss';
 
-.section {
-  width: calc(100% - 430px - 20px);
-}
 .template-tabs-wrap {
   margin: 8px 0;
 }

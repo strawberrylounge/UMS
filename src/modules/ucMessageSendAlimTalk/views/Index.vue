@@ -5,11 +5,11 @@
     <div class="d-flex tab-contents">
       <div class="preview card p-sticky">
         <p class="preview-title">미리보기</p>
-        <PreviewTalk>
+        <PreviewTalk size="lg">
           <div></div>
         </PreviewTalk>
       </div>
-      <div class="section card">
+      <div class="section card flex-fill">
         <p class="section-title f-body1 c-gray700">01.발송정보</p>
         <div class="d-flex align-items-center">
           <label class="form-label">템플릿</label>

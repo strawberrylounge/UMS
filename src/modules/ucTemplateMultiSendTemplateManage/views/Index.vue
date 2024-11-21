@@ -231,9 +231,6 @@ export default {
 @use '@/assets/scss/service/message.scss';
 @use '@/assets/scss/service/template.scss';
 
-.section {
-  width: calc(100% - 427px - 20px);
-}
 .section.no-preview {
   width: 100%;
   margin: 0;
