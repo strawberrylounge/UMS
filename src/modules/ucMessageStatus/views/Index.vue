@@ -17,12 +17,12 @@
             <button type="button" class="btn btn-filter" @click="setDateRange('15days')">15일</button>
             <button type="button" class="btn btn-filter" @click="setDateRange('1month')">1개월</button>
 
-            <i class="vertical-divider"></i>
+            <i class="vertical-divider mx-3"></i>
 
             <label class="mr-3">수신자 정보</label>
             <b-input placeholder="입력"></b-input>
 
-            <i class="vertical-divider"></i>
+            <i class="vertical-divider mx-3"></i>
 
             <label>결과</label>
               <b-form-group>
@@ -213,7 +213,7 @@ export default {
   }
 }
 .form-group {
-  margin-left: 24px;
+  margin-left: 4px;
   margin-bottom: 0;
 }
 .status-list {

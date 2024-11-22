@@ -232,16 +232,15 @@ export default {
 }
 .search-group {
   width: 355px;
-  margin-right: 20px;
 }
 .form-group {
-  margin-left: 24px;
+  margin-left: 20px;
   margin-bottom: 0;
 }
 .vertical-divider {
   width: 1px;
   height: 16px;
-  margin: 0 20px;
+  margin: 0 16px;
   background: var(--border-color);
 }
 .list-view .pageCount-dropdown {

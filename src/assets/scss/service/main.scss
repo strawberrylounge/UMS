@@ -75,3 +75,17 @@ body {
   position: sticky;
   top: 0;
 }
+
+// 템플릿 > RCS/카카오톡, 조회 > 발송현황 검색 필터가 많아서 별도 스타일 처리
+.uc-rcs-template-list,
+.uc-alimtalk-template-list,
+.uc-message-status {
+  &.list-view {
+    .custom-checkbox {
+      margin-left: 20px;
+    }
+    .search-section .vertical-divider {
+      margin: 0 16px;
+    }
+  }
+}

@@ -1,5 +1,5 @@
 <template>
-  <div class="uc-message-status list-view">
+  <div class="uc-user-manage list-view">
     <div class="tab-contents">
       <!-- 검색영역 Start -->
       <div class="search-section card border-0">

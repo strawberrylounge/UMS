@@ -1,5 +1,5 @@
 <template>
-  <div class="uc-sms-template-list list-view">
+  <div class="uc-rcs-template-list list-view">
     <TemplateTabs />
 
     <div class="tab-contents">
@@ -28,7 +28,7 @@
             <div class="search-group">
               <SearchInput />
             </div>
-            <i class="vertical-divider ml-0"></i>
+            <i class="vertical-divider"></i>
             <label>템플릿 상태</label>
             <b-form-group>
               <b-form-checkbox-group
@@ -221,16 +221,15 @@ export default {
 }
 .search-group {
   width: 355px;
-  margin-right: 20px;
 }
 .form-group {
-  margin-left: 24px;
+  margin-left: 20px;
   margin-bottom: 0;
 }
 .vertical-divider {
   width: 1px;
   height: 16px;
-  margin: 0 20px;
+  margin: 0 16px;
   background: var(--border-color);
 }
 .list-view .pageCount-dropdown {
